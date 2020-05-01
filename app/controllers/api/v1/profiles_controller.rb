@@ -45,7 +45,6 @@ class Api::V1::ProfilesController < ApplicationController
     else
       render json: { errors: @profile.errors }, message:'Profile not successfully updated.', status: :unprocessable_entity
     end
-
   end
 
   # DELETE /profiles/1

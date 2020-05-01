@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   namespace :api do
     # Version 1
     namespace :v1 do
-      #resources :dashboards
-      #resources :members
       resources :profiles
-      #resources :users
-      #resources :sections
+      resources :sections
+      resources :members
     end
   end
 

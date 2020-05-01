@@ -1,0 +1,73 @@
+<style>
+#profiles {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#profiles td, #profiles th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#profiles tr:nth-child(even){background-color: #f2f2f2;}
+
+#profiles tr:hover {background-color: #ddd;}
+
+#profiles th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+{{#link-to  "profiles.index" class="btn btn-warning"}}
+  Go to Profiles
+{{/link-to}}
+
+{{#link-to  "members.index" class="btn btn-success"}}
+  Go to Members
+{{/link-to}}
+
+<h1>Listing Sections</h1>
+
+<table id="profiles">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Profile</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each sectionsList as |section|}}
+      <tr>
+        <td>{{section.title}}</td>
+        <td>{{section.profileName}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<div class="main-containercontainer">
+  <form id="contact" action="" method="post">
+    <h3>Section Information</h3>
+    <fieldset>
+      {{input type="text" value=title placeholder="Section Title" autofocus=true}}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=profileId placeholder="Profile id"  }}
+    </fieldset>
+    <fieldset>
+      <button {{action "createSection"}} name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+    <div class="checkbox-label">
+        {{input type="checkbox" name="accept_terms" id="terms-of-use-checkbox" aria-label="accept terms" required=true checked=accept_terms }}
+      Accept
+        <a target="_blank" href="http://www.finsync.com/wp-content/uploads/2019/02/Policy-Terms-of-Use-Updated-2.7.2019.pdf">Terms of Use</a><span class="required-marker">*</span>&nbsp;
+      </div>
+    {{copyright-footer}}
+  </form>
+</div>

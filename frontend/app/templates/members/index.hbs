@@ -1,0 +1,117 @@
+<style>
+
+#members {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#members td, #members th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#members tr:nth-child(even){background-color: #f2f2f2;}
+
+#members tr:hover {background-color: #ddd;}
+
+#members th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+{{#link-to  "profiles.index" class="btn btn-warning"}}
+  Go to Profiles
+{{/link-to}}
+
+{{#link-to  "sections.index" class="btn btn-success"}}
+  Go to Sections
+{{/link-to}}
+
+<h1>Listing Members</h1>
+
+<table id="members">
+  <thead>
+    <tr>
+      <th>Membership type</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Parent profile</th>
+      <th>address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each membersList as |member|}}
+      <tr>
+        <td>{{member.membershipType}}</td>
+        <td>{{member.firstName}}</td>
+        <td>{{member.lastName}}</td>
+        <td>{{member.email}}</td>
+        <td>{{member.parentProfileName}}</td>
+        <td>{{member.address}}</td>
+        <td>{{member.city}}</td>
+        <td>{{member.state}}</td>
+        <td>{{member.phone}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<div class="main-containercontainer">
+  <form id="contact" action="" method="post">
+    <h3>Guess Information Profile</h3>
+    <h4>Waiver Form</h4>
+    <fieldset>
+      {{input type="text" value=firstName placeholder="first Name" autofocus=true}}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=lastName placeholder="Last Name" }}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=address placeholder="Address" }}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=city placeholder="City" }}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=state placeholder="State"  }}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=zip placeholder="Zip"  }}
+    </fieldset>
+    <fieldset>
+      {{input type="email" value=email placeholder="Email Address"  }}
+    </fieldset>
+    <fieldset>
+      {{input type="tel" value=phone placeholder="Your Phone Number"  }}
+    </fieldset>
+    <fieldset>
+      <h4>Membership Type</h4>
+      {{#each profileSections as |section|}}
+        <label>
+          {{gs-checkbox name="profile-section" class="profile_section" id=section.id value=section.id  data=section.id callbackAction='setSectionId'}}
+          <span style="font-weight: normal;">{{section.title}}</span>
+        </label>
+      {{/each}}
+
+    </fieldset>
+    <fieldset>
+      <button {{action "createMember"}} name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+    <div class="checkbox-label">
+        {{input type="checkbox" name="accept_terms" id="terms-of-use-checkbox" aria-label="accept terms" required=true checked=accept_terms }}
+      Accept
+        <a target="_blank" href="http://www.finsync.com/wp-content/uploads/2019/02/Policy-Terms-of-Use-Updated-2.7.2019.pdf">Terms of Use</a><span class="required-marker">*</span>&nbsp;
+      </div>
+    {{copyright-footer}}
+  </form>
+</div>

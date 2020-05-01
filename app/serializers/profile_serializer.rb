@@ -10,13 +10,12 @@ class ProfileSerializer < ActiveModel::Serializer
              :members_list,
              :sections_list
 
-  #has_many :members,  embed_in_root: true, serializer: MemberSerializer
-  #has_many :sections, embed_in_root: true, serializer: SectionSerializer
+  has_many :members,  embed_in_root: true, serializer: MemberSerializer
+  has_many :sections, embed_in_root: true, serializer: SectionSerializer
 
   def members_list
     #binding.pry
-    #object.members
-    []
+    object.members
   end
 
   def sections_list
