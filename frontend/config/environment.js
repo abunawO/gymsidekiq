@@ -3,7 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'frontend',
-    environment,
+    environment: environment,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {

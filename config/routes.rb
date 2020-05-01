@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
   mount_ember_app :frontend, to: "/"
+  # JSON API
+  namespace :api do
+    # Version 1
+    namespace :v1 do
+      #resources :dashboards
+      #resources :members
+      resources :profiles
+      #resources :users
+      #resources :sections
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
