@@ -9,12 +9,12 @@ application up and running.
 * `create a project folder and clone repo into it`
 * `git clone <repo link>`
 
-ember directory front-end:
+## ember directory front-end:
 * `cd frontent`
 * `run rake ember:install`
 * `run rake ember:compile`
 
-rails directory main directory:
+## rails directory main directory:
 * `cd gymsidekiq`
 * 'run ./bin/setup'
  
