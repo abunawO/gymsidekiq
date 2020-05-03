@@ -1,5 +1,6 @@
 class ProfileSerializer < ActiveModel::Serializer
   attributes :id,
+             :user_id,
              :profile_name,
              :email,
              :address,
@@ -14,12 +15,16 @@ class ProfileSerializer < ActiveModel::Serializer
   has_many :sections, embed_in_root: true, serializer: SectionSerializer
 
   def members_list
-    #binding.pry
-    object.members
+    members = []
+    profile_members = Member.where(:user_id => object.user.id)
+    profile_members.each do |member|
+      member.get_membership_type
+      members << member if  member.section_ids.split(',').map!(&:to_i).include?(id)
+    end
+    return members
   end
 
   def sections_list
-    #object.sections
-    []
+    Section.where(:user_id => object.user_id)
   end
 end

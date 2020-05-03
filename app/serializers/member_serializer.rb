@@ -5,6 +5,7 @@ class MemberSerializer < ActiveModel::Serializer
              :last_name,
              :email,
              :profile_id,
+             :user_id,
              :parent_profile_name,
              :address,
              :city,
@@ -16,7 +17,7 @@ class MemberSerializer < ActiveModel::Serializer
              :registered_sections
 
   def parent_profile_name
-    object.profile.profile_name
+    object.user.profile.profile_name
   end
 
   def membership_type
@@ -25,9 +26,9 @@ class MemberSerializer < ActiveModel::Serializer
 
   def registered_sections
     return unless object.section_ids
-    profile_id = object.profile.id
+    user_id = object.user_id
     section_ids = object.section_ids.split(",")
-    sections = Section.where(:profile_id => profile_id, :id => section_ids)
+    sections = Section.where(:user_id => user_id, :id => section_ids)
     return sections
   end
 end

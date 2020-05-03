@@ -8,6 +8,8 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :state
       t.string :zip
       t.string :phone
+      t.belongs_to :user
+      t.integer :user_id
 
       t.timestamps null: false
     end

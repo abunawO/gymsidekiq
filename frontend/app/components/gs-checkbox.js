@@ -8,7 +8,6 @@ export default Ember.Component.extend({
   callbackAction: '',
 
   click: function() {
-    //debugger
     var checkboxElement = $('input[id=' + this.get('data') + ']')
     var isChecked = checkboxElement.is(':checked')
     var sectionId = this.get('data')

@@ -10,6 +10,9 @@ export default ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin, {
     },
     sections: {
       embedded: 'always'
+    },
+    user: {
+      embedded: 'always'
     }
   }
 });

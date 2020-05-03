@@ -1,0 +1,120 @@
+<header class="mod-header">
+<div class="layout-wrap full">
+<h1>
+<a title="return to the homepage of GymSidekiq" href="/">
+  <img alt="Logo of GymSidekiq" src="/assets/images/gymSidekiqLogo/landing-page-logo.png" /></a>
+</h1>
+<div class="toggle button outline-dark small">
+Menu
+<i class="fa fa-fw fa-navicon"></i>
+</div>
+<nav class="main">
+<ul>
+<li>
+<a href="/">Home</a>
+</li>
+<li class="tour-toggle">
+<a href="#subnav">Tour
+<i class="fa fa-angle-down"></i>
+</a><ul class="subnav-large">
+<li class="errors tour">
+<a href="/tour/errors"><figure><img src="https://d201zbfblqcbtj.cloudfront.net/assets/icons/jobs/errors-8f4e2e6db2ec84a1d9b332406098de4d168f2912ed8efeb2c1bd809d4b335511.svg" /></figure>
+<strong>Error tracking</strong>
+<p>Catch errors and make sure they don&#39;t happen again.</p>
+</a></li>
+<li class="performance tour">
+<a href="/tour/performance"><figure><img src="https://d201zbfblqcbtj.cloudfront.net/assets/icons/jobs/performance-8697d57300eca3ef5a955aba0698f3645b5dbbb781642cac9b2e1009ff23350c.svg" /></figure>
+<strong>Track performance</strong>
+<p>Find performance issues before they find you.</p>
+</a></li>
+<li class="hosts tour">
+<a href="/tour/hosts"><figure><img src="https://d201zbfblqcbtj.cloudfront.net/assets/icons/jobs/hosts-835149a40d63f2bff728d5eaeccacdea812279abb31785fb1648e24f9f5ebf0d.svg" /></figure>
+<strong>Host monitoring</strong>
+<p>Run healthy apps on healthy hardware.</p>
+</a></li>
+<li class="metrics tour">
+<a href="/tour/metrics"><figure><img src="https://d201zbfblqcbtj.cloudfront.net/assets/icons/jobs/metrics-7627325a38933b2438444fb4c194040042ab943099718a47507b19dcbd2ab81e.svg" /></figure>
+<strong>Collect metrics</strong>
+<p>Collect metrics and visualize them with a few lines of code.</p>
+</a></li>
+<li class="tour workflow">
+<a href="/tour/workflow"><figure><img src="https://d201zbfblqcbtj.cloudfront.net/assets/icons/jobs/workflow-c6b35736fda192b5aeb48896e805e78460158f279c8bac9752e33c4baa5dfb9f.svg" /></figure>
+<strong>Workflow features</strong>
+<p>GymSidekiq keeps your team focused on building great apps.</p>
+</a></li>
+<li class="lang elixir">
+<span>Check out <a href="/elixir/">GymSidekiq for Elixir</a></span>
+</li>
+<li class="lang javascript">
+<span>New: <a href="/javascript/">JavaScript error tracking</a></span>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://docs.GymSidekiq.com">Docs</a>
+</li>
+<li>
+<a href="http://blog.GymSidekiq.com">Blog</a>
+</li>
+<li>
+<a href="/plans">Pricing</a>
+</li>
+</ul>
+</nav>
+<nav class="cta">
+<ul>
+<li>
+  {{#link-to  "signup" class="button small"}}
+    Sign up
+  {{/link-to}}
+</li>
+</ul>
+</nav>
+</div>
+</header>
+
+<div class="layout-flex">
+<section class="mod-devise">
+<header>
+<h2 class="twoliner">
+Welcome back.
+</h2>
+</header>
+<div class="box">
+  <div class="col">
+    <form class="simple_form new_user" id="new_user" novalidate="novalidate" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+      <input type="hidden" name="authenticity_token" value="U1+4aAEl+em0gv5BUQ7fZ9mNpqsUF6/AVHuJ6JYJgD+fBF6NbPlNjxe3eiGvE40LeMJDfJL8nlysi0p7tAK+Zg==" />
+      <div class="input email optional user_email">
+        {{input type="email" value=identification placeholder="Enter Email" class="form-control"}}
+      </div>
+      <div class="input password required user_password">
+        {{input value=password type="password" placeholder="Enter Password"}}
+      </div>
+      <div class="input boolean optional user_accepted_terms">
+        <input value="0" type="hidden" name="user[accepted_terms]" />
+        <label class="boolean optional control-label checkbox" for="user_accepted_terms">
+          {{input class="boolean optional" type="checkbox" name="user_remember_me" id="user_remember_me" aria-label="accept terms" required=true checked=user_remember_me }}
+          <label class="string optional control-label inline" for="user_remember_me">Keep me signed in</label>
+        </label>
+      </div>
+      <input {{action "authenticate"}} type="submit" name="commit" value="Log in" class="button sign_up small" data-disable-with="Sign up" />
+    </form>
+  </div>
+<footer>
+<ul>
+<li><a href="/sign-up">Sign up!</a></li>
+<li><a href="/contact">Contact us</a></li>
+<li><a class="intercom-chat" href="mailto:support@GymSidekiq.com">Live chat</a></li>
+</ul>
+{{copyright-footer}}
+</footer>
+</div>
+</section>
+
+</div>
+<script>
+  window.intercomSettings = {
+    app_id:     "yzor8gyw",
+    widget:     { activator: ".intercom-chat" },
+  }
+</script>

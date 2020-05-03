@@ -4,6 +4,8 @@ class CreateSections < ActiveRecord::Migration
       t.string :title
       t.integer :profile_id
       t.belongs_to :profile
+      t.integer :user_id
+      t.belongs_to :user
       t.timestamps null: false
     end
   end

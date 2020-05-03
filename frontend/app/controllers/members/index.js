@@ -1,22 +1,15 @@
 import Ember from 'ember';
 import jQuery from 'jquery'
+const { service } = Ember.inject;
 
 export default Ember.Controller.extend({
+  session:  Ember.inject.service(),
   profileSections: [],
   sectionIds: [],
-  firstName: '',
-  lastName: '',
-  address: '',
-  city: '',
-  state: '',
-  zip: '',
-  email: '',
-  phone: '',
-  isChecked: false,
   checkedSections: [],
 
   refreshModel: function(){
-    debugger
+    //debugger
     this.set('firstName', ''),
     this.set('lastName', ''),
     this.set('email', ''),
@@ -59,7 +52,7 @@ export default Ember.Controller.extend({
       var member = this.store.createRecord('member', {
         firstName: this.get('firstName'),
         lastName: this.get('lastName'),
-        profileId: 1,
+        userId: this.get('session.data.authenticated.id'),
         email: this.get('email'),
         address: this.get('address'),
         state: this.get('state'),

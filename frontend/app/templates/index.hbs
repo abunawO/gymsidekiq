@@ -1,36 +1,5 @@
-<header class="mod-header">
-<div class="layout-wrap full">
-<h1>
-<a title="return to the homepage of GymSidekiq" href="/">
-  <img alt="Logo of GymSidekiq" src="{{rootURL}}assets/images/gymSidekiqLogo/landing-page-logo.png" />
-</a></h1>
-<div class="toggle button outline-dark small">
-Menu
-<i class="fa fa-fw fa-navicon"></i>
-</div>
-<nav class="main">
-<ul>
-<li>
-<a class="active" href="/">Home</a>
-</li>
-<li class="tour-toggle">
-<a href="">Docs</a>
-</li>
-<li>
-<a href="">Blog</a>
-</li>
-<li>
-<a href="">Pricing</a>
-</li>
-<li>
-  {{#link-to  "profiles.index" class="btn btn-warning"}}
-    Profiles
-  {{/link-to}}
-</li>
-</ul>
-</nav>
-</div>
-</header>
+
+{{home-nav}}
 
 <div class="mod-intro">
 <div class="layout-wrap u-padding u-cc">
@@ -484,5 +453,3 @@ Start your free trial today.
     widget:     { activator: ".intercom-chat" },
   }
 </script>
-
-<script integrity="" src="{{rootURL}}assets/js/homepage-landing-page2.js" async="async" crossorigin="anonymous"></script>

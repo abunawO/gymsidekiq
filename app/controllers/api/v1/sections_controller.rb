@@ -4,7 +4,7 @@ class Api::V1::SectionsController < ApplicationController
   # GET /sections
   # GET /sections.json
   def index
-    @sections = Section.all
+    @sections = Section.where(:user_id => params[:where][:userId][:value])
     render json: @sections, each_serializer: SectionSerializer, status: :ok
   end
 
@@ -61,6 +61,6 @@ class Api::V1::SectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
-      params.require(:section).permit(:title, :profile_id)
+      params.require(:section).permit(:title, :profile_id, :user_id)
     end
 end

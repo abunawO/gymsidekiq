@@ -1,12 +1,17 @@
 import Route from '@ember/routing/route';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+const { service } = Ember.inject;
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(AuthenticatedRouteMixin,{
+  session:  Ember.inject.service(),
+  currentUserId: null,
 
   model() {
     //debugger
-    let queryParams = {where: { profile_id: { value: 1, operator: '==' }}};
+    this.set('currentUserId', this.get('session.data.authenticated.id') )
+    let queryParams = {where: { userId: { value: this.get('currentUserId'), operator: '==' }}};
     let promises = {
-      members: this.store.findAll('member'),
+      members: this.store.query('member', queryParams),
       profileSections: this.store.query('section', queryParams)
 
     };

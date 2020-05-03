@@ -4,7 +4,8 @@ class Api::V1::MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @members = Member.all
+    #binding.pry
+    @members = Member.where(:user_id => params[:where][:userId][:value])
     render json: @members, each_serializer: MemberSerializer, status: :ok
   end
 
@@ -25,6 +26,7 @@ class Api::V1::MembersController < ApplicationController
   # POST /members
   # POST /members.json
   def create
+    #binding.pry
     @member = Member.new(member_params)
 
     if @member.save
@@ -62,6 +64,7 @@ class Api::V1::MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:membership_type, :first_name, :last_name, :email, :profile_id, :address, :city, :state, :zip, :phone, :section_ids)
+      #binding.pry
+      params.require(:member).permit(:membership_type, :first_name, :last_name, :email, :profile_id, :user_id, :address, :city, :state, :zip, :phone, :section_ids)
     end
 end

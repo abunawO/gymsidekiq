@@ -1,0 +1,119 @@
+<style>
+#profiles {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#profiles td{
+  padding: 10px;
+}
+
+#profiles td, #profiles th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#profiles tr:nth-child(even){background-color: #f2f2f2;}
+
+#profiles tr:hover {background-color: #ddd;}
+
+#profiles th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+///
+
+#members {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#members td, #members th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#members tr:nth-child(even){background-color: #f2f2f2;}
+
+#members tr:hover {background-color: #ddd;}
+
+#members th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+{{route-links}}
+
+<h1>Listing Sections</h1>
+
+<table id="profiles">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Profile</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each sectionsList as |section|}}
+      <tr>
+        <td>{{section.title}}</td>
+        <td>{{section.profileName}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<br>
+
+<h1>Listing Members</h1>
+
+<table id="members">
+  <thead>
+    <tr>
+      <th>Section Title</th>
+      <th>Profile Name</th>
+      <th>Membership type</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Parent profile</th>
+      <th>address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each sectionsList as |section|}}
+      {{#each section.membersList as |member|}}
+        <tr>
+          <td>{{section.title}}</td>
+          <td>{{section.profileName}}</td>
+          <td>{{member.membership_type}}</td>
+          <td>{{member.first_name}}</td>
+          <td>{{member.last_name}}</td>
+          <td>{{member.email}}</td>
+          <td>{{member.parent_profile_name}}</td>
+          <td>{{member.address}}</td>
+          <td>{{member.city}}</td>
+          <td>{{member.state}}</td>
+          <td>{{member.phone}}</td>
+        </tr>
+        {{/each}}
+    {{/each}}
+  </tbody>
+</table>
+
+<br>
