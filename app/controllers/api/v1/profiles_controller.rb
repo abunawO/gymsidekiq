@@ -6,7 +6,7 @@ class Api::V1::ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     #binding.pry
-    @profiles = Profile.all
+    @profiles = Profile.where(:user_id => params[:where][:userId][:value])
 
     render json: @profiles, each_serializer: ProfileSerializer, status: :ok
   end
@@ -67,6 +67,6 @@ class Api::V1::ProfilesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
       #binding.pry
-      params.require(:profile).permit(:profile_name, :email, :address, :city, :state, :zip, :phone)
+      params.require(:profile).permit(:profile_name, :email, :address, :city, :state, :zip, :phone, :user_id)
     end
 end

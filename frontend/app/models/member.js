@@ -6,6 +6,7 @@ export default DS.Model.extend({
    firstName: DS.attr(),
    lastName: DS.attr(),
    profileId: DS.attr(),
+   userId: DS.attr(),
    parentProfileName: DS.attr(),
    email: DS.attr(),
    address: DS.attr(),
@@ -15,5 +16,6 @@ export default DS.Model.extend({
    phone: DS.attr(),
    sectionIds: DS.attr(),
    registeredSections: DS.attr(),
-   profile: DS.belongsTo('profile')
+   profile: DS.belongsTo('profile'),
+   user: DS.belongsTo('user')
  });

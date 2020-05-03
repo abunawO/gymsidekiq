@@ -1,6 +1,8 @@
 import Ember from 'ember';
+const { service } = Ember.inject;
 
 export default Ember.Controller.extend({
+  session:  Ember.inject.service(),
   sectionsList: [],
   refreshModel: function(){
     //debugger
@@ -15,7 +17,7 @@ export default Ember.Controller.extend({
 
       var section = this.store.createRecord('section', {
         title: this.get('title'),
-        profileId: this.get('profileId')
+        userId: this.get('session.data.authenticated.id'),
       });
 
       section.save().then((res) => {

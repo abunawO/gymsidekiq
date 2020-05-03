@@ -27,6 +27,7 @@ gem 'active-model-adapter-source', '~>2.0'
 gem 'active_model_serializers', '0.9.7'
 gem 'pry', '~> 0.10.3'
 gem 'rack-cors'
+gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

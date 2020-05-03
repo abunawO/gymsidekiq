@@ -64,8 +64,8 @@ Menu
 <nav class="cta">
 <ul>
 <li>
-  {{#link-to  "user.sign-up" class="button small"}}
-    Sign up
+  {{#link-to  "login" class="button outline-dark small"}}
+    Log in
   {{/link-to}}
 </li>
 </ul>
@@ -77,7 +77,8 @@ Menu
 <section class="mod-devise">
 <header>
 <h2 class="twoliner">
-Welcome back.
+Start your 30 day free trial.
+<i>No credit card needed!</i>
 </h2>
 </header>
 <div class="box">
@@ -85,29 +86,51 @@ Welcome back.
     <form class="simple_form new_user" id="new_user" novalidate="novalidate" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
       <input type="hidden" name="authenticity_token" value="U1+4aAEl+em0gv5BUQ7fZ9mNpqsUF6/AVHuJ6JYJgD+fBF6NbPlNjxe3eiGvE40LeMJDfJL8nlysi0p7tAK+Zg==" />
       <div class="input email optional user_email">
-        {{input type="email" value=email autocomplete="username" placeholder="Email address"  }}
+        {{input type="email" value=email placeholder="Email address"}}
       </div>
       <div class="input password required user_password">
-        {{input type="password" placeholder="Password" autocomplete="current-password" value=password }}
-      </div>
+        {{input type="password" id="password" placeholder="Password" autocomplete="current-password" value=password }}
+        <br>
+        {{gs-checkbox class="boolean optional" type="checkbox" name="show password" id="show-password" aria-label="accept terms" callbackAction='showPassword' }}
+        show password
+       </div>
       <div class="input boolean optional user_accepted_terms">
         <input value="0" type="hidden" name="user[accepted_terms]" />
         <label class="boolean optional control-label checkbox" for="user_accepted_terms">
-          {{input class="boolean optional" type="checkbox" name="user_remember_me" id="user_remember_me" aria-label="accept terms" required=true checked=user_remember_me }}
-          <label class="string optional control-label inline" for="user_remember_me">Keep me signed in</label>
+          {{input class="boolean optional" type="checkbox" name="accept_terms" id="accept_terms" aria-label="accept terms" required=true checked=accept_terms }}
+          I accept the <a target="_blank" href="/terms">terms &amp; conditions</a>
         </label>
       </div>
-      <input {{action "logInUser"}} type="submit" name="commit" value="Log in" class="button sign_up small" data-disable-with="Sign up" />
+      <input {{action "signUpUser"}} type="submit" name="commit" value="Sign up" class="button sign_up small" data-disable-with="Sign up" />
     </form>
   </div>
 <footer>
 <ul>
-<li><a href="/sign-up">Sign up!</a></li>
+<li><a href="/log-in">Go to login</a></li>
 <li><a href="/contact">Contact us</a></li>
 <li><a class="intercom-chat" href="mailto:support@GymSidekiq.com">Live chat</a></li>
 </ul>
-{{copyright-footer}}
 </footer>
+</div>
+<div style="padding-top: 20px;" class="mod-tour-quote small">
+<div class="o-grid">
+<blockquote class="u-span-12 u-span-6@md">
+<img src="https://d201zbfblqcbtj.cloudfront.net/assets/homepage/testimonials/stefandorresteijn-6a6b9ca399755ea308f9f30da226807a3825eacce58551e766380cc322f944d6.jpg" />
+<cite>
+Stefan Dorresteijn
+<a target="_blank" href="https://twitter.com/StefanJD/status/910527303494533121">@StefanJD</a>
+</cite>
+<p>Man, GymSidekiq is an absolute godsend.</p>
+</blockquote>
+<blockquote class="u-span-12 u-span-6@md">
+<img src="https://d201zbfblqcbtj.cloudfront.net/assets/homepage/testimonials/parkerwrightman-427162ebe37e7087cd08a074bad3cb0680c04f7e1ce9bad1dbbbfad35e389d99.jpg" />
+<cite>
+Parker Wightman
+<a target="_blank" href="https://twitter.com/parkerwightman/status/913792554830663680">@parkerwightman</a>
+</cite>
+<p>Really, really enjoying GymSidekiq. Great customer support, reliable, regular and thoughtful product improvements.</p>
+</blockquote>
+</div>
 </div>
 </section>
 

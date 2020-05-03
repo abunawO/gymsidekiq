@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   namespace :api do
     # Version 1
     namespace :v1 do
+      post '/users/sign_in', to: 'sessions#create'
+      resources :users
+      resources :sessions
       resources :profiles
       resources :sections
       resources :members
