@@ -10,6 +10,17 @@ export default Ember.Controller.extend({
     this.set('profileId', ''),
     this.set('accept_terms', '')
   },
+  refreshState: function(){
+    this.set('currentUserId', this.get('session.data.authenticated.id') )
+    let queryParams = {where: { userId: { value: this.get('currentUserId'), operator: '==' }}};
+    let promises = {
+      sections: this.store.query('section', queryParams)
+    };
+
+    return Ember.RSVP.hash(promises).then((data)=>{
+      this.set('sectionsList', data.sections);
+    })
+  },
 
   actions: {
     createSection() {
@@ -23,6 +34,7 @@ export default Ember.Controller.extend({
       section.save().then((res) => {
         //debugger
         this.refreshModel()
+        this.refreshState()
         window.scrollTo(0,0);
         this.get('flashMessages').success('Record created successfully!')
       }).catch((err) => {

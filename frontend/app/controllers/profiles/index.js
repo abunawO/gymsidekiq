@@ -17,6 +17,17 @@ export default Ember.Controller.extend({
     this.set('phone', ''),
     this.set('accept_terms',null)
   },
+  refreshState: function(){
+    this.set('currentUserId', this.get('session.data.authenticated.id') )
+    let queryParams = {where: { userId: { value: this.get('currentUserId'), operator: '==' }}};
+    let promises = {
+      profiles: this.store.query('profile', queryParams)
+    };
+
+    return Ember.RSVP.hash(promises).then((data)=>{
+      this.set('profilesList', data.profiles);
+    })
+  },
 
   actions: {
     createProfile() {
@@ -35,8 +46,8 @@ export default Ember.Controller.extend({
 
       profile.save().then((res) => {
         //debugger
-        this.transitionToRoute('profiles')
         this.refreshModel()
+        this.refreshState()
         window.scrollTo(0,0);
         this.get('flashMessages').success('Record created successfully!')
       }).catch((err) => {

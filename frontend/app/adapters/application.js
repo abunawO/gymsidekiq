@@ -8,12 +8,16 @@ export default ActiveModelAdapter.extend(DataAdapterMixin,{
   authorizer: 'authorizer:devise',
 
   shouldReloadAll: function() {
-    //debugger
     return true;
   },
   pathForType: function(type) {
-    //debugger
     let underscored = Ember.String.underscore(type);
     return Ember.String.pluralize(underscored);
+  },
+  shouldBackgroundReloadRecord: function(store, snapshot) {
+    return true;
+  },
+  shouldBackgroundReloadAll: function(store, snapshot) {
+    return true;
   }
 });

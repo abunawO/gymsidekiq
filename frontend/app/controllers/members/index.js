@@ -9,7 +9,6 @@ export default Ember.Controller.extend({
   checkedSections: [],
 
   refreshModel: function(){
-    //debugger
     this.set('firstName', ''),
     this.set('lastName', ''),
     this.set('email', ''),
@@ -20,7 +19,23 @@ export default Ember.Controller.extend({
     this.set('phone', ''),
     this.set('accept_terms', ''),
     this.get('checkedSections').forEach((element)=>{element.prop('checked',false);});
+
   },
+  refreshState: function(){
+    this.set('currentUserId', this.get('session.data.authenticated.id') )
+    let queryParams = {where: { userId: { value: this.get('currentUserId'), operator: '==' }}};
+    let promises = {
+      members: this.store.query('member', queryParams),
+      profileSections: this.store.query('section', queryParams)
+
+    };
+
+    return Ember.RSVP.hash(promises).then((data)=>{
+      this.set('membersList', data.members);
+      this.set('profileSections', data.profileSections);
+    })
+  },
+
   filterMembershipTypeSelection: function(hash){
     //debugger
     Object.keys(hash).forEach(function (key) {
@@ -63,8 +78,8 @@ export default Ember.Controller.extend({
       });
 
       member.save().then((res) => {
-        //debugger
         this.refreshModel()
+        this.refreshState()
         window.scrollTo(0,0);
         this.get('flashMessages').success('Record created successfully!')
       }).catch((err) => {

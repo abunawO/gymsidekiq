@@ -32,7 +32,7 @@ class Api::V1::MembersController < ApplicationController
     if @member.save
       render json: { member: @member.save }, status: :ok
     else
-      render json: { errors: @member.save.errors }, status: :unprocessable_entity
+      render json: { errors: @member.errors }, status: :unprocessable_entity
     end
   end
 
