@@ -7,7 +7,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
   currentUserId: null,
 
   model() {
-    debugger
     this.set('currentUserId', this.get('session.data.authenticated.id') )
     let queryParams = {where: { userId: { value: this.get('currentUserId'), operator: '==' }}};
     let promises = {
@@ -20,7 +19,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
   },
 
   setupController(controller, model) {
-    debugger
     this._super(controller, model);
     controller.set('membersList', model.members);
     controller.set('profileSections', model.profileSections);
