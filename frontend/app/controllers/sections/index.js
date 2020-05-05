@@ -29,12 +29,12 @@ export default Ember.Controller.extend({
 
   actions: {
     setParentDiv(elementId, isChecked){
-      debugger
+      //debugger
       this.set('setParentDiv', elementId);
       this.set('checkedParentDiv', isChecked);
     },
-    setTime(selectedTime) {
-      debugger
+    setSelectedTime(selectedTime) {
+      //debugger
       this.set('time', selectedTime);
 
       var node = document.createElement("p");
@@ -47,10 +47,6 @@ export default Ember.Controller.extend({
       if(this.get('checkedParentDiv')){
         document.getElementById(this.get('setParentDiv') + "-div").appendChild(node);
       }
-    },
-    onChange(selectedTime) {
-      debugger
-      console.log(selectedTime);
     },
     createSection() {
       //debugger

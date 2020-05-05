@@ -1,16 +1,14 @@
+//time picker component
 import Ember from 'ember';
 
 export default Ember.Component.extend({
   callbackAction: '',
-  classNames: ['primary'],
+  classNames: ['time-picker'],
   elementId: 'time-selector',
-  yourOptions: { dropdown: true, timeFormat: 'h:mm p' },
-  //e.appendChild('<i class="fa fa-trash-o" aria-hidden="true"></i>');
+  timePickerOptions: { dropdown: true, timeFormat: 'h:mm: p' },
 
   actions: {
     onChange(selectedTime) {
-      debugger
-
       var hours = selectedTime.getHours() ; // gives the value in 24 hours format
       var AmOrPm = hours >= 12 ? 'pm' : 'am';
       hours = (hours % 12) || 12;

@@ -4,15 +4,14 @@ export default Ember.Component.extend({
   isChecked: false,
 
   actions: {
-    myFunction(isChecked, sectionId, checkboxElement, elementId, afterAction) {
-      debugger
-      var x = document.getElementById("myDIV");
-      if (x.style.display === "") {
-        x.style.display = "block";
+    toogleTimeVisibility(isChecked, sectionId, checkboxElement, elementId, afterAction) {
+      var x = document.getElementById("timeSelection");
+      if (isChecked === false) {
+        x.style.display = "none";
       } else {
         x.style.display = "block";
       }
-      this.set('isChecked', true);
+      this.set('isChecked', isChecked);
       this.get('_target').send(afterAction, elementId, isChecked);
     }
   }

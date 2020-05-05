@@ -1,3 +1,4 @@
+//gs-checkbox is a check component that can do things with its attributes
 import Ember from 'ember';
 
 export default Ember.Component.extend({
@@ -11,7 +12,7 @@ export default Ember.Component.extend({
   afterAction: '',
 
   click: function() {
-    debugger
+    //debugger
     var elementId = this.get('elementId')
     var checkboxElement = $('input[id=' + elementId + ']')
     var isChecked = checkboxElement.is(':checked')

@@ -1,24 +1,17 @@
-<style>
-.blue {
-  width: 50px;
-  float: left;
-  /*margin: 5px;*/
-}
-</style>
-
+<!--gs-checkbox is a checkbox component that can do things with its attributes -->
 <div id="timesSelected" class="weekDays-selector">
-  <div id="weekday-mon-div" class="blue">{{gs-checkbox name="profile-section" class="profile_section"  afterAction='setParentDiv' callbackAction='myFunction' id="weekday-mon" class="weekday"}}
+  <div id="weekday-mon-div" class="weekdays">{{gs-checkbox name="profile-section" class="profile_section"  afterAction='setParentDiv' callbackAction='toogleTimeVisibility' id="weekday-mon" class="weekday"}}
    <label for="weekday-mon">M</label></div>
-   <div id="weekday-tue-div" class="blue">{{gs-checkbox name="profile-section" class="profile_section" afterAction='setParentDiv' callbackAction='myFunction' id="weekday-tue" class="weekday"}}
+   <div id="weekday-tue-div" class="weekdays">{{gs-checkbox name="profile-section" class="profile_section" afterAction='setParentDiv' callbackAction='toogleTimeVisibility' id="weekday-tue" class="weekday"}}
    <label for="weekday-tue">T</label></div>
-   <div id="weekday-wed-div"class="blue">{{gs-checkbox name="profile-section" class="profile_section" afterAction='setParentDiv' callbackAction='myFunction' id="weekday-wed" class="weekday"}}
+   <div id="weekday-wed-div"class="weekdays">{{gs-checkbox name="profile-section" class="profile_section" afterAction='setParentDiv' callbackAction='toogleTimeVisibility' id="weekday-wed" class="weekday"}}
    <label for="weekday-wed">W</label></div>
-   <div id="weekday-thu-div"class="blue">{{gs-checkbox name="profile-section" class="profile_section" afterAction='setParentDiv' callbackAction='myFunction' id="weekday-thu" class="weekday"}}
+   <div id="weekday-thu-div"class="weekdays">{{gs-checkbox name="profile-section" class="profile_section" afterAction='setParentDiv' callbackAction='toogleTimeVisibility' id="weekday-thu" class="weekday"}}
    <label for="weekday-thu">T</label></div>
-   <div id="weekday-fri-div"class="blue">{{gs-checkbox name="profile-section" class="profile_section" afterAction='setParentDiv' callbackAction='myFunction' id="weekday-fri" class="weekday"}}
+   <div id="weekday-fri-div"class="weekdays">{{gs-checkbox name="profile-section" class="profile_section" afterAction='setParentDiv' callbackAction='toogleTimeVisibility' id="weekday-fri" class="weekday"}}
    <label for="weekday-fri">F</label></div>
-   <div id="weekday-sat-div"class="blue">{{gs-checkbox name="profile-section" class="profile_section" afterAction='setParentDiv' callbackAction='myFunction' id="weekday-sat" class="weekday"}}
+   <div id="weekday-sat-div"class="weekdays">{{gs-checkbox name="profile-section" class="profile_section" afterAction='setParentDiv' callbackAction='toogleTimeVisibility' id="weekday-sat" class="weekday"}}
    <label for="weekday-sat">S</label></div>
-   <div id="weekday-sun-div"class="blue">{{gs-checkbox name="profile-section" class="profile_section" afterAction='setParentDiv' callbackAction='myFunction' id="weekday-sun" class="weekday"}}
+   <div id="weekday-sun-div"class="weekdays">{{gs-checkbox name="profile-section" class="profile_section" afterAction='setParentDiv' callbackAction='toogleTimeVisibility' id="weekday-sun" class="weekday"}}
    <label for="weekday-sun">S</label></div>
 </div>
