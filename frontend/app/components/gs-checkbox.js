@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export default Ember.Component.extend({
   tagName: "input",
   isChecked: false,
@@ -6,11 +8,14 @@ export default Ember.Component.extend({
   data: null,
   value: '0',
   callbackAction: '',
+  afterAction: '',
 
   click: function() {
-    var checkboxElement = $('input[id=' + this.get('data') + ']')
+    debugger
+    var elementId = this.get('elementId')
+    var checkboxElement = $('input[id=' + elementId + ']')
     var isChecked = checkboxElement.is(':checked')
     var sectionId = this.get('data')
-    this.get('_target').send(this.get('callbackAction'), isChecked, sectionId, checkboxElement);
+    this.get('_target').send(this.get('callbackAction'), isChecked, sectionId, checkboxElement, elementId, this.get('afterAction'));
   }
 });

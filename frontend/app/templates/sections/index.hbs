@@ -21,6 +21,14 @@
   background-color: #4CAF50;
   color: white;
 }
+
+.red {
+    width:650px;
+    height:1000px;
+    background:red;
+    overflow: hidden;
+    padding: 1% 0 0 1%;
+}
 </style>
 
 {{route-links}}
@@ -50,6 +58,20 @@
     <h3>Section Information</h3>
     <fieldset>
       {{input type="text" value=title placeholder="Section Title" autofocus=true}}
+    </fieldset>
+    <fieldset>
+      {{day-selector}}
+      <div class="times-section">
+          <div id="myDIV">
+            {{time-picker callbackAction="setTime"}}
+            <div style="float: left; position: relative; top: -30px;">
+              <h3 style="margin: 0;font-size: 10px;">Click to select class time</h3>
+            </div>
+            <div style="float: right;position: relative;right: 150px;top: -13px;">
+              <i style="font-size: 25px;" class="ion-ios-plus pb_icon-gradient"></i>
+            </div>
+          </div>
+      </div>
     </fieldset>
     <fieldset>
       <button {{action "createSection"}} name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>

@@ -1,0 +1,41 @@
+/*section creation styling*/
+
+.weekDays-selector input {
+  display: none!important;
+  margin-right: 30px;
+}
+
+.weekDays-selector input[type=checkbox] + label {
+  display: inline-block;
+  border-radius: 6px;
+  background: #dddddd;
+  height: 40px;
+  width: 30px;
+  margin-right: 3px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.weekDays-selector input[type=checkbox]:checked + label {
+  background: #2AD705;
+  color: #ffffff;
+}
+
+#myDIV {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  /*background-color: white;*/
+  margin-top: 20px;
+  display: none;
+}
+
+.primary {
+  width: 210px !important;
+  position: relative;
+  top: 30px;
+}
+#selectedTime {
+  font-size: 20px !important;
+}

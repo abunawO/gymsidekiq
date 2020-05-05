@@ -4,6 +4,11 @@ const { service } = Ember.inject;
 export default Ember.Controller.extend({
   session:  Ember.inject.service(),
   sectionsList: [],
+  time: '',
+  sectionTimes: [],
+  selectedParentDiv: '',
+  checkedParentDiv: '',
+
   refreshModel: function(){
     //debugger
     this.set('title', ''),
@@ -23,6 +28,30 @@ export default Ember.Controller.extend({
   },
 
   actions: {
+    setParentDiv(elementId, isChecked){
+      debugger
+      this.set('setParentDiv', elementId);
+      this.set('checkedParentDiv', isChecked);
+    },
+    setTime(selectedTime) {
+      debugger
+      this.set('time', selectedTime);
+
+      var node = document.createElement("p");
+      node.style.fontSize = "9px";
+      node.style.marginBottom = "0";
+      var textnode = document.createTextNode(this.get('time'));
+      node.appendChild(textnode);
+      document.getElementById("time-selector").firstElementChild.value = null;
+
+      if(this.get('checkedParentDiv')){
+        document.getElementById(this.get('setParentDiv') + "-div").appendChild(node);
+      }
+    },
+    onChange(selectedTime) {
+      debugger
+      console.log(selectedTime);
+    },
     createSection() {
       //debugger
 
