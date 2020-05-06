@@ -42,7 +42,7 @@ export default Ember.Controller.extend({
       node.style.marginBottom = "0";
       var textnode = document.createTextNode(this.get('time'));
       node.appendChild(textnode);
-      document.getElementById("time-selector").firstElementChild.value = null;
+      document.getElementById("time-selector").firstElementChild.value = "";
 
       if(this.get('checkedParentDiv')){
         document.getElementById(this.get('setParentDiv') + "-div").appendChild(node);
