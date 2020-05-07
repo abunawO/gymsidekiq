@@ -1,6 +1,5 @@
 //time picker component
 import Ember from 'ember';
-import Component from '@glimmer/component';
 
 export default Ember.Component.extend({
   callbackAction: '',
