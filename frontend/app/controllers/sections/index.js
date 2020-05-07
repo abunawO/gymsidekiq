@@ -8,6 +8,8 @@ export default Ember.Controller.extend({
   sectionTimes: [],
   selectedParentDiv: '',
   checkedParentDiv: '',
+  listOfTrainers: ['Amir Dadovic','Ose Abunaw','Brently Fur','Dhiego Lima'],
+  timePickerOptions: { dropdown: true, timeFormat: 'h:mm: p' },
 
   refreshModel: function(){
     //debugger
@@ -33,8 +35,18 @@ export default Ember.Controller.extend({
       this.set('setParentDiv', elementId);
       this.set('checkedParentDiv', isChecked);
     },
-    setSelectedTime(selectedTime) {
+    onChange(selectedTime) {
       //debugger
+      var hours = selectedTime.getHours() ; // gives the value in 24 hours format
+      var AmOrPm = hours >= 12 ? 'pm' : 'am';
+      hours = (hours % 12) || 12;
+      var minutes = new Date(selectedTime.getTime()).toISOString().slice(14, -8);
+      var finalTime = hours + ":" + minutes + " " + AmOrPm;
+
+      this.send('setSelectedTime', finalTime );
+    },
+    setSelectedTime(selectedTime) {
+      //appends the selected time as a text(p) under the day selected
       this.set('time', selectedTime);
 
       var node = document.createElement("p");
@@ -42,7 +54,7 @@ export default Ember.Controller.extend({
       node.style.marginBottom = "0";
       var textnode = document.createTextNode(this.get('time'));
       node.appendChild(textnode);
-      document.getElementById("time-selector").firstElementChild.value = "";
+      document.getElementById("timeSelection").firstElementChild.value = "";
 
       if(this.get('checkedParentDiv')){
         document.getElementById(this.get('setParentDiv') + "-div").appendChild(node);

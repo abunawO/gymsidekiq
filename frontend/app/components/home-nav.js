@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import Component from '@glimmer/component';
 import config from '../config/environment';
 const { service } = Ember.inject;
 

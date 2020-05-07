@@ -1,5 +1,6 @@
 //time picker component
 import Ember from 'ember';
+import Component from '@glimmer/component';
 
 export default Ember.Component.extend({
   callbackAction: '',
@@ -9,6 +10,7 @@ export default Ember.Component.extend({
 
   actions: {
     onChange(selectedTime) {
+      //debugger
       var hours = selectedTime.getHours() ; // gives the value in 24 hours format
       var AmOrPm = hours >= 12 ? 'pm' : 'am';
       hours = (hours % 12) || 12;

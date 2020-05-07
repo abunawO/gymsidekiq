@@ -23,12 +23,19 @@
 }
 
 #timeSelection {
-  width: 100%;
+  width: 190px;
   padding: 50px 0;
   text-align: center;
   /*background-color: white;*/
   margin-top: 20px;
   display: none;
+}
+
+#timeSelection #add-time-plus-icon {
+  float: right;
+  position: relative;
+  right: 10px;
+  top: -42px;
 }
 
 .time-picker {
@@ -67,4 +74,43 @@
   text-align: left;
   background-color: #4CAF50;
   color: white;
+}
+
+#trainer-selection-container {
+  padding-top: 10px;
+}
+
+#timeSelection #add-time-plus-icon i {
+  font-size: 25px;
+}
+
+.section-container {
+  top: -130px;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.section-container fieldset {
+  padding-top: 20px;
+}
+
+.timeSection {
+  margin-bottom: -30px;
+}
+
+.select,
+.chosen-select,
+.chosen-select-no-single,
+.chosen-select-no-results,
+.chosen-select-deselect,
+.chosen-select-rtl,
+.chosen-select-width {
+  width: 200px;
+}
+
+.jquery-version-refer {
+  margin-top: 40px;
+  font-style: italic;
 }
