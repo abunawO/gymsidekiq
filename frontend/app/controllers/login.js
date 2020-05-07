@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
         this.transitionToRoute('profiles')
         this.get('flashMessages').success('Signed up!')
        }, (err) => {
-         debugger
+         //debugger
          this.get('flashMessages').danger('Email or password error.')
        });
     }

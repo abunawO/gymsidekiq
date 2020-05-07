@@ -5,6 +5,6 @@ export default Ember.Component.extend({
   listOfCollection: [],
 
   onChange() {
-    debugger
+    //debugger
   }
 });
