@@ -1,11 +1,14 @@
 /*section creation styling*/
 
+html {
+  background-color: red;
+}
 .weekDays-selector input {
-  display: none!important;
+  display: none !important;
   margin-right: 30px;
 }
 
-.weekDays-selector input[type=checkbox] + label {
+.weekDays-selector input[type="checkbox"] + label {
   display: inline-block;
   border-radius: 6px;
   background: #dddddd;
@@ -17,8 +20,8 @@
   cursor: pointer;
 }
 
-.weekDays-selector input[type=checkbox]:checked + label {
-  background: #2AD705;
+.weekDays-selector input[type="checkbox"]:checked + label {
+  background: #2ad705;
   color: #ffffff;
 }
 
@@ -52,19 +55,24 @@
   width: 100%;
 }
 
-#sections td, #sections th {
+#sections td,
+#sections th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#sections tr:nth-child(even){background-color: #f2f2f2;}
+#sections tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-#sections tr:hover {background-color: #ddd;}
+#sections tr:hover {
+  background-color: #ddd;
+}
 
 #sections th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }

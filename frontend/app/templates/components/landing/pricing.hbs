@@ -1,0 +1,28 @@
+<section class="lan-price">
+  <h2 class="lan-price-title">
+    <span>Pay for a</span>
+    Simple & affordable Software
+  </h2>
+  <p class="lan-price-sub">
+    Our pricing is simple: You pay for what fits your needs. The first 30 days are on us.
+  </p>
+  <hr>
+  <h3>Choose Your Plan</h3>
+  <div class="lan-price-list">
+    {{#each this.data as |d|}}
+    <div class="lan-price-item">
+      <h4>{{d.title}}</h4>
+      <p class="lan-price-item-detail">Lorem Ipsum</p>
+      <p>${{d.price}}/Month</p>
+      <ul>
+        {{#each d.list as |i|}}
+        <li>{{i}}</li>
+        {{/each}}
+      </ul>
+      <a>
+        <span>Get Started</span>
+      </a>
+    </div>
+    {{/each}}
+  </div>
+</section>

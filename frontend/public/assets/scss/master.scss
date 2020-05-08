@@ -1,0 +1,12 @@
+$primary: #0ab975;
+$dark-primary: #1f1f1f;
+$dark-secondary: #5f5f5f;
+$light-primary: lighten(desaturate($primary, 85%), 55%);
+@import "./defaults.scss";
+@import "./landing/navigation.scss";
+@import "./landing/header.scss";
+@import "./landing/features.scss";
+@import "./landing/pricing.scss";
+@import "./landing/trial.scss";
+@import "./landing/users.scss";
+@import "./landing/footer.scss";

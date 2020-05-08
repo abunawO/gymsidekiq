@@ -1,0 +1,12 @@
+<section class="lan-feat-wrap">
+  <div class="lan-feat">
+    {{#each this.data as |d|}}
+    <div class="lan-feat-item">
+      <img src="{{rootURL}}{{d.img}}" />
+      <h2>{{d.title}}</h2>
+      <p>{{d.details}}</p>
+      <a href="">More Info</a>
+    </div>
+    {{/each}}
+  </div>
+</section>

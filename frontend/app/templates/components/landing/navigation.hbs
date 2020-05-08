@@ -1,0 +1,70 @@
+<header class="lan-nav-wrap">
+  <a class="lan-nav-title" title="GymSidekiq" href="/">
+    <img
+      alt="Logo of GymSidekiq"
+      src="{{rootURL}}assets/images/gymSidekiqLogo/gs-logo.svg"
+    />
+  </a>
+  <button class="lan-nav-button" {{on "click" this.toggleNav}}>
+    <img alt="Menu" src="{{rootURL}}assets/images/menu-icon.svg" />
+  </button>
+  <div
+    class="lan-nav"
+    {{on-click-outside (action "clickaway") exceptSelector=".lan-nav-button"}}
+  >
+    <nav class="lan-nav-primary">
+      <ul>
+        <li>
+          <a class="active" href="/">
+            Home
+          </a>
+        </li>
+        <li class="tour-toggle">
+          <a href="">
+            Docs
+          </a>
+        </li>
+        <li>
+          <a href="">
+            Blog
+          </a>
+        </li>
+        <li>
+          <a href="">
+            Pricing
+          </a>
+        </li>
+        {{#if session.isAuthenticated}}
+          <li>
+            {{#link-to "profiles.dashboard" class="btn btn-warning"}}
+              Dashboard
+            {{/link-to}}
+          </li>
+        {{/if}}
+      </ul>
+    </nav>
+    <hr />
+    <nav class="lan-nav-secondary">
+      <ul>
+        {{#if session.isAuthenticated}}
+          <li>
+            <a class="button outline-dark small" {{action "logout"}}>
+              Logout
+            </a>
+          </li>
+        {{else}}
+          <li>
+            {{#link-to "login" class="button outline-dark small"}}
+              Log in
+            {{/link-to}}
+          </li>
+          <li>
+            {{#link-to "signup" class="button small"}}
+              Sign up
+            {{/link-to}}
+          </li>
+        {{/if}}
+      </ul>
+    </nav>
+  </div>
+</header>

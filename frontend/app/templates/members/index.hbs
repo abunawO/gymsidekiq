@@ -1,27 +1,31 @@
 <style>
+  #members {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
 
-#members {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+  #members td,
+  #members th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
 
-#members td, #members th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
+  #members tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
 
-#members tr:nth-child(even){background-color: #f2f2f2;}
+  #members tr:hover {
+    background-color: #ddd;
+  }
 
-#members tr:hover {background-color: #ddd;}
-
-#members th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-}
+  #members th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
 </style>
 
 {{route-links}}
@@ -45,17 +49,17 @@
 
   <tbody>
     {{#each membersList as |member|}}
-      <tr>
-        <td>{{member.membershipType}}</td>
-        <td>{{member.firstName}}</td>
-        <td>{{member.lastName}}</td>
-        <td>{{member.email}}</td>
-        <td>{{member.parentProfileName}}</td>
-        <td>{{member.address}}</td>
-        <td>{{member.city}}</td>
-        <td>{{member.state}}</td>
-        <td>{{member.phone}}</td>
-      </tr>
+    <tr>
+      <td>{{member.membershipType}}</td>
+      <td>{{member.firstName}}</td>
+      <td>{{member.lastName}}</td>
+      <td>{{member.email}}</td>
+      <td>{{member.parentProfileName}}</td>
+      <td>{{member.address}}</td>
+      <td>{{member.city}}</td>
+      <td>{{member.state}}</td>
+      <td>{{member.phone}}</td>
+    </tr>
     {{/each}}
   </tbody>
 </table>
@@ -91,21 +95,24 @@
     <fieldset>
       <h4>Membership Type</h4>
       {{#each profileSections as |section|}}
-        <label>
-          {{gs-checkbox name="profile-section" class="profile_section" id=section.id value=section.id  data=section.id callbackAction='setSectionId'}}
-          <span style="font-weight: normal;">{{section.title}}</span>
-        </label>
+      <label>
+        {{gs-checkbox name="profile-section" class="profile_section" id=section.id value=section.id  data=section.id callbackAction='setSectionId'}}
+        <span style="font-weight: normal;">{{section.title}}</span>
+      </label>
       {{/each}}
 
     </fieldset>
     <fieldset>
-      <button {{action "createMember"}} name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+      <button {{action "createMember"}} name="submit" type="submit" id="contact-submit"
+        data-submit="...Sending">Submit</button>
     </fieldset>
     <div class="checkbox-label">
-        {{input type="checkbox" name="accept_terms" id="terms-of-use-checkbox" aria-label="accept terms" required=true checked=accept_terms }}
+      {{input type="checkbox" name="accept_terms" id="terms-of-use-checkbox" aria-label="accept terms" required=true checked=accept_terms }}
       Accept
-        <a target="_blank" href="http://www.finsync.com/wp-content/uploads/2019/02/Policy-Terms-of-Use-Updated-2.7.2019.pdf">Terms of Use</a><span class="required-marker">*</span>&nbsp;
-      </div>
+      <a target="_blank"
+        href="http://www.finsync.com/wp-content/uploads/2019/02/Policy-Terms-of-Use-Updated-2.7.2019.pdf">Terms of
+        Use</a><span class="required-marker">*</span>&nbsp;
+    </div>
     {{copyright-footer}}
   </form>
 </div>

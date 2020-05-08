@@ -1,0 +1,12 @@
+<section class="lan-users">
+    <h2>These great teams already use GymSidekiq</h2>
+    <ul>
+        {{#each this.data as |d|}}
+        <li>
+            <a alt={{d.name}} target="_blank" href="{{d.href}}">
+                <img src="{{rootURL}}{{d.img}}" />
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+</section>
