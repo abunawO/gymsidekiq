@@ -1,11 +1,7 @@
 <select data-placeholder="Click to select trainer" multiple class="chosen-select" tabindex="18">
   {{#each listOfCollection as |item|}}
     <option value=""></option>
-    <option>{{item}}</option>
+    <option>{{item.firstName}} {{item.lastName}}</option>
     <!--option selected>Giant Panda</option>-->
   {{/each}}
 </select>
-<script src="{{rootURL}}assets/chosen/docsupport/jquery-3.2.1.min.js" type="text/javascript"></script>
-<script src="{{rootURL}}assets/chosen/chosen.jquery.js" type="text/javascript"></script>
-<script src="{{rootURL}}assets/chosen/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
-<script src="{{rootURL}}assets/chosen/docsupport/init.js" type="text/javascript" charset="utf-8"></script>

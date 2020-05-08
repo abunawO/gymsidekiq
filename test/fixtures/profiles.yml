@@ -3,17 +3,17 @@
 one:
   profile_name: MyString
   email: MyString
-  address: MyString
-  city: MyString
-  state: MyString
-  zip: MyString
   phone: MyString
+  address: MyString
+  state: MyString
+  city: MyString
+  zip: MyString
 
 two:
   profile_name: MyString
   email: MyString
-  address: MyString
-  city: MyString
-  state: MyString
-  zip: MyString
   phone: MyString
+  address: MyString
+  state: MyString
+  city: MyString
+  zip: MyString

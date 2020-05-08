@@ -1,0 +1,55 @@
+<style>
+
+#members {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#members td, #members th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#members tr:nth-child(even){background-color: #f2f2f2;}
+
+#members tr:hover {background-color: #ddd;}
+
+#members th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+{{route-links}}
+
+<h1>Listing User Profile</h1>
+
+<table id="members">
+  <thead>
+    <tr>
+      <th>Profile Name</th>
+      <th>Email</th>
+      <th>address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each userProfiles as |profile|}}
+      <tr>
+        <td>{{profile.profileName}}</td>
+        <td>{{profile.email}}</td>
+        <td>{{profile.address}}</td>
+        <td>{{profile.city}}</td>
+        <td>{{profile.state}}</td>
+        <td>{{profile.phone}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

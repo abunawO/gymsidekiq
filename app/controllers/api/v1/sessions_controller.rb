@@ -10,7 +10,7 @@ class Api::V1::SessionsController < ApplicationController
     token = User.generate_authentication_token
     if user
       #binding.pry
-      data = {id: user.id, email: user.email, token: token}
+      data = {id: user.id, email: user.email, token: token, profileId: user.profile.id}
       render json: data, status: :ok
     else
       #binding.pry

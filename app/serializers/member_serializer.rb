@@ -5,30 +5,23 @@ class MemberSerializer < ActiveModel::Serializer
              :last_name,
              :email,
              :profile_id,
-             :user_id,
-             :parent_profile_name,
              :address,
              :city,
              :state,
              :zip,
              :phone,
-             :section_ids,
              :membership_type,
-             :registered_sections
+             :full_name
 
-  def parent_profile_name
-    object.user.profile.profile_name
-  end
+  has_many :klasses
+  has_many :trainers
 
   def membership_type
-    registered_sections.map(&:title) if registered_sections
+    "membership_type"
   end
 
-  def registered_sections
-    return unless object.section_ids
-    user_id = object.user_id
-    section_ids = object.section_ids.split(",")
-    sections = Section.where(:user_id => user_id, :id => section_ids)
-    return sections
+  def full_name
+    "#{first_name} #{last_name}"
   end
+
 end
