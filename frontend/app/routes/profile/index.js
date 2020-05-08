@@ -4,6 +4,12 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin,{
   session:  Ember.inject.service(),
 
+  beforeModel(transition){
+    //debugger;
+  },
+  afterModel(model) {
+    //debugger;
+  },
   model() {
     let queryParams = {where: { userId: { value: this.get('session.data.authenticated.id'), operator: '==' }}};
     let promises = {

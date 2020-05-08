@@ -7,19 +7,9 @@ class ProfileSerializer < ActiveModel::Serializer
              :city,
              :state,
              :zip,
-             :phone,
-             :members_list,
-             :sections_list
+             :phone
 
   has_many :klasses
   has_many :trainers
   has_many :members
-
-  def members_list
-    []
-  end
-
-  def sections_list
-    []
-  end
 end

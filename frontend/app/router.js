@@ -10,11 +10,6 @@ Router.map(function() {
   //this.route('profile', function() {});
   this.route('login', function() {});
   this.route('signup', function() {});
-
-  this.route('users', function() {
-    this.route('new-class');
-  });
-
   this.route('profile', function() {
     this.route('classes');
     this.route('trainers', function() {});
