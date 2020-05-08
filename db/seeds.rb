@@ -5,6 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Profile.create(profile_name: 'Gwinnett Training Acedemy', email: 'gta@gmail.com' , phone: '404-768-7745', address: '446 suwanne drive', state: 'GA', city: 'Suwannee', zip: '30044', user_id: 1)
+
 Member.create(first_name: 'Erica', last_name: 'Martin', email: 'erica@gmail.com' , phone: '404-768-7745', address: '446 suwanne drive', state: 'GA', city: 'Suwannee', zip: '30044', profile_id: 1)
 Member.create(first_name: 'John', last_name: 'Doe', email: 'Doe@gmail.com' , phone: '404-768-7745', address: '446 dacula drive', state: 'GA', city: 'Dacula', zip: '30044', profile_id: 1)
 Member.create(first_name: 'Faris', last_name: 'Lens', email: 'Lens@gmail.com' , phone: '404-768-7745', address: '446 duluth drive', state: 'GA', city: 'Duluth', zip: '30044', profile_id: 1)
