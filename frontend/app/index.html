@@ -1,63 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>GymSidekiq</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <title>GymSidekiq</title>
+        <meta content="" name="description"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        {{content-for "head"}}
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+        <link href="{{rootURL}}assets/scss/master.css" integrity="" rel="stylesheet"/>
+        {{content-for "head-footer"}}
+    </head>
+    <body>
+        {{content-for "body"}}
 
-    {{content-for "head"}}
-    <link
-      integrity=""
-      rel="stylesheet"
-      href="{{rootURL}}assets/chosen/docsupport/prism.css"
-    />
-    <link
-      integrity=""
-      rel="stylesheet"
-      href="{{rootURL}}assets/chosen/chosen.css"
-    />
+        <script src="{{rootURL}}assets/vendor.js"></script>
+        <script src="{{rootURL}}assets/frontend.js"></script>
 
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css" />
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/frontend.css" />
-
-    <link
-      integrity=""
-      rel="stylesheet"
-      href="{{rootURL}}assets/css/pages/routes.css"
-    />
-    <link
-      integrity=""
-      rel="stylesheet"
-      href="{{rootURL}}assets/css/homepage-landing-page.css"
-    />
-    <link
-      integrity=""
-      rel="stylesheet"
-      href="{{rootURL}}assets/css/bootstrap/bootstrap.css"
-    />
-    <link
-      integrity=""
-      rel="stylesheet"
-      href="{{rootURL}}assets/fonts/ionicons/css/ionicons.min.css"
-    />
-    <link
-      integrity=""
-      rel="stylesheet"
-      href="{{rootURL}}assets/fonts/fontawesome/css/font-awesome.min.css"
-    />
-
-    {{content-for "head-footer"}}
-  </head>
-  <body>
-    {{content-for "body"}}
-
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/frontend.js"></script>
-
-    {{content-for "body-footer"}}
-  </body>
+        {{content-for "body-footer"}}
+    </body>
 </html>
-
-<!-- After you pull you will have to do the following:  (1) rake db:drop db:create (2) rake db:migrate (3) sign up as a user (4) rake db:seed (5) rake ember:compile (6) rails s -->

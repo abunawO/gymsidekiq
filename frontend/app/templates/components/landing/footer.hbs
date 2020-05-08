@@ -1,0 +1,31 @@
+<footer class="lan-footer">
+    <div class="lan-footer-primary">
+        {{#each this.items as |d|}}
+        <div class="lan-footer-item">
+            <h2>{{d.title}}</h2>
+            {{#if d.details}}
+            <p>{{d.details}}</p>
+            {{/if}}
+            <ul>
+                {{#each d.links as |i|}}
+                <li>
+                    <a href="{{i.link}}">{{i.title}}</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/each}}
+    </div>
+    <div class="lan-footer-secondary">
+        <ul>
+            {{#each this.socials as |d|}}
+            <li>
+                <a href={{d.href}}>
+                    <img src="{{rootURL}}{{d.img}}" />
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+        <p>&copy; 2020 GymSidekiq. All Rights Reserved.</p>
+    </div>
+</footer>
