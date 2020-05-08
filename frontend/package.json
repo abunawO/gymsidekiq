@@ -37,6 +37,7 @@
     "ember-cli-inject-live-reload": "^2.0.2",
     "ember-cli-moment-shim": "^3.7.1",
     "ember-cli-rails-addon": "^0.10.0",
+    "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-uglify": "^3.0.0",
     "ember-data": "~3.17.0",
@@ -66,6 +67,8 @@
     "edition": "octane"
   },
   "dependencies": {
+    "chosen": "0.0.2",
+    "chosen-js": "^1.8.7",
     "ember-timepicker": "^0.3.0",
     "timepicker": "^1.13.6"
   }

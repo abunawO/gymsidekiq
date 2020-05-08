@@ -2,10 +2,12 @@
 
 one:
   email: MyString
+  password: MyString
   password_hash: MyString
   password_salt: MyString
 
 two:
   email: MyString
+  password: MyString
   password_hash: MyString
   password_salt: MyString

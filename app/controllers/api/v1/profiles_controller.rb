@@ -1,6 +1,6 @@
 class Api::V1::ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  #skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   # GET /profiles
   # GET /profiles.json

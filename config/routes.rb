@@ -8,8 +8,9 @@ Rails.application.routes.draw do
       resources :users
       resources :sessions
       resources :profiles
-      resources :sections
       resources :members
+      resources :trainers
+      resources :klasses
     end
   end
 

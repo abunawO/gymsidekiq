@@ -1,0 +1,55 @@
+
+{{route-links}}
+
+<h1>Listing Classes</h1>
+
+<table id="sections">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Profile</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each userKlasses as |section|}}
+      <tr>
+        <td>{{section.title}}</td>
+        <td>{{section.profileName}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<h1>Listing Trainers</h1>
+
+<table id="sections">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each trainersList as |trainer|}}
+      <tr>
+        <td>{{trainer.firstName}}</td>
+        <td>{{trainer.lastName}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<div class="section-container">
+  <form id="contact" action="" method="post">
+    <h3>Class Information</h3>
+    <fieldset>
+      {{input type="text" value=title placeholder="Title" autofocus=true}}
+    </fieldset>
+    <fieldset>
+      <button {{action "createClass"}} name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+    {{copyright-footer}}
+  </form>
+</div>

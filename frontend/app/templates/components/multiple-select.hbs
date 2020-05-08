@@ -1,0 +1,7 @@
+<select data-placeholder="Click to select trainer" multiple class="chosen-select" tabindex="18">
+  {{#each listOfCollection as |item|}}
+    <option value=""></option>
+    <option>{{item.firstName}} {{item.lastName}}</option>
+    <!--option selected>Giant Panda</option>-->
+  {{/each}}
+</select>

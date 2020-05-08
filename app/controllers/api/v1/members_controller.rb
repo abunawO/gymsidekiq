@@ -1,11 +1,12 @@
 class Api::V1::MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /members
   # GET /members.json
   def index
     #binding.pry
-    @members = Member.where(:user_id => params[:where][:userId][:value])
+    @members = Member.where(:profile_id => params[:where][:profileId][:value])
     render json: @members, each_serializer: MemberSerializer, status: :ok
   end
 
@@ -65,6 +66,6 @@ class Api::V1::MembersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
       #binding.pry
-      params.require(:member).permit(:membership_type, :first_name, :last_name, :email, :profile_id, :user_id, :address, :city, :state, :zip, :phone, :section_ids)
+      params.require(:member).permit(:membership_type, :first_name, :last_name, :email, :profile_id, :address, :city, :state, :zip, :phone)
     end
 end

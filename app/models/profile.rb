@@ -1,6 +1,6 @@
 class Profile < ActiveRecord::Base
-  has_many   :members, dependent: :destroy
-  has_many   :sections, dependent: :destroy
   belongs_to :user
-  validates_presence_of  :profile_name, :email, :address, :city, :state, :zip, :phone, :message => "profile is missing one or more fields"
+  has_many :members
+  has_many :trainers
+  has_many :klasses
 end
