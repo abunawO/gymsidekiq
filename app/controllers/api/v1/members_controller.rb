@@ -5,12 +5,12 @@ class Api::V1::MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    #binding.pry
+    # binding.pry
     @members = Member.where(:profile_id => params[:where][:profileId][:value])
     render json: @members, each_serializer: MemberSerializer, status: :ok
   end
 
-  # GET /members/1
+  # GET /members/1para
   # GET /members/1.json
   def show
   end
