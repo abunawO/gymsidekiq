@@ -1,9 +1,9 @@
-import Route from '@ember/routing/route';
+import Route from "@ember/routing/route";
 
 export default Ember.Route.extend({
-  session:  Ember.inject.service(),
+  session: Ember.inject.service(),
 
-  beforeModel(transition){
+  beforeModel(transition) {
     //debugger;
   },
   afterModel(model) {
@@ -11,9 +11,16 @@ export default Ember.Route.extend({
   },
 
   model() {
-    let queryParams = {where: { profileId: { value: this.get('session.data.authenticated.profileId'), operator: '==' }}};
+    let queryParams = {
+      where: {
+        profileId: {
+          value: this.get("session.data.authenticated.profileId"),
+          operator: "==",
+        },
+      },
+    };
     let promises = {
-      profileMembers: this.store.query('member', queryParams)
+      profileMembers: this.store.query("member", queryParams),
     };
 
     return Ember.RSVP.hash(promises);
@@ -21,7 +28,6 @@ export default Ember.Route.extend({
 
   setupController(controller, model) {
     this._super(controller, model);
-    controller.set('profileMembersList', model.profileMembers);
-  }
-
+    controller.set("profileMembersList", model.profileMembers);
+  },
 });

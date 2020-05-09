@@ -1,4 +1,6 @@
 {
-  
-  "cacheDirectories": ["frontend/node_modules","node_modules"]
+  "cacheDirectories": [
+    "frontend/node_modules",
+    "node_modules"
+  ]
 }
