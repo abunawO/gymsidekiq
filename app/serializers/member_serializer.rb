@@ -12,13 +12,19 @@ class MemberSerializer < ActiveModel::Serializer
              :phone,
              :membership_type,
              :profile_id,
-             :trainers
+             :trainers,
+             :classes
 
-  has_many :klasses,  embed_in_root: true, serializer: KlassSerializer
+  #has_many :klasses,  embed_in_root: true, serializer: KlassSerializer
 
   def membership_type
     return nil unless object.klasses
     object.klasses.map(&:title).uniq
+  end
+
+  def classes
+    return nil unless object.klasses
+    object.klasses
   end
 
   def trainers

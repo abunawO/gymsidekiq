@@ -9,7 +9,13 @@ class TrainerSerializer < ActiveModel::Serializer
               :city,
               :zip,
               :phone,
-              :profile_id
+              :profile_id,
+              :classes
 
-  has_many :klasses,  embed_in_root: true, serializer: KlassSerializer
+  def classes
+    return nil unless object.klasses
+    object.klasses
+  end
+
+  #has_many :klasses,  embed_in_root: true, serializer: KlassSerializer
 end

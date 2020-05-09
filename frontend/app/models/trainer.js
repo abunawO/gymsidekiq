@@ -13,6 +13,7 @@ export default DS.Model.extend({
    phone: DS.attr(),
    profileId: DS.attr(),
    profile: DS.belongsTo('profile', { async: true }),
+   classes: DS.attr(),
    klasses: DS.hasMany('klass', { inverse: null }),
 
    fullName: computed('firstName', 'lastName', function() {

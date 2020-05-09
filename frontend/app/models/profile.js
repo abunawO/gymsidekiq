@@ -10,6 +10,7 @@ export default DS.Model.extend({
    state: DS.attr(),
    zip: DS.attr(),
    phone: DS.attr(),
+   classes:  DS.attr(),
    members:  DS.hasMany('member', { inverse: null }),
    trainers: DS.hasMany('trainer', { inverse: null }),
    klasses:  DS.hasMany('klass', { inverse: null }),

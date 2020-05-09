@@ -6,8 +6,9 @@ export default DS.Model.extend({
    schedule: DS.attr(),
    profileId: DS.attr(),
    isParent: DS.attr(),
+   trainers: DS.attr(),
+   members: DS.attr(),
    profile: DS.belongsTo('profile', { async: true }),
    trainer: DS.belongsTo('trainer', { async: true }),
    member: DS.belongsTo('member',   { async: true })
-
  });

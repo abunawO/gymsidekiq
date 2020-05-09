@@ -7,9 +7,16 @@ class ProfileSerializer < ActiveModel::Serializer
              :city,
              :state,
              :zip,
-             :phone
+             :phone,
+             :classes
 
-  has_many :klasses,  embed_in_root: true, serializer: KlassSerializer
+  #has_many :klasses,  embed_in_root: true, serializer: KlassSerializer
   has_many :trainers, embed_in_root: true, serializer: TrainerSerializer
   has_many :members,  embed_in_root: true, serializer: MemberSerializer
+
+
+  def classes
+    return nil unless object.klasses
+    object.klasses.select { |k| k.is_parent == true }
+  end
 end

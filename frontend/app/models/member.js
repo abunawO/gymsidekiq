@@ -15,6 +15,7 @@ export default DS.Model.extend({
    profileId: DS.attr(),
    profile:  DS.belongsTo('profile', { async: true }),
    trainers: DS.attr(),
+   classes: DS.attr(),
    klasses:  DS.hasMany('klass'),
 
    fullName: computed('firstName', 'lastName', function() {
