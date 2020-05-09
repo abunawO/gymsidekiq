@@ -8,8 +8,9 @@ class TrainerSerializer < ActiveModel::Serializer
               :state,
               :city,
               :zip,
-              :phone
-              
+              :phone,
+              :profile_id
+
   has_many :klasses
   has_many :members
 end

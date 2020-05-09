@@ -31,8 +31,7 @@
 <table id="members">
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
+      <th>Name</th>
       <th>Email</th>
       <th>address</th>
       <th>City</th>
@@ -44,8 +43,7 @@
   <tbody>
     {{#each profileTrainersList as |trainer|}}
       <tr>
-        <td>{{trainer.firstName}}</td>
-        <td>{{trainer.lastName}}</td>
+        <td>{{trainer.fullName}}</td>
         <td>{{trainer.email}}</td>
         <td>{{trainer.address}}</td>
         <td>{{trainer.city}}</td>

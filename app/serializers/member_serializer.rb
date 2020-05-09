@@ -11,17 +11,13 @@ class MemberSerializer < ActiveModel::Serializer
              :zip,
              :phone,
              :membership_type,
-             :full_name
+             :profile_id
 
   has_many :klasses
   has_many :trainers
 
   def membership_type
     "membership_type"
-  end
-
-  def full_name
-    "#{first_name} #{last_name}"
   end
 
 end

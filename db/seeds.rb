@@ -20,3 +20,19 @@ Trainer.create(first_name: 'Brently', last_name: 'Fur', email: 'brently@gta.com'
 Trainer.create(first_name: 'Asim', last_name: 'Njovic', email: 'asim@gta.com' , phone: '404-768-7745', address: '446 atlanta drive', state: 'GA', city: 'atlanta', zip: '30044', profile_id: 1)
 Trainer.create(first_name: 'Jacob', last_name: 'Gibson', email: 'jacob@gta.com' , phone: '404-768-7745', address: '446 alpharetta drive', state: 'GA', city: 'alpharetta', zip: '30044', profile_id: 1)
 Trainer.create(first_name: 'Cole', last_name: 'Miller', email: 'cole@gta.com' , phone: '404-768-7745', address: '446 marietta drive', state: 'GA', city: 'marietta', zip: '30044', profile_id: 1)
+
+#10.times { Category.create!(name: Faker::Lorem.word) }
+
+# Create sources
+#10.times { Source.create!(name: Faker::Company.name) }
+
+# Create Articles
+#50.times {
+  #category = Category.all.sample
+  #source = Source.all.sample
+  #Article.create!(
+    #title: Faker::Lorem.sentence,
+    #url: Faker::Internet.url,
+    #category: category,
+    #source: source
+  #)

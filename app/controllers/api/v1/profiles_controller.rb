@@ -5,24 +5,36 @@ class Api::V1::ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    #binding.pry
     @profiles = Profile.where(:user_id => params[:where][:userId][:value])
-
     render json: @profiles, each_serializer: ProfileSerializer, status: :ok
   end
 
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @profile = Profile.find(params[:id])
+
+    if stale?(last_modified: @profile.updated_at, public: true)
+      render json: @profile
+    end
   end
 
   # GET /profiles/new
   def new
     @profile = Profile.new
+
+    if stale?(last_modified: @profile.updated_at, public: true)
+      render json: @profile
+    end
   end
 
   # GET /profiles/1/edit
   def edit
+    @profile = Profile.find(params[:id])
+
+    if stale?(last_modified: @profile.updated_at, public: true)
+      render json: @profile
+    end
   end
 
   # POST /profiles

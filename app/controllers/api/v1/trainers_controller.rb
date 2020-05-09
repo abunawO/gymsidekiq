@@ -12,15 +12,29 @@ class Api::V1:: TrainersController < ApplicationController
   # GET /trainers/1
   # GET /trainers/1.json
   def show
+    @trainer = Trainer.find(params[:id])
+
+    if stale?(last_modified: @trainer.updated_at, public: true)
+      render json: @trainer
+    end
   end
 
   # GET /trainers/new
   def new
     @trainer = Trainer.new
+
+    if stale?(last_modified: @trainer.updated_at, public: true)
+      render json: @trainer
+    end
   end
 
   # GET /trainers/1/edit
   def edit
+    @trainer = Trainer.find(params[:id])
+
+    if stale?(last_modified: @trainer.updated_at, public: true)
+      render json: @trainer
+    end
   end
 
   # POST /trainers

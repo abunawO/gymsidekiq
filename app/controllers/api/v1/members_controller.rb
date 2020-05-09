@@ -13,15 +13,29 @@ class Api::V1::MembersController < ApplicationController
   # GET /members/1
   # GET /members/1.json
   def show
+    @member = Member.find(params[:id])
+
+    if stale?(last_modified: @member.updated_at, public: true)
+      render json: @member
+    end
   end
 
   # GET /members/new
   def new
     @member = Member.new
+
+    if stale?(last_modified: @member.updated_at, public: true)
+      render json: @member
+    end
   end
 
   # GET /members/1/edit
   def edit
+    @member = Member.find(params[:id])
+
+    if stale?(last_modified: @member.updated_at, public: true)
+      render json: @member
+    end
   end
 
   # POST /members

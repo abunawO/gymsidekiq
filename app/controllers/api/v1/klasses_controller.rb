@@ -12,24 +12,36 @@ class Api::V1:: KlassesController < ApplicationController
   # GET /klasses/1
   # GET /klasses/1.json
   def show
+    @klass = Klass.find(params[:id])
+
+    if stale?(last_modified: @klass.updated_at, public: true)
+      render json: @klass
+    end
   end
 
   # GET /klasses/new
   def new
     @klass = Klass.new
+
+    if stale?(last_modified: @klass.updated_at, public: true)
+      render json: @klass
+    end
   end
 
   # GET /klasses/1/edit
   def edit
+    @klass = Klass.find(params[:id])
+
+    if stale?(last_modified: @klass.updated_at, public: true)
+      render json: @klass
+    end
   end
 
   # POST /klasses
   # POST /klasses.json
   def create
-    binding.pry
     @klass = Klass.new(klass_params)
-    binding.pry
-    if  @klass.user.klasses.create(title: @klass.title).save
+    if  @klass.save
       render json: { message: 'Klass was successfully updated.' }, status: :ok
     else
       render json: { errors: @klass.errors }, status: :unprocessable_entity

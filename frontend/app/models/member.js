@@ -1,10 +1,10 @@
 import DS from 'ember-data';
 import Model, { belongsTo, hasMany } from '@ember-data/model';
+import { computed } from '@ember/object';
 
 export default DS.Model.extend({
    membershipType: DS.attr(),
    firstName: DS.attr(),
-   fullName: DS.attr(),
    lastName: DS.attr(),
    email: DS.attr(),
    address: DS.attr(),
@@ -12,7 +12,12 @@ export default DS.Model.extend({
    state: DS.attr(),
    zip: DS.attr(),
    phone: DS.attr(),
+   profileId: DS.attr(),
    profile:  DS.belongsTo('profile'),
    trainers: DS.hasMany('trainer', { inverse: null }),
-   klasses:  DS.hasMany('klass', { inverse: null })
+   klasses:  DS.hasMany('klass', { inverse: null }),
+
+   fullName: computed('firstName', 'lastName', function() {
+    return `${this.firstName} ${this.lastName}`;
+   })
  });
