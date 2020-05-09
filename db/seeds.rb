@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
 #Profile.create(profile_name: 'Gwinnett Training Acedemy', email: 'gta@gmail.com' , phone: '404-768-7745', address: '446 suwanne drive', state: 'GA', city: 'Suwannee', zip: '30044', user_id: 1)
 
 #Member.create(first_name: 'Erica', last_name: 'Martin', email: 'erica@gmail.com' , phone: '404-768-7745', address: '446 suwanne drive', state: 'GA', city: 'Suwannee', zip: '30044', profile_id: 1)
@@ -28,33 +29,33 @@
 
 #Member.find(20).klasses.create(title: Klass.find(49).title, profile_id: Klass.find(49).profile_id)
 #jit coaches
-Trainer.find(20).klasses.create(title: Klass.find(52).title, profile_id: Klass.find(52).profile_id)
-Trainer.find(17).klasses.create(title: Klass.find(52).title, profile_id: Klass.find(52).profile_id)
-Trainer.find(19).klasses.create(title: Klass.find(52).title, profile_id: Klass.find(52).profile_id)
-Trainer.find(15).klasses.create(title: Klass.find(52).title, profile_id: Klass.find(52).profile_id)
+#Trainer.find(20).klasses.create(title: Klass.find(52).title, profile_id: Klass.find(52).profile_id)
+#Trainer.find(17).klasses.create(title: Klass.find(52).title, profile_id: Klass.find(52).profile_id)
+#Trainer.find(19).klasses.create(title: Klass.find(52).title, profile_id: Klass.find(52).profile_id)
+#Trainer.find(15).klasses.create(title: Klass.find(52).title, profile_id: Klass.find(52).profile_id)
 
 #mma coaches
-Trainer.find(17).klasses.create(title: Klass.find(47).title, profile_id: Klass.find(47).profile_id)
-Trainer.find(15).klasses.create(title: Klass.find(47).title, profile_id: Klass.find(47).profile_id)
+#Trainer.find(17).klasses.create(title: Klass.find(47).title, profile_id: Klass.find(47).profile_id)
+#Trainer.find(15).klasses.create(title: Klass.find(47).title, profile_id: Klass.find(47).profile_id)
 
 #Boxing coaches
-Trainer.find(15).klasses.create(title: Klass.find(46).title, profile_id: Klass.find(46).profile_id)
-Trainer.find(18).klasses.create(title: Klass.find(46).title, profile_id: Klass.find(46).profile_id)
+#Trainer.find(15).klasses.create(title: Klass.find(46).title, profile_id: Klass.find(46).profile_id)
+#Trainer.find(18).klasses.create(title: Klass.find(46).title, profile_id: Klass.find(46).profile_id)
 
 #Mauy Thai coaches
-Trainer.find(16).klasses.create(title: Klass.find(48).title, profile_id: Klass.find(48).profile_id)
-Trainer.find(15).klasses.create(title: Klass.find(48).title, profile_id: Klass.find(48).profile_id)
+#Trainer.find(16).klasses.create(title: Klass.find(48).title, profile_id: Klass.find(48).profile_id)
+#Trainer.find(15).klasses.create(title: Klass.find(48).title, profile_id: Klass.find(48).profile_id)
 
 #Kickboxing coaches
-Trainer.find(17).klasses.create(title: Klass.find(49).title, profile_id: Klass.find(49).profile_id)
-Trainer.find(18).klasses.create(title: Klass.find(49).title, profile_id: Klass.find(49).profile_id)
+#Trainer.find(17).klasses.create(title: Klass.find(49).title, profile_id: Klass.find(49).profile_id)
+#Trainer.find(18).klasses.create(title: Klass.find(49).title, profile_id: Klass.find(49).profile_id)
 
 #Crossfit coaches
-Trainer.find(20).klasses.create(title: Klass.find(50).title, profile_id: Klass.find(50).profile_id)
-Trainer.find(17).klasses.create(title: Klass.find(50).title, profile_id: Klass.find(50).profile_id)
+#Trainer.find(20).klasses.create(title: Klass.find(50).title, profile_id: Klass.find(50).profile_id)
+#Trainer.find(17).klasses.create(title: Klass.find(50).title, profile_id: Klass.find(50).profile_id)
 
 #Hardcore coaches
-Trainer.find(17).klasses.create(title: Klass.find(51).title, profile_id: Klass.find(51).profile_id)
+#Trainer.find(17).klasses.create(title: Klass.find(51).title, profile_id: Klass.find(51).profile_id)
 #10.times { Category.create!(name: Faker::Lorem.word) }
 
 # Create sources
