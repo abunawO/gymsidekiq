@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200508053039) do
+ActiveRecord::Schema.define(version: 20200509155807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20200508053039) do
     t.integer  "profile_id"
     t.integer  "trainer_id"
     t.integer  "member_id"
+    t.boolean  "is_parent"
   end
 
   add_index "klasses", ["member_id"], name: "index_klasses_on_member_id", using: :btree

@@ -5,7 +5,7 @@ class Api::V1:: KlassesController < ApplicationController
   # GET /klasses
   # GET /klasses.json
   def index
-    @klasses = Klass.where(:profile_id => params[:where][:profileId][:value])
+    @klasses = Klass.where(profile_id: params[:where][:profileId][:value], is_parent: true)
     render json: @klasses, each_serializer: KlassSerializer, status: :ok
   end
 
@@ -77,6 +77,6 @@ class Api::V1:: KlassesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def klass_params
       binding.pry
-      params.fetch(:klass, {}).permit(:title, :profile_id, :trainer_id, :member_id)
+      params.fetch(:klass, {}).permit(:title, :profile_id, :trainer_id, :member_id, :is_parent)
     end
 end

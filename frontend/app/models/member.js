@@ -13,9 +13,9 @@ export default DS.Model.extend({
    zip: DS.attr(),
    phone: DS.attr(),
    profileId: DS.attr(),
-   profile:  DS.belongsTo('profile'),
-   trainers: DS.hasMany('trainer', { inverse: null }),
-   klasses:  DS.hasMany('klass', { inverse: null }),
+   profile:  DS.belongsTo('profile', { async: true }),
+   trainers: DS.attr(),
+   klasses:  DS.hasMany('klass'),
 
    fullName: computed('firstName', 'lastName', function() {
     return `${this.firstName} ${this.lastName}`;

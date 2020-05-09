@@ -3,7 +3,6 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   userProfiles: [],
-
   actions: {
     someAction() {
       //debugger

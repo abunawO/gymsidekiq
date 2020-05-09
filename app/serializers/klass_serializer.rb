@@ -2,5 +2,6 @@ class KlassSerializer < ActiveModel::Serializer
   attributes :id,
              :title,
              :schedule,
-             :profile_id
+             :profile_id,
+             :is_parent
 end

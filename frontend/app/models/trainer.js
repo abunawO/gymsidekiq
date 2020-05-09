@@ -12,12 +12,11 @@ export default DS.Model.extend({
    zip: DS.attr(),
    phone: DS.attr(),
    profileId: DS.attr(),
-   profile: DS.belongsTo('profile'),
+   profile: DS.belongsTo('profile', { async: true }),
    klasses: DS.hasMany('klass', { inverse: null }),
-   members: DS.hasMany('member', { inverse: null }),
 
    fullName: computed('firstName', 'lastName', function() {
     return `${this.firstName} ${this.lastName}`;
    })
-   
+
  });

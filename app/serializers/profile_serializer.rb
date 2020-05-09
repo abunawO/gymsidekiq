@@ -9,7 +9,7 @@ class ProfileSerializer < ActiveModel::Serializer
              :zip,
              :phone
 
-  has_many :klasses
-  has_many :trainers
-  has_many :members
+  has_many :klasses,  embed_in_root: true, serializer: KlassSerializer
+  has_many :trainers, embed_in_root: true, serializer: TrainerSerializer
+  has_many :members,  embed_in_root: true, serializer: MemberSerializer
 end

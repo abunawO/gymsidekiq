@@ -11,6 +11,5 @@ class TrainerSerializer < ActiveModel::Serializer
               :phone,
               :profile_id
 
-  has_many :klasses
-  has_many :members
+  has_many :klasses,  embed_in_root: true, serializer: KlassSerializer
 end
