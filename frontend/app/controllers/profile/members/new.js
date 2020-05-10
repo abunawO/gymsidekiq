@@ -60,7 +60,7 @@ export default Ember.Controller.extend({
     },
 
     createNewMember() {
-      debugger
+      //debugger
       //this.get('profile.id')
       var member = this.store.createRecord('member', {
         profileId: this.get('profile.id'),

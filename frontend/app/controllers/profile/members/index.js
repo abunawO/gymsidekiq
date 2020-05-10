@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
 
   actions: {
     someAction() {
-      debugger
+      //debugger
       this.transitionToRoute('profile.members.new')
     }
   }
