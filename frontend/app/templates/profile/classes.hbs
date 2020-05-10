@@ -27,19 +27,28 @@
 {{route-links}}
 
 <h1>Listing Profile Classes</h1>
-
-<table id="members">
-  <thead>
-    <tr>
-      <th>Class Title</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    {{#each profileClasses as |class|}}
-      <tr>
-        <td>{{class.title}}</td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
+<div>
+{{#each profileClasses as |class|}}
+<div style="float:left;"> <span style="color: blue;">{{class.title}}</span></div>
+<div style="float:left;">
+  <ul style="display: inline-block;">
+    <div style="position: relative;margin: 30px -40px;">
+      <span style="color: green;">TRAINERS</span>
+      {{#each class.trainers as |trainer|}}
+       <li style="list-style-type: none;">
+         {{trainer.first_name}}
+        </li>
+      {{/each}}
+    </div>
+    <div style="position: relative;top: 30px;left: -40px;">
+      <span style="color: orange;">STUDENTS</span>
+      {{#each class.members as |member|}}
+       <li style="list-style-type: none;">
+         {{member.first_name}}
+       </li>
+      {{/each}}
+    </div>
+  </ul>
+</div>
+{{/each}}
+</div>
