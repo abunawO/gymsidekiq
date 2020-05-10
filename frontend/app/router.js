@@ -11,8 +11,10 @@ Router.map(function() {
   this.route('login', function() {});
   this.route('signup', function() {});
   this.route('profile', function() {
-    this.route('classes');
+    this.route('classes', function() {});
     this.route('trainers', function() {});
-    this.route('members', function() {});
+    this.route('members', function() {
+      this.route('new');
+    });
   });
 });

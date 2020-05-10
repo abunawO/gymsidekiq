@@ -1,69 +1,8 @@
-<style>
-  #members {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  #members td,
-  #members th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-
-  #members tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-
-  #members tr:hover {
-    background-color: #ddd;
-  }
-
-  #members th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
-  }
-</style>
-
 {{route-links}}
-
-<h1>Listing Profile Members</h1>
-
-<table id="members">
-  <thead>
-    <tr>
-      <th>Membership type</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Phone</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    {{#each profileMembersList as |member|}}
-    <tr>
-      <td>{{member.membershipType}}</td>
-      <td>{{member.fullName}}</td>
-      <td>{{member.email}}</td>
-      <td>{{member.address}}</td>
-      <td>{{member.city}}</td>
-      <td>{{member.state}}</td>
-      <td>{{member.phone}}</td>
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
 
 <div class="main-containercontainer">
   <form id="contact" action="" method="post">
-    <h3>Guess Information Profile</h3>
-    <h4>Waiver Form</h4>
+    <h3>Create New Member</h3>
     <fieldset>
       {{input type="text" value=firstName placeholder="first Name" autofocus=true}}
     </fieldset>
@@ -92,7 +31,7 @@
       <h4>Membership Type</h4>
     </fieldset>
     <fieldset>
-      <button {{action "createMember"}} name="submit" type="submit" id="contact-submit"
+      <button {{action "createNewMember"}} name="submit" type="submit" id="contact-submit"
         data-submit="...Sending">Submit</button>
     </fieldset>
     <div class="checkbox-label">

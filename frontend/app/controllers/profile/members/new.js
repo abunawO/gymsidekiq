@@ -4,8 +4,7 @@ const { service } = Ember.inject;
 
 export default Ember.Controller.extend({
   session:  Ember.inject.service(),
-  profileMembersList: [],
-  userProfile: Ember.inject.controller('profile.index'),
+  profile: null,
 
   refreshModel: function(){
     this.set('firstName', ''),
@@ -60,10 +59,11 @@ export default Ember.Controller.extend({
       }
     },
 
-    createMember() {
+    createNewMember() {
       debugger
-
+      //this.get('profile.id')
       var member = this.store.createRecord('member', {
+        profileId: this.get('profile.id'),
         firstName: this.get('firstName'),
         lastName: this.get('lastName'),
         userId: this.get('session.data.authenticated.id'),

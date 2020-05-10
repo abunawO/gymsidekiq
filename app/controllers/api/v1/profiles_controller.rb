@@ -5,7 +5,11 @@ class Api::V1::ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.where(:user_id => params[:where][:userId][:value])
+    if params[:where][:userId]
+      @profiles = Profile.where(:user_id => params[:where][:userId][:value])
+    else
+      @profiles = Profile.where(:id => params[:where][:profileId][:value])
+    end
     render json: @profiles, each_serializer: ProfileSerializer, status: :ok
   end
 
