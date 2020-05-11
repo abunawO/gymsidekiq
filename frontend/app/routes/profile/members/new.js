@@ -21,7 +21,6 @@ export default Ember.Route.extend({
   },
 
   setupController(controller, model) {
-    //debugger;
     this._super(controller, model);
     controller.set('profile', model.profile.firstObject);
   }

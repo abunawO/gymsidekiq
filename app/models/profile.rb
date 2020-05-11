@@ -3,4 +3,5 @@ class Profile < ActiveRecord::Base
   has_many :members
   has_many :trainers
   has_many :klasses
+  has_many :plans
 end

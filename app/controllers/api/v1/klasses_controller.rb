@@ -76,7 +76,6 @@ class Api::V1:: KlassesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def klass_params
-      binding.pry
       params.fetch(:klass, {}).permit(:title, :profile_id, :trainer_id, :member_id, :is_parent)
     end
 end

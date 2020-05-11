@@ -12,19 +12,21 @@ class MemberSerializer < ActiveModel::Serializer
              :phone,
              :membership_type,
              :profile_id,
+             :plan_id,
              :trainers,
              :classes
 
   #has_many :klasses,  embed_in_root: true, serializer: KlassSerializer
 
   def membership_type
-    return nil unless object.klasses
-    object.klasses.map(&:title).uniq
+    return unless object.plan_id
+    Plan.find(object.plan_id).title
   end
 
   def classes
-    return nil unless object.klasses
-    object.klasses
+    return nil unless object.plan_id
+    plan = Plan.find(object.plan_id)
+    Klass.where(id: plan.klass_ids.split(','))
   end
 
   def trainers

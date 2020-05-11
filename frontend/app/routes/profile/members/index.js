@@ -20,14 +20,16 @@ export default Ember.Route.extend({
       },
     };
     let promises = {
-      profileMembers: this.store.query("member", queryParams),
+      profile: this.store.query('profile', queryParams),
     };
 
     return Ember.RSVP.hash(promises);
   },
 
   setupController(controller, model) {
+    //debugger;
     this._super(controller, model);
-    controller.set("profileMembersList", model.profileMembers);
+    controller.set("profileMembersList", model.profile.firstObject.members);
+    controller.set('profile', model.profile.firstObject);
   },
 });

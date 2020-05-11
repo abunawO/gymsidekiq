@@ -5,6 +5,8 @@ const { service } = Ember.inject;
 export default Ember.Controller.extend({
   session:  Ember.inject.service(),
   profile: null,
+  planId: null,
+  checkedPlans: [],
 
   refreshModel: function(){
     this.set('firstName', ''),
@@ -16,22 +18,8 @@ export default Ember.Controller.extend({
     this.set('zip', ''),
     this.set('phone', ''),
     this.set('accept_terms', ''),
-    this.get('checkedSections').forEach((element)=>{element.prop('checked',false);});
+    this.get('checkedPlans').forEach((element)=>{element.prop('checked',false);});
 
-  },
-  refreshState: function(){
-    this.set('currentUserId', this.get('session.data.authenticated.id') )
-    let queryParams = {where: { userId: { value: this.get('currentUserId'), operator: '==' }}};
-    let promises = {
-      members: this.store.query('member', queryParams),
-      userKlasses: this.store.query('klass', queryParams)
-
-    };
-
-    return Ember.RSVP.hash(promises).then((data)=>{
-      this.set('membersList', data.members);
-      this.set('userKlasses', data.userKlasses);
-    })
   },
 
   filterMembershipTypeSelection: function(hash){
@@ -45,18 +33,10 @@ export default Ember.Controller.extend({
   },
 
   actions: {
-
-    setSectionId(isChecked, sectionId, element) {
+    setPlanId(planId, element) {
       //debugger
-      this.get('checkedSections').push(element)
-      if (isChecked) {
-        this.get('sectionIds').push(sectionId)
-      }else{
-        const index = this.get('sectionIds').indexOf(sectionId);
-        if (index > -1) {
-          this.get('sectionIds').splice(index, 1);
-        }
-      }
+      this.set('planId', planId);
+      this.get('checkedPlans').push(element);
     },
 
     createNewMember() {
@@ -72,6 +52,7 @@ export default Ember.Controller.extend({
         state: this.get('state'),
         city: this.get('city'),
         zip: this.get('zip'),
+        planId: this.get('planId'),
         phone: this.get('phone')
       });
 

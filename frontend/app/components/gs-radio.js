@@ -3,27 +3,27 @@ import Ember from "ember";
 
 export default Ember.Component.extend({
   tagName: "input",
-  isChecked: true,
+  isChecked: false,
   attributeBindings: ["type", "checked"],
-  type: "checkbox",
+  type: "radio",
   data: null,
   value: "0",
   callbackAction: "",
   afterAction: "",
 
   click: function () {
-    debugger
+    //debugger
     var elementId = this.get("elementId");
     var checkboxElement = $("input[id=" + elementId + "]");
     var isChecked = checkboxElement.is(":checked");
-    var sectionId = this.get("data");
+    var planId = this.get("data");
+    //uncheck previous checked box
+    $('input:radio').not(this).prop('checked', false);
+    //check new checked box
+    $(checkboxElement).not(this).prop('checked', true);
     this.get("_target").send(
       this.get("callbackAction"),
-      isChecked,
-      sectionId,
-      checkboxElement,
-      elementId,
-      this.get("afterAction")
+      planId,checkboxElement
     );
   },
 });

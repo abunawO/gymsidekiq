@@ -13,6 +13,7 @@ export default DS.Model.extend({
    zip: DS.attr(),
    phone: DS.attr(),
    profileId: DS.attr(),
+   planId: DS.attr(),
    profile:  DS.belongsTo('profile', { async: true }),
    trainers: DS.attr(),
    classes: DS.attr(),

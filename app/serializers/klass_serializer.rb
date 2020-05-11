@@ -23,7 +23,9 @@ class KlassSerializer < ActiveModel::Serializer
    def members
      members_and_class = []
      Member.where(profile_id: 1).each do |member|
-       member.klasses.map(&:title).uniq.each do |title|
+       plan = Plan.where(id: member.plan_id).first
+       klasses = Klass.where(id: plan.klass_ids.split(','))
+       klasses.map(&:title).each do |title|
          if title.eql?(object.title)
            members_and_class << member
          end

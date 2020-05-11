@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200509155807) do
+ActiveRecord::Schema.define(version: 20200511035410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,20 @@ ActiveRecord::Schema.define(version: 20200509155807) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "profile_id"
+    t.integer  "plan_id"
   end
 
   add_index "members", ["profile_id"], name: "index_members_on_profile_id", using: :btree
+
+  create_table "plans", force: :cascade do |t|
+    t.string   "title"
+    t.string   "klass_ids"
+    t.integer  "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "plans", ["profile_id"], name: "index_plans_on_profile_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.string   "profile_name"
@@ -91,6 +102,7 @@ ActiveRecord::Schema.define(version: 20200509155807) do
   add_foreign_key "klasses", "profiles"
   add_foreign_key "klasses", "trainers"
   add_foreign_key "members", "profiles"
+  add_foreign_key "plans", "profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "trainers", "profiles"
 end

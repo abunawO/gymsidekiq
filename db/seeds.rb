@@ -31,63 +31,68 @@
 # Trainer.create(first_name: 'Asim', last_name: 'Njovic', email: 'asim@gta.com' , phone: '404-768-7745', address: '446 atlanta drive', state: 'GA', city: 'atlanta', zip: '30044', profile_id: 1)
 # Trainer.create(first_name: 'Jacob', last_name: 'Gibson', email: 'jacob@gta.com' , phone: '404-768-7745', address: '446 alpharetta drive', state: 'GA', city: 'alpharetta', zip: '30044', profile_id: 1)
 # Trainer.create(first_name: 'Cole', last_name: 'Miller', email: 'cole@gta.com' , phone: '404-768-7745', address: '446 marietta drive', state: 'GA', city: 'marietta', zip: '30044', profile_id: 1)
-#[20, 21, 22, 23, 24, 25] m
-#[46, 47, 48, 49, 50, 51, 52] k
-#["Boxing", "MMA", "Mauy Thai", "Kickboxing", "Crossfit", "Hardcore", "Jui Jitsu"]
-#[15, 16, 17, 18, 19, 20] T
-#["Amir", "Ose", "Brently", "Asim", "Jacob", "Cole"]
 
-#class id
-# > [1, 2, 3, 4, 5, 6, 7]
-# => ["Boxing", "MMA", "Mauy Thai", "Kickboxing", "Crossfit", "Hardcore", "Jui Jitsu"]
+#[2, 4, 5, 6, 7, 3] plan ids
+#["Basic", "Basic-pro-plus", "Pro", "Pro-plus", "Full", "Basic-pro"]
+#[20, 21, 22, 23, 24, 25, 35] member ids
 
-# member id
-# [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+member = Member.find(20)
+member.plan_id = 2
+member.save!
 
-# trainer id
-# [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+member = Member.find(21)
+member.plan_id = 4
+member.save!
 
-Member.find(1).klasses.create(title: Klass.find(1).title, profile_id: Klass.find(1).profile_id)
-Member.find(2).klasses.create(title: Klass.find(2).title, profile_id: Klass.find(2).profile_id)
-Member.find(3).klasses.create(title: Klass.find(3).title, profile_id: Klass.find(3).profile_id)
-Member.find(4).klasses.create(title: Klass.find(4).title, profile_id: Klass.find(4).profile_id)
-Member.find(5).klasses.create(title: Klass.find(5).title, profile_id: Klass.find(5).profile_id)
-Member.find(6).klasses.create(title: Klass.find(6).title, profile_id: Klass.find(6).profile_id)
-Member.find(7).klasses.create(title: Klass.find(7).title, profile_id: Klass.find(7).profile_id)
-Member.find(8).klasses.create(title: Klass.find(1).title, profile_id: Klass.find(1).profile_id)
-Member.find(9).klasses.create(title: Klass.find(2).title, profile_id: Klass.find(2).profile_id)
-Member.find(10).klasses.create(title: Klass.find(3).title, profile_id: Klass.find(3).profile_id)
+member = Member.find(22)
+member.plan_id = 5
+member.save!
 
+member = Member.find(23)
+member.plan_id = 6
+member.save!
+
+member = Member.find(24)
+member.plan_id = 7
+member.save!
+
+member = Member.find(25)
+member.plan_id = 5
+member.save!
+
+member = Member.find(35)
+member.plan_id = 4
+member.save!
 
 # Member.find(20).klasses.create(title: Klass.find(49).title, profile_id: Klass.find(49).profile_id)
 # jit coaches
-Trainer.find(1).klasses.create(title: Klass.find(1).title, profile_id: Klass.find(1).profile_id)
-Trainer.find(2).klasses.create(title: Klass.find(2).title, profile_id: Klass.find(2).profile_id)
-Trainer.find(3).klasses.create(title: Klass.find(3).title, profile_id: Klass.find(3).profile_id)
-Trainer.find(4).klasses.create(title: Klass.find(4).title, profile_id: Klass.find(4).profile_id)
+#Trainer.find(1).klasses.create(title: Klass.find(1).title, profile_id: Klass.find(1).profile_id)
+#Trainer.find(2).klasses.create(title: Klass.find(2).title, profile_id: Klass.find(2).profile_id)
+#Trainer.find(3).klasses.create(title: Klass.find(3).title, profile_id: Klass.find(3).profile_id)
+#Trainer.find(4).klasses.create(title: Klass.find(4).title, profile_id: Klass.find(4).profile_id)
 
 #mma coaches
-Trainer.find(5).klasses.create(title: Klass.find(5).title, profile_id: Klass.find(5).profile_id)
-Trainer.find(6).klasses.create(title: Klass.find(6).title, profile_id: Klass.find(6).profile_id)
+#Trainer.find(5).klasses.create(title: Klass.find(5).title, profile_id: Klass.find(5).profile_id)
+#Trainer.find(6).klasses.create(title: Klass.find(6).title, profile_id: Klass.find(6).profile_id)
 
 #Boxing coaches
-Trainer.find(7).klasses.create(title: Klass.find(7).title, profile_id: Klass.find(7).profile_id)
-Trainer.find(8).klasses.create(title: Klass.find(1).title, profile_id: Klass.find(1).profile_id)
+#Trainer.find(7).klasses.create(title: Klass.find(7).title, profile_id: Klass.find(7).profile_id)
+#Trainer.find(8).klasses.create(title: Klass.find(1).title, profile_id: Klass.find(1).profile_id)
 
 #Mauy Thai coaches
-Trainer.find(9).klasses.create(title: Klass.find(2).title, profile_id: Klass.find(2).profile_id)
-Trainer.find(10).klasses.create(title: Klass.find(3).title, profile_id: Klass.find(3).profile_id)
+#Trainer.find(9).klasses.create(title: Klass.find(2).title, profile_id: Klass.find(2).profile_id)
+#Trainer.find(10).klasses.create(title: Klass.find(3).title, profile_id: Klass.find(3).profile_id)
 
 #Kickboxing coaches
-Trainer.find(11).klasses.create(title: Klass.find(4).title, profile_id: Klass.find(4).profile_id)
-Trainer.find(12).klasses.create(title: Klass.find(5).title, profile_id: Klass.find(5).profile_id)
+#Trainer.find(11).klasses.create(title: Klass.find(4).title, profile_id: Klass.find(4).profile_id)
+#Trainer.find(12).klasses.create(title: Klass.find(5).title, profile_id: Klass.find(5).profile_id)
 
 #Crossfit coaches
-Trainer.find(11).klasses.create(title: Klass.find(6).title, profile_id: Klass.find(6).profile_id)
-Trainer.find(10).klasses.create(title: Klass.find(7).title, profile_id: Klass.find(7).profile_id)
+#Trainer.find(11).klasses.create(title: Klass.find(6).title, profile_id: Klass.find(6).profile_id)
+#Trainer.find(10).klasses.create(title: Klass.find(7).title, profile_id: Klass.find(7).profile_id)
 
 #Hardcore coaches
-Trainer.find(9).klasses.create(title: Klass.find(1).title, profile_id: Klass.find(1).profile_id)
+#Trainer.find(9).klasses.create(title: Klass.find(1).title, profile_id: Klass.find(1).profile_id)
 #10.times { Category.create!(name: Faker::Lorem.word) }
 
 # Create sources

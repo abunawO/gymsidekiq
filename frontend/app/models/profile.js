@@ -11,8 +11,9 @@ export default DS.Model.extend({
    zip: DS.attr(),
    phone: DS.attr(),
    classes:  DS.attr(),
-   members:  DS.hasMany('member', { inverse: null }),
+   members:  DS.hasMany('member',  { inverse: null }),
    trainers: DS.hasMany('trainer', { inverse: null }),
-   klasses:  DS.hasMany('klass', { inverse: null }),
-   user:     DS.belongsTo('user', { async: true })
+   klasses:  DS.hasMany('klass',   { inverse: null }),
+   user:     DS.belongsTo('user',  { async: true }),
+   plans:    DS.hasMany('plan',    { inverse: null })
  });
