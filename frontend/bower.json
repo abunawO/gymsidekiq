@@ -2,5 +2,20 @@
   "name": "frontend",
   "dependencies": {
     "bootstrap": "~3.3.4"
-  }
+  },
+  "homepage": "https://github.com/wizCoder29/gymsidekiq",
+  "authors": [
+    "Abunaw Ose <abunawose@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
