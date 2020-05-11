@@ -3,7 +3,6 @@ class KlassSerializer < ActiveModel::Serializer
              :title,
              :schedule,
              :profile_id,
-             :is_parent,
              :trainers,
              :members
 

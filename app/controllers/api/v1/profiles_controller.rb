@@ -47,7 +47,8 @@ class Api::V1::ProfilesController < ApplicationController
     #binding.pry
     @profile = Profile.new(profile_params)
     if @profile.save
-      render json: { profile: @profile }, status: :ok
+      _update_user @profile
+      render json: @profile, each_serializer: ProfileSerializer, status: :ok
     else
       render json: { errors: @profile.errors }, status: :unprocessable_entity
     end
@@ -75,6 +76,9 @@ class Api::V1::ProfilesController < ApplicationController
   end
 
   private
+    def _update_user profile
+      profile.user.update_column(:profile_id, profile.id)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
       @profile = Profile.find(params[:id])

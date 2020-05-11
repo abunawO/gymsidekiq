@@ -1,0 +1,34 @@
+{{route-links}}
+
+<div class="main-containercontainer">
+  <form id="contact" action="" method="post">
+    <h3>Create New Profile</h3>
+    <fieldset>
+      {{input type="text" value=profileName placeholder="Profile Name" autofocus=true}}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=address placeholder="Address" }}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=city placeholder="City" }}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=state placeholder="State"  }}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=zip placeholder="Zip"  }}
+    </fieldset>
+    <fieldset>
+      {{input type="email" value=email placeholder="Email Address"  }}
+    </fieldset>
+    <fieldset>
+      {{input type="tel" value=phone placeholder="Your Phone Number"  }}
+    </fieldset>
+    <fieldset>
+      <button {{action "createNewProfile"}} name="submit" type="submit" id="contact-submit"
+        data-submit="...Sending">Submit
+      </button>
+    </fieldset>
+    {{copyright-footer}}
+  </form>
+</div>

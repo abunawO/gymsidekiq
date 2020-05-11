@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :members
       resources :trainers
       resources :klasses
+      resources :plans
     end
   end
 

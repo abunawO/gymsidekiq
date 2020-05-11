@@ -1,0 +1,46 @@
+{{route-links}}
+
+<div class="main-containercontainer">
+  <form id="contact" action="" method="post">
+    <h3>Create New Trainer</h3>
+    <fieldset>
+      {{input type="text" value=firstName placeholder="first Name" autofocus=true}}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=lastName placeholder="Last Name" }}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=address placeholder="Address" }}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=city placeholder="City" }}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=state placeholder="State"  }}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=zip placeholder="Zip"  }}
+    </fieldset>
+    <fieldset>
+      {{input type="email" value=email placeholder="Email Address"  }}
+    </fieldset>
+    <fieldset>
+      {{input type="tel" value=phone placeholder="Your Phone Number"  }}
+    </fieldset>
+    <fieldset>
+      <h4>Select Classes</h4>
+      {{#each profile.klasses as |klass|}}
+        <label>
+          {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=plan.id  data=klass.id callbackAction='setKlassId'}}
+          <span style="font-weight: normal;">{{klass.title}}</span>
+        </label>
+      {{/each}}
+    </fieldset>
+    <fieldset>
+      <button {{action "createNewTrainer"}} name="submit" type="submit" id="contact-submit"
+        data-submit="...Sending">Submit
+      </button>
+    </fieldset>
+    {{copyright-footer}}
+  </form>
+</div>

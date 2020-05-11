@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200511053232) do
+ActiveRecord::Schema.define(version: 20200511193440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20200511053232) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "profile_id"
-    t.boolean  "is_parent"
   end
 
   add_index "klasses", ["profile_id"], name: "index_klasses_on_profile_id", using: :btree
@@ -93,6 +92,8 @@ ActiveRecord::Schema.define(version: 20200511053232) do
     t.string   "password_salt"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "profile_id"
+    t.string   "integer"
   end
 
   add_foreign_key "klasses", "profiles"

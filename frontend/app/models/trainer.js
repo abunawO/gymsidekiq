@@ -12,8 +12,9 @@ export default DS.Model.extend({
    zip: DS.attr(),
    phone: DS.attr(),
    classes: DS.attr(),
+   klassIds: DS.attr(),
    profileId: DS.attr(),
-   profile: DS.belongsTo('profile', { async: true }),
+   profile: DS.belongsTo('profile'),
 
 
    fullName: computed('firstName', 'lastName', function() {
