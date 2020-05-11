@@ -36,33 +36,44 @@
 #["Basic", "Basic-pro-plus", "Pro", "Pro-plus", "Full", "Basic-pro"]
 #[20, 21, 22, 23, 24, 25, 35] member ids
 
-member = Member.find(20)
-member.plan_id = 2
-member.save!
+#member = Member.find(20)
+#member.plan_id = 2
+#member.save!
 
-member = Member.find(21)
-member.plan_id = 4
-member.save!
+#member = Member.find(21)
+#member.plan_id = 4
+#member.save!
 
-member = Member.find(22)
-member.plan_id = 5
-member.save!
+#member = Member.find(22)
+#member.plan_id = 5
+#member.save!
 
-member = Member.find(23)
-member.plan_id = 6
-member.save!
+#member = Member.find(23)
+#member.plan_id = 6
+#member.save!
 
-member = Member.find(24)
-member.plan_id = 7
-member.save!
+#member = Member.find(24)
+#member.plan_id = 7
+#member.save!
 
-member = Member.find(25)
-member.plan_id = 5
-member.save!
+#member = Member.find(25)
+#member.plan_id = 5
+#member.save!
 
-member = Member.find(35)
-member.plan_id = 4
-member.save!
+#member = Member.find(35)
+#member.plan_id = 4
+#member.save!
+
+#[15, 16, 17, 18, 19, 20] trainer ids
+#["Amir", "Ose", "Brently", "Asim", "Jacob", "Cole"]
+#[46, 47, 48, 49, 50, 51, 52] klass ids
+#["Boxing", "MMA", "Mauy Thai", "Kickboxing", "Crossfit", "Hardcore", "Jui Jitsu"]
+
+#Trainer.find(20).update_column(:klass_ids, "48")
+#Trainer.find(17).update_column(:klass_ids, "47,48,49,52")
+#Trainer.find(18).update_column(:klass_ids, "49")
+#Trainer.find(19).update_column(:klass_ids, "52,51")
+Trainer.find(20).update_column(:klass_ids, "46,52,50")
 
 # Member.find(20).klasses.create(title: Klass.find(49).title, profile_id: Klass.find(49).profile_id)
 # jit coaches

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200511035410) do
+ActiveRecord::Schema.define(version: 20200511053232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,14 +22,10 @@ ActiveRecord::Schema.define(version: 20200511035410) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "profile_id"
-    t.integer  "trainer_id"
-    t.integer  "member_id"
     t.boolean  "is_parent"
   end
 
-  add_index "klasses", ["member_id"], name: "index_klasses_on_member_id", using: :btree
   add_index "klasses", ["profile_id"], name: "index_klasses_on_profile_id", using: :btree
-  add_index "klasses", ["trainer_id"], name: "index_klasses_on_trainer_id", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.string   "first_name"
@@ -85,6 +81,7 @@ ActiveRecord::Schema.define(version: 20200511035410) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "profile_id"
+    t.string   "klass_ids"
   end
 
   add_index "trainers", ["profile_id"], name: "index_trainers_on_profile_id", using: :btree
@@ -98,9 +95,7 @@ ActiveRecord::Schema.define(version: 20200511035410) do
     t.datetime "updated_at",    null: false
   end
 
-  add_foreign_key "klasses", "members"
   add_foreign_key "klasses", "profiles"
-  add_foreign_key "klasses", "trainers"
   add_foreign_key "members", "profiles"
   add_foreign_key "plans", "profiles"
   add_foreign_key "profiles", "users"

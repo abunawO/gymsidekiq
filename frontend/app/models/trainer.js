@@ -1,5 +1,5 @@
 import DS from 'ember-data';
-import Model, { belongsTo, hasMany } from '@ember-data/model';
+import Model, { belongsTo } from '@ember-data/model';
 import { computed } from '@ember/object';
 
 export default DS.Model.extend({
@@ -11,10 +11,10 @@ export default DS.Model.extend({
    state: DS.attr(),
    zip: DS.attr(),
    phone: DS.attr(),
+   classes: DS.attr(),
    profileId: DS.attr(),
    profile: DS.belongsTo('profile', { async: true }),
-   classes: DS.attr(),
-   klasses: DS.hasMany('klass', { inverse: null }),
+
 
    fullName: computed('firstName', 'lastName', function() {
     return `${this.firstName} ${this.lastName}`;

@@ -12,10 +12,4 @@ class TrainerSerializer < ActiveModel::Serializer
               :profile_id,
               :classes
 
-  def classes
-    return nil unless object.klasses
-    object.klasses
-  end
-
-  #has_many :klasses,  embed_in_root: true, serializer: KlassSerializer
 end
