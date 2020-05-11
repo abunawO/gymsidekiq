@@ -1,0 +1,25 @@
+{{route-links}}
+
+<div class="main-containercontainer">
+  <form id="contact" action="" method="post">
+    <h3>Create New Plan</h3>
+    <fieldset>
+      {{input type="text" value=title placeholder="Membership plan title" autofocus=true}}
+    </fieldset>
+    <fieldset>
+      <h4>Classes in plan</h4>
+      {{#each profile.klasses as |klass|}}
+        <label>
+          {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=plan.id  data=klass.id callbackAction='setKlassId'}}
+          <span style="font-weight: normal;">{{klass.title}}</span>
+        </label>
+      {{/each}}
+    </fieldset>
+    <fieldset>
+      <button {{action "createNewPlan"}} name="submit" type="submit" id="contact-submit"
+        data-submit="...Sending">Submit
+      </button>
+    </fieldset>
+    {{copyright-footer}}
+  </form>
+</div>

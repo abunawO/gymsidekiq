@@ -14,5 +14,5 @@ class ProfileSerializer < ActiveModel::Serializer
   has_many :members,  embed_in_root: true, serializer: MemberSerializer
   has_many :plans,    embed_in_root: true, serializer: PlanSerializer
   has_many :klasses,  embed_in_root: true, serializer: KlassSerializer
-
+  
 end

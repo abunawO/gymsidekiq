@@ -46,7 +46,7 @@ class Api::V1::MembersController < ApplicationController
     @member = Member.new(member_params)
 
     if @member.save
-      render json: { member: @member.save }, status: :ok
+      render json: @member, each_serializer: MemberSerializer, status: :ok
     else
       render json: { errors: @member.errors }, status: :unprocessable_entity
     end

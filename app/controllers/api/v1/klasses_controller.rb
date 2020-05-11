@@ -5,7 +5,7 @@ class Api::V1:: KlassesController < ApplicationController
   # GET /klasses
   # GET /klasses.json
   def index
-    @klasses = Klass.where(profile_id: params[:where][:profileId][:value], is_parent: true)
+    @klasses = Klass.where(profile_id: params[:where][:profileId][:value])
     render json: @klasses, each_serializer: KlassSerializer, status: :ok
   end
 
@@ -42,7 +42,7 @@ class Api::V1:: KlassesController < ApplicationController
   def create
     @klass = Klass.new(klass_params)
     if  @klass.save
-      render json: { message: 'Klass was successfully updated.' }, status: :ok
+      render json: @klass, each_serializer: KlassSerializer, status: :ok
     else
       render json: { errors: @klass.errors }, status: :unprocessable_entity
     end
@@ -76,6 +76,6 @@ class Api::V1:: KlassesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def klass_params
-      params.fetch(:klass, {}).permit(:title, :profile_id, :trainer_id, :member_id, :is_parent)
+      params.fetch(:klass, {}).permit(:title, :profile_id, :schedule)
     end
 end

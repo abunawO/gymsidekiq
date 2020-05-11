@@ -3,6 +3,7 @@ import Model, { belongsTo, hasMany } from '@ember-data/model';
 
 export default DS.Model.extend({
   //this.get('profile.members._objects') to fetch members list get('members._objects.firstObject
+   userId: DS.attr(),
    profileName: DS.attr(),
    email: DS.attr(),
    address: DS.attr(),

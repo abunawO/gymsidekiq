@@ -4,7 +4,7 @@ class Api::V1::PlansController < ApplicationController
   # GET /plans
   # GET /plans.json
   def index
-    @plans = Plan.where(profile_id: params[:where][:profileId][:value], is_parent: true)
+    @plans = Plan.where(profile_id: params[:where][:profileId][:value])
     render json: @plans, each_serializer: PlanSerializer, status: :ok
   end
 
@@ -40,8 +40,8 @@ class Api::V1::PlansController < ApplicationController
   # POST /plans.json
   def create
     @plan = Plan.new(plan_params)
-    if  @plan.save
-      render json: { message: 'Plan was successfully created.' }, status: :ok
+    if @plan.save
+      render json: @plan, each_serializer: PlanSerializer, status: :ok
     else
       render json: { errors: @plan.errors }, status: :unprocessable_entity
     end
@@ -75,7 +75,6 @@ class Api::V1::PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      binding.pry
-      params.fetch(:plan, {})
+      params.fetch(:plan, {}).permit(:title, :profile_id, :klass_ids)
     end
 end

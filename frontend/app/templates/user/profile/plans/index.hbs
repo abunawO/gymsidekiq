@@ -1,0 +1,48 @@
+<style>
+
+#members {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#members td, #members th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#members tr:nth-child(even){background-color: #f2f2f2;}
+
+#members tr:hover {background-color: #ddd;}
+
+#members th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+{{route-links}}
+
+<h1>Listing Profile Plans</h1>
+<div>
+{{#each profilePlansList as |plan|}}
+<div style="float:left; margin-right: 60px;margin-left: 10px;">
+  <span style="color: blue;">{{plan.title}}</span>
+  <div style="margin-left: 40px;">
+    <ul style="display: inline-block;">
+      <div style="position: relative;margin: 30px -40px;">
+        <span style="color: green;">CLASSES</span>
+        {{#each plan.classes as |class|}}
+         <li style="list-style-type: none;">
+           {{class.title}}
+          </li>
+        {{/each}}
+      </div>
+    </ul>
+  </div>
+</div>
+{{/each}}
+</div>

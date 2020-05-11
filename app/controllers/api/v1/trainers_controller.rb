@@ -43,7 +43,7 @@ class Api::V1:: TrainersController < ApplicationController
     @trainer = Trainer.new(trainer_params)
 
     if @trainer.save
-      render json: { trainer:@trainer }, status: :ok
+      render json: @trainer, each_serializer: TrainerSerializer, status: :ok
     else
       render json: { errors: @trainer.errors }, status: :unprocessable_entity
     end
@@ -77,6 +77,7 @@ class Api::V1:: TrainersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trainer_params
-      params.require(:trainer).permit(:first_name, :last_name, :email, :profile_id, :klass_ids)
+      #binding.pry
+      params.require(:trainer).permit(:first_name, :last_name, :email, :address, :city, :state, :zip, :phone, :profile_id, :klass_ids)
     end
 end

@@ -1,0 +1,19 @@
+{{route-links}}
+
+<div class="main-containercontainer">
+  <form id="contact" action="" method="post">
+    <h3>Create New Class</h3>
+    <fieldset>
+      {{input type="text" value=title placeholder="Class title" autofocus=true}}
+    </fieldset>
+    <fieldset>
+      {{input type="text" value=schedule placeholder="Class days" }}
+    </fieldset>
+    <fieldset>
+      <button {{action "createNewClass"}} name="submit" type="submit" id="contact-submit"
+        data-submit="...Sending">Submit
+      </button>
+    </fieldset>
+    {{copyright-footer}}
+  </form>
+</div>

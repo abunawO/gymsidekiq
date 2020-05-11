@@ -10,11 +10,21 @@ Router.map(function() {
   //this.route('profile', function() {});
   this.route('login', function() {});
   this.route('signup', function() {});
-  this.route('profile', function() {
-    this.route('classes', function() {});
-    this.route('trainers', function() {});
-    this.route('members', function() {
+  this.route('user', function() {
+    this.route('profile', function() {
       this.route('new');
+      this.route('classes', function() {
+        this.route('new');
+      });
+      this.route('trainers', function() {
+        this.route('new');
+      });
+      this.route('members', function() {
+        this.route('new');
+      });
+      this.route('plans', function() {
+        this.route('new');
+      });
     });
   });
 });
