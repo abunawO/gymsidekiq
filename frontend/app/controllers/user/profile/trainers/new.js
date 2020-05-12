@@ -32,15 +32,12 @@ export default Ember.Controller.extend({
 
   actions: {
     setKlassId(isChecked, klassId, element) {
-       this.get('checkedklasses').push(element)
        if (isChecked) {
          this.get('klassIds').push(klassId);
        }else{
-         const index = this.get('klassIds').indexOf(klassId);
-         if (index > -1) {
-           this.get('klassIds').splice(index, 1);
-         }
+         this.get('klassIds').removeObject(klassId);
        }
+       this.get('checkedklasses').push(element);
      },
 
     createNewTrainer() {
