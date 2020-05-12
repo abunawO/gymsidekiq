@@ -67,5 +67,8 @@
   },
   "resolutions": {
     "moment": "2.24.0"
+  },
+  "dependencies": {
+    "ember-cli-uglify": "^3.0.0"
   }
 }
