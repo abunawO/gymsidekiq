@@ -67,8 +67,7 @@
   "ember": {
     "edition": "octane"
   },
-  "dependencies": {
-    "chosen": "0.0.2",
-    "timepicker": "^1.13.6"
+  "resolutions": {
+    "moment": "2.24.0"
   }
 }
