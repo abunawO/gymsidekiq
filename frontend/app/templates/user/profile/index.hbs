@@ -1,38 +1,6 @@
-<style>
-  #members {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  #members td,
-  #members th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-
-  #members tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-
-  #members tr:hover {
-    background-color: #ddd;
-  }
-
-  #members th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
-  }
-</style>
-
-{{route-links}}
-
 <h1>Listing User Profile</h1>
 
-<table id="members">
+<table class='tables-1'>
   <thead>
     <tr>
       <th>Profile Name</th>
@@ -59,8 +27,11 @@
 </table>
 
 
-<Layout>
-  <div class="profile">
-    hello world
-  </div>
-</Layout>
+<div class="profile">
+  {{#link-to  "user.profile.new" class='temp-btn'}}
+  Create New Profile
+  {{/link-to}}
+  {{#link-to  "index" class="temp-btn"}}
+  Landing Page
+  {{/link-to}}
+</div>

@@ -1,64 +1,61 @@
 <style>
-a:link, a:visited {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
+  .routes a:link,
+  .routes a:visited {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
 
-.btn {
-  font-size: 10px;
-}
-
-a:hover, a:active {
-  background-color: red;
-}
+  .btn {
+    font-size: 10px;
+  }
 </style>
 
-<div>
+<div class='routes'>
   {{#link-to  "user.profile.index" class="btn btn-primary"}}
-    Profile
+  Profile
   {{/link-to}}
 
   {{#link-to  "user.profile.new" class="btn btn-primary"}}
-    Create New Profile
+  Create New Profile
   {{/link-to}}
 
   {{#link-to  "user.profile.classes" class="btn btn-warning"}}
-    Classes
+  Classes
   {{/link-to}}
 
   {{#link-to  "user.profile.classes.new" class="btn btn-warning"}}
-    Create New Class
+  Create New Class
   {{/link-to}}
 
   {{#link-to  "user.profile.plans" class="btn btn-warning"}}
-    Profile Plans
+  Profile Plans
   {{/link-to}}
 
   {{#link-to  "user.profile.plans.new" class="btn btn-warning"}}
-    Create New Plan
+  Create New Plan
   {{/link-to}}
 
   {{#link-to  "user.profile.trainers" class="btn btn-info"}}
-    Trainers
+  Trainers
   {{/link-to}}
 
   {{#link-to  "user.profile.trainers.new" class="btn btn-info"}}
-    Create New Trainer
+  Create New Trainer
   {{/link-to}}
 
   {{#link-to  "user.profile.members" class="btn btn-success"}}
-    Members
+  Members
   {{/link-to}}
 
   {{#link-to  "user.profile.members.new" class="btn btn-dark"}}
-    Create New Member
+  Create New Member
   {{/link-to}}
 
   {{#link-to  "index" class="btn btn-dark"}}
-    Landing Page
+  Landing Page
   {{/link-to}}
 </div>

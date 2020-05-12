@@ -1,34 +1,6 @@
-<style>
-
-#members {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#members td, #members th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#members tr:nth-child(even){background-color: #f2f2f2;}
-
-#members tr:hover {background-color: #ddd;}
-
-#members th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
-
-{{route-links}}
-
 <h1>Listing Profile Trainers</h1>
 
-<table id="members">
+<table class='tables-1'>
   <thead>
     <tr>
       <th>Name</th>
@@ -42,14 +14,17 @@
 
   <tbody>
     {{#each profileTrainersList as |trainer|}}
-      <tr>
-        <td>{{trainer.fullName}}</td>
-        <td>{{trainer.email}}</td>
-        <td>{{trainer.address}}</td>
-        <td>{{trainer.city}}</td>
-        <td>{{trainer.state}}</td>
-        <td>{{trainer.phone}}</td>
-      </tr>
+    <tr>
+      <td>{{trainer.fullName}}</td>
+      <td>{{trainer.email}}</td>
+      <td>{{trainer.address}}</td>
+      <td>{{trainer.city}}</td>
+      <td>{{trainer.state}}</td>
+      <td>{{trainer.phone}}</td>
+    </tr>
     {{/each}}
   </tbody>
 </table>
+{{#link-to  "user.profile.trainers.new" class="temp-btn"}}
+Create New Trainer
+{{/link-to}}

@@ -1,5 +1,21 @@
 <div class="layout">
-    <Sidebar />
+    <nav class="layout-sidebar">
+        {{#each this.sidebarLinks as |d|}}
+        {{#link-to  d.to}}
+        <span class='layout-sidebar-indicator'></span>
+        <div class='layout-sidebar-icon'></div>
+        <span>{{d.title}}</span>
+        {{/link-to}}
+        {{/each}}
+    </nav>
+    <nav class='layout-topbar'>
+        <h2>
+            {{profileName}}
+        </h2>
+        <a class='layout-topbar-btn logout'>
+            Sign Out
+        </a>
+    </nav>
     <div class="layout-content">
         {{yield}}
     </div>
