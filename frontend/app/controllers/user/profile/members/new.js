@@ -15,6 +15,7 @@ export default Ember.Controller.extend({
     this.set('city', ''),
     this.set('zip', ''),
     this.set('phone', ''),
+    this.set('checkedPlans', []),
     this.set('accept_terms', ''),
     this.get('checkedPlans').forEach((element)=>{element.prop('checked',false);});
 

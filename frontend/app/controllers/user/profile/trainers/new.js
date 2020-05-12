@@ -15,6 +15,7 @@ export default Ember.Controller.extend({
     this.set('city', ''),
     this.set('zip', ''),
     this.set('phone', ''),
+    this.set('klassIds', []),
     this.set('accept_terms', ''),
     this.get('checkedklasses').forEach((element)=>{element.prop('checked',false);});
 
@@ -41,7 +42,6 @@ export default Ember.Controller.extend({
      },
 
     createNewTrainer() {
-      //debugger
       var trainer = this.store.createRecord('trainer', {
         profileId: this.get('profile.id'),
         firstName: this.get('firstName'),
