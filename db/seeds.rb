@@ -69,11 +69,19 @@
 #[46, 47, 48, 49, 50, 51, 52] klass ids
 #["Boxing", "MMA", "Mauy Thai", "Kickboxing", "Crossfit", "Hardcore", "Jui Jitsu"]
 
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 1, 2, 3, 4]
+
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].each do |i|
+  Trainer.find(i).update_column(:klass_ids, arr[0].to_s + "," + arr[1].to_s +  "," + arr[2].to_s)
+  arr.shift
+  arr.shift
+  arr.shift
+end
 #Trainer.find(20).update_column(:klass_ids, "48")
 #Trainer.find(17).update_column(:klass_ids, "47,48,49,52")
 #Trainer.find(18).update_column(:klass_ids, "49")
 #Trainer.find(19).update_column(:klass_ids, "52,51")
-Trainer.find(20).update_column(:klass_ids, "46,52,50")
+# Trainer.find(20).update_column(:klass_ids, "46,52,50")
 
 # Member.find(20).klasses.create(title: Klass.find(49).title, profile_id: Klass.find(49).profile_id)
 # jit coaches
