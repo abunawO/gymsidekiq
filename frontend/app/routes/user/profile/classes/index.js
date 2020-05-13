@@ -31,10 +31,6 @@ export default Ember.Route.extend({
   setupController(controller, model) {
     this._super(controller, model);
     controller.set('profileClasses', model.classes);
-    if(model.classes.firstObject){
-      controller.set('classTrainers', model.classes.firstObject.trainers)
-      controller.set('classMembers', model.classes.firstObject.members)
-    }
   }
 
 });
