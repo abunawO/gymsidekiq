@@ -3,6 +3,7 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
   session: Ember.inject.service(),
   profileName: null,
+
   init() {
     this._super(...arguments);
     this.set("errors", []);
@@ -18,14 +19,13 @@ export default Ember.Component.extend({
       user: this.store.query("user", queryParams),
     };
     return Ember.RSVP.hash(promises).then((user) => {
-      // debugger;
-      const myprofile = this.store
-        .find("profile", user.user.firstObject.profileId)
-        .then((profile) => {
-          // debugger;
-          this.set("profileName", profile.profileName);
-        });
-      // this.set("profileId", user.user.firstObject.profileId);
+      if (user.user.firstObject.profileId !== null){
+          const myprofile = this.store
+            .find("profile", user.user.firstObject.profileId)
+            .then((profile) => {
+              this.set("profileName", profile.profileName);
+            });
+        }
     });
   },
 
