@@ -10,7 +10,7 @@ class Api::V1::ProfilesController < ApplicationController
     else
       @profiles = Profile.where(:id => params[:where][:profileId][:value])
     end
-    render json: @profiles, each_serializer: ProfileSerializer, status: :ok
+    render json: @profiles, status: :ok
   end
 
   # GET /profiles/1
@@ -48,7 +48,7 @@ class Api::V1::ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     if @profile.save
       _update_user @profile
-      render json: @profile, each_serializer: ProfileSerializer, status: :ok
+      render json: @profile, status: :ok
     else
       render json: { errors: @profile.errors }, status: :unprocessable_entity
     end

@@ -16,7 +16,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       data = {id: @user.id, email: @user.email }
-      render json: { user: data }, each_serializer: UserSerializer, status: :ok
+      render json: { user: data }, status: :ok
     else
       render json: { errors: @user.errors }, status: :unprocessable_entity
     end

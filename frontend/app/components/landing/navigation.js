@@ -1,6 +1,7 @@
 import Ember from "ember";
 import config from "../../config/environment";
 const { service } = Ember.inject;
+import jQuery from 'jquery';
 
 export default Ember.Component.extend({
   session: Ember.inject.service(),

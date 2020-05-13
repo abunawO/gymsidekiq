@@ -6,7 +6,7 @@ class Api::V1:: KlassesController < ApplicationController
   # GET /klasses.json
   def index
     @klasses = Klass.where(profile_id: params[:where][:profileId][:value])
-    render json: @klasses, each_serializer: KlassSerializer, status: :ok
+    render json: @klasses, status: :ok
   end
 
   # GET /klasses/1
@@ -42,7 +42,7 @@ class Api::V1:: KlassesController < ApplicationController
   def create
     @klass = Klass.new(klass_params)
     if  @klass.save
-      render json: @klass, each_serializer: KlassSerializer, status: :ok
+      render json: @klass, status: :ok
     else
       render json: { errors: @klass.errors }, status: :unprocessable_entity
     end
