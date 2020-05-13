@@ -5,6 +5,8 @@ const { service } = Ember.inject;
 export default Ember.Controller.extend({
   session:  Ember.inject.service(),
   profileClasses: [],
+  classTrainers: [],
+  classMembers: [],
 
   refreshModel: function(){
     //debugger

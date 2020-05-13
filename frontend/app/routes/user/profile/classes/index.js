@@ -29,9 +29,10 @@ export default Ember.Route.extend({
   },
 
   setupController(controller, model) {
-    //debugger
     this._super(controller, model);
     controller.set('profileClasses', model.classes);
+    controller.set('classTrainers', model.classes.firstObject.trainers)
+    controller.set('classMembers', model.classes.firstObject.members)
   }
 
 });

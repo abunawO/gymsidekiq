@@ -6,7 +6,7 @@ class Api::V1:: TrainersController < ApplicationController
   # GET /trainers.json
   def index
     @trainers = Trainer.where(:profile_id => params[:where][:profileId][:value])
-    render json: @trainers, each_serializer: TrainerSerializer, status: :ok
+    render json: @trainers, status: :ok
   end
 
   # GET /trainers/1
@@ -43,7 +43,7 @@ class Api::V1:: TrainersController < ApplicationController
     @trainer = Trainer.new(trainer_params)
 
     if @trainer.save
-      render json: @trainer, each_serializer: TrainerSerializer, status: :ok
+      render json: @trainer, status: :ok
     else
       render json: { errors: @trainer.errors }, status: :unprocessable_entity
     end

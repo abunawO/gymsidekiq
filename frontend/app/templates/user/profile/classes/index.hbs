@@ -6,7 +6,7 @@
     <ul style="display: inline-block;">
       <div style="position: relative;margin: 30px -40px;">
         <span style="color: green;">TRAINERS</span>
-        {{#each class.trainers as |trainer|}}
+        {{#each classTrainers as |trainer|}}
         <li style="list-style-type: none;">
           {{trainer.first_name}}
         </li>
@@ -14,7 +14,7 @@
       </div>
       <div style="position: relative;top: 30px;left: -40px;">
         <span style="color: orange;">STUDENTS</span>
-        {{#each class.members as |member|}}
+        {{#each classMembers as |member|}}
         <li style="list-style-type: none;">
           {{member.first_name}}
         </li>

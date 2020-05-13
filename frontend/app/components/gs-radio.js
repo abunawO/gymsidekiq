@@ -1,5 +1,6 @@
 //gs-checkbox is a check component that can do things with its attributes
-import Ember from "ember";
+import Ember  from "ember";
+import jQuery from 'jquery';
 
 export default Ember.Component.extend({
   tagName: "input",

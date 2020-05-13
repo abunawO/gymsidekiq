@@ -5,7 +5,7 @@ class Api::V1::PlansController < ApplicationController
   # GET /plans.json
   def index
     @plans = Plan.where(profile_id: params[:where][:profileId][:value])
-    render json: @plans, each_serializer: PlanSerializer, status: :ok
+    render json: @plans, status: :ok
   end
 
   # GET /plans/1
