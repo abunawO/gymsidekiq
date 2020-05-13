@@ -14,7 +14,7 @@ export default DS.Model.extend({
    phone: DS.attr(),
    profileId: DS.attr(),
    planId: DS.attr(),
-   profile:  DS.belongsTo('profile', { async: true }),
+   profile:  DS.belongsTo('profile', { async: false }),
    trainers: DS.attr(),
    classes: DS.attr(),
 

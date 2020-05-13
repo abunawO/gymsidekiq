@@ -14,5 +14,5 @@ export default DS.Model.extend({
    members:  DS.hasMany('member',  { inverse: null }),
    trainers: DS.hasMany('trainer', { inverse: null }),
    klasses:  DS.hasMany('klass',   { inverse: null }),
-   user:     DS.belongsTo('user',  { async: true })
+   user:     DS.belongsTo('user',  { async: false })
  });
