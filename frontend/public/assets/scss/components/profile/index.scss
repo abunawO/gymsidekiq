@@ -1,18 +1,57 @@
 .profile {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 300px;
+  grid-template-rows: 200px 1fr;
+  column-gap: 20px;
+  row-gap: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  height: 100%;
   .profile-section {
     background-color: white;
-    .tall {
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 0 rgba(darken($light-primary, 20%), 0.5);
+    &.classes {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+    &.trainers {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+    &.members {
+      grid-column: 3 / 4;
+      grid-row: 1 / 3;
+    }
+    &.tall {
       h2 {
+        font-size: 1.5em;
+        padding-bottom: 10px;
       }
       .profile-section-item {
+        cursor: pointer;
+        margin-top: 10px;
+        padding: 20px 10px;
+        border-radius: 5px;
+        border: 1px solid darken($light-primary, 10%);
+        background-color: lighten($light-primary, 2%);
+        &:hover {
+          background-color: darken($light-primary, 2%);
+        }
         h3 {
+          font-weight: normal;
         }
       }
     }
-    .wide {
+    &.wide {
+      h2 {
+        font-size: 1.5em;
+      }
+      &.placeholder {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+      }
     }
   }
 }

@@ -1,5 +1,6 @@
 import Ember from "ember";
 export default Ember.Component.extend({
+  tagName: "",
   data: [
     {
       href: "https://attofgwinnett.com/",

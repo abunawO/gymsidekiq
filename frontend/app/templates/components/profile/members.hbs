@@ -1,6 +1,8 @@
-<div class="profile-section tall">
+<div class="profile-section tall members">
     <h2>Members</h2>
+    {{#each members as |member|}}
     <div class="profile-section-item">
-        <h3>Member Name</h3>
+        <h3>{{member.fullName}}</h3>
     </div>
+    {{/each}}
 </div>

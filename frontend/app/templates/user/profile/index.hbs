@@ -37,10 +37,10 @@
 </div> --}}
 
 <div class="profile">
-  <div class="profile-section wide">
+  <div class="profile-section wide placeholder">
     <h2>Placeholder</h2>
   </div>
-  <Profile::Classes />
-  <Profile::Trainers />
-  <Profile::Members />
+  <Profile::Classes @classes={{userProfiles.firstObject.klasses}} />
+  <Profile::Trainers @trainers={{userProfiles.firstObject.trainers}} />
+  <Profile::Members @members={{userProfiles.firstObject.members}} />
 </div>
