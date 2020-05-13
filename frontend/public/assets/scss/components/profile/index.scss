@@ -1,0 +1,18 @@
+.profile {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 300px;
+  .profile-section {
+    background-color: white;
+    .tall {
+      h2 {
+      }
+      .profile-section-item {
+        h3 {
+        }
+      }
+    }
+    .wide {
+    }
+  }
+}
