@@ -36,5 +36,15 @@ export default Ember.Component.extend({
     { title: "Trainers", to: "user.profile.trainers" },
     { title: "Members", to: "user.profile.members" },
   ],
-  actions: {},
+  actions: {
+    logout() {
+      //debugger
+      this.get("session")
+        .invalidate()
+        .then(() => {
+          this.get('flashMessages').success('Goodbye!')
+          window.location.href = config.rootURL;
+        });
+    }
+  },
 });

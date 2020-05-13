@@ -16,6 +16,7 @@ export default Ember.Component.extend({
       this.get("session")
         .invalidate()
         .then(() => {
+          this.get('flashMessages').success('Goodbye!')
           window.location.href = config.rootURL;
         });
     },

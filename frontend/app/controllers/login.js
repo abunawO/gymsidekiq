@@ -16,8 +16,8 @@ export default Ember.Controller.extend({
       this.get('session').authenticate('authenticator:devise', identification, password)
       .then(() => {
         //debugger
-        this.transitionToRoute('profiles')
-        this.get('flashMessages').success('Signed up!')
+        this.transitionToRoute('user.profile')
+        this.get('flashMessages').success('Welcome!')
        }, (err) => {
          //debugger
          this.get('flashMessages').danger('Email or password error.')

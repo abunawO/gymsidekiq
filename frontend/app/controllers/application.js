@@ -4,16 +4,17 @@ const { service } = Ember.inject;
 
 export default Ember.Controller.extend({
   session: Ember.inject.service(),
+  indexRoutes: ['index','login.index', 'signup.index'],
+
   init() {
     this._super(...arguments);
     this.set("errors", []);
   },
   isNotIndex: function () {
-    // debugger;
-    if (this.get("currentRouteName") !== "index") {
-      return true;
-    } else {
+    if (this.get('indexRoutes').includes(this.get("currentRouteName"))) {
       return false;
+    } else {
+      return true;
     }
   }.property("currentRouteName"),
 
