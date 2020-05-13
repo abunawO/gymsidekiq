@@ -4,6 +4,7 @@ const { service } = Ember.inject;
 import jQuery from 'jquery';
 
 export default Ember.Component.extend({
+  tagName: "",
   session: Ember.inject.service(),
   toggleNav() {
     document.querySelector(".lan-nav").classList.toggle("active");
@@ -17,7 +18,7 @@ export default Ember.Component.extend({
       this.get("session")
         .invalidate()
         .then(() => {
-          this.get('flashMessages').success('Goodbye!')
+          this.get("flashMessages").success("Goodbye!");
           window.location.href = config.rootURL;
         });
     },

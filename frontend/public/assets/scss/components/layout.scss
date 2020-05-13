@@ -1,7 +1,7 @@
 .layout {
   display: grid;
   grid-template-columns: 90px 1fr;
-  grid-template-rows: 90px 1fr;
+  grid-template-rows: 50px 1fr;
   min-height: 100vh;
   background-color: $light-secondary;
   padding-left: 20px;
@@ -75,6 +75,7 @@
     }
   }
   .layout-content {
+    margin-top: 20px;
     margin-left: 20px;
     border-top-left-radius: 10px;
     grid-row: 2 / 3;
