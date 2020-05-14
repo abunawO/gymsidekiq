@@ -43,10 +43,16 @@
         <fieldset>
           <label for="add-trainer">Add Trainer</label>
           <div class='classes-section-input'>
-            {{input type="text" id='add-trainer'}}
-            <button type="submit">
-              <img src="{{rootURL}}/assets/images/arrow-down.svg" alt="submit-trainer-icon">
-            </button>
+            <PowerSelectMultiple
+              @destination="customized-destination"
+              @searchEnabled={{true}}
+              @options={{this.profileTrainers}}
+              @selected={{this.selected}}
+              @placeholder="Select trainers..."
+              @onChange={{fn (mut this.selected)}} as |trainer|>
+              {{trainer.fullName}}
+            </PowerSelectMultiple>
+            <div id="customized-destination"></div>
           </div>
         </fieldset>
       </form>
@@ -54,9 +60,9 @@
       <h3 class='class-section-title'>Trainers</h3>
 
       {{#each classTrainers as |trainer|}}
-      <div class="classes-section-item">
-        <h3>{{trainer.first_name}} {{trainer.last_name}}</h3>
-      </div>
+        <div class="classes-section-item">
+          <h3>{{trainer.first_name}} {{trainer.last_name}}</h3>
+        </div>
       {{/each}}
 
     </div>
@@ -64,9 +70,9 @@
     <div class='classes-section-list members'>
       <h3 class='class-section-title'>Members</h3>
       {{#each classMembers as |member|}}
-      <div class="classes-section-item">
-        <h3>{{member.first_name}} {{member.last_name}}</h3>
-      </div>
+        <div class="classes-section-item">
+          <h3>{{member.first_name}} {{member.last_name}}</h3>
+        </div>
       {{/each}}
     </div>
 

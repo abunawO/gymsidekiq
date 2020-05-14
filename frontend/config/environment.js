@@ -22,6 +22,9 @@ module.exports = function(environment) {
       // when it is created
     },
   };
+  ENV['ember-basic-dropdown'] = {
+     destination: '<customized-destination>'
+   }
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

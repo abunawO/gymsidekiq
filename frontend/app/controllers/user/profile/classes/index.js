@@ -8,7 +8,8 @@ export default Ember.Controller.extend({
   classInfo: {},
   classTrainers: [],
   classMembers: [],
-  klass: null,
+  profileTrainers: [],
+  selectedKlass: null,
 
   actions: {
     selectClass(_class) {
@@ -17,11 +18,11 @@ export default Ember.Controller.extend({
       this.set("classInfo", {
         title: _class.title,
       });
-      this.set("klass", _class);
+      this.set("selectedKlass", _class);
     },
     updateClassTitle(title) {
-      this.set('klass.title', title);
-      this.get('klass').save().then((res) => {
+      this.set('selectedKlass.title', title);
+      this.get('selectedKlass').save().then((res) => {
         this.set("classInfo", {});
         this.get('flashMessages').success('Record updated successfully!')
       }).catch((err) => {

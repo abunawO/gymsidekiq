@@ -5,9 +5,15 @@ class Api::V1::ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    if params[:where][:userId]
+    if params[:where][:userId].present?
       @profiles = Profile.where(:user_id => params[:where][:userId][:value])
-    else
+    end
+
+    if params[:where][:id].present?
+      @profiles = Profile.where(:id => params[:where][:id][:value])
+    end
+
+    if params[:where][:profileId].present?
       @profiles = Profile.where(:id => params[:where][:profileId][:value])
     end
     render json: @profiles, status: :ok
