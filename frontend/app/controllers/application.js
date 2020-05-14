@@ -5,11 +5,8 @@ const { service } = Ember.inject;
 export default Ember.Controller.extend({
   session: Ember.inject.service(),
   indexRoutes: ["index", "login.index", "signup.index"],
+  profile: null,
 
-  init() {
-    this._super(...arguments);
-    this.set("errors", []);
-  },
   noLayoutNeeded: function () {
     if (this.get("indexRoutes").includes(this.get("currentRouteName"))) {
       return false;
@@ -26,14 +23,6 @@ export default Ember.Controller.extend({
         .then(() => {
           window.location.href = config.rootURL;
         });
-    },
-    logout() {
-      //debugger
-      this.get("session")
-        .invalidate()
-        .then(() => {
-          window.location.href = config.rootURL;
-        });
-    },
-  },
+    }
+  }
 });

@@ -4,6 +4,7 @@ const { service } = Ember.inject;
 
 export default Ember.Controller.extend({
   session:  Ember.inject.service(),
+  profile: null,
 
   actions: {
     somefuction() {

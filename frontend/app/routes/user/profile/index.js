@@ -3,6 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin,{
   session:  Ember.inject.service(),
+  profile: null,
 
   beforeModel(transition){
     //debugger;
@@ -22,6 +23,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
   setupController(controller, model) {
     this._super(controller, model);
     controller.set('userProfiles', model.profiles);
+    this.set('profile', model.profiles.firstObject )
   }
 
 });

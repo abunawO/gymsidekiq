@@ -5,7 +5,7 @@ class Api::V1::MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    # binding.pry
+    #binding.pry
     @members = Member.where(:profile_id => params[:where][:profileId][:value])
     render json: @members, status: :ok
   end
