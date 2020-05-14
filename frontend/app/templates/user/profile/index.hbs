@@ -1,46 +1,32 @@
-{{!-- <h1>Listing User Profile</h1>
-
-<table class='tables-1'>
-  <thead>
-    <tr>
-      <th>Profile Name</th>
-      <th>Email</th>
-      <th>address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Phone</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    {{#each userProfiles as |profile|}}
-    <tr>
-      <td>{{profile.profileName}}</td>
-      <td>{{profile.email}}</td>
-      <td>{{profile.address}}</td>
-      <td>{{profile.city}}</td>
-      <td>{{profile.state}}</td>
-      <td>{{profile.phone}}</td>
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
-
-
-<div class="profile">
-  {{#link-to  "user.profile.new" class='temp-btn'}}
-    Create New Profile
-  {{/link-to}}
-  {{#link-to  "index" class="temp-btn"}}
-    Landing Page
-  {{/link-to}}
-</div> --}}
-
-<div class="profile">
+<div class="profile-layout">
   <div class="profile-section wide placeholder">
     <h2>Placeholder</h2>
   </div>
-  <Profile::Classes @classes={{userProfiles.firstObject.klasses}} />
-  <Profile::Trainers @trainers={{userProfiles.firstObject.trainers}} />
-  <Profile::Members @members={{userProfiles.firstObject.members}} />
+
+  <div class="profile-section tall classes">
+    <h2>Classes</h2>
+    {{#each userProfiles.firstObject.klasses as |class|}}
+    <div class="profile-section-item">
+      <h3>{{class.title}}</h3>
+    </div>
+    {{/each}}
+  </div>
+
+  <div class="profile-section tall trainers">
+    <h2>Trainers</h2>
+    {{#each userProfiles.firstObject.trainers as |trainer|}}
+    <div class="profile-section-item">
+      <h3>{{trainer.fullName}}</h3>
+    </div>
+    {{/each}}
+  </div>
+
+  <div class="profile-section tall members">
+    <h2>Members</h2>
+    {{#each userProfiles.firstObject.members as |member|}}
+    <div class="profile-section-item">
+      <h3>{{member.fullName}}</h3>
+    </div>
+    {{/each}}
+  </div>
 </div>
