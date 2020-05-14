@@ -51,7 +51,8 @@ class Api::V1:: KlassesController < ApplicationController
   # PATCH/PUT /klasses/1
   # PATCH/PUT /klasses/1.json
   def update
-    if @klass.update(profile_params)
+    @klass = Klass.find(params[:id])
+    if @klass.update_attribute(:title, params[:klass][:title])
       render json: { klass: @klass }, message:'Klass was successfully updated.', status: :ok
     else
       render json: { errors: @klass.errors }, message:'Klass not successfully updated.', status: :unprocessable_entity
@@ -76,6 +77,6 @@ class Api::V1:: KlassesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def klass_params
-      params.fetch(:klass, {}).permit(:title, :profile_id, :schedule)
+      params.fetch(:klass, {}).permit(:id, :title, :profile_id, :schedule)
     end
 end

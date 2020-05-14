@@ -1,7 +1,7 @@
 <div class="classes-layout">
 
   <div class="classes-create">
-    <button>Create New Class</button>
+    <button {{action "createNewClass"}}>Create New Class</button>
   </div>
 
   <div class='classes-section classes-section-list'>
@@ -22,7 +22,7 @@
           <label for="class-name">Class Name</label>
           <div class='classes-section-input'>
             {{input type="text" id='class-name' value=classInfo.title }}
-            <button type="submit">
+            <button {{action "updateClassTitle" classInfo.title}} type="submit">
               <img src="{{rootURL}}/assets/images/check.svg" alt="submit-class-icon">
             </button>
           </div>
