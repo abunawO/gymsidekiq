@@ -1,4 +1,4 @@
-.profile {
+.profile-layout {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 200px 1fr;
@@ -31,13 +31,13 @@
       }
       .profile-section-item {
         cursor: pointer;
-        margin-top: 10px;
         padding: 20px 10px;
         border-radius: 5px;
-        border: 1px solid darken($light-primary, 10%);
-        background-color: lighten($light-primary, 2%);
         &:hover {
-          background-color: darken($light-primary, 2%);
+          background-color: $light-primary;
+          h3 {
+            color: $primary;
+          }
         }
         h3 {
           font-weight: normal;

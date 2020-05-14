@@ -1,31 +1,75 @@
-<h1>Listing Profile Classes</h1>
-<div>
-  {{#each profileClasses as |class|}}
-  <div style="float:left;"> <span style="color: blue;">{{class.title}}</span></div>
-  <div style="float:left;">
-    <ul style="display: inline-block;">
-      <div style="position: relative;margin: 30px -40px;">
-        <span style="color: green;">TRAINERS</span>
-        {{#each class.trainers as |trainer|}}
-        <li style="list-style-type: none;">
-          {{trainer.first_name}}
-        </li>
-        {{/each}}
-      </div>
-      <div style="position: relative;top: 30px;left: -40px;">
-        <span style="color: orange;">STUDENTS</span>
-        {{#each class.members as |member|}}
-        <li style="list-style-type: none;">
-          {{member.first_name}}
-        </li>
-        {{/each}}
-      </div>
-    </ul>
+<div class="classes-layout">
+
+  <div class="classes-create">
+    <button>Create New Class</button>
   </div>
-  {{/each}}
-</div>
-<div style="margin-top: 20px;">
-  {{#link-to  "user.profile.classes.new" class="temp-btn"}}
-    Create New Class
-  {{/link-to}}
+
+  <div class='classes-section classes-section-list'>
+    {{#each profileClasses as |class|}}
+    <div class="classes-section-item" {{action 'selectClass' class}}>
+      <h3>{{class.title}}</h3>
+    </div>
+    {{/each}}
+  </div>
+
+  <div class='classes-section classes-section-detail'>
+
+    <h2>Settings</h2>
+
+    <div class='classes-section-info'>
+      <form>
+        <fieldset>
+          <label for="class-name">Class Name</label>
+          <div class='classes-section-input'>
+            {{input type="text" id='class-name' value=classInfo.title }}
+            <button type="submit">
+              <img src="{{rootURL}}/assets/images/check.svg" alt="submit-class-icon">
+            </button>
+          </div>
+        </fieldset>
+      </form>
+
+      <form>
+        <fieldset>
+          <label>Update Schedule</label>
+        </fieldset>
+      </form>
+
+    </div>
+
+    <div class='classes-section-list trainers'>
+
+      <form>
+        <fieldset>
+          <label for="add-trainer">Add Trainer</label>
+          <div class='classes-section-input'>
+            {{input type="text" id='add-trainer'}}
+            <button type="submit">
+              <img src="{{rootURL}}/assets/images/arrow-down.svg" alt="submit-trainer-icon">
+            </button>
+          </div>
+        </fieldset>
+      </form>
+
+      <h3 class='class-section-title'>Trainers</h3>
+
+      {{#each classTrainers as |trainer|}}
+      <div class="classes-section-item">
+        <h3>{{trainer.first_name}} {{trainer.last_name}}</h3>
+      </div>
+      {{/each}}
+
+    </div>
+
+    <div class='classes-section-list members'>
+      <h3 class='class-section-title'>Members</h3>
+      {{#each classMembers as |member|}}
+      <div class="classes-section-item">
+        <h3>{{member.first_name}} {{member.last_name}}</h3>
+      </div>
+      {{/each}}
+    </div>
+
+  </div>
+
 </div>
