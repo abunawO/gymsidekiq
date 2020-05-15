@@ -6,6 +6,7 @@ $light-primary: lighten(desaturate($primary, 85%), 55%);
 $light-secondary: #d5dbd8;
 
 @import "./defaults.scss";
+@import "./mixins.scss";
 @import "./components/landing/navigation.scss";
 @import "./components/landing/header.scss";
 @import "./components/landing/features.scss";
@@ -16,4 +17,5 @@ $light-secondary: #d5dbd8;
 @import "./components/layout.scss";
 @import "./components/profile/index.scss";
 @import "./components/profile/classes.scss";
+@import "./components/profile/plans.scss";
 @import "./components/temp.scss";

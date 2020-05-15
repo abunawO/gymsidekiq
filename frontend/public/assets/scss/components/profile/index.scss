@@ -1,17 +1,7 @@
 .profile-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 200px 1fr;
-  column-gap: 20px;
-  row-gap: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  height: 100%;
+  @include page-grid-parent($columns: 1fr 1fr 1fr, $rows: 200px 1fr);
   .profile-section {
-    background-color: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 30px 0 rgba(darken($light-primary, 20%), 0.5);
+    @include page-grid-section;
     &.classes {
       grid-column: 1 / 2;
       grid-row: 2 / 3;
@@ -30,18 +20,7 @@
         padding-bottom: 10px;
       }
       .profile-section-item {
-        cursor: pointer;
-        padding: 20px 10px;
-        border-radius: 5px;
-        &:hover {
-          background-color: $light-primary;
-          h3 {
-            color: $primary;
-          }
-        }
-        h3 {
-          font-weight: normal;
-        }
+        @include page-grid-section-item;
       }
     }
     &.wide {

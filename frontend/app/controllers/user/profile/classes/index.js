@@ -10,6 +10,49 @@ export default Ember.Controller.extend({
   classMembers: [],
   profileTrainers: [],
   selectedKlass: null,
+  timetable: [
+    // {
+    //   day: "Mon",
+    //   hours: [
+    //     [6, 9],
+    //     [12, 15],
+    //     [18, 22],
+    //   ],
+    // },
+    { day: "Mon", hours: [] },
+    { day: "Tue", hours: [] },
+    { day: "Wed", hours: [] },
+    { day: "Thu", hours: [] },
+    { day: "Fri", hours: [] },
+    { day: "Sat", hours: [] },
+    { day: "Sun", hours: [] },
+  ],
+  hoursOpen: [6, 22],
+  avaliableHours: [],
+  getAvaliableHours: function () {
+    const startRange = this.hoursOpen[0];
+    const endRange = this.hoursOpen[1];
+    let tempArray = [];
+    for (let i = startRange; i <= endRange; i++) {
+      if (i < 12) {
+        if (i < 10) {
+          tempArray.push("0" + i + " AM");
+        } else {
+          tempArray.push(i + " AM");
+        }
+      } else if (i === 12) {
+        tempArray.push(i + " PM");
+      } else {
+        let time = (i * 100 - 1200) / 100;
+        if (time < 10) {
+          tempArray.push("0" + time + " PM");
+        } else {
+          tempArray.push(time + " PM");
+        }
+      }
+    }
+    this.set("avaliableHours", tempArray);
+  }.observes("classInfo"),
 
   actions: {
     selectClass(_class) {
@@ -21,16 +64,19 @@ export default Ember.Controller.extend({
       });
     },
     updateClassTitle(title) {
-      this.set('selectedKlass.title', title);
-      this.get('selectedKlass').save().then((res) => {
-        this.set("classInfo", {});
-        this.get('flashMessages').success('Record updated successfully!')
-      }).catch((err) => {
-        this.get('flashMessages').danger('Record not updated!')
-      });
+      this.set("selectedKlass.title", title);
+      this.get("selectedKlass")
+        .save()
+        .then((res) => {
+          this.set("classInfo", {});
+          this.get("flashMessages").success("Record updated successfully!");
+        })
+        .catch((err) => {
+          this.get("flashMessages").danger("Record not updated!");
+        });
     },
     createNewClass(title) {
-      this.transitionToRoute('user.profile.classes.new')
-    }
-  }
+      this.transitionToRoute("user.profile.classes.new");
+    },
+  },
 });

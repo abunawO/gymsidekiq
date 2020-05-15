@@ -1,4 +1,4 @@
-<div class="classes-layout">
+<div class="page-grid-system classes-layout">
 
   <div class="classes-create">
     <button {{action "createNewClass"}}>Create New Class</button>
@@ -14,13 +14,13 @@
 
   <div class='classes-section classes-section-detail'>
 
-    <h2>Settings</h2>
+    <h2>Class Settings</h2>
 
     <div class='classes-section-info'>
       <form>
         <fieldset>
           <label for="class-name">Class Name</label>
-          <div class='classes-section-input'>
+          <div class='page-grid-form-input'>
             {{input type="text" id='class-name' value=classInfo.title }}
             <button {{action "updateClassTitle" classInfo.title}} type="submit">
               <img src="{{rootURL}}/assets/images/check.svg" alt="submit-class-icon">
@@ -28,12 +28,23 @@
           </div>
         </fieldset>
       </form>
-
-      <form>
-        <fieldset>
-          <label>Update Schedule</label>
-        </fieldset>
-      </form>
+      <h3 class='class-section-title'>Schedule</h3>
+      <div class="classes-timetable">
+        <div class="classes-timetable-days">
+          {{#each timetable as |days|}}
+          <div class="classes-timetable-day">
+            <span>{{days.day}}</span>
+          </div>
+          {{/each}}
+        </div>
+        <div class="classes-timetable-hours">
+          {{#each avaliableHours as |hour|}}
+          <div class='classes-timetable-hour'>
+            {{hour}}
+          </div>
+          {{/each}}
+        </div>
+      </div>
 
     </div>
 
@@ -42,7 +53,7 @@
       <form>
         <fieldset>
           <label for="add-trainer">Add Trainer</label>
-          <div class='classes-section-input'>
+          <div class='page-grid-form-input'>
             {{input type="text" id='add-trainer'}}
             <button type="submit">
               <img src="{{rootURL}}/assets/images/arrow-down.svg" alt="submit-trainer-icon">
@@ -54,9 +65,9 @@
       <h3 class='class-section-title'>Trainers</h3>
 
       {{#each classTrainers as |trainer|}}
-        <div class="classes-section-item">
-          <h3>{{trainer.first_name}} {{trainer.last_name}}</h3>
-        </div>
+      <div class="classes-section-item">
+        <h3>{{trainer.first_name}} {{trainer.last_name}}</h3>
+      </div>
       {{/each}}
 
     </div>
