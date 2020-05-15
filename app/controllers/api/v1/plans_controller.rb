@@ -1,5 +1,6 @@
 class Api::V1::PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /plans
   # GET /plans.json
