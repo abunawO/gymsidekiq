@@ -1,4 +1,11 @@
-
+<div>
+  <ul>
+  {{#each filesArray as |file|}}
+    {{image-preview file=file}}
+  {{/each}}
+  </ul>
+  {{input-file files=files callbackAction='someAction'}}
+</div>
 
 <div class="main-containercontainer">
   <form id="contact" action="" method="post">

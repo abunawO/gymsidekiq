@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   profile: null,
   checkedklasses: [],
   klassIds: [],
+  filesArray: [],
 
   refreshModel: function(){
     this.set('firstName', ''),
@@ -63,6 +64,10 @@ export default Ember.Controller.extend({
         //debugger
         this.get('flashMessages').danger('Record not created!')
       });
+    },
+    someAction(filesArray) {
+      debugger;
+      this.set('filesArray', filesArray)
     }
   }
 });
