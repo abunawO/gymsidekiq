@@ -50,7 +50,8 @@ class Api::V1::PlansController < ApplicationController
   # PATCH/PUT /plans/1
   # PATCH/PUT /plans/1.json
   def update
-    if @plan.update(plan_params)
+    @plan = Plan.find(params[:id])
+    if @plan.update_attribute(:title, params[:plan][:title])
       render json: { klass: @plan }, message:'Plan was successfully updated.', status: :ok
     else
       render json: { errors: @plan.errors }, status: :unprocessable_entity

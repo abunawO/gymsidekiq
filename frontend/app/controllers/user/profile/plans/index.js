@@ -13,14 +13,22 @@ export default Ember.Controller.extend({
     selectPlan(_plan) {
       this.set("planKlasses", _plan.classes);
       this.set("selectedPlan", _plan);
+      this.set("selectedPlan", _plan);
       this.set("planInfo", {
         title: _plan.title,
       });
     },
-    // unknowns
-    someAction() {
-      //debugger
-      this.transitionToRoute("profile.members.new");
-    },
-  },
+    updatePlanTitle(title) {
+      this.set("selectedPlan.title", title);
+      this.get("selectedPlan")
+        .save()
+        .then((res) => {
+          this.set("planInfo", {});
+          this.get("flashMessages").success("Plan updated successfully!");
+        })
+        .catch((err) => {
+          this.get("flashMessages").danger("Plan not updated!");
+        });
+    }
+  }
 });
