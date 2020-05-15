@@ -43,16 +43,10 @@
         <fieldset>
           <label for="add-trainer">Add Trainer</label>
           <div class='classes-section-input'>
-            <PowerSelectMultiple
-              @destination="customized-destination"
-              @searchEnabled={{true}}
-              @options={{this.profileTrainers}}
-              @selected={{this.selected}}
-              @placeholder="Select trainers..."
-              @onChange={{fn (mut this.selected)}} as |trainer|>
-              {{trainer.fullName}}
-            </PowerSelectMultiple>
-            <div id="customized-destination"></div>
+            {{input type="text" id='add-trainer'}}
+            <button type="submit">
+              <img src="{{rootURL}}/assets/images/arrow-down.svg" alt="submit-trainer-icon">
+            </button>
           </div>
         </fieldset>
       </form>
@@ -70,9 +64,9 @@
     <div class='classes-section-list members'>
       <h3 class='class-section-title'>Members</h3>
       {{#each classMembers as |member|}}
-        <div class="classes-section-item">
-          <h3>{{member.first_name}} {{member.last_name}}</h3>
-        </div>
+      <div class="classes-section-item">
+        <h3>{{member.first_name}} {{member.last_name}}</h3>
+      </div>
       {{/each}}
     </div>
 

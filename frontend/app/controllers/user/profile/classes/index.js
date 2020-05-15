@@ -15,10 +15,10 @@ export default Ember.Controller.extend({
     selectClass(_class) {
       this.set("classTrainers", _class.trainers);
       this.set("classMembers", _class.members);
+      this.set("selectedKlass", _class);
       this.set("classInfo", {
         title: _class.title,
       });
-      this.set("selectedKlass", _class);
     },
     updateClassTitle(title) {
       this.set('selectedKlass.title', title);
