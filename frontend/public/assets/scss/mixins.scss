@@ -1,0 +1,131 @@
+@mixin page-grid-parent($columns, $rows) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+  column-gap: 20px;
+  row-gap: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  height: 100%;
+}
+
+@mixin page-grid-section {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px 0 rgba(darken($light-primary, 20%), 0.5);
+}
+
+@mixin page-grid-section-item {
+  cursor: pointer;
+  padding: 20px 10px;
+  border-radius: 5px;
+  &:hover {
+    background-color: $light-primary;
+    h3 {
+      color: $primary;
+    }
+  }
+  h3 {
+    font-weight: normal;
+  }
+}
+
+@mixin page-grid-section-item-sm {
+  cursor: pointer;
+  background-color: $light-primary;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  &:hover {
+    h3 {
+      color: $primary;
+    }
+  }
+  h3 {
+    font-size: 1em;
+    font-weight: normal;
+  }
+}
+
+@mixin page-grid-section-detail($columns, $rows) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+  column-gap: 20px;
+  row-gap: 10px;
+  padding: 20px;
+  h2 {
+    font-weight: normal;
+    font-size: 1.7em;
+  }
+}
+
+@mixin page-grid-create-btn {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 0 rgba(darken($light-primary, 20%), 0.5);
+    &:hover {
+      background-color: darken(white, 5%);
+      color: $primary;
+    }
+  }
+}
+
+@mixin page-grid-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  fieldset {
+    margin-bottom: 20px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    label {
+      margin-bottom: 10px;
+    }
+    .page-grid-form-input {
+      display: flex;
+      border: 1px solid darken($light-primary, 10%);
+      border-radius: 10px;
+      overflow: hidden;
+
+      input {
+        outline: none;
+        border: none;
+        flex: 1;
+        width: 100%;
+        padding: 10px;
+        padding-left: 20px;
+      }
+      button {
+        outline: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background-color: $light-primary;
+        width: 39px;
+        &:hover {
+          background-color: $primary;
+          img {
+            filter: invert(100%);
+          }
+        }
+      }
+    }
+  }
+}

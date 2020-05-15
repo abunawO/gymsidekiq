@@ -1,7 +1,7 @@
 <div class="layout">
     <nav class="layout-sidebar">
         {{#each this.sidebarLinks as |d|}}
-        {{#link-to  d.to}}
+        {{#link-to  d.to activeClass='active'}}
         <span class='layout-sidebar-indicator'></span>
         <div class='layout-sidebar-icon'></div>
         <span>{{d.title}}</span>

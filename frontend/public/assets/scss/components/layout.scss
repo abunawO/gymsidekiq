@@ -3,7 +3,7 @@
   grid-template-columns: 90px 1fr;
   grid-template-rows: 50px 1fr;
   height: 100vh;
-  min-height: 768px;
+  min-height: 700px;
   background-color: $light-secondary;
   padding-left: 20px;
   padding-top: 20px;
@@ -25,13 +25,23 @@
       width: calc(100% - 8px);
       border-radius: 10px;
       position: relative;
-      span {
-        color: inherit;
+      &.active {
+        background-color: $primary;
+        box-shadow: 0 0 30px 0 rgba(darken($primary, 20%), 0.5);
+        color: white;
+        &:hover {
+          background-color: $primary;
+          box-shadow: 0 0 30px 0 rgba(darken($primary, 20%), 0.5);
+          color: white;
+        }
       }
       &:hover {
         background-color: $light-primary;
         box-shadow: 0 0 30px 0 rgba(darken($light-primary, 20%), 0.5);
         color: $primary;
+      }
+      span {
+        color: inherit;
       }
       .layout-sidebar-indicator {
         display: none;
