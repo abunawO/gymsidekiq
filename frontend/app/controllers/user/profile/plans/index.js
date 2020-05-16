@@ -30,5 +30,8 @@ export default Ember.Controller.extend({
           this.get("flashMessages").danger("Plan not updated!");
         });
     },
-  },
+    createNewPlan(){
+      this.transitionToRoute("user.profile.plans.new");
+    }
+  }
 });
