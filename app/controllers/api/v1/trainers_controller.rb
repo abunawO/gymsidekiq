@@ -40,6 +40,7 @@ class Api::V1:: TrainersController < ApplicationController
   # POST /trainers
   # POST /trainers.json
   def create
+    binding.pry
     @trainer = Trainer.new(trainer_params)
 
     if @trainer.save
@@ -77,7 +78,7 @@ class Api::V1:: TrainersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trainer_params
-      #binding.pry
-      params.require(:trainer).permit(:first_name, :last_name, :email, :address, :city, :state, :zip, :phone, :profile_id, :klass_ids)
+      binding.pry
+      params.require(:trainer).permit(:first_name, :last_name, :email, :address, :city, :state, :zip, :phone, :profile_id, :klass_ids, :avatar)
     end
 end
