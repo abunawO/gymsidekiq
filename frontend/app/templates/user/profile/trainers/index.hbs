@@ -1,32 +1,82 @@
 
-<h1>Listing Profile Trainers</h1>
-<table class='tables-1'>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Phone</th>
-    </tr>
-  </thead>
+<div class="page-grid-system trainers-layout">
 
-  <tbody>
+  <div class="trainers-create">
+    <button {{action "createNewTrainer"}}>Create New Trainer</button>
+  </div>
+
+  <div class='trainers-section trainers-section-list'>
     {{#each profileTrainersList as |trainer|}}
-    <tr>
-      <td><img src="{{trainer.image.url}}" height="100" width="100" alt="Image preview..."></td>
-      <td>{{trainer.fullName}}</td>
-      <td>{{trainer.email}}</td>
-      <td>{{trainer.address}}</td>
-      <td>{{trainer.city}}</td>
-      <td>{{trainer.state}}</td>
-      <td>{{trainer.phone}}</td>
-    </tr>
+    <div class="trainers-section-item" {{action 'selectTrainer' trainer}}>
+      <h3>{{trainer.fullName}}</h3>
+    </div>
     {{/each}}
-  </tbody>
-</table>
-{{#link-to  "user.profile.trainers.new" class="temp-btn"}}
-Create New Trainer
-{{/link-to}}
+  </div>
+
+  <div class='trainers-section trainers-section-detail'>
+
+    <h2>Trainer Settings</h2>
+
+
+    <div class='trainers-section-info'>
+      <form>
+        <fieldset>
+          <label for="trainer-firstName">First Name</label>
+          <div class='page-grid-form-input'>
+            {{input type="text" id="trainer-firstName" value=selectedTrainer.firstName }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="trainer-lastName">Last Name</label>
+          <div class='page-grid-form-input'>
+            {{input type="text" id="trainer-lastName" value=selectedTrainer.lastName }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="trainer-email">Email</label>
+          <div class='page-grid-form-input'>
+            {{input type="text" id="trainer-email" value=selectedTrainer.email }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="trainer-address">Address</label>
+          <div class='page-grid-form-input'>
+            {{input type="text" id="trainer-address" value=selectedTrainer.address }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="trainer-city">City</label>
+          <div class='page-grid-form-input'>
+            {{input type="text" id="trainer-city" value=selectedTrainer.city }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="trainer-state">State</label>
+          <div class='page-grid-form-input'>
+            {{input type="text" id="trainer-state" value=selectedTrainer.state }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="trainer-zip">Zip</label>
+          <div class='page-grid-form-input'>
+            {{input type="text" id="trainer-zip" value=selectedTrainer.zip }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="trainer-phone">Phone</label>
+          <div class='page-grid-form-input'>
+            {{input type="text" id="trainer-phone" value=selectedTrainer.phone }}
+          </div>
+        </fieldset>
+        {{!-- <button {{action "updateTrainerTitle" selectedTrainer.title}}  type="submit">
+              <img src="{{rootURL}}/assets/images/check.svg" alt="submit-trainer-icon">
+            </button> --}}
+      </form>
+    </div>
+
+
+
+  </div>
+
+
+</div>
