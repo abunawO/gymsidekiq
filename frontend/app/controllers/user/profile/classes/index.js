@@ -53,8 +53,17 @@ export default Ember.Controller.extend({
     }
     this.set("avaliableHours", tempArray);
   }.observes("classInfo"),
-
   actions: {
+    unFollowCursor() {
+      var bx = document.getElementById("timetable-tooltip");
+      bx.style.display = "none";
+    },
+    followCursor() {
+      var bx = document.getElementById("timetable-tooltip");
+      bx.style.display = "block";
+      bx.style.left = event.pageX + "px";
+      bx.style.top = event.pageY + "px";
+    },
     selectClass(_class) {
       this.set("classTrainers", _class.trainers);
       this.set("classMembers", _class.members);

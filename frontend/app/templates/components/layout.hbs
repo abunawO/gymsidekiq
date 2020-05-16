@@ -1,4 +1,4 @@
-<div class="layout">
+{{!-- <div class="layout">
     <nav class="layout-sidebar">
         {{#each this.sidebarLinks as |d|}}
         {{#link-to  d.to activeClass='active'}}
@@ -15,6 +15,21 @@
         <a class="layout-topbar-btn logout" {{action "logout"}}>
             Sign Out
         </a>
+    </nav>
+<div class="layout-content">
+    {{yield}}
+</div>
+</div> --}}
+
+<div class="layout">
+    <nav class="layout-sidebar">
+        {{#each this.sidebarLinks as |d|}}
+        {{#link-to  d.to activeClass='active'}}
+        <span class='layout-sidebar-indicator'></span>
+        <div class='layout-sidebar-icon'></div>
+        <span>{{d.title}}</span>
+        {{/link-to}}
+        {{/each}}
     </nav>
     <div class="layout-content">
         {{yield}}
