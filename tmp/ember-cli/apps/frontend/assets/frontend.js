@@ -3219,25 +3219,6 @@
     }
   });
 });
-;define("frontend/transforms/file", ["exports", "ember-data/transform"], function (_exports, _transform) {
-  "use strict";
-
-  Object.defineProperty(_exports, "__esModule", {
-    value: true
-  });
-  _exports.default = void 0;
-
-  var _default = _transform.default.extend({
-    deserialize: function (serialized) {
-      return serialized;
-    },
-    serialize: function (deserialized) {
-      return deserialized;
-    }
-  });
-
-  _exports.default = _default;
-});
 ;define("frontend/transforms/number", ["exports", "@ember-data/serializer/-private"], function (_exports, _private) {
   "use strict";
 
@@ -3269,7 +3250,7 @@
 ;define('frontend/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+a303032d"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
+            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+93dacc12"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
@@ -3278,7 +3259,7 @@
 
 ;
           if (!runningTests) {
-            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+a303032d"});
+            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+93dacc12"});
           }
         
 //# sourceMappingURL=frontend.map
