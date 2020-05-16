@@ -1,7 +1,4 @@
 <div class="page-grid-system profile-layout">
-  <div class="trainers-create">
-    <button {{action "createProfile"}}>Create Profile</button>
-  </div>
   <div class="profile-section wide placeholder">
     <h2>Placeholder</h2>
   </div>
@@ -20,6 +17,7 @@
     {{#each userProfiles.firstObject.trainers as |trainer|}}
     <div class="profile-section-item">
       <h3>{{trainer.fullName}}</h3>
+      <img id="trainers-image-display" src="{{trainer.image.url}}" height="100" width="100">
     </div>
     {{/each}}
   </div>
