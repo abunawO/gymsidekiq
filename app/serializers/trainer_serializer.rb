@@ -10,6 +10,7 @@ class TrainerSerializer < ActiveModel::Serializer
               :zip,
               :phone,
               :profile_id,
-              :classes
+              :classes,
+              :image
 
 end

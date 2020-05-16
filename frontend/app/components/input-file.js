@@ -15,9 +15,9 @@ export default Ember.Component.extend({
     var files = event.target.files;
     for (var i = 0; i < files.length; i++) {
       var file = files.item(i);
+      this.set('filesArray', []);
       this.get('filesArray').pushObject(file);
     }
-    //return this.get('filesArray');
     this.get("_target").send(this.get("callbackAction"), this.get('filesArray'));
   }
 });

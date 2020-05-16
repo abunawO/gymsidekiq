@@ -6,7 +6,6 @@ export default Ember.Controller.extend({
   checkedklasses: [],
   klassIds: [],
   filesArray: [],
-  trainersImage: null,
 
   refreshModel: function(){
     this.set('firstName', ''),
@@ -44,7 +43,6 @@ export default Ember.Controller.extend({
      },
 
     createNewTrainer() {
-      debugger;
       var trainer = this.store.createRecord('trainer', {
         profileId: this.get('profile.id'),
         firstName: this.get('firstName'),
@@ -56,7 +54,7 @@ export default Ember.Controller.extend({
         zip: this.get('zip'),
         klassIds: this.get('klassIds').toString(),
         phone: this.get('phone'),
-        avatar: this.get('trainersImage').name
+        image: this.get('filesArray')[0]
       });
 
       trainer.save().then((res) => {
@@ -69,9 +67,7 @@ export default Ember.Controller.extend({
       });
     },
     someAction(filesArray) {
-      debugger;
-      this.set('filesArray', filesArray)
-      this.set('trainersImage', filesArray[0])
+      this.set('filesArray', filesArray);
     }
   }
 });

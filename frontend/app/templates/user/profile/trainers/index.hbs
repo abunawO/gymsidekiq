@@ -3,6 +3,7 @@
 <table class='tables-1'>
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Email</th>
       <th>address</th>
@@ -15,6 +16,7 @@
   <tbody>
     {{#each profileTrainersList as |trainer|}}
     <tr>
+      <td><img src="{{trainer.image.url}}" height="100" width="100" alt="Image preview..."></td>
       <td>{{trainer.fullName}}</td>
       <td>{{trainer.email}}</td>
       <td>{{trainer.address}}</td>

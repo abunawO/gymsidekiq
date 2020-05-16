@@ -16,7 +16,6 @@ export default Ember.Component.extend({
       }, false);
 
       if (file) {
-        debugger;
         reader.readAsDataURL(file);
       }
    }

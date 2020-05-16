@@ -1,0 +1,36 @@
+.profile-layout {
+  @include page-grid-parent($columns: 1fr 1fr 1fr, $rows: 200px 1fr);
+  .profile-section {
+    @include page-grid-section;
+    &.classes {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+    &.trainers {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+    &.members {
+      grid-column: 3 / 4;
+      grid-row: 1 / 3;
+    }
+    &.tall {
+      h2 {
+        font-size: 1.5em;
+        padding-bottom: 10px;
+      }
+      .profile-section-item {
+        @include page-grid-section-item;
+      }
+    }
+    &.wide {
+      h2 {
+        font-size: 1.5em;
+      }
+      &.placeholder {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+      }
+    }
+  }
+}

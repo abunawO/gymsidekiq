@@ -11,7 +11,7 @@ export default DS.Model.extend({
    state: DS.attr(),
    zip: DS.attr(),
    phone: DS.attr(),
-   avatar: DS.attr(),
+   image: DS.attr('file'),
    classes: DS.attr(),
    klassIds: DS.attr(),
    profileId: DS.attr(),
