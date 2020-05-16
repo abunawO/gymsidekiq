@@ -67,7 +67,7 @@ export default Ember.Controller.extend({
         this.get('flashMessages').danger('Record not created!')
       });
     },
-    someAction(filesArray) {
+    setImage(filesArray) {
       this.set('filesArray', filesArray);
     }
   }
