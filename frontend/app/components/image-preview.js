@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   file: null,
 
    didInsertElement: function () {
-     var self = document.querySelector('img');
+     var self = document.getElementById('image-display-preview');
      var file = this.get('file');
      var reader = new FileReader();
      reader.addEventListener("load", function () {

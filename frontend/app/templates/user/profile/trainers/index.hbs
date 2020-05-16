@@ -9,6 +9,7 @@
     {{#each profileTrainersList as |trainer|}}
     <div class="trainers-section-item" {{action 'selectTrainer' trainer}}>
       <h3>{{trainer.fullName}}</h3>
+      <img id="trainers-image-display" src="{{trainer.image.url}}" height="100" width="100">
     </div>
     {{/each}}
   </div>
@@ -20,6 +21,18 @@
 
     <div class='trainers-section-info'>
       <form>
+        <fieldset>
+          <div class='page-grid-form-input'>
+            <div>
+              <ul style="list-style-type: none;">
+              {{#each filesArray as |file|}}
+                {{image-preview file=file}}
+              {{/each}}
+              </ul>
+              {{input-file files=files callbackAction='someAction'}}
+            </div>
+          </div>
+        </fieldset>
         <fieldset>
           <label for="trainer-firstName">First Name</label>
           <div class='page-grid-form-input'>

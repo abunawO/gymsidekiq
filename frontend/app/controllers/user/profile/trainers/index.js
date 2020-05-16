@@ -5,6 +5,8 @@ export default Ember.Controller.extend({
   profileTrainersList: [],
   selectedTrainer: null,
   profile: null,
+  filesArray: [],
+
   trainerManifest: [
     { type: "firstName", placeholder: "First Name" },
     { type: "lastName", placeholder: "Last Name" },
@@ -33,5 +35,8 @@ export default Ember.Controller.extend({
     createNewTrainer(title) {
       this.transitionToRoute("user.profile.trainers.new");
     },
+    someAction(filesArray) {
+      this.set('filesArray', filesArray);
+    }
   }
 });

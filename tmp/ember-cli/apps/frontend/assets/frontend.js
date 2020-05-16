@@ -221,7 +221,7 @@
     tagName: 'li',
     file: null,
     didInsertElement: function () {
-      var self = document.querySelector('img');
+      var self = document.getElementById('image-display-preview');
       var file = this.get('file');
       var reader = new FileReader();
       reader.addEventListener("load", function () {
@@ -1150,6 +1150,7 @@
     profileTrainersList: [],
     selectedTrainer: null,
     profile: null,
+    filesArray: [],
     trainerManifest: [{
       type: "firstName",
       placeholder: "First Name"
@@ -1191,6 +1192,10 @@
 
       createNewTrainer(title) {
         this.transitionToRoute("user.profile.trainers.new");
+      },
+
+      someAction(filesArray) {
+        this.set('filesArray', filesArray);
       }
 
     }
@@ -2805,8 +2810,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "p2vTP3/G",
-    "block": "{\"symbols\":[],\"statements\":[[9,\"img\",true],[12,\"src\",\"\",null],[12,\"height\",\"100\",null],[12,\"width\",\"100\",null],[12,\"alt\",\"Image preview...\",null],[10],[11],[1,1,0,0,\"\\n\"]],\"hasEval\":false,\"upvars\":[]}",
+    "id": "O826iCxF",
+    "block": "{\"symbols\":[],\"statements\":[[9,\"img\",true],[12,\"id\",\"image-display-preview\",null],[12,\"src\",\"\",null],[12,\"height\",\"100\",null],[12,\"width\",\"100\",null],[10],[11],[1,1,0,0,\"\\n\"]],\"hasEval\":false,\"upvars\":[]}",
     "meta": {
       "moduleName": "frontend/templates/components/image-preview.hbs"
     }
@@ -2949,8 +2954,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "Ch699kTr",
-    "block": "{\"symbols\":[\"d\",\"&default\"],\"statements\":[[1,1,0,0,\"\\n\"],[9,\"div\",true],[12,\"class\",\"layout\",null],[10],[1,1,0,0,\"\\n    \"],[9,\"nav\",true],[12,\"class\",\"layout-sidebar\",null],[10],[1,1,0,0,\"\\n\"],[5,[27,[26,2,\"BlockHead\"],[]],[[31,0,0,[27,[26,1,\"CallHead\"],[]],[[31,0,0,[27,[26,1,\"CallHead\"],[]],[[27,[24,0],[\"sidebarLinks\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[5,[27,[26,0,\"BlockHead\"],[]],null,[[\"activeClass\",\"route\"],[\"active\",[27,[24,1],[\"to\"]]]],[[\"default\"],[{\"statements\":[[1,1,0,0,\"        \"],[9,\"span\",true],[12,\"class\",\"layout-sidebar-indicator\",null],[10],[11],[1,1,0,0,\"\\n        \"],[9,\"div\",true],[12,\"class\",\"layout-sidebar-icon\",null],[10],[11],[1,1,0,0,\"\\n        \"],[9,\"span\",true],[10],[1,0,0,0,[27,[24,1],[\"title\"]]],[11],[1,1,0,0,\"\\n\"]],\"parameters\":[]}]]]],\"parameters\":[1]}]]],[1,1,0,0,\"    \"],[11],[1,1,0,0,\"\\n    \"],[9,\"div\",true],[12,\"class\",\"layout-content\",null],[10],[1,1,0,0,\"\\n        \"],[16,2,null],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n\"],[11]],\"hasEval\":false,\"upvars\":[\"link-to\",\"-track-array\",\"each\"]}",
+    "id": "LEXRGsfc",
+    "block": "{\"symbols\":[\"d\",\"&default\"],\"statements\":[[9,\"div\",true],[12,\"class\",\"layout\",null],[10],[1,1,0,0,\"\\n    \"],[9,\"nav\",true],[12,\"class\",\"layout-topbar\",null],[10],[1,1,0,0,\"\\n        \"],[9,\"h2\",true],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[27,[26,1,\"AppendSingleId\"],[]]],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"a\",false],[23,\"class\",\"layout-topbar-btn logout\",null],[3,0,0,[27,[26,2,\"ModifierHead\"],[]],[[27,[24,0],[]],\"logout\"],null],[10],[1,1,0,0,\"\\n            Sign Out\\n        \"],[11],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n    \"],[9,\"nav\",true],[12,\"class\",\"layout-sidebar\",null],[10],[1,1,0,0,\"\\n\"],[5,[27,[26,4,\"BlockHead\"],[]],[[31,0,0,[27,[26,3,\"CallHead\"],[]],[[31,0,0,[27,[26,3,\"CallHead\"],[]],[[27,[24,0],[\"sidebarLinks\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[5,[27,[26,0,\"BlockHead\"],[]],null,[[\"activeClass\",\"route\"],[\"active\",[27,[24,1],[\"to\"]]]],[[\"default\"],[{\"statements\":[[1,1,0,0,\"        \"],[9,\"span\",true],[12,\"class\",\"layout-sidebar-indicator\",null],[10],[11],[1,1,0,0,\"\\n        \"],[9,\"div\",true],[12,\"class\",\"layout-sidebar-icon\",null],[10],[11],[1,1,0,0,\"\\n        \"],[9,\"span\",true],[10],[1,0,0,0,[27,[24,1],[\"title\"]]],[11],[1,1,0,0,\"\\n\"]],\"parameters\":[]}]]]],\"parameters\":[1]}]]],[1,1,0,0,\"    \"],[11],[1,1,0,0,\"\\n    \"],[9,\"div\",true],[12,\"class\",\"layout-content\",null],[10],[1,1,0,0,\"\\n        \"],[16,2,null],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n\"],[11],[1,1,0,0,\"\\n\"]],\"hasEval\":false,\"upvars\":[\"link-to\",\"profileName\",\"action\",\"-track-array\",\"each\"]}",
     "meta": {
       "moduleName": "frontend/templates/components/layout.hbs"
     }
@@ -3219,8 +3224,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "8juk6rod",
-    "block": "{\"symbols\":[\"trainer\"],\"statements\":[[1,1,0,0,\"\\n\"],[9,\"div\",true],[12,\"class\",\"page-grid-system trainers-layout\",null],[10],[1,1,0,0,\"\\n\\n  \"],[9,\"div\",true],[12,\"class\",\"trainers-create\",null],[10],[1,1,0,0,\"\\n    \"],[9,\"button\",false],[3,0,0,[27,[26,0,\"ModifierHead\"],[]],[[27,[24,0],[]],\"createNewTrainer\"],null],[10],[1,1,0,0,\"Create New Trainer\"],[11],[1,1,0,0,\"\\n  \"],[11],[1,1,0,0,\"\\n\\n  \"],[9,\"div\",true],[12,\"class\",\"trainers-section trainers-section-list\",null],[10],[1,1,0,0,\"\\n\"],[5,[27,[26,3,\"BlockHead\"],[]],[[31,0,0,[27,[26,2,\"CallHead\"],[]],[[31,0,0,[27,[26,2,\"CallHead\"],[]],[[27,[26,1,\"Expression\"],[]]],null]],null]],null,[[\"default\"],[{\"statements\":[[1,1,0,0,\"    \"],[9,\"div\",false],[23,\"class\",\"trainers-section-item\",null],[3,0,0,[27,[26,0,\"ModifierHead\"],[]],[[27,[24,0],[]],\"selectTrainer\",[27,[24,1],[]]],null],[10],[1,1,0,0,\"\\n      \"],[9,\"h3\",true],[10],[1,0,0,0,[27,[24,1],[\"fullName\"]]],[11],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n\"]],\"parameters\":[1]}]]],[1,1,0,0,\"  \"],[11],[1,1,0,0,\"\\n\\n  \"],[9,\"div\",true],[12,\"class\",\"trainers-section trainers-section-detail\",null],[10],[1,1,0,0,\"\\n\\n    \"],[9,\"h2\",true],[10],[1,1,0,0,\"Trainer Settings\"],[11],[1,1,0,0,\"\\n\\n\\n    \"],[9,\"div\",true],[12,\"class\",\"trainers-section-info\",null],[10],[1,1,0,0,\"\\n      \"],[9,\"form\",true],[10],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-firstName\",null],[10],[1,1,0,0,\"First Name\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,690,5,[27,[26,5,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-firstName\",[27,[26,4,\"Expression\"],[\"firstName\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-lastName\",null],[10],[1,1,0,0,\"Last Name\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,939,5,[27,[26,5,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-lastName\",[27,[26,4,\"Expression\"],[\"lastName\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-email\",null],[10],[1,1,0,0,\"Email\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,1179,5,[27,[26,5,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-email\",[27,[26,4,\"Expression\"],[\"email\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-address\",null],[10],[1,1,0,0,\"Address\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,1417,5,[27,[26,5,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-address\",[27,[26,4,\"Expression\"],[\"address\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-city\",null],[10],[1,1,0,0,\"City\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,1653,5,[27,[26,5,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-city\",[27,[26,4,\"Expression\"],[\"city\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-state\",null],[10],[1,1,0,0,\"State\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,1885,5,[27,[26,5,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-state\",[27,[26,4,\"Expression\"],[\"state\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-zip\",null],[10],[1,1,0,0,\"Zip\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,2115,5,[27,[26,5,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-zip\",[27,[26,4,\"Expression\"],[\"zip\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-phone\",null],[10],[1,1,0,0,\"Phone\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,2345,5,[27,[26,5,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-phone\",[27,[26,4,\"Expression\"],[\"phone\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n\"],[1,1,0,0,\"      \"],[11],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n\\n\\n\\n  \"],[11],[1,1,0,0,\"\\n\\n\\n\"],[11],[1,1,0,0,\"\\n\"]],\"hasEval\":false,\"upvars\":[\"action\",\"profileTrainersList\",\"-track-array\",\"each\",\"selectedTrainer\",\"input\"]}",
+    "id": "WtFTo6La",
+    "block": "{\"symbols\":[\"file\",\"trainer\"],\"statements\":[[1,1,0,0,\"\\n\"],[9,\"div\",true],[12,\"class\",\"page-grid-system trainers-layout\",null],[10],[1,1,0,0,\"\\n\\n  \"],[9,\"div\",true],[12,\"class\",\"trainers-create\",null],[10],[1,1,0,0,\"\\n    \"],[9,\"button\",false],[3,0,0,[27,[26,1,\"ModifierHead\"],[]],[[27,[24,0],[]],\"createNewTrainer\"],null],[10],[1,1,0,0,\"Create New Trainer\"],[11],[1,1,0,0,\"\\n  \"],[11],[1,1,0,0,\"\\n\\n  \"],[9,\"div\",true],[12,\"class\",\"trainers-section trainers-section-list\",null],[10],[1,1,0,0,\"\\n\"],[5,[27,[26,4,\"BlockHead\"],[]],[[31,0,0,[27,[26,3,\"CallHead\"],[]],[[31,0,0,[27,[26,3,\"CallHead\"],[]],[[27,[26,2,\"Expression\"],[]]],null]],null]],null,[[\"default\"],[{\"statements\":[[1,1,0,0,\"    \"],[9,\"div\",false],[23,\"class\",\"trainers-section-item\",null],[3,0,0,[27,[26,1,\"ModifierHead\"],[]],[[27,[24,0],[]],\"selectTrainer\",[27,[24,2],[]]],null],[10],[1,1,0,0,\"\\n      \"],[9,\"h3\",true],[10],[1,0,0,0,[27,[24,2],[\"fullName\"]]],[11],[1,1,0,0,\"\\n      \"],[9,\"img\",true],[12,\"id\",\"trainers-image-display\",null],[13,\"src\",[32,[[27,[24,2],[\"image\",\"url\"]]]],null],[12,\"height\",\"100\",null],[12,\"width\",\"100\",null],[10],[11],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n\"]],\"parameters\":[2]}]]],[1,1,0,0,\"  \"],[11],[1,1,0,0,\"\\n\\n  \"],[9,\"div\",true],[12,\"class\",\"trainers-section trainers-section-detail\",null],[10],[1,1,0,0,\"\\n\\n    \"],[9,\"h2\",true],[10],[1,1,0,0,\"Trainer Settings\"],[11],[1,1,0,0,\"\\n\\n\\n    \"],[9,\"div\",true],[12,\"class\",\"trainers-section-info\",null],[10],[1,1,0,0,\"\\n      \"],[9,\"form\",true],[10],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[9,\"div\",true],[10],[1,1,0,0,\"\\n              \"],[9,\"ul\",true],[12,\"style\",\"list-style-type: none;\",null],[10],[1,1,0,0,\"\\n\"],[5,[27,[26,4,\"BlockHead\"],[]],[[31,0,0,[27,[26,3,\"CallHead\"],[]],[[31,0,0,[27,[26,3,\"CallHead\"],[]],[[27,[26,5,\"Expression\"],[]]],null]],null]],null,[[\"default\"],[{\"statements\":[[1,1,0,0,\"                \"],[1,0,0,0,[31,840,13,[27,[26,0,\"CallHead\"],[]],null,[[\"file\"],[[27,[24,1],[]]]]]],[1,1,0,0,\"\\n\"]],\"parameters\":[1]}]]],[1,1,0,0,\"              \"],[11],[1,1,0,0,\"\\n              \"],[1,0,0,0,[31,926,10,[27,[26,7,\"CallHead\"],[]],null,[[\"files\",\"callbackAction\"],[[27,[26,6,\"Expression\"],[]],\"someAction\"]]]],[1,1,0,0,\"\\n            \"],[11],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-firstName\",null],[10],[1,1,0,0,\"First Name\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,1173,5,[27,[26,9,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-firstName\",[27,[26,8,\"Expression\"],[\"firstName\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-lastName\",null],[10],[1,1,0,0,\"Last Name\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,1422,5,[27,[26,9,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-lastName\",[27,[26,8,\"Expression\"],[\"lastName\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-email\",null],[10],[1,1,0,0,\"Email\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,1662,5,[27,[26,9,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-email\",[27,[26,8,\"Expression\"],[\"email\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-address\",null],[10],[1,1,0,0,\"Address\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,1900,5,[27,[26,9,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-address\",[27,[26,8,\"Expression\"],[\"address\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-city\",null],[10],[1,1,0,0,\"City\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,2136,5,[27,[26,9,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-city\",[27,[26,8,\"Expression\"],[\"city\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-state\",null],[10],[1,1,0,0,\"State\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,2368,5,[27,[26,9,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-state\",[27,[26,8,\"Expression\"],[\"state\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-zip\",null],[10],[1,1,0,0,\"Zip\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,2598,5,[27,[26,9,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-zip\",[27,[26,8,\"Expression\"],[\"zip\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"trainer-phone\",null],[10],[1,1,0,0,\"Phone\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,2828,5,[27,[26,9,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"trainer-phone\",[27,[26,8,\"Expression\"],[\"phone\"]]]]]],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n\"],[1,1,0,0,\"      \"],[11],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n\\n\\n\\n  \"],[11],[1,1,0,0,\"\\n\\n\\n\"],[11],[1,1,0,0,\"\\n\"]],\"hasEval\":false,\"upvars\":[\"image-preview\",\"action\",\"profileTrainersList\",\"-track-array\",\"each\",\"filesArray\",\"files\",\"input-file\",\"selectedTrainer\",\"input\"]}",
     "meta": {
       "moduleName": "frontend/templates/user/profile/trainers/index.hbs"
     }
@@ -3272,6 +3277,25 @@
     }
   });
 });
+;define("frontend/transforms/file", ["exports", "ember-data/transform"], function (_exports, _transform) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = _transform.default.extend({
+    deserialize: function (serialized) {
+      return serialized;
+    },
+    serialize: function (deserialized) {
+      return deserialized;
+    }
+  });
+
+  _exports.default = _default;
+});
 ;define("frontend/transforms/number", ["exports", "@ember-data/serializer/-private"], function (_exports, _private) {
   "use strict";
 
@@ -3303,7 +3327,7 @@
 ;define('frontend/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+93dacc12"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
+            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+a6e00fb4"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
@@ -3312,7 +3336,7 @@
 
 ;
           if (!runningTests) {
-            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+93dacc12"});
+            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+a6e00fb4"});
           }
         
 //# sourceMappingURL=frontend.map
