@@ -46,6 +46,7 @@ export default Ember.Controller.extend({
       profile.save().then((res) => {
         this.refreshModel();
         window.scrollTo(0,0);
+        this.transitionToRoute('user.profile')
         this.get('flashMessages').success('Record created successfully!')
       }).catch((err) => {
         //debugger

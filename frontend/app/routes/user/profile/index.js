@@ -22,8 +22,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
 
   setupController(controller, model) {
     this._super(controller, model);
-    controller.set('userProfiles', model.profiles);
-    this.set('profile', model.profiles.firstObject )
+    if(this.get("session.data.authenticated.id")){
+      if (model.profiles.firstObject == null){
+        this.transitionTo('user.profile.new');
+      }else {
+        controller.set('userProfiles', model.profiles);
+        this.set('profile', model.profiles.firstObject )
+      }
+    }
   }
 
 });

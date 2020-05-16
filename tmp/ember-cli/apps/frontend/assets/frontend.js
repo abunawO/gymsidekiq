@@ -1024,6 +1024,7 @@
         profile.save().then(res => {
           this.refreshModel();
           window.scrollTo(0, 0);
+          this.transitionToRoute('user.profile');
           this.get('flashMessages').success('Record created successfully!');
         }).catch(err => {
           //debugger
@@ -1221,7 +1222,7 @@
     klassIds: [],
     filesArray: [],
     refreshModel: function () {
-      this.set('firstName', ''), this.set('lastName', ''), this.set('email', ''), this.set('address', ''), this.set('state', ''), this.set('city', ''), this.set('zip', ''), this.set('phone', ''), this.set('klassIds', []), this.set('accept_terms', ''), this.get('checkedklasses').forEach(element => {
+      this.set('firstName', ''), this.set('lastName', ''), this.set('email', ''), this.set('address', ''), this.set('state', ''), this.set('city', ''), this.set('zip', ''), this.set('phone', ''), this.set('klassIds', []), this.set('accept_terms', ''), this.set('filesArray', []), this.get('checkedklasses').forEach(element => {
         element.prop('checked', false);
       });
     },
@@ -1261,7 +1262,7 @@
         });
         trainer.save().then(res => {
           this.refreshModel();
-          window.scrollTo(0, 0);
+          this.transitionToRoute('user.profile.trainers');
           this.get('flashMessages').success('Record created successfully!');
         }).catch(err => {
           //debugger
@@ -2137,8 +2138,14 @@
     setupController(controller, model) {
       this._super(controller, model);
 
-      controller.set('userProfiles', model.profiles);
-      this.set('profile', model.profiles.firstObject);
+      if (this.get("session.data.authenticated.id")) {
+        if (model.profiles.firstObject == null) {
+          this.transitionTo('user.profile.new');
+        } else {
+          controller.set('userProfiles', model.profiles);
+          this.set('profile', model.profiles.firstObject);
+        }
+      }
     }
 
   });
@@ -3331,7 +3338,7 @@
 ;define('frontend/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+a6e00fb4"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
+            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+e53aa924"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
@@ -3340,7 +3347,7 @@
 
 ;
           if (!runningTests) {
-            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+a6e00fb4"});
+            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+e53aa924"});
           }
         
 //# sourceMappingURL=frontend.map

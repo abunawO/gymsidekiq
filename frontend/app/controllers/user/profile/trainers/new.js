@@ -18,6 +18,7 @@ export default Ember.Controller.extend({
     this.set('phone', ''),
     this.set('klassIds', []),
     this.set('accept_terms', ''),
+    this.set('filesArray', []),
     this.get('checkedklasses').forEach((element)=>{element.prop('checked',false);});
 
   },
@@ -59,7 +60,7 @@ export default Ember.Controller.extend({
 
       trainer.save().then((res) => {
         this.refreshModel();
-        window.scrollTo(0,0);
+        this.transitionToRoute('user.profile.trainers')
         this.get('flashMessages').success('Record created successfully!')
       }).catch((err) => {
         //debugger
