@@ -62,6 +62,13 @@
             margin-top: 10px;
             height: 300px;
             overflow-y: scroll;
+            #timetable-tooltip {
+              position: absolute;
+              display: none;
+              margin-left: 10px;
+              margin-top: 10px;
+              padding: 5px;
+            }
             .classes-timetable-hour {
               cursor: pointer;
               padding: 10px;

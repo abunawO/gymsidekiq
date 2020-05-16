@@ -37,7 +37,11 @@
           </div>
           {{/each}}
         </div>
-        <div class="classes-timetable-hours">
+        <div class="classes-timetable-hours" {{action "followCursor" on="mouseMove"}}
+          {{action "unFollowCursor" on="mouseLeave"}}>
+          <div id='timetable-tooltip'>
+            Select a starting time
+          </div>
           {{#each avaliableHours as |hour|}}
           <div class='classes-timetable-hour'>
             {{hour}}
