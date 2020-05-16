@@ -29,6 +29,6 @@ export default Ember.Controller.extend({
         .catch((err) => {
           this.get("flashMessages").danger("Plan not updated!");
         });
-    }
-  }
+    },
+  },
 });
