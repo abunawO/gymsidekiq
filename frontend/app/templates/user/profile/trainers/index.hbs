@@ -1,4 +1,4 @@
-<h1>Listing Profile Trainers</h1>
+{{!-- <h1>Listing Profile Trainers</h1>
 
 <table class='tables-1'>
   <thead>
@@ -28,3 +28,59 @@
 {{#link-to  "user.profile.trainers.new" class="temp-btn"}}
 Create New Trainer
 {{/link-to}}
+ --}}
+
+<div class="page-grid-system trainers-layout">
+
+  <div class="trainers-create">
+    <button {{action "createNewTrainer"}}>Create New Trainer</button>
+  </div>
+
+  <div class='trainers-section trainers-section-list'>
+    {{#each profileTrainersList as |trainer|}}
+    <div class="trainers-section-item" {{action 'selectTrainer' trainer}}>
+      <h3>{{trainer.fullName}}</h3>
+    </div>
+    {{/each}}
+  </div>
+
+  <div class='trainers-section trainers-section-detail'>
+
+    <h2>Trainer Settings</h2>
+
+
+    <div class='trainers-section-info'>
+      <form>
+
+        {{#each trainerManifest as |trainer|}}
+        <Trainers::FormInput @index={{trainer.type}} @placeholder={{trainer.placeholder}}
+          @value={{selectedTrainer[trainer.type]}}
+          @action={{ "updateTrainerInfo" trainer.type selectedTrainer[trainer.type]}} />
+      </form>
+    </div>
+
+    {{!-- <div class='trainers-section-detail-list classes'>
+
+      <h3 class='trainer-section-title'>Classes</h3>
+
+      {{#each planKlasses as |klass|}}
+      <div class="classes-section-item">
+        <h3>{{klass.title}}</h3>
+      </div>
+      {{/each}}
+
+    </div> --}}
+
+  </div>
+
+</div>
+
+{{!-- <fieldset>
+          <label for="trainer-name">Trainer Name</label>
+          <div class='page-grid-form-input'>
+            {{input type="text" id='trainer-name' value=selectedTrainer.fullName }}
+            <button {{action "updateTrainerTitle" selectedTrainer.title}}  type="submit">
+              <img src="{{rootURL}}/assets/images/check.svg" alt="submit-trainer-icon">
+            </button>
+          </div>
+        </fieldset> --}}

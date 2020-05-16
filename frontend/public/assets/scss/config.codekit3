@@ -152,6 +152,19 @@
 		"oS": 0,
 		"sct": 0
 		},
+	"/components/profile/trainers.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/components/profile/trainers.css",
+		"oF": 0,
+		"oS": 0,
+		"sct": 0
+		},
 	"/components/temp.scss": {
 		"aP": 0,
 		"bl": 0,
