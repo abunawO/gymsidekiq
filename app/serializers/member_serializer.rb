@@ -16,5 +16,19 @@ class MemberSerializer < ActiveModel::Serializer
              :trainers,
              :classes,
              :image
+             
+ def membership_type
+   return unless object.plan_id
+   Plan.find(object.plan_id).title
+ end
 
+ def classes
+   return nil unless object.plan_id
+   plan = Plan.find(object.plan_id)
+   Klass.where(id: plan.klass_ids.split(','))
+ end
+
+ def trainers
+   []
+ end
 end

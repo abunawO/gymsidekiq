@@ -6,7 +6,7 @@ class Api::V1:: KlassesController < ApplicationController
   # GET /klasses.json
   def index
     @klasses = Klass.where(profile_id: params[:where][:profileId][:value])
-    render json: @klasses, status: :ok
+    render json: @klasses, each_serializer: KlassSerializer, status: :ok
   end
 
   # GET /klasses/1
