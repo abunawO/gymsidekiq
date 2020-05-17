@@ -3015,8 +3015,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "ziBtflc3",
-    "block": "{\"symbols\":[\"d\",\"&default\"],\"statements\":[[9,\"div\",true],[12,\"class\",\"layout\",null],[10],[1,1,0,0,\"\\n\"],[1,1,0,0,\"    \"],[9,\"nav\",true],[12,\"class\",\"layout-sidebar\",null],[10],[1,1,0,0,\"\\n\"],[5,[27,[26,2,\"BlockHead\"],[]],[[31,0,0,[27,[26,1,\"CallHead\"],[]],[[31,0,0,[27,[26,1,\"CallHead\"],[]],[[27,[24,0],[\"sidebarLinks\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[5,[27,[26,0,\"BlockHead\"],[]],null,[[\"activeClass\",\"route\"],[\"active\",[27,[24,1],[\"to\"]]]],[[\"default\"],[{\"statements\":[[1,1,0,0,\"        \"],[9,\"span\",true],[12,\"class\",\"layout-sidebar-indicator\",null],[10],[11],[1,1,0,0,\"\\n        \"],[9,\"div\",true],[12,\"class\",\"layout-sidebar-icon\",null],[10],[11],[1,1,0,0,\"\\n        \"],[9,\"span\",true],[10],[1,0,0,0,[27,[24,1],[\"title\"]]],[11],[1,1,0,0,\"\\n\"]],\"parameters\":[]}]]]],\"parameters\":[1]}]]],[1,1,0,0,\"    \"],[11],[1,1,0,0,\"\\n    \"],[9,\"div\",true],[12,\"class\",\"layout-content\",null],[10],[1,1,0,0,\"\\n        \"],[16,2,null],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n\"],[11]],\"hasEval\":false,\"upvars\":[\"link-to\",\"-track-array\",\"each\"]}",
+    "id": "SZOjE6EG",
+    "block": "{\"symbols\":[\"d\",\"&default\"],\"statements\":[[9,\"div\",true],[12,\"class\",\"layout\",null],[10],[1,1,0,0,\"\\n\"],[1,1,0,0,\"    \"],[9,\"nav\",true],[12,\"class\",\"layout-sidebar\",null],[10],[1,1,0,0,\"\\n      \"],[9,\"nav\",true],[12,\"class\",\"layout-topbar\",null],[10],[1,1,0,0,\"\\n        \"],[9,\"a\",false],[23,\"class\",\"layout-topbar-btn logout\",null],[3,0,0,[27,[26,1,\"ModifierHead\"],[]],[[27,[24,0],[]],\"logout\"],null],[10],[1,1,0,0,\"\\n            Sign Out\\n        \"],[11],[1,1,0,0,\"\\n      \"],[11],[1,1,0,0,\"\\n\"],[5,[27,[26,3,\"BlockHead\"],[]],[[31,0,0,[27,[26,2,\"CallHead\"],[]],[[31,0,0,[27,[26,2,\"CallHead\"],[]],[[27,[24,0],[\"sidebarLinks\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[5,[27,[26,0,\"BlockHead\"],[]],null,[[\"activeClass\",\"route\"],[\"active\",[27,[24,1],[\"to\"]]]],[[\"default\"],[{\"statements\":[[1,1,0,0,\"        \"],[9,\"span\",true],[12,\"class\",\"layout-sidebar-indicator\",null],[10],[11],[1,1,0,0,\"\\n        \"],[9,\"div\",true],[12,\"class\",\"layout-sidebar-icon\",null],[10],[11],[1,1,0,0,\"\\n        \"],[9,\"span\",true],[10],[1,0,0,0,[27,[24,1],[\"title\"]]],[11],[1,1,0,0,\"\\n\"]],\"parameters\":[]}]]]],\"parameters\":[1]}]]],[1,1,0,0,\"    \"],[11],[1,1,0,0,\"\\n    \"],[9,\"div\",true],[12,\"class\",\"layout-content\",null],[10],[1,1,0,0,\"\\n        \"],[16,2,null],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n\"],[11],[1,1,0,0,\"\\n\"]],\"hasEval\":false,\"upvars\":[\"link-to\",\"action\",\"-track-array\",\"each\"]}",
     "meta": {
       "moduleName": "frontend/templates/components/layout.hbs"
     }
@@ -3388,7 +3388,7 @@
 ;define('frontend/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+d17b762d"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
+            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+c586f384"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
@@ -3397,7 +3397,7 @@
 
 ;
           if (!runningTests) {
-            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+d17b762d"});
+            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+c586f384"});
           }
         
 //# sourceMappingURL=frontend.map

@@ -31,6 +31,11 @@
         </a>
     </nav> --}}
     <nav class="layout-sidebar">
+      <nav class='layout-topbar'>
+        <a class="layout-topbar-btn logout" {{action "logout"}}>
+            Sign Out
+        </a>
+      </nav>
         {{#each this.sidebarLinks as |d|}}
         {{#link-to  d.to activeClass='active'}}
         <span class='layout-sidebar-indicator'></span>
