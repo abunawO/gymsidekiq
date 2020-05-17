@@ -1,95 +1,83 @@
+<div class="settings-layout">
 
-<div class="page-grid-system trainers-layout">
+  <div class='settings-list'>
+    <div class="settings-action">
+      <button {{action "createNewTrainer"}}>Create New Trainer</button>
+    </div>
 
-  <div class="trainers-create">
-    <button {{action "createNewTrainer"}}>Create New Trainer</button>
-  </div>
-
-  <div class='trainers-section trainers-section-list'>
     {{#each profileTrainersList as |trainer|}}
-    <div class="trainers-section-item" {{action 'selectTrainer' trainer}}>
+    <div class="settings-item" {{action 'selectTrainer' trainer}}>
       <h3>{{trainer.fullName}}</h3>
       <img id="trainers-image-display" src="{{trainer.image.url}}" height="100" width="100">
     </div>
     {{/each}}
   </div>
 
-  <div class='trainers-section trainers-section-detail'>
-
+  <div class='settings-info'>
     <h2>Trainer Settings</h2>
-
-
-    <div class='trainers-section-info'>
+    <div class="settings-content" id="trainers-form">
       <form>
         <fieldset>
-          <div class='page-grid-form-input'>
-            <div>
-              <ul style="list-style-type: none;">
-              {{#each filesArray as |file|}}
-                {{image-preview file=file}}
-              {{/each}}
-              </ul>
-              {{input-file files=files callbackAction='someAction'}}
-            </div>
-          </div>
+          <label for="trainer-picture">Trainer Photo</label>
+          <ul style="list-style-type: none;">
+            {{#each filesArray as |file|}}
+            {{image-preview file=file}}
+            {{/each}}
+          </ul>
+          {{input-file id="trainer-picture" files=files callbackAction='someAction'}}
         </fieldset>
         <fieldset>
           <label for="trainer-firstName">First Name</label>
-          <div class='page-grid-form-input'>
+          <div class='settings-input-text'>
             {{input type="text" id="trainer-firstName" value=selectedTrainer.firstName }}
           </div>
         </fieldset>
         <fieldset>
           <label for="trainer-lastName">Last Name</label>
-          <div class='page-grid-form-input'>
+          <div class='settings-input-text'>
             {{input type="text" id="trainer-lastName" value=selectedTrainer.lastName }}
           </div>
         </fieldset>
         <fieldset>
           <label for="trainer-email">Email</label>
-          <div class='page-grid-form-input'>
+          <div class='settings-input-text'>
             {{input type="text" id="trainer-email" value=selectedTrainer.email }}
           </div>
         </fieldset>
         <fieldset>
           <label for="trainer-address">Address</label>
-          <div class='page-grid-form-input'>
+          <div class='settings-input-text'>
             {{input type="text" id="trainer-address" value=selectedTrainer.address }}
           </div>
         </fieldset>
         <fieldset>
           <label for="trainer-city">City</label>
-          <div class='page-grid-form-input'>
+          <div class='settings-input-text'>
             {{input type="text" id="trainer-city" value=selectedTrainer.city }}
           </div>
         </fieldset>
         <fieldset>
           <label for="trainer-state">State</label>
-          <div class='page-grid-form-input'>
+          <div class='settings-input-text'>
             {{input type="text" id="trainer-state" value=selectedTrainer.state }}
           </div>
         </fieldset>
         <fieldset>
           <label for="trainer-zip">Zip</label>
-          <div class='page-grid-form-input'>
+          <div class='settings-input-text'>
             {{input type="text" id="trainer-zip" value=selectedTrainer.zip }}
           </div>
         </fieldset>
         <fieldset>
           <label for="trainer-phone">Phone</label>
-          <div class='page-grid-form-input'>
+          <div class='settings-input-text'>
             {{input type="text" id="trainer-phone" value=selectedTrainer.phone }}
           </div>
         </fieldset>
-        {{!-- <button {{action "updateTrainerTitle" selectedTrainer.title}}  type="submit">
-              <img src="{{rootURL}}/assets/images/check.svg" alt="submit-trainer-icon">
-            </button> --}}
+        <button type="submit">
+          Submit
+        </button>
       </form>
     </div>
-
-
-
   </div>
-
-
 </div>

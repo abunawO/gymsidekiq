@@ -1,92 +1,59 @@
-<div class="page-grid-system classes-layout">
+<div class="settings-layout">
 
-  <div class="classes-create">
-    <button {{action "createNewClass"}}>Create New Class</button>
-  </div>
+  <div class='settings-list'>
+    <div class="settings-action">
+      <button {{action "createNewClass"}}>Create New Class</button>
+    </div>
 
-  <div class='classes-section classes-section-list'>
     {{#each profileClasses as |class|}}
-    <div class="classes-section-item" {{action 'selectClass' class}}>
+    <div class="settings-item" {{action 'selectClass' class}}>
       <h3>{{class.title}}</h3>
     </div>
     {{/each}}
   </div>
 
-  <div class='classes-section classes-section-detail'>
-
+  <div class='settings-info'>
     <h2>Class Settings</h2>
-
-    <div class='classes-section-info'>
+    <div class="settings-content classes-content" id="classes-form">
       <form>
         <fieldset>
           <label for="class-name">Class Name</label>
-          <div class='page-grid-form-input'>
+          <div class='settings-input-text'>
             {{input type="text" id='class-name' value=classInfo.title }}
-            <button {{action "updateClassTitle" classInfo.title}} type="submit">
-              <img src="{{rootURL}}/assets/images/check.svg" alt="submit-class-icon">
-            </button>
           </div>
         </fieldset>
-      </form>
-      <h3 class='class-section-title'>Schedule</h3>
-      <div class="classes-timetable">
-        <div class="classes-timetable-days">
-          {{#each timetable as |days|}}
-          <div class="classes-timetable-day">
-            <span>{{days.day}}</span>
+        <h3 class='class-section-title'>Schedule</h3>
+        <div class="classes-timetable">
+          <div class="classes-timetable-days">
+            {{#each timetable as |days|}}
+            <div class="classes-timetable-day">
+              <span>{{days.day}}</span>
+            </div>
+            {{/each}}
           </div>
-          {{/each}}
+          <div class="classes-timetable-hours" {{action "followCursor" on="mouseMove"}}
+            {{action "unFollowCursor" on="mouseLeave"}}>
+            <div id='timetable-tooltip'>
+              Select a starting time
+            </div>
+            {{#each avaliableHours as |hour|}}
+            <div class='classes-timetable-hour'>
+              {{hour}}
+            </div>
+            {{/each}}
+          </div>
         </div>
-        <div class="classes-timetable-hours" {{action "followCursor" on="mouseMove"}}
-          {{action "unFollowCursor" on="mouseLeave"}}>
-          <div id='timetable-tooltip'>
-            Select a starting time
-          </div>
-          {{#each avaliableHours as |hour|}}
-          <div class='classes-timetable-hour'>
-            {{hour}}
-          </div>
-          {{/each}}
-        </div>
-      </div>
-
-    </div>
-
-    <div class='classes-section-list trainers'>
-
-      <form>
-        <fieldset>
-          <label for="add-trainer">Add Trainer</label>
-          <div class='page-grid-form-input'>
-            {{input type="text" id='add-trainer'}}
-            <button type="submit">
-              <img src="{{rootURL}}/assets/images/arrow-down.svg" alt="submit-trainer-icon">
-            </button>
-          </div>
-        </fieldset>
       </form>
 
-      <h3 class='class-section-title'>Trainers</h3>
-
-      {{#each classTrainers as |trainer|}}
-      <div class="classes-section-item">
-        <h3>{{trainer.first_name}} {{trainer.last_name}}</h3>
-        <img id="trainers-image-display" src="{{trainer.image.url}}" height="100" width="100">
+      <div class='classes-trainers'>
+        <h3 class='class-section-title'>Trainers</h3>
+        {{#each classTrainers as |trainer|}}
+        <div class="classes-section-item">
+          <h3>{{trainer.first_name}} {{trainer.last_name}}</h3>
+          <img id="trainers-image-display" src="{{trainer.image.url}}" height="100" width="100">
+        </div>
+        {{/each}}
       </div>
-      {{/each}}
-
     </div>
-
-    <div class='classes-section-list members'>
-      <h3 class='class-section-title'>Members</h3>
-      {{#each classMembers as |member|}}
-      <div class="classes-section-item">
-        <h3>{{member.first_name}} {{member.last_name}}</h3>
-        <img id="members-image-display" src="{{member.image.url}}" height="100" width="100">
-      </div>
-      {{/each}}
-    </div>
-
   </div>
-
 </div>

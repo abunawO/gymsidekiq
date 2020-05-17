@@ -1,34 +1,83 @@
-<h1>Listing Profile Members</h1>
+<div class="settings-layout">
 
-<table class='tables-1'>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Membership type</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Phone</th>
-    </tr>
-  </thead>
+  <div class='settings-list'>
+    <div class="settings-action">
+      <button {{action "createNewMember"}}>Create New Member</button>
+    </div>
 
-  <tbody>
     {{#each profileMembersList as |member|}}
-    <tr>
-      <td><img id="members-image-display" src="{{member.image.url}}" height="100" width="100"></td>
-      <td>{{member.membershipType}}</td>
-      <td>{{member.fullName}}</td>
-      <td>{{member.email}}</td>
-      <td>{{member.address}}</td>
-      <td>{{member.city}}</td>
-      <td>{{member.state}}</td>
-      <td>{{member.phone}}</td>
-    </tr>
+    <div class="settings-item" {{action 'selectMember' member}}>
+      <h3>{{member.fullName}}</h3>
+      <img id="members-image-display" src="{{member.image.url}}" height="100" width="100">
+    </div>
     {{/each}}
-  </tbody>
-</table>
-{{#link-to  "user.profile.members.new" class="temp-btn"}}
-Create New Member
-{{/link-to}}
+  </div>
+
+  <div class='settings-info'>
+    <h2>Member Settings</h2>
+    <div class="settings-content" id="members-form">
+      <form>
+        <fieldset>
+          <label for="member-picture">Member Photo</label>
+          <ul style="list-style-type: none;">
+            {{#each filesArray as |file|}}
+            {{image-preview file=file}}
+            {{/each}}
+          </ul>
+          {{input-file id="member-picture" files=files callbackAction='someAction'}}
+        </fieldset>
+        <fieldset>
+          <label for="member-firstName">First Name</label>
+          <div class='settings-input-text'>
+            {{input type="text" id="member-firstName" value=selectedMember.firstName }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="member-lastName">Last Name</label>
+          <div class='settings-input-text'>
+            {{input type="text" id="member-lastName" value=selectedMember.lastName }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="member-email">Email</label>
+          <div class='settings-input-text'>
+            {{input type="text" id="member-email" value=selectedMember.email }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="member-address">Address</label>
+          <div class='settings-input-text'>
+            {{input type="text" id="member-address" value=selectedMember.address }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="member-city">City</label>
+          <div class='settings-input-text'>
+            {{input type="text" id="member-city" value=selectedMember.city }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="member-state">State</label>
+          <div class='settings-input-text'>
+            {{input type="text" id="member-state" value=selectedMember.state }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="member-zip">Zip</label>
+          <div class='settings-input-text'>
+            {{input type="text" id="member-zip" value=selectedMember.zip }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="member-phone">Phone</label>
+          <div class='settings-input-text'>
+            {{input type="text" id="member-phone" value=selectedMember.phone }}
+          </div>
+        </fieldset>
+        <button type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

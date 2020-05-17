@@ -24,10 +24,7 @@
         grid-column: 1 / 3;
         grid-row: 1 / 2;
       }
-      h3 {
-        font-weight: normal;
-        font-size: 1.3em;
-      }
+
       form {
         @include page-grid-form;
       }
@@ -36,47 +33,6 @@
         grid-row: 2 / 3;
         .class-section-title {
           margin-bottom: 10px;
-        }
-        .classes-timetable {
-          border: 2px solid $primary;
-          background-color: rgba($primary, 0.1);
-          border-radius: 10px;
-          box-shadow: 0 0 15px 0 rgba(darken($primary, 20%), 0.3);
-          padding-top: 10px;
-          .classes-timetable-days {
-            display: flex;
-            .classes-timetable-day {
-              cursor: pointer;
-              flex: 1;
-              display: flex;
-              justify-content: center;
-              padding: 5px;
-              border-bottom: 2px solid transparent;
-              &:hover,
-              &.active {
-                border-bottom: 2px solid $primary;
-              }
-            }
-          }
-          .classes-timetable-hours {
-            margin-top: 10px;
-            height: 300px;
-            overflow-y: scroll;
-            #timetable-tooltip {
-              position: absolute;
-              display: none;
-              margin-left: 10px;
-              margin-top: 10px;
-              padding: 5px;
-            }
-            .classes-timetable-hour {
-              cursor: pointer;
-              padding: 10px;
-              &:hover {
-                background-color: $primary;
-              }
-            }
-          }
         }
       }
       .classes-section-list {
@@ -95,6 +51,58 @@
         .classes-section-item {
           @include page-grid-section-item-sm;
         }
+      }
+    }
+  }
+}
+.classes-content {
+  width: 100% !important;
+  form {
+    width: 500px;
+  }
+}
+.class-section-title {
+  font-weight: normal;
+  font-size: 1.3em;
+  margin-bottom: 20px;
+}
+.classes-timetable {
+  border: 2px solid $primary;
+  background-color: rgba($primary, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 0 15px 0 rgba(darken($primary, 20%), 0.3);
+  padding-top: 10px;
+  .classes-timetable-days {
+    display: flex;
+    .classes-timetable-day {
+      cursor: pointer;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 5px;
+      border-bottom: 2px solid transparent;
+      &:hover,
+      &.active {
+        border-bottom: 2px solid $primary;
+      }
+    }
+  }
+  .classes-timetable-hours {
+    margin-top: 10px;
+    // height: 300px;
+    // overflow-y: scroll;
+    #timetable-tooltip {
+      position: absolute;
+      display: none;
+      margin-left: 10px;
+      margin-top: 10px;
+      padding: 5px;
+    }
+    .classes-timetable-hour {
+      cursor: pointer;
+      padding: 10px;
+      &:hover {
+        background-color: $primary;
       }
     }
   }

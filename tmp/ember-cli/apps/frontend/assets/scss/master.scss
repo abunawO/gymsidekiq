@@ -3,7 +3,7 @@ $red: #c0392b;
 $dark-primary: #1f1f1f;
 $dark-secondary: #5f5f5f;
 $light-primary: lighten(desaturate($primary, 85%), 55%);
-$light-secondary: #d5dbd8;
+$light-secondary: #f1f3f2;
 
 @import "./defaults.scss";
 @import "./mixins.scss";
@@ -15,6 +15,7 @@ $light-secondary: #d5dbd8;
 @import "./components/landing/users.scss";
 @import "./components/landing/footer.scss";
 @import "./components/layout.scss";
+@import "./components/profile/settings.scss";
 @import "./components/profile/index.scss";
 @import "./components/profile/classes.scss";
 @import "./components/profile/plans.scss";
