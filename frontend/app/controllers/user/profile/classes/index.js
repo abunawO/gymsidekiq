@@ -71,6 +71,7 @@ export default Ember.Controller.extend({
       this.set("classInfo", {
         title: _class.title,
       });
+      document.getElementById("classes-form").style.display = "flex";
     },
     updateClassTitle(title) {
       this.set("selectedKlass.title", title);

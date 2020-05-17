@@ -17,6 +17,7 @@ export default Ember.Controller.extend({
         title: _plan.title,
         price: _plan.price,
       });
+      document.getElementById("plan-form").style.display = "block";
     },
     updatePlanTitle(title, price) {
       this.set("selectedPlan.title", title);
@@ -31,8 +32,8 @@ export default Ember.Controller.extend({
           this.get("flashMessages").danger("Plan not updated!");
         });
     },
-    createNewPlan(){
+    createNewPlan() {
       this.transitionToRoute("user.profile.plans.new");
-    }
-  }
+    },
+  },
 });

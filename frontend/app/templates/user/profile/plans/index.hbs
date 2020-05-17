@@ -1,57 +1,43 @@
-<div class="page-grid-system plans-layout">
+<div class="settings-layout">
 
-  <div class="plans-create">
-    <button {{action "createNewPlan"}}>Create New Plan</button>
-  </div>
-
-  <div class='plans-section plans-section-list'>
+  <div class='settings-list'>
+    <div class="settings-action">
+      <button {{action "createNewPlan"}}>Create New Plan</button>
+    </div>
     {{#each profilePlansList as |plan|}}
-    <div class="plans-section-item" {{action 'selectPlan' plan}}>
+    <div class="settings-item" {{action 'selectPlan' plan}}>
       <h3>{{plan.title}}</h3>
       <h6>{{plan.price}}</h6>
     </div>
     {{/each}}
   </div>
 
-  <div class='plans-section plans-section-detail'>
-
+  <div class='settings-info'>
     <h2>Plan Settings</h2>
-
-    <div class='plans-section-info'>
+    <div class="settings-content" id="plan-form">
       <form>
         <fieldset>
+          <label>Plan Classes</label>
+          {{#each planKlasses as |klass|}}
+          <div class="classes-section-item">
+            <h3>{{klass.title}}</h3>
+          </div>
+          {{/each}}
+        </fieldset>
+        <fieldset>
           <label for="plan-name">Plan Name</label>
-          <div class='page-grid-form-input'>
+          <div class='settings-input-text'>
             {{input type="text" id='plan-name' value=planInfo.title }}
-            <button {{action "updatePlanTitle" planInfo.title planInfo.price}} type="submit">
-              <img src="{{rootURL}}/assets/images/check.svg" alt="submit-plan-icon">
-            </button>
           </div>
         </fieldset>
         <fieldset>
           <label for="plan-name">Plan Price</label>
-          <div class='page-grid-form-input'>
+          <div class='settings-input-text'>
             {{input type="number" value=price placeholder="Price..." min="0.00" max="10000.00" step="0.01" value=planInfo.price}}
-            <button {{action "updatePlanTitle"  planInfo.title planInfo.price}} type="submit">
-              <img src="{{rootURL}}/assets/images/check.svg" alt="submit-plan-icon">
-            </button>
           </div>
         </fieldset>
       </form>
     </div>
-
-    <div class='plans-section-detail-list classes'>
-
-      <h3 class='plan-section-title'>Classes</h3>
-
-      {{#each planKlasses as |klass|}}
-      <div class="classes-section-item">
-        <h3>{{klass.title}}</h3>
-      </div>
-      {{/each}}
-
-    </div>
-
   </div>
 
 </div>
