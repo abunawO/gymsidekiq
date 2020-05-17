@@ -27,6 +27,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
         this.transitionTo('user.profile.new');
       }else {
         controller.set('userProfiles', model.profiles);
+        controller.set('profileTrainers', model.profiles.firstObject.trainers);
+        controller.set('profileKlasses', model.profiles.firstObject.klasses);
+        controller.set('profileMembers', model.profiles.firstObject.members);
         this.set('profile', model.profiles.firstObject )
       }
     }
