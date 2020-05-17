@@ -687,7 +687,7 @@ define("frontend/tests/unit/serializers/user-test", ["qunit", "ember-qunit"], fu
 define('frontend/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"frontend","environment":"test","rootURL":"/","locationType":"none","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"LOG_ACTIVE_GENERATION":false,"LOG_VIEW_LOOKUPS":false,"rootElement":"#ember-testing","autoboot":false,"name":"frontend","version":"0.0.0+5aa53de6"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
+            'default': {"modulePrefix":"frontend","environment":"test","rootURL":"/","locationType":"none","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"LOG_ACTIVE_GENERATION":false,"LOG_VIEW_LOOKUPS":false,"rootElement":"#ember-testing","autoboot":false,"name":"frontend","version":"0.0.0+a5ffb479"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;

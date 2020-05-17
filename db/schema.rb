@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(version: 20200517021645) do
     t.string   "title"
     t.string   "klass_ids"
     t.integer  "profile_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.decimal  "price"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.decimal  "price",      default: "0.0"
     t.index ["profile_id"], name: "index_plans_on_profile_id", using: :btree
   end
 
