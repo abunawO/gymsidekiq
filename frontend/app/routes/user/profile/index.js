@@ -7,14 +7,26 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
 
   beforeModel(transition){
     //debugger;
+    let queryParams = {where: { id: { value: this.get('session.data.authenticated.id'), operator: '==' }}};
+    let promises = {
+      user: this.store.query('user', queryParams)
+    };
+
+    return Ember.RSVP.hash(promises).then((user)=>{
+      this.set('profileId', user.user.firstObject.profileId)
+    });
   },
   afterModel(model) {
     //debugger;
   },
   model() {
-    let queryParams = {where: { userId: { value: this.get('session.data.authenticated.id'), operator: '==' }}};
+    let queryParams = {where: { profileId: { value: this.get('profileId'), operator: '==' }}};
+    let profileQueryParams = {where: { id: { value: this.get('profileId'), operator: '==' }}};
     let promises = {
-      profiles: this.store.query('profile', queryParams)
+      klasses:  this.store.query('klass', queryParams),
+      trainers:  this.store.query('trainer', queryParams),
+      members:  this.store.query('member', queryParams),
+      profiles:  this.store.query('profile', profileQueryParams)
     };
 
     return Ember.RSVP.hash(promises);
@@ -27,10 +39,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
         this.transitionTo('user.profile.new');
       }else {
         controller.set('userProfiles', model.profiles);
-        controller.set('profileTrainers', model.profiles.firstObject.trainers);
-        controller.set('profileKlasses', model.profiles.firstObject.klasses);
-        controller.set('profileMembers', model.profiles.firstObject.members);
-        this.set('profile', model.profiles.firstObject )
+        controller.set('profileTrainers', model.trainers);
+        controller.set('profileKlasses', model.klasses);
+        controller.set('profileMembers', model.members);
       }
     }
   }

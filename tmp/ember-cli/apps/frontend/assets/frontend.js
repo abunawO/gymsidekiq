@@ -2167,7 +2167,22 @@
     session: Ember.inject.service(),
     profile: null,
 
-    beforeModel(transition) {//debugger;
+    beforeModel(transition) {
+      //debugger;
+      let queryParams = {
+        where: {
+          id: {
+            value: this.get('session.data.authenticated.id'),
+            operator: '=='
+          }
+        }
+      };
+      let promises = {
+        user: this.store.query('user', queryParams)
+      };
+      return Ember.RSVP.hash(promises).then(user => {
+        this.set('profileId', user.user.firstObject.profileId);
+      });
     },
 
     afterModel(model) {//debugger;
@@ -2176,14 +2191,25 @@
     model() {
       let queryParams = {
         where: {
-          userId: {
-            value: this.get('session.data.authenticated.id'),
+          profileId: {
+            value: this.get('profileId'),
+            operator: '=='
+          }
+        }
+      };
+      let profileQueryParams = {
+        where: {
+          id: {
+            value: this.get('profileId'),
             operator: '=='
           }
         }
       };
       let promises = {
-        profiles: this.store.query('profile', queryParams)
+        klasses: this.store.query('klass', queryParams),
+        trainers: this.store.query('trainer', queryParams),
+        members: this.store.query('member', queryParams),
+        profiles: this.store.query('profile', profileQueryParams)
       };
       return Ember.RSVP.hash(promises);
     },
@@ -2196,10 +2222,9 @@
           this.transitionTo('user.profile.new');
         } else {
           controller.set('userProfiles', model.profiles);
-          controller.set('profileTrainers', model.profiles.firstObject.trainers);
-          controller.set('profileKlasses', model.profiles.firstObject.klasses);
-          controller.set('profileMembers', model.profiles.firstObject.members);
-          this.set('profile', model.profiles.firstObject);
+          controller.set('profileTrainers', model.trainers);
+          controller.set('profileKlasses', model.klasses);
+          controller.set('profileMembers', model.members);
         }
       }
     }
@@ -3394,7 +3419,7 @@
 ;define('frontend/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+c586f384"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
+            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+8d6a3537"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
@@ -3403,7 +3428,7 @@
 
 ;
           if (!runningTests) {
-            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+c586f384"});
+            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+8d6a3537"});
           }
         
 //# sourceMappingURL=frontend.map
