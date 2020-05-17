@@ -7,7 +7,8 @@ class ProfileSerializer < ActiveModel::Serializer
              :city,
              :state,
              :zip,
-             :phone
+             :phone,
+             :image
 
 
   has_many :trainers, embed_in_root: true, serializer: TrainerSerializer

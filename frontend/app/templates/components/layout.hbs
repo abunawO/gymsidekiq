@@ -23,7 +23,8 @@
 <div class="layout">
     <nav class='layout-topbar'>
         <h2>
-            {{profileName}}
+            {{profile.profileName}}
+            <img id="members-image-display" src="{{profile.image.url}}" height="100" width="100">
         </h2>
         <a class="layout-topbar-btn logout" {{action "logout"}}>
             Sign Out

@@ -1,5 +1,6 @@
 class Member < ActiveRecord::Base
   belongs_to :profile
+  mount_uploader :image, ImageUploader
 
 
   def membership_type

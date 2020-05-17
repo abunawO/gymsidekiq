@@ -3,5 +3,6 @@ import Ember from "ember";
 
 export default Ember.Controller.extend({
   userProfiles: [],
+  filesArray: [],
   actions: {}
 });

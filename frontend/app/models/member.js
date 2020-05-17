@@ -12,6 +12,7 @@ export default DS.Model.extend({
    state: DS.attr(),
    zip: DS.attr(),
    phone: DS.attr(),
+   image: DS.attr('file'),
    profileId: DS.attr(),
    planId: DS.attr(),
    profile:  DS.belongsTo('profile', { async: false }),

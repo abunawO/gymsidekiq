@@ -10,6 +10,7 @@ export default DS.Model.extend({
    state: DS.attr(),
    zip: DS.attr(),
    phone: DS.attr(),
+   image: DS.attr('file'),
    plans:    DS.hasMany('plan',    { inverse: null }),
    members:  DS.hasMany('member',  { inverse: null }),
    trainers: DS.hasMany('trainer', { inverse: null }),

@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   profile: null,
   planId: null,
   checkedPlans: [],
+  filesArray: [],
 
   refreshModel: function(){
     this.set('firstName', ''),
@@ -17,6 +18,7 @@ export default Ember.Controller.extend({
     this.set('phone', ''),
     this.set('checkedPlans', []),
     this.set('accept_terms', ''),
+    this.set('filesArray', []),
     this.get('checkedPlans').forEach((element)=>{element.prop('checked',false);});
 
   },
@@ -50,7 +52,8 @@ export default Ember.Controller.extend({
         city: this.get('city'),
         zip: this.get('zip'),
         planId: this.get('planId'),
-        phone: this.get('phone')
+        phone: this.get('phone'),
+        image: this.get('filesArray')[0]
       });
 
       member.save().then((res) => {
@@ -61,6 +64,9 @@ export default Ember.Controller.extend({
         //debugger
         this.get('flashMessages').danger('Record not created!')
       });
+    },
+    setImage(filesArray) {
+      this.set('filesArray', filesArray);
     }
   }
 });

@@ -4,4 +4,5 @@ class Profile < ActiveRecord::Base
   has_many :trainers
   has_many :klasses
   has_many :plans
+  mount_uploader :image, ImageUploader
 end

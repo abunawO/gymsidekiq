@@ -3,7 +3,7 @@
   {{flash-message flash=flash}}
   {{/each}}
   {{#if noLayoutNeeded}}
-  <Layout @profileName={{profile.profileName}} @action="invalidateSession">
+  <Layout @profile={{profile}} @action="invalidateSession">
     {{outlet}}
   </Layout>
   {{else}}

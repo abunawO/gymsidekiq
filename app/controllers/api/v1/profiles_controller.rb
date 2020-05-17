@@ -93,6 +93,6 @@ class Api::V1::ProfilesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
       #binding.pry
-      params.require(:profile).permit(:profile_name, :email, :address, :city, :state, :zip, :phone, :user_id)
+      params.require(:profile).permit(:profile_name, :email, :address, :city, :state, :zip, :phone, :user_id, :image)
     end
 end

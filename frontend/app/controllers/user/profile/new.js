@@ -15,7 +15,8 @@ export default Ember.Controller.extend({
     this.set('city', ''),
     this.set('zip', ''),
     this.set('phone', ''),
-    this.set('accept_terms', '')
+    this.set('accept_terms', ''),
+    this.set('filesArray', [])
   },
 
   filterMembershipTypeSelection: function(hash){
@@ -40,7 +41,8 @@ export default Ember.Controller.extend({
         city: this.get('city'),
         zip: this.get('zip'),
         phone: this.get('phone'),
-        userId: this.get('userid')
+        userId: this.get('userid'),
+        image: this.get('filesArray')[0]
       });
 
       profile.save().then((res) => {
@@ -52,6 +54,9 @@ export default Ember.Controller.extend({
         //debugger
         this.get('flashMessages').danger('Record not created!')
       });
+    },
+    setImage(filesArray) {
+      this.set('filesArray', filesArray);
     }
   }
 });

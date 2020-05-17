@@ -8,7 +8,7 @@ export default Ember.Component.extend({
     { title: "Trainers", to: "user.profile.trainers" },
     { title: "Members", to: "user.profile.members" },
   ],
-  profileName: null,
+  profile: null,
 
   init() {
     this._super(...arguments);

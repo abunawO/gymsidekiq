@@ -27,6 +27,7 @@
     {{#each userProfiles.firstObject.members as |member|}}
     <div class="profile-section-item">
       <h3>{{member.fullName}}</h3>
+      <img id="members-image-display" src="{{member.image.url}}" height="100" width="100">
     </div>
     {{/each}}
   </div>

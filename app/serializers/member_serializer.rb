@@ -14,6 +14,7 @@ class MemberSerializer < ActiveModel::Serializer
              :profile_id,
              :plan_id,
              :trainers,
-             :classes
+             :classes,
+             :image
 
 end
