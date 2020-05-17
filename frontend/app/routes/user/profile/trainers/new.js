@@ -27,6 +27,7 @@ export default Ember.Route.extend({
     };
     let promises = {
       profile: this.store.query('profile', queryParams),
+      klasses: this.store.query('klass', queryParams)
     };
 
     return Ember.RSVP.hash(promises);
@@ -34,7 +35,9 @@ export default Ember.Route.extend({
 
   setupController(controller, model) {
     //debugger;
+    profileklasses: [],
     this._super(controller, model);
     controller.set('profile', model.profile.firstObject);
+    controller.set('profileklasses', model.klasses);
   },
 });

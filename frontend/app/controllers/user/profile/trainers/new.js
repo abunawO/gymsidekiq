@@ -6,6 +6,7 @@ export default Ember.Controller.extend({
   checkedklasses: [],
   klassIds: [],
   filesArray: [],
+  profileklasses: [],
 
   refreshModel: function(){
     this.set('firstName', ''),

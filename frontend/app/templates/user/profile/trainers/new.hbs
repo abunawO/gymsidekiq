@@ -36,7 +36,7 @@
     </fieldset>
     <fieldset>
       <h4>Select Classes</h4>
-      {{#each profile.klasses as |klass|}}
+      {{#each profileklasses as |klass|}}
         <label>
           {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=plan.id  data=klass.id callbackAction='setKlassId'}}
           <span style="font-weight: normal;">{{klass.title}}</span>

@@ -20,7 +20,8 @@ export default Ember.Route.extend({
     //debugger;
     let queryParams = {where: { profileId: { value: this.get('profileId'), operator: '==' }}};
     let promises = {
-      profile: this.store.query('profile', queryParams)
+      profile: this.store.query('profile', queryParams),
+      plans:   this.store.query('plan', queryParams)
     };
 
     return Ember.RSVP.hash(promises);
@@ -29,6 +30,7 @@ export default Ember.Route.extend({
   setupController(controller, model) {
     this._super(controller, model);
     controller.set('profile', model.profile.firstObject);
+    controller.set('profilePlans', model.plans);
   }
 
 });

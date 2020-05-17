@@ -4,6 +4,7 @@ import jQuery from 'jquery'
 export default Ember.Controller.extend({
   profile: null,
   checkedklasses: [],
+  profileklasses: [],
   klassIds: [],
 
   refreshModel: function(){
