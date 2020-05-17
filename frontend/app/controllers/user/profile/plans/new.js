@@ -9,6 +9,7 @@ export default Ember.Controller.extend({
   refreshModel: function(){
     this.set('title', ''),
     this.set('schedule', ''),
+    this.set('price', ''),
     this.get('checkedklasses').forEach((element)=>{element.prop('checked',false);});
   },
 
@@ -38,12 +39,13 @@ export default Ember.Controller.extend({
       var plan = this.store.createRecord('plan', {
         profileId: this.get('profile.id'),
         title: this.get('title'),
+        price: this.get('price'),
         klassIds: this.get('klassIds').toString()
       });
 
       plan.save().then((res) => {
         this.refreshModel();
-        window.scrollTo(0,0);
+        this.transitionToRoute('user.profile.plans');
         this.get('flashMessages').success('Record created successfully!')
       }).catch((err) => {
         //debugger

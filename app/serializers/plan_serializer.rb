@@ -3,5 +3,6 @@ class PlanSerializer < ActiveModel::Serializer
              :title,
              :profile_id,
              :klass_ids,
-             :classes
+             :classes,
+             :price
 end

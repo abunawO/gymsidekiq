@@ -1089,14 +1089,15 @@
       selectPlan(_plan) {
         this.set("planKlasses", _plan.classes);
         this.set("selectedPlan", _plan);
-        this.set("selectedPlan", _plan);
         this.set("planInfo", {
-          title: _plan.title
+          title: _plan.title,
+          price: _plan.price
         });
       },
 
-      updatePlanTitle(title) {
+      updatePlanTitle(title, price) {
         this.set("selectedPlan.title", title);
+        this.set("selectedPlan.price", price);
         this.get("selectedPlan").save().then(res => {
           this.set("planInfo", {});
           this.get("flashMessages").success("Plan updated successfully!");
@@ -1127,7 +1128,7 @@
     checkedklasses: [],
     klassIds: [],
     refreshModel: function () {
-      this.set('title', ''), this.set('schedule', ''), this.get('checkedklasses').forEach(element => {
+      this.set('title', ''), this.set('schedule', ''), this.set('price', ''), this.get('checkedklasses').forEach(element => {
         element.prop('checked', false);
       });
     },
@@ -1159,11 +1160,12 @@
         var plan = this.store.createRecord('plan', {
           profileId: this.get('profile.id'),
           title: this.get('title'),
+          price: this.get('price'),
           klassIds: this.get('klassIds').toString()
         });
         plan.save().then(res => {
           this.refreshModel();
-          window.scrollTo(0, 0);
+          this.transitionToRoute('user.profile.plans');
           this.get('flashMessages').success('Record created successfully!');
         }).catch(err => {
           //debugger
@@ -1734,6 +1736,7 @@
     title: _emberData.default.attr(),
     classes: _emberData.default.attr(),
     klassIds: _emberData.default.attr(),
+    price: _emberData.default.attr(),
     profileId: _emberData.default.attr(),
     profile: _emberData.default.belongsTo('profile')
   });
@@ -3234,8 +3237,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "Z9myu5pq",
-    "block": "{\"symbols\":[\"klass\",\"plan\"],\"statements\":[[9,\"div\",true],[12,\"class\",\"page-grid-system plans-layout\",null],[10],[1,1,0,0,\"\\n\\n  \"],[9,\"div\",true],[12,\"class\",\"plans-create\",null],[10],[1,1,0,0,\"\\n    \"],[9,\"button\",false],[3,0,0,[27,[26,0,\"ModifierHead\"],[]],[[27,[24,0],[]],\"createNewPlan\"],null],[10],[1,1,0,0,\"Create New Plan\"],[11],[1,1,0,0,\"\\n  \"],[11],[1,1,0,0,\"\\n\\n  \"],[9,\"div\",true],[12,\"class\",\"plans-section plans-section-list\",null],[10],[1,1,0,0,\"\\n\"],[5,[27,[26,3,\"BlockHead\"],[]],[[31,0,0,[27,[26,2,\"CallHead\"],[]],[[31,0,0,[27,[26,2,\"CallHead\"],[]],[[27,[26,1,\"Expression\"],[]]],null]],null]],null,[[\"default\"],[{\"statements\":[[1,1,0,0,\"    \"],[9,\"div\",false],[23,\"class\",\"plans-section-item\",null],[3,0,0,[27,[26,0,\"ModifierHead\"],[]],[[27,[24,0],[]],\"selectPlan\",[27,[24,2],[]]],null],[10],[1,1,0,0,\"\\n      \"],[9,\"h3\",true],[10],[1,0,0,0,[27,[24,2],[\"title\"]]],[11],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n\"]],\"parameters\":[2]}]]],[1,1,0,0,\"  \"],[11],[1,1,0,0,\"\\n\\n  \"],[9,\"div\",true],[12,\"class\",\"plans-section plans-section-detail\",null],[10],[1,1,0,0,\"\\n\\n    \"],[9,\"h2\",true],[10],[1,1,0,0,\"Plan Settings\"],[11],[1,1,0,0,\"\\n\\n    \"],[9,\"div\",true],[12,\"class\",\"plans-section-info\",null],[10],[1,1,0,0,\"\\n      \"],[9,\"form\",true],[10],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"plan-name\",null],[10],[1,1,0,0,\"Plan Name\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,628,5,[27,[26,5,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"plan-name\",[27,[26,4,\"Expression\"],[\"title\"]]]]]],[1,1,0,0,\"\\n            \"],[9,\"button\",false],[23,\"type\",\"submit\",null],[3,0,0,[27,[26,0,\"ModifierHead\"],[]],[[27,[24,0],[]],\"updatePlanTitle\",[27,[26,4,\"Expression\"],[\"title\"]]],null],[10],[1,1,0,0,\"\\n              \"],[9,\"img\",true],[13,\"src\",[32,[[27,[26,6,\"AppendSingleId\"],[]],\"/assets/images/check.svg\"]],null],[12,\"alt\",\"submit-plan-icon\",null],[10],[11],[1,1,0,0,\"\\n            \"],[11],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n      \"],[11],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n\\n    \"],[9,\"div\",true],[12,\"class\",\"plans-section-detail-list classes\",null],[10],[1,1,0,0,\"\\n\\n      \"],[9,\"h3\",true],[12,\"class\",\"plan-section-title\",null],[10],[1,1,0,0,\"Classes\"],[11],[1,1,0,0,\"\\n\\n\"],[5,[27,[26,3,\"BlockHead\"],[]],[[31,0,0,[27,[26,2,\"CallHead\"],[]],[[31,0,0,[27,[26,2,\"CallHead\"],[]],[[27,[26,7,\"Expression\"],[]]],null]],null]],null,[[\"default\"],[{\"statements\":[[1,1,0,0,\"      \"],[9,\"div\",true],[12,\"class\",\"classes-section-item\",null],[10],[1,1,0,0,\"\\n        \"],[9,\"h3\",true],[10],[1,0,0,0,[27,[24,1],[\"title\"]]],[11],[1,1,0,0,\"\\n      \"],[11],[1,1,0,0,\"\\n\"]],\"parameters\":[1]}]]],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n\\n  \"],[11],[1,1,0,0,\"\\n\\n\"],[11],[1,1,0,0,\"\\n\"]],\"hasEval\":false,\"upvars\":[\"action\",\"profilePlansList\",\"-track-array\",\"each\",\"planInfo\",\"input\",\"rootURL\",\"planKlasses\"]}",
+    "id": "wxZUQzVv",
+    "block": "{\"symbols\":[\"klass\",\"plan\"],\"statements\":[[9,\"div\",true],[12,\"class\",\"page-grid-system plans-layout\",null],[10],[1,1,0,0,\"\\n\\n  \"],[9,\"div\",true],[12,\"class\",\"plans-create\",null],[10],[1,1,0,0,\"\\n    \"],[9,\"button\",false],[3,0,0,[27,[26,0,\"ModifierHead\"],[]],[[27,[24,0],[]],\"createNewPlan\"],null],[10],[1,1,0,0,\"Create New Plan\"],[11],[1,1,0,0,\"\\n  \"],[11],[1,1,0,0,\"\\n\\n  \"],[9,\"div\",true],[12,\"class\",\"plans-section plans-section-list\",null],[10],[1,1,0,0,\"\\n\"],[5,[27,[26,3,\"BlockHead\"],[]],[[31,0,0,[27,[26,2,\"CallHead\"],[]],[[31,0,0,[27,[26,2,\"CallHead\"],[]],[[27,[26,1,\"Expression\"],[]]],null]],null]],null,[[\"default\"],[{\"statements\":[[1,1,0,0,\"    \"],[9,\"div\",false],[23,\"class\",\"plans-section-item\",null],[3,0,0,[27,[26,0,\"ModifierHead\"],[]],[[27,[24,0],[]],\"selectPlan\",[27,[24,2],[]]],null],[10],[1,1,0,0,\"\\n      \"],[9,\"h3\",true],[10],[1,0,0,0,[27,[24,2],[\"title\"]]],[11],[1,1,0,0,\"\\n      \"],[9,\"h6\",true],[10],[1,0,0,0,[27,[24,2],[\"price\"]]],[11],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n\"]],\"parameters\":[2]}]]],[1,1,0,0,\"  \"],[11],[1,1,0,0,\"\\n\\n  \"],[9,\"div\",true],[12,\"class\",\"plans-section plans-section-detail\",null],[10],[1,1,0,0,\"\\n\\n    \"],[9,\"h2\",true],[10],[1,1,0,0,\"Plan Settings\"],[11],[1,1,0,0,\"\\n\\n    \"],[9,\"div\",true],[12,\"class\",\"plans-section-info\",null],[10],[1,1,0,0,\"\\n      \"],[9,\"form\",true],[10],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"plan-name\",null],[10],[1,1,0,0,\"Plan Name\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,658,5,[27,[26,5,\"CallHead\"],[]],null,[[\"type\",\"id\",\"value\"],[\"text\",\"plan-name\",[27,[26,4,\"Expression\"],[\"title\"]]]]]],[1,1,0,0,\"\\n            \"],[9,\"button\",false],[23,\"type\",\"submit\",null],[3,0,0,[27,[26,0,\"ModifierHead\"],[]],[[27,[24,0],[]],\"updatePlanTitle\",[27,[26,4,\"Expression\"],[\"title\"]],[27,[26,4,\"Expression\"],[\"price\"]]],null],[10],[1,1,0,0,\"\\n              \"],[9,\"img\",true],[13,\"src\",[32,[[27,[26,6,\"AppendSingleId\"],[]],\"/assets/images/check.svg\"]],null],[12,\"alt\",\"submit-plan-icon\",null],[10],[11],[1,1,0,0,\"\\n            \"],[11],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n        \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n          \"],[9,\"label\",true],[12,\"for\",\"plan-name\",null],[10],[1,1,0,0,\"Plan Price\"],[11],[1,1,0,0,\"\\n          \"],[9,\"div\",true],[12,\"class\",\"page-grid-form-input\",null],[10],[1,1,0,0,\"\\n            \"],[1,0,0,0,[31,1083,5,[27,[26,5,\"CallHead\"],[]],null,[[\"type\",\"value\",\"placeholder\",\"min\",\"max\",\"step\",\"value\"],[\"number\",[27,[26,7,\"Expression\"],[]],\"Price...\",\"0.00\",\"10000.00\",\"0.01\",[27,[26,4,\"Expression\"],[\"price\"]]]]]],[1,1,0,0,\"\\n            \"],[9,\"button\",false],[23,\"type\",\"submit\",null],[3,0,0,[27,[26,0,\"ModifierHead\"],[]],[[27,[24,0],[]],\"updatePlanTitle\",[27,[26,4,\"Expression\"],[\"title\"]],[27,[26,4,\"Expression\"],[\"price\"]]],null],[10],[1,1,0,0,\"\\n              \"],[9,\"img\",true],[13,\"src\",[32,[[27,[26,6,\"AppendSingleId\"],[]],\"/assets/images/check.svg\"]],null],[12,\"alt\",\"submit-plan-icon\",null],[10],[11],[1,1,0,0,\"\\n            \"],[11],[1,1,0,0,\"\\n          \"],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n      \"],[11],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n\\n    \"],[9,\"div\",true],[12,\"class\",\"plans-section-detail-list classes\",null],[10],[1,1,0,0,\"\\n\\n      \"],[9,\"h3\",true],[12,\"class\",\"plan-section-title\",null],[10],[1,1,0,0,\"Classes\"],[11],[1,1,0,0,\"\\n\\n\"],[5,[27,[26,3,\"BlockHead\"],[]],[[31,0,0,[27,[26,2,\"CallHead\"],[]],[[31,0,0,[27,[26,2,\"CallHead\"],[]],[[27,[26,8,\"Expression\"],[]]],null]],null]],null,[[\"default\"],[{\"statements\":[[1,1,0,0,\"      \"],[9,\"div\",true],[12,\"class\",\"classes-section-item\",null],[10],[1,1,0,0,\"\\n        \"],[9,\"h3\",true],[10],[1,0,0,0,[27,[24,1],[\"title\"]]],[11],[1,1,0,0,\"\\n      \"],[11],[1,1,0,0,\"\\n\"]],\"parameters\":[1]}]]],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n\\n  \"],[11],[1,1,0,0,\"\\n\\n\"],[11],[1,1,0,0,\"\\n\"]],\"hasEval\":false,\"upvars\":[\"action\",\"profilePlansList\",\"-track-array\",\"each\",\"planInfo\",\"input\",\"rootURL\",\"price\",\"planKlasses\"]}",
     "meta": {
       "moduleName": "frontend/templates/user/profile/plans/index.hbs"
     }
@@ -3252,8 +3255,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "8VpIWYpe",
-    "block": "{\"symbols\":[\"klass\"],\"statements\":[[1,1,0,0,\"\\n\\n\"],[9,\"div\",true],[12,\"class\",\"main-containercontainer\",null],[10],[1,1,0,0,\"\\n  \"],[9,\"form\",true],[12,\"id\",\"contact\",null],[12,\"action\",\"\",null],[12,\"method\",\"post\",null],[10],[1,1,0,0,\"\\n    \"],[9,\"h3\",true],[10],[1,1,0,0,\"Create New Plan\"],[11],[1,1,0,0,\"\\n    \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n      \"],[1,0,0,0,[31,138,5,[27,[26,3,\"CallHead\"],[]],null,[[\"type\",\"value\",\"placeholder\",\"autofocus\"],[\"text\",[27,[26,2,\"Expression\"],[]],\"Membership plan title\",true]]]],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n    \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n      \"],[9,\"h4\",true],[10],[1,1,0,0,\"Classes in plan\"],[11],[1,1,0,0,\"\\n\"],[5,[27,[26,6,\"BlockHead\"],[]],[[31,0,0,[27,[26,5,\"CallHead\"],[]],[[31,0,0,[27,[26,5,\"CallHead\"],[]],[[27,[26,4,\"Expression\"],[\"klasses\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[1,1,0,0,\"        \"],[9,\"label\",true],[10],[1,1,0,0,\"\\n          \"],[1,0,0,0,[31,354,11,[27,[26,1,\"CallHead\"],[]],null,[[\"name\",\"class\",\"id\",\"value\",\"data\",\"callbackAction\"],[[27,[24,1],[\"title\"]],\"profile_section\",[27,[24,1],[\"id\"]],[27,[26,0,\"Expression\"],[\"id\"]],[27,[24,1],[\"id\"]],\"setKlassId\"]]]],[1,1,0,0,\"\\n          \"],[9,\"span\",true],[12,\"style\",\"font-weight: normal;\",null],[10],[1,0,0,0,[27,[24,1],[\"title\"]]],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n\"]],\"parameters\":[1]}]]],[1,1,0,0,\"    \"],[11],[1,1,0,0,\"\\n    \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n      \"],[9,\"button\",false],[23,\"name\",\"submit\",null],[23,\"id\",\"contact-submit\",null],[23,\"data-submit\",\"...Sending\",null],[23,\"type\",\"submit\",null],[3,0,0,[27,[26,7,\"ModifierHead\"],[]],[[27,[24,0],[]],\"createNewPlan\"],null],[10],[1,1,0,0,\"Submit\\n      \"],[11],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n    \"],[1,0,0,0,[27,[26,8,\"AppendSingleId\"],[]]],[1,1,0,0,\"\\n  \"],[11],[1,1,0,0,\"\\n\"],[11],[1,1,0,0,\"\\n\"]],\"hasEval\":false,\"upvars\":[\"plan\",\"gs-checkbox\",\"title\",\"input\",\"profile\",\"-track-array\",\"each\",\"action\",\"copyright-footer\"]}",
+    "id": "RQ092jOV",
+    "block": "{\"symbols\":[\"klass\"],\"statements\":[[1,1,0,0,\"\\n\\n\"],[9,\"div\",true],[12,\"class\",\"main-containercontainer\",null],[10],[1,1,0,0,\"\\n  \"],[9,\"form\",true],[12,\"id\",\"contact\",null],[12,\"action\",\"\",null],[12,\"method\",\"post\",null],[10],[1,1,0,0,\"\\n    \"],[9,\"h3\",true],[10],[1,1,0,0,\"Create New Plan\"],[11],[1,1,0,0,\"\\n    \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n      \"],[1,0,0,0,[31,138,5,[27,[26,3,\"CallHead\"],[]],null,[[\"type\",\"value\",\"placeholder\",\"autofocus\"],[\"text\",[27,[26,2,\"Expression\"],[]],\"Membership plan title\",true]]]],[1,1,0,0,\"\\n      \"],[1,0,0,0,[31,229,5,[27,[26,3,\"CallHead\"],[]],null,[[\"type\",\"value\",\"placeholder\",\"min\",\"max\",\"step\"],[\"number\",[27,[26,4,\"Expression\"],[]],\"Price...\",\"0.00\",\"10000.00\",\"0.01\"]]]],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n    \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n      \"],[9,\"h4\",true],[10],[1,1,0,0,\"Classes in plan\"],[11],[1,1,0,0,\"\\n\"],[5,[27,[26,7,\"BlockHead\"],[]],[[31,0,0,[27,[26,6,\"CallHead\"],[]],[[31,0,0,[27,[26,6,\"CallHead\"],[]],[[27,[26,5,\"Expression\"],[\"klasses\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[1,1,0,0,\"        \"],[9,\"label\",true],[10],[1,1,0,0,\"\\n          \"],[1,0,0,0,[31,457,11,[27,[26,1,\"CallHead\"],[]],null,[[\"name\",\"class\",\"id\",\"value\",\"data\",\"callbackAction\"],[[27,[24,1],[\"title\"]],\"profile_section\",[27,[24,1],[\"id\"]],[27,[26,0,\"Expression\"],[\"id\"]],[27,[24,1],[\"id\"]],\"setKlassId\"]]]],[1,1,0,0,\"\\n          \"],[9,\"span\",true],[12,\"style\",\"font-weight: normal;\",null],[10],[1,0,0,0,[27,[24,1],[\"title\"]]],[11],[1,1,0,0,\"\\n        \"],[11],[1,1,0,0,\"\\n\"]],\"parameters\":[1]}]]],[1,1,0,0,\"    \"],[11],[1,1,0,0,\"\\n    \"],[9,\"fieldset\",true],[10],[1,1,0,0,\"\\n      \"],[9,\"button\",false],[23,\"name\",\"submit\",null],[23,\"id\",\"contact-submit\",null],[23,\"data-submit\",\"...Sending\",null],[23,\"type\",\"submit\",null],[3,0,0,[27,[26,8,\"ModifierHead\"],[]],[[27,[24,0],[]],\"createNewPlan\"],null],[10],[1,1,0,0,\"Submit\\n      \"],[11],[1,1,0,0,\"\\n    \"],[11],[1,1,0,0,\"\\n    \"],[1,0,0,0,[27,[26,9,\"AppendSingleId\"],[]]],[1,1,0,0,\"\\n  \"],[11],[1,1,0,0,\"\\n\"],[11],[1,1,0,0,\"\\n\"]],\"hasEval\":false,\"upvars\":[\"plan\",\"gs-checkbox\",\"title\",\"input\",\"price\",\"profile\",\"-track-array\",\"each\",\"action\",\"copyright-footer\"]}",
     "meta": {
       "moduleName": "frontend/templates/user/profile/plans/new.hbs"
     }
@@ -3373,7 +3376,7 @@
 ;define('frontend/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+6ad294c3"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
+            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+5aa53de6"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
@@ -3382,7 +3385,7 @@
 
 ;
           if (!runningTests) {
-            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+6ad294c3"});
+            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+5aa53de6"});
           }
         
 //# sourceMappingURL=frontend.map

@@ -2693,14 +2693,14 @@ define("ember-testing/lib/test/waiters", ["exports"], function (_exports) {
   }
 })();
 /*!
- * QUnit 2.10.0
+ * QUnit 2.9.3
  * https://qunitjs.com/
  *
  * Copyright jQuery Foundation and other contributors
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2020-05-02T22:51Z
+ * Date: 2019-10-08T15:49Z
  */
 (function (global$1) {
   'use strict';
@@ -3814,15 +3814,6 @@ define("ember-testing/lib/test/waiters", ["exports"], function (_exports) {
 
   var moduleStack = [];
 
-  function isParentModuleInQueue() {
-  	var modulesInQueue = config.modules.map(function (module) {
-  		return module.moduleId;
-  	});
-  	return moduleStack.some(function (module) {
-  		return modulesInQueue.includes(module.moduleId);
-  	});
-  }
-
   function createModule(name, testEnvironment, modifiers) {
   	var parentModule = moduleStack.length ? moduleStack.slice(-1)[0] : null;
   	var moduleName = parentModule !== null ? [parentModule.name, name].join(" > ") : name;
@@ -3912,7 +3903,7 @@ define("ember-testing/lib/test/waiters", ["exports"], function (_exports) {
   }
 
   function module$1(name, options, executeNow) {
-  	if (focused && !isParentModuleInQueue()) {
+  	if (focused) {
   		return;
   	}
 
@@ -3920,12 +3911,14 @@ define("ember-testing/lib/test/waiters", ["exports"], function (_exports) {
   }
 
   module$1.only = function () {
-  	if (!focused) {
-  		config.modules.length = 0;
-  		config.queue.length = 0;
+  	if (focused) {
+  		return;
   	}
 
-  	processModule.apply(undefined, arguments);
+  	config.modules.length = 0;
+  	config.queue.length = 0;
+
+  	module$1.apply(undefined, arguments);
 
   	focused = true;
   };
@@ -6248,10 +6241,12 @@ define("ember-testing/lib/test/waiters", ["exports"], function (_exports) {
 
   // Will be exposed as QUnit.only
   function only(testName, callback) {
-  	if (!focused$1) {
-  		config.queue.length = 0;
-  		focused$1 = true;
+  	if (focused$1) {
+  		return;
   	}
+
+  	config.queue.length = 0;
+  	focused$1 = true;
 
   	var newTest = new Test({
   		testName: testName,
@@ -6975,7 +6970,7 @@ define("ember-testing/lib/test/waiters", ["exports"], function (_exports) {
   QUnit.isLocal = !(defined.document && window$1.location.protocol !== "file:");
 
   // Expose the current QUnit version
-  QUnit.version = "2.10.0";
+  QUnit.version = "2.9.3";
 
   extend(QUnit, {
   	on: on,
@@ -7774,22 +7769,13 @@ define("ember-testing/lib/test/waiters", ["exports"], function (_exports) {
   		return moduleFilter;
   	}
 
-  	function toolbarFilters() {
-  		var toolbarFilters = document.createElement("span");
-
-  		toolbarFilters.id = "qunit-toolbar-filters";
-  		toolbarFilters.appendChild(toolbarLooseFilter());
-  		toolbarFilters.appendChild(toolbarModuleFilter());
-
-  		return toolbarFilters;
-  	}
-
   	function appendToolbar() {
   		var toolbar = id("qunit-testrunner-toolbar");
 
   		if (toolbar) {
   			toolbar.appendChild(toolbarUrlConfigContainer());
-  			toolbar.appendChild(toolbarFilters());
+  			toolbar.appendChild(toolbarModuleFilter());
+  			toolbar.appendChild(toolbarLooseFilter());
   			toolbar.appendChild(document.createElement("div")).className = "clearfix";
   		}
   	}
@@ -16543,36 +16529,36 @@ var __ember_auto_import__ =
 /************************************************************************/
 /******/ ({
 
-/***/ "../../../../../private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-64677eiiCeerrVG1p/cache-323-bundler/staging/l.js":
+/***/ "../../../../../private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-66867CrlDAaMr78S5/cache-319-bundler/staging/l.js":
 /*!**************************************************************************************************************************!*\
-  !*** /private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-64677eiiCeerrVG1p/cache-323-bundler/staging/l.js ***!
+  !*** /private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-66867CrlDAaMr78S5/cache-319-bundler/staging/l.js ***!
   \**************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\nwindow._eai_r = require;\nwindow._eai_d = define;\n\n\n//# sourceURL=webpack://__ember_auto_import__//private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-64677eiiCeerrVG1p/cache-323-bundler/staging/l.js?");
+eval("\nwindow._eai_r = require;\nwindow._eai_d = define;\n\n\n//# sourceURL=webpack://__ember_auto_import__//private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-66867CrlDAaMr78S5/cache-319-bundler/staging/l.js?");
 
 /***/ }),
 
-/***/ "../../../../../private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-64677eiiCeerrVG1p/cache-323-bundler/staging/tests.js":
+/***/ "../../../../../private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-66867CrlDAaMr78S5/cache-319-bundler/staging/tests.js":
 /*!******************************************************************************************************************************!*\
-  !*** /private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-64677eiiCeerrVG1p/cache-323-bundler/staging/tests.js ***!
+  !*** /private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-66867CrlDAaMr78S5/cache-319-bundler/staging/tests.js ***!
   \******************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("\nif (typeof document !== 'undefined') {\n  __webpack_require__.p = (function(){\n    var scripts = document.querySelectorAll('script');\n    return scripts[scripts.length - 1].src.replace(/\\/[^/]*$/, '/');\n  })();\n}\n\nmodule.exports = (function(){\n  var d = _eai_d;\n  var r = _eai_r;\n  window.emberAutoImportDynamic = function(specifier) {\n    return r('_eai_dyn_' + specifier);\n  };\n})();\n\n\n//# sourceURL=webpack://__ember_auto_import__//private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-64677eiiCeerrVG1p/cache-323-bundler/staging/tests.js?");
+eval("\nif (typeof document !== 'undefined') {\n  __webpack_require__.p = (function(){\n    var scripts = document.querySelectorAll('script');\n    return scripts[scripts.length - 1].src.replace(/\\/[^/]*$/, '/');\n  })();\n}\n\nmodule.exports = (function(){\n  var d = _eai_d;\n  var r = _eai_r;\n  window.emberAutoImportDynamic = function(specifier) {\n    return r('_eai_dyn_' + specifier);\n  };\n})();\n\n\n//# sourceURL=webpack://__ember_auto_import__//private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-66867CrlDAaMr78S5/cache-319-bundler/staging/tests.js?");
 
 /***/ }),
 
 /***/ 1:
 /*!*******************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi /private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-64677eiiCeerrVG1p/cache-323-bundler/staging/l.js /private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-64677eiiCeerrVG1p/cache-323-bundler/staging/tests.js ***!
+  !*** multi /private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-66867CrlDAaMr78S5/cache-319-bundler/staging/l.js /private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-66867CrlDAaMr78S5/cache-319-bundler/staging/tests.js ***!
   \*******************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! /private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-64677eiiCeerrVG1p/cache-323-bundler/staging/l.js */\"../../../../../private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-64677eiiCeerrVG1p/cache-323-bundler/staging/l.js\");\nmodule.exports = __webpack_require__(/*! /private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-64677eiiCeerrVG1p/cache-323-bundler/staging/tests.js */\"../../../../../private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-64677eiiCeerrVG1p/cache-323-bundler/staging/tests.js\");\n\n\n//# sourceURL=webpack://__ember_auto_import__/multi_/private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-64677eiiCeerrVG1p/cache-323-bundler/staging/l.js_/private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-64677eiiCeerrVG1p/cache-323-bundler/staging/tests.js?");
+eval("__webpack_require__(/*! /private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-66867CrlDAaMr78S5/cache-319-bundler/staging/l.js */\"../../../../../private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-66867CrlDAaMr78S5/cache-319-bundler/staging/l.js\");\nmodule.exports = __webpack_require__(/*! /private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-66867CrlDAaMr78S5/cache-319-bundler/staging/tests.js */\"../../../../../private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-66867CrlDAaMr78S5/cache-319-bundler/staging/tests.js\");\n\n\n//# sourceURL=webpack://__ember_auto_import__/multi_/private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-66867CrlDAaMr78S5/cache-319-bundler/staging/l.js_/private/var/folders/v3/vwx1bsfd4lb_0cq3xm6d1m780000gn/T/broccoli-66867CrlDAaMr78S5/cache-319-bundler/staging/tests.js?");
 
 /***/ })
 

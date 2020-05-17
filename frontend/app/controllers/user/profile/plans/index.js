@@ -13,13 +13,14 @@ export default Ember.Controller.extend({
     selectPlan(_plan) {
       this.set("planKlasses", _plan.classes);
       this.set("selectedPlan", _plan);
-      this.set("selectedPlan", _plan);
       this.set("planInfo", {
         title: _plan.title,
+        price: _plan.price,
       });
     },
-    updatePlanTitle(title) {
+    updatePlanTitle(title, price) {
       this.set("selectedPlan.title", title);
+      this.set("selectedPlan.price", price);
       this.get("selectedPlan")
         .save()
         .then((res) => {
