@@ -11,11 +11,11 @@ export default Ember.Controller.extend({
 
   actions: {
     selectPlan(_plan) {
-      this.set("planKlasses", _plan.classes);
+      this.set("planKlasses", _plan.get('classes'));
       this.set("selectedPlan", _plan);
       this.set("planInfo", {
-        title: _plan.title,
-        price: _plan.price,
+        title: _plan.get('title'),
+        price: _plan.get('price'),
       });
       document.getElementById("plan-form").style.display = "block";
     },

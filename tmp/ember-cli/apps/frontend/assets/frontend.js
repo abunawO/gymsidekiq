@@ -833,11 +833,11 @@
       },
 
       selectClass(_class) {
-        this.set("classTrainers", _class.trainers);
-        this.set("classMembers", _class.members);
+        this.set("classTrainers", _class.get('trainers'));
+        this.set("classMembers", _class.get('members'));
         this.set("selectedKlass", _class);
         this.set("classInfo", {
-          title: _class.title
+          title: _class.get('title')
         });
         document.getElementById("classes-form").style.display = "flex";
       },
@@ -945,6 +945,7 @@
     },
     actions: {
       selectMember(_member) {
+        this.set("selectedMember", null);
         this.set("selectedMember", _member);
         document.getElementById("members-form").style.display = "block";
       },
@@ -1118,11 +1119,11 @@
     profile: null,
     actions: {
       selectPlan(_plan) {
-        this.set("planKlasses", _plan.classes);
+        this.set("planKlasses", _plan.get('classes'));
         this.set("selectedPlan", _plan);
         this.set("planInfo", {
-          title: _plan.title,
-          price: _plan.price
+          title: _plan.get('title'),
+          price: _plan.get('price')
         });
         document.getElementById("plan-form").style.display = "block";
       },

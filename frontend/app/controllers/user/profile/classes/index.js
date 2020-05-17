@@ -65,11 +65,11 @@ export default Ember.Controller.extend({
       bx.style.top = event.pageY + "px";
     },
     selectClass(_class) {
-      this.set("classTrainers", _class.trainers);
-      this.set("classMembers", _class.members);
+      this.set("classTrainers", _class.get('trainers'));
+      this.set("classMembers", _class.get('members'));
       this.set("selectedKlass", _class);
       this.set("classInfo", {
-        title: _class.title,
+        title: _class.get('title'),
       });
       document.getElementById("classes-form").style.display = "flex";
     },

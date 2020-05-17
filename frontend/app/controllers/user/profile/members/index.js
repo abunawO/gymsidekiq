@@ -15,6 +15,7 @@ export default Ember.Controller.extend({
 
   actions: {
     selectMember(_member) {
+      this.set("selectedMember", null);
       this.set("selectedMember", _member);
       document.getElementById("members-form").style.display = "block";
     },
