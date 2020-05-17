@@ -5,4 +5,10 @@ class PlanSerializer < ActiveModel::Serializer
              :klass_ids,
              :classes,
              :price
+
+
+ def classes
+   return unless object.klass_ids.present?
+   Klass.where(id: object.klass_ids.split(','))
+ end
 end
