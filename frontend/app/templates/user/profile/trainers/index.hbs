@@ -21,10 +21,10 @@
           <label for="trainer-picture">Trainer Photo</label>
           <ul style="list-style-type: none;">
             {{#each filesArray as |file|}}
-            {{image-preview file=file}}
+              {{image-preview file=file}}
             {{/each}}
           </ul>
-          {{input-file id="trainer-picture" files=files callbackAction='someAction'}}
+          {{input-file id="trainer-picture" files=files callbackAction='setImage'}}
         </fieldset>
         <fieldset>
           <label for="trainer-firstName">First Name</label>
@@ -74,7 +74,7 @@
             {{input type="text" id="trainer-phone" value=selectedTrainer.phone }}
           </div>
         </fieldset>
-        <button type="submit">
+        <button {{action "updateTrainer" selectedTrainer}} type="submit">
           Submit
         </button>
       </form>

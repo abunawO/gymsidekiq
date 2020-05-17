@@ -55,7 +55,8 @@ class Api::V1::MembersController < ApplicationController
   # PATCH/PUT /members/1
   # PATCH/PUT /members/1.json
   def update
-    if @member.update(profile_params)
+    @member= Member.find(params[:id])
+    if @member.update_attributes(member_params)
       render json: { member: @member }, message:'Member was successfully updated.', status: :ok
     else
       render json: { errors: @member.errors }, message:'Member not successfully updated.', status: :unprocessable_entity
@@ -81,6 +82,6 @@ class Api::V1::MembersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
       #binding.pry
-      params.require(:member).permit(:membership_type, :first_name, :last_name, :email, :profile_id, :address, :city, :state, :zip, :phone, :plan_id, :image)
+      params.require(:member).permit(:first_name, :last_name, :email, :profile_id, :address, :city, :state, :zip, :phone, :plan_id, :image)
     end
 end

@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
       });
       document.getElementById("plan-form").style.display = "block";
     },
-    updatePlanTitle(title, price) {
+    updatePlan(title, price) {
       this.set("selectedPlan.title", title);
       this.set("selectedPlan.price", price);
       this.get("selectedPlan")

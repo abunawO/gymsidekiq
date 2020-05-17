@@ -2,7 +2,7 @@
 
   <div class='settings-list'>
     <div class="settings-action">
-      <button {{action "createNewMember"}}>Create New Member</button>
+      <button {{action "goToCreateNewMember"}}>Create New Member</button>
     </div>
 
     {{#each profileMembersList as |member|}}
@@ -24,7 +24,7 @@
             {{image-preview file=file}}
             {{/each}}
           </ul>
-          {{input-file id="member-picture" files=files callbackAction='someAction'}}
+          {{input-file id="member-picture" files=files callbackAction='setImage'}}
         </fieldset>
         <fieldset>
           <label for="member-firstName">First Name</label>
@@ -74,7 +74,7 @@
             {{input type="text" id="member-phone" value=selectedMember.phone }}
           </div>
         </fieldset>
-        <button type="submit">
+        <button {{action "updateMember" selectedMember}} type="submit">
           Submit
         </button>
       </form>

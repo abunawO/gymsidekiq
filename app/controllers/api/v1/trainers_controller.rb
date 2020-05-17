@@ -52,7 +52,8 @@ class Api::V1:: TrainersController < ApplicationController
   # PATCH/PUT /trainers/1
   # PATCH/PUT /trainers/1.json
   def update
-    if  @trainer.update(profile_params)
+    @trainer = Trainer.find(params[:id])
+    if  @trainer.update_attributes(trainer_params)
       render json: { trainer:  @trainer }, message:'Trainer was successfully updated.', status: :ok
     else
       render json: { errors:  @trainer.errors }, message:'Trainer not successfully updated.', status: :unprocessable_entity
