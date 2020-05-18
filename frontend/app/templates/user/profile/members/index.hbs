@@ -1,17 +1,17 @@
 <div class="settings-layout">
 
-  <div class='settings-list'>
+  <Scrollable @classnames="settings-list">
     <div class="settings-action">
       <button {{action "goToCreateNewMember"}}>Create New Member</button>
     </div>
 
     {{#each profileMembersList as |member|}}
     <div class="settings-item" {{action 'selectMember' member}}>
+      <img id="members-image-display" src="{{member.image.url}}">
       <h3>{{member.fullName}}</h3>
-      <img id="members-image-display" src="{{member.image.url}}" height="100" width="100">
     </div>
     {{/each}}
-  </div>
+  </Scrollable>
 
   <div class='settings-info'>
     <h2>Member Settings</h2>

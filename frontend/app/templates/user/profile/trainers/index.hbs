@@ -1,17 +1,17 @@
 <div class="settings-layout">
 
-  <div class='settings-list'>
+  <Scrollable @classnames="settings-list">
     <div class="settings-action">
       <button {{action "createNewTrainer"}}>Create New Trainer</button>
     </div>
 
     {{#each profileTrainersList as |trainer|}}
     <div class="settings-item" {{action 'selectTrainer' trainer}}>
+      <img id="trainers-image-display" src="{{trainer.image.url}}">
       <h3>{{trainer.fullName}}</h3>
-      <img id="trainers-image-display" src="{{trainer.image.url}}" height="100" width="100">
     </div>
     {{/each}}
-  </div>
+  </Scrollable>
 
   <div class='settings-info'>
     <h2>Trainer Settings</h2>
@@ -21,7 +21,7 @@
           <label for="trainer-picture">Trainer Photo</label>
           <ul style="list-style-type: none;">
             {{#each filesArray as |file|}}
-              {{image-preview file=file}}
+            {{image-preview file=file}}
             {{/each}}
           </ul>
           {{input-file id="trainer-picture" files=files callbackAction='setImage'}}

@@ -560,6 +560,7 @@ a {
   display: flex;
 }
 .settings-layout .settings-list {
+  overflow-y: scroll;
   padding-top: 50px;
   background: #f1f3f2;
   border-left: 1px solid #d6dbd9;
@@ -571,17 +572,19 @@ a {
 }
 .settings-layout .settings-list .settings-item {
   cursor: pointer;
-  padding: 20px 10px;
-  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  min-height: 50px;
 }
 .settings-layout .settings-list .settings-item:hover {
-  background-color: #edefee;
-}
-.settings-layout .settings-list .settings-item:hover h3 {
-  color: #0ab975;
+  background-color: #d6dbd9;
 }
 .settings-layout .settings-list .settings-item h3 {
-  font-weight: normal;
+  padding-left: 10px;
+}
+.settings-layout .settings-list .settings-item img {
+  width: 50px;
+  height: 50px;
 }
 .settings-layout .settings-list .settings-action {
   display: flex;
@@ -623,6 +626,10 @@ a {
   border: none;
   display: flex;
   flex-direction: column;
+}
+.settings-layout .settings-info form fieldset .image-display-preview {
+  width: 100px;
+  height: 100px;
 }
 .settings-layout .settings-info form fieldset label {
   margin-bottom: 10px;

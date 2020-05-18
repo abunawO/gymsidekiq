@@ -1,6 +1,6 @@
 <div class="settings-layout">
 
-  <div class='settings-list'>
+  <Scrollable @classnames="settings-list">
     <div class="settings-action">
       <button {{action "createNewPlan"}}>Create New Plan</button>
     </div>
@@ -10,7 +10,7 @@
       <h6>{{plan.price}}</h6>
     </div>
     {{/each}}
-  </div>
+  </Scrollable>
 
   <div class='settings-info'>
     <h2>Plan Settings</h2>
@@ -36,11 +36,9 @@
             {{input type="number" value=price placeholder="Price..." min="0.00" max="10000.00" step="0.01" value=planInfo.price}}
           </div>
         </fieldset>
-        <fieldset>
-          <button {{action "updatePlan" planInfo.title planInfo.price}} type="submit">
-            <img src="{{rootURL}}/assets/images/check.svg" alt="submit-plan-icon">
-          </button>
-        </fieldset>
+        <button {{action "updatePlan" planInfo.title planInfo.price}} type="submit">
+          Submit
+        </button>
       </form>
     </div>
   </div>
