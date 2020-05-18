@@ -73,10 +73,8 @@ export default Ember.Controller.extend({
       });
       document.getElementById("classes-form").style.display = "flex";
     },
-    updateClassTitle(title) {
-      this.set("selectedKlass.title", title);
-      this.get("selectedKlass")
-        .save()
+    updateClass(klass) {
+        klass.save()
         .then((res) => {
           this.set("classInfo", {});
           this.get("flashMessages").success("Record updated successfully!");

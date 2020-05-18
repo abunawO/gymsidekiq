@@ -19,7 +19,7 @@
         <fieldset>
           <label for="class-name">Class Name</label>
           <div class='settings-input-text'>
-            {{input type="text" id='class-name' value=classInfo.title }}
+            {{input type="text" id='class-name' value=selectedKlass.title }}
           </div>
         </fieldset>
         <h3 class='class-section-title'>Schedule</h3>
@@ -42,6 +42,11 @@
             </div>
             {{/each}}
           </div>
+        </div>
+        <div>
+          <button {{action "updateClass" selectedKlass}} type="submit">
+            Submit
+          </button>
         </div>
       </form>
 

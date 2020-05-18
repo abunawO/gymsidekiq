@@ -52,7 +52,7 @@ class Api::V1:: KlassesController < ApplicationController
   # PATCH/PUT /klasses/1.json
   def update
     @klass = Klass.find(params[:id])
-    if @klass.update_attribute(:title, params[:klass][:title])
+    if @klass.update_attributes(klass_params)
       render json: { klass: @klass }, message:'Klass was successfully updated.', status: :ok
     else
       render json: { errors: @klass.errors }, message:'Klass not successfully updated.', status: :unprocessable_entity
