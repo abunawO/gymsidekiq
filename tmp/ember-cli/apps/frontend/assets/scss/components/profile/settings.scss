@@ -1,6 +1,7 @@
 .settings-layout {
   display: flex;
   .settings-list {
+    overflow-y: scroll;
     padding-top: 50px;
     background: $light-secondary;
     border-left: 1px solid darken($light-secondary, 10%);
@@ -10,7 +11,20 @@
     height: 100vh;
     position: sticky;
     .settings-item {
-      @include page-grid-section-item;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      min-height: 50px;
+      &:hover {
+        background-color: darken($light-secondary, 10%);
+      }
+      h3 {
+        padding-left: 10px;
+      }
+      img {
+        width: 50px;
+        height: 50px;
+      }
     }
     .settings-action {
       display: flex;
@@ -53,6 +67,10 @@
         border: none;
         display: flex;
         flex-direction: column;
+        .image-display-preview {
+          width: 100px;
+          height: 100px;
+        }
         label {
           margin-bottom: 10px;
         }
