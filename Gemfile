@@ -31,7 +31,6 @@ gem 'pry', '~> 0.10.3'
 gem 'rack-cors'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'faker', '~> 1.9.1', group: [:development, :test]
-gem 'fog', '1.36.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -45,6 +44,10 @@ gem 'fog', '1.36.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+end
+
+group :production do
+  gem 'fog'
 end
 
 group :development do
