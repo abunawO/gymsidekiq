@@ -1,5 +1,5 @@
-CarrierWave.configure do |config|
-  if Rails.env.staging? || Rails.env.production?
+if Rails.env.production?
+  CarrierWave.configure do |config|
     config.fog_credentials = {
       # Configuration for Amazon S3
       :provider              => 'AWS',
@@ -9,8 +9,6 @@ CarrierWave.configure do |config|
 
     }
     config.fog_directory     =  ENV['S3_BUCKET']
-  else
-    config.storage = :file
-    config.enable_processing = Rails.env.development?
+
   end
 end
