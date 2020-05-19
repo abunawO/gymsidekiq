@@ -63,6 +63,7 @@ class Api::V1::PlansController < ApplicationController
   # DELETE /plans/1.json
   def destroy
     if @plan.destroy
+      _update_members @plan.id
       render json: { message: 'Plan was successfully destroyed.' }, status: :ok
     else
       render json: { errors: @klass.errors }, message:'Plan not successfully destroyed.', status: :unprocessable_entity
@@ -70,6 +71,9 @@ class Api::V1::PlansController < ApplicationController
   end
 
   private
+    def _update_members plan_id
+       Member.where(plan_id: plan_id).update_all(plan_id: nil)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_plan
       @plan = Plan.find(params[:id])
