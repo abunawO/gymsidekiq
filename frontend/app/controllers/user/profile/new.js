@@ -33,7 +33,6 @@ export default Ember.Controller.extend({
   actions: {
 
     createNewProfile() {
-      //debugger
       var profile = this.store.createRecord('profile', {
         profileName: this.get('profileName'),
         email: this.get('email'),

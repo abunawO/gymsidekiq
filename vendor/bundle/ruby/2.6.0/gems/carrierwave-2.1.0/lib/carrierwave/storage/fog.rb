@@ -56,15 +56,6 @@ module CarrierWave
     #     end
     #
 
-    CarrierWave.configure do |config|
-      config.fog_credentials = {
-        provider:              'AWS',                        # required
-        aws_access_key_id:     'AKIA2OBOIKEPX4TQJHPJ',                        # required unless using use_iam_profile
-        aws_secret_access_key: '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'
-      }
-      config.fog_directory  = 'gymsidekiqproject'                                   # required
-    end
-
     class Fog < Abstract
       class << self
         def connection_cache

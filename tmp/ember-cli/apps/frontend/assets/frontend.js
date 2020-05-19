@@ -1092,7 +1092,6 @@
     },
     actions: {
       createNewProfile() {
-        //debugger
         var profile = this.store.createRecord('profile', {
           profileName: this.get('profileName'),
           email: this.get('email'),
@@ -1813,9 +1812,6 @@
     }),
     klasses: _emberData.default.hasMany('klass', {
       inverse: null
-    }),
-    user: _emberData.default.belongsTo('user', {
-      async: false
     })
   });
 
@@ -3436,7 +3432,7 @@
 ;define('frontend/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+c1c9f2ab"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
+            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+9c34f9cf"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
@@ -3445,7 +3441,7 @@
 
 ;
           if (!runningTests) {
-            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+c1c9f2ab"});
+            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+9c34f9cf"});
           }
         
 //# sourceMappingURL=frontend.map

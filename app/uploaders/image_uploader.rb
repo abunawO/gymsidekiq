@@ -4,7 +4,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   #Configuring the image uploader for production.
-  if Rails.env.production?
+  if Rails.env.development?
     storage :fog
   else
     storage :file
