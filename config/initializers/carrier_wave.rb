@@ -3,8 +3,8 @@ if Rails.env.production?
     config.fog_credentials = {
       # Configuration for Amazon S3
       :provider              => 'AWS',
-      :aws_access_key_id     => 'AKIAJUNY3LOR3UNSOPVA',
-      :aws_secret_access_key => '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'
+      :aws_access_key_id     => 'AKIA2OBOIKEPX4TQJHPJ',
+      :aws_secret_access_key => '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'
 
     }
     config.fog_directory     =  'gymsidekiqproject'
