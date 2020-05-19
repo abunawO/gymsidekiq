@@ -1073,6 +1073,7 @@
   _exports.default = void 0;
 
   var _default = Ember.Controller.extend({
+    session: Ember.inject.service(),
     profile: null,
     planId: null,
     checkedPlans: [],
@@ -1860,9 +1861,7 @@
   var _default = _emberData.default.Model.extend({
     email: _emberData.default.attr('string'),
     password: _emberData.default.attr('string'),
-    profileId: _emberData.default.attr('string'),
-    profile: _emberData.default.belongsTo('profile'),
-    userProfile: _emberData.default.attr()
+    profileId: _emberData.default.attr('string')
   });
 
   _exports.default = _default;
@@ -1934,41 +1933,7 @@
   _exports.default = void 0;
 
   var _default = Ember.Route.extend(_applicationRouteMixin.default, {
-    store: Ember.inject.service(),
-    session: Ember.inject.service(),
     profile: null,
-
-    init() {
-      this._super(...arguments);
-
-      this.set("errors", []);
-    },
-
-    afterModel(model) {
-      let queryParams = {
-        where: {
-          id: {
-            value: this.get("session.data.authenticated.id"),
-            operator: "=="
-          }
-        }
-      };
-      let promises = {
-        user: this.store.query("user", queryParams)
-      };
-      return Ember.RSVP.hash(promises).then(user => {
-        if (user.user.arrangedContent.length > 0) {
-          const myprofile = this.store.find("profile", user.user.firstObject.profileId).then(profile => {
-            this.set("profile", profile);
-          });
-        }
-      });
-    },
-
-    setupController(controller, model) {
-      controller.set('profile', this.get("profile"));
-    },
-
     actions: {
       error(error) {
         if (error) {
@@ -2191,38 +2156,34 @@
   var _default = Ember.Route.extend(_authenticatedRouteMixin.default, {
     session: Ember.inject.service(),
     profile: null,
-
-    init() {
-      this._super(...arguments);
-
-      this.set("errors", []);
-    },
+    user: null,
 
     beforeModel(transition) {
-      let queryParams = {
-        where: {
-          id: {
-            value: this.get('session.data.authenticated.id'),
-            operator: '=='
+      if (!this.get('user.profileId')) {
+        let queryParams = {
+          where: {
+            id: {
+              value: this.get('session.data.authenticated.id'),
+              operator: '=='
+            }
           }
-        }
-      };
-      let promises = {
-        user: this.store.query('user', queryParams)
-      };
-      return Ember.RSVP.hash(promises).then(user => {
-        this.set('profileId', user.user.firstObject.profileId);
-      });
+        };
+        let promises = {
+          user: this.store.query('user', queryParams)
+        };
+        return Ember.RSVP.hash(promises).then(user => {
+          this.set('user', user.user.firstObject);
+        });
+      }
     },
 
-    afterModel(model) {//debugger;
-    },
+    afterModel(model) {},
 
     model() {
       let queryParams = {
         where: {
           profileId: {
-            value: this.get('profileId'),
+            value: this.get('user.profileId'),
             operator: '=='
           }
         }
@@ -2230,7 +2191,7 @@
       let profileQueryParams = {
         where: {
           id: {
-            value: this.get('profileId'),
+            value: this.get('user.profileId'),
             operator: '=='
           }
         }
@@ -3475,7 +3436,7 @@
 ;define('frontend/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+b6a5f4fd"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
+            'default': {"modulePrefix":"frontend","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":true,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"frontend","version":"0.0.0+c1c9f2ab"},"ember-basic-dropdown":{"destination":"<customized-destination>"},"exportApplicationGlobal":true}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
@@ -3484,7 +3445,7 @@
 
 ;
           if (!runningTests) {
-            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+b6a5f4fd"});
+            require("frontend/app")["default"].create({"name":"frontend","version":"0.0.0+c1c9f2ab"});
           }
         
 //# sourceMappingURL=frontend.map

@@ -6,7 +6,7 @@ class Api::V1:: TrainersController < ApplicationController
   # GET /trainers.json
   def index
     @trainers = Trainer.where(:profile_id => params[:where][:profileId][:value])
-    render json: @trainers, status: :ok
+    render json: @trainers, each_serializer: TrainerSerializer, status: :ok
   end
 
   # GET /trainers/1

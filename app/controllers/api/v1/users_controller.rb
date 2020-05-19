@@ -9,7 +9,7 @@ class Api::V1::UsersController < ApplicationController
   # GET /users.json
   def index
     @user = User.where(id: params[:where][:id][:value])
-    render json: @user, status: :ok
+    render json: @user, each_serializer: UserSerializer, status: :ok
   end
 
   def create

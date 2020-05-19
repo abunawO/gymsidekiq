@@ -4,28 +4,25 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin,{
   session:  Ember.inject.service(),
   profile: null,
+  user: null,
 
-  init() {
-    this._super(...arguments);
-    this.set("errors", []);
-
-  },
   beforeModel(transition){
-    let queryParams = {where: { id: { value: this.get('session.data.authenticated.id'), operator: '==' }}};
-    let promises = {
-      user: this.store.query('user', queryParams)
-    };
+    if (!this.get('user.profileId')){
+      let queryParams = {where: { id: { value: this.get('session.data.authenticated.id'), operator: '==' }}};
+      let promises = {
+        user: this.store.query('user', queryParams)
+      };
 
-    return Ember.RSVP.hash(promises).then((user)=>{
-      this.set('profileId', user.user.firstObject.profileId)
-    })
+      return Ember.RSVP.hash(promises).then((user)=>{
+        this.set('user', user.user.firstObject)
+      })
+    }
   },
   afterModel(model) {
-    //debugger;
   },
   model() {
-    let queryParams = {where: { profileId: { value: this.get('profileId'), operator: '==' }}};
-    let profileQueryParams = {where: { id: { value: this.get('profileId'), operator: '==' }}};
+    let queryParams = {where: { profileId: { value: this.get('user.profileId'), operator: '==' }}};
+    let profileQueryParams = {where: { id: { value: this.get('user.profileId'), operator: '==' }}};
     let promises = {
       klasses:   this.store.query('klass', queryParams),
       trainers:  this.store.query('trainer', queryParams),

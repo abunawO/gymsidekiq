@@ -16,7 +16,7 @@ class Api::V1::ProfilesController < ApplicationController
     if params[:where][:profileId].present?
       @profiles = Profile.where(:id => params[:where][:profileId][:value])
     end
-    render json: @profiles, status: :ok
+    render json: @profiles, each_serializer: ProfileSerializer, status: :ok
   end
 
   # GET /profiles/1

@@ -2,6 +2,7 @@ import Ember from 'ember';
 import jQuery from 'jquery'
 
 export default Ember.Controller.extend({
+  session:  Ember.inject.service(),
   profile: null,
   planId: null,
   checkedPlans: [],
@@ -48,8 +49,8 @@ export default Ember.Controller.extend({
       profile.save().then((res) => {
         this.refreshModel();
         window.scrollTo(0,0);
-        this.transitionToRoute('user.profile')
-        this.get('flashMessages').success('Record created successfully!')
+        this.transitionToRoute('user.profile');
+        this.get('flashMessages').success('Record created successfully!');
       }).catch((err) => {
         //debugger
         this.get('flashMessages').danger('Record not created!')

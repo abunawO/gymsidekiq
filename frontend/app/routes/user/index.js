@@ -4,10 +4,8 @@ export default Ember.Route.extend({
   session:  Ember.inject.service(),
   profile: null,
 
-  beforeModel(transition){
-  },
-  afterModel(model) {
-  },
+  beforeModel(transition){},
+  afterModel(model) {},
   model() {
     let queryParams = {id: { id: { value: this.get("session.data.authenticated.id"), operator: '==' }}};
     let promises = {
