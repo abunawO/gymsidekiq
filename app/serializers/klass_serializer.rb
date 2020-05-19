@@ -21,9 +21,11 @@ class KlassSerializer < ActiveModel::Serializer
  def members
    members_and_class = []
    Member.where(profile_id: object.profile_id).each do |member|
-     klass_ids = Plan.where(id: member.plan_id).first.klass_ids.split(',').map(&:to_i)
-     if klass_ids.include?(object.id)
-       members_and_class << member
+     if member.plan_id
+       klass_ids = Plan.where(id: member.plan_id).first.klass_ids.split(',').map(&:to_i)
+       if klass_ids.include?(object.id)
+         members_and_class << member
+       end
      end
    end
    return members_and_class
