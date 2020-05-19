@@ -339,6 +339,7 @@ DEPENDENCIES
   ember-cli-rails
   faker (~> 1.9.1)
   fog
+  fog-aws
   jbuilder (~> 2.0)
   jquery-rails
   pg (~> 0.15)

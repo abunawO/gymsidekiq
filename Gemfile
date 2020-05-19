@@ -31,6 +31,7 @@ gem 'pry', '~> 0.10.3'
 gem 'rack-cors'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'faker', '~> 1.9.1', group: [:development, :test]
+gem "fog-aws"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
