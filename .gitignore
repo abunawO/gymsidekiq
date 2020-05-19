@@ -13,7 +13,7 @@
 /log/*
 !/log/.keep
 /log/*.log
-/tmp/
+/tmp
 
 # Ignore application configuration
 /config/application.yml
