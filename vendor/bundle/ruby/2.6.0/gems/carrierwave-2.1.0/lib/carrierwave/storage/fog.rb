@@ -44,17 +44,17 @@ module CarrierWave
     # [:rackspace_api_key]
     #
     #
-    #A full example with AWS credentials:
-    CarrierWave.configure do |config|
-      config.fog_credentials = {
-         :aws_access_key_id => ENV["S3_ACCESS_KEY"],
-         :aws_secret_access_key => ENV["S3_SECRET_KEY"],
-        :provider => 'AWS'
-       }
-       config.fog_directory = ENV["S3_BUCKET"]
-       config.fog_public = true
-     end
-
+    # A full example with AWS credentials:
+    #     CarrierWave.configure do |config|
+    #       config.fog_credentials = {
+    #         :aws_access_key_id => 'xxxxxx',
+    #         :aws_secret_access_key => 'yyyyyy',
+    #         :provider => 'AWS'
+    #       }
+    #       config.fog_directory = 'directoryname'
+    #       config.fog_public = true
+    #     end
+    #
     class Fog < Abstract
       class << self
         def connection_cache
