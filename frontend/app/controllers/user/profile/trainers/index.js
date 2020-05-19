@@ -36,6 +36,15 @@ export default Ember.Controller.extend({
         .catch((err) => {
           this.get("flashMessages").danger("Trainer not updated!");
         });
+    },
+    deleteTrainer(selectedTrainer) {
+      selectedTrainer.destroyRecord().then(() => {
+        this.transitionToRoute('user.profile.trainers').then(() => {
+          this.get('flashMessages').success('The Trainer was has been deleted successfully.');
+        });
+      }, () => {
+        flashMessages.danger('There was an error deleting the Trainer.');
+      });
     }
   }
 });

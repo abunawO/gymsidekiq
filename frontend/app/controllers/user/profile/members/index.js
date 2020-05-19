@@ -36,6 +36,15 @@ export default Ember.Controller.extend({
         .catch((err) => {
           this.get("flashMessages").danger("Member not updated!");
         });
+    },
+    deleteMember(selectedMember) {
+      selectedMember.destroyRecord().then(() => {
+        this.transitionToRoute('user.profile.members').then(() => {
+          this.get('flashMessages').success('The Member was has been deleted successfully.');
+        });
+      }, () => {
+        flashMessages.danger('There was an error deleting the Member.');
+      });
     }
   }
 });

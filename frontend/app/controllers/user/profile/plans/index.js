@@ -19,10 +19,8 @@ export default Ember.Controller.extend({
       });
       document.getElementById("plan-form").style.display = "block";
     },
-    updatePlan(title, price) {
-      this.set("selectedPlan.title", title);
-      this.set("selectedPlan.price", price);
-      this.get("selectedPlan")
+    updatePlan(selectedPlan) {
+      selectedPlan
         .save()
         .then((res) => {
           this.set("planInfo", {});
@@ -35,5 +33,14 @@ export default Ember.Controller.extend({
     createNewPlan() {
       this.transitionToRoute("user.profile.plans.new");
     },
-  },
+    deletePlan(selectedPlan) {
+      selectedPlan.destroyRecord().then(() => {
+        this.transitionToRoute('user.profile.plans').then(() => {
+          this.get('flashMessages').success('The Plan was has been deleted successfully.');
+        });
+      }, () => {
+        flashMessages.danger('There was an error deleting the Plan.');
+      });
+    }
+  }
 });

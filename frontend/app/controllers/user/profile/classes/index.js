@@ -83,8 +83,17 @@ export default Ember.Controller.extend({
           this.get("flashMessages").danger("Record not updated!");
         });
     },
-    createNewClass(title) {
+    createNewClass() {
       this.transitionToRoute("user.profile.classes.new");
     },
-  },
+    deleteClass(klass) {
+      klass.destroyRecord().then(() => {
+        this.transitionToRoute('user.profile.classes').then(() => {
+          this.get('flashMessages').success('The Class was has been deleted successfully.');
+        });
+      }, () => {
+        flashMessages.danger('There was an error deleting the Class.');
+      });
+    },
+  }
 });

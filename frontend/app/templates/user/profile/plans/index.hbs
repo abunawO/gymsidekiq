@@ -26,19 +26,26 @@
         <fieldset>
           <label for="plan-name">Plan Name</label>
           <div class='settings-input-text'>
-            {{input type="text" id='plan-name' value=planInfo.title }}
+            {{input type="text" id='plan-name' value=selectedPlan.title }}
           </div>
         </fieldset>
         <fieldset>
           <label for="plan-name">Plan Price</label>
           <div class='settings-input-text'>
-            {{input type="number" value=price placeholder="Price..." min="0.00" max="10000.00" step="0.01" value=planInfo.price}}
+            {{input type="number" value=price placeholder="Price..." min="0.00" max="10000.00" step="0.01" value=selectedPlan.price}}
           </div>
         </fieldset>
         <fieldset>
-          <button {{action "updatePlan" planInfo.title planInfo.price}} type="submit">
+          <button {{action "updatePlan" selectedPlan}} type="submit">
             Submit
           </button>
+        </fieldset>
+        <fieldset>
+          <div>
+            <button {{action "deletePlan" selectedPlan}} style="color: red;" type="submit">
+              Delete
+            </button>
+          </div>
         </fieldset>
       </form>
     </div>

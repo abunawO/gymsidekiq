@@ -11,6 +11,7 @@ class TrainerSerializer < ActiveModel::Serializer
               :phone,
               :profile_id,
               :classes,
-              :image
+              :image,
+              :klass_ids
 
 end
