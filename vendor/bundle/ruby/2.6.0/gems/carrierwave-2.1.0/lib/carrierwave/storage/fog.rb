@@ -65,8 +65,6 @@ module CarrierWave
         region:                'us-east-1',                  # optional, defaults to 'us-east-1'
       }
       config.fog_directory  = 'gymsidekiqproject'                                   # required
-      config.fog_public     = false                                                 # optional, defaults to true
-      config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } # optional, defaults to {}
     end
 
     class Fog < Abstract
