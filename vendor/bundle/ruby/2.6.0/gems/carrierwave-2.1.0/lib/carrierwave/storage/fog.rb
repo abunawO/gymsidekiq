@@ -59,10 +59,8 @@ module CarrierWave
     CarrierWave.configure do |config|
       config.fog_credentials = {
         provider:              'AWS',                        # required
-        aws_access_key_id:     'AKIAJUNY3LOR3UNSOPVA',                        # required unless using use_iam_profile
-        aws_secret_access_key: '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',                        # required unless using use_iam_profile
-        use_iam_profile:       true,                         # optional, defaults to false
-        region:                'us-east-1',                  # optional, defaults to 'us-east-1'
+        aws_access_key_id:     'AKIA2OBOIKEPX4TQJHPJ',                        # required unless using use_iam_profile
+        aws_secret_access_key: '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'
       }
       config.fog_directory  = 'gymsidekiqproject'                                   # required
     end

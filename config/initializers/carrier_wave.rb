@@ -5,7 +5,6 @@ if Rails.env.production?
       :provider              => 'AWS',
       :aws_access_key_id     => 'AKIA2OBOIKEPX4TQJHPJ',
       :aws_secret_access_key => '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'
-
     }
     config.fog_directory     =  'gymsidekiqproject'
 
