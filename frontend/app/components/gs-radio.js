@@ -13,7 +13,6 @@ export default Ember.Component.extend({
   afterAction: "",
 
   click: function () {
-    //debugger
     var elementId = this.get("elementId");
     var checkboxElement = $("input[id=" + elementId + "]");
     var isChecked = checkboxElement.is(":checked");
@@ -22,9 +21,11 @@ export default Ember.Component.extend({
     $('input:radio').not(this).prop('checked', false);
     //check new checked box
     $(checkboxElement).not(this).prop('checked', true);
-    this.get("_target").send(
-      this.get("callbackAction"),
-      planId,checkboxElement
-    );
+    if(this.get('callbackAction')){
+      this.get("_target").send(
+        this.get("callbackAction"),
+        planId,checkboxElement
+      );
+    }
   },
 });

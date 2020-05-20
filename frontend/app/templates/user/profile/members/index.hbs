@@ -74,6 +74,31 @@
             {{input type="text" id="member-phone" value=selectedMember.phone }}
           </div>
         </fieldset>
+        <fieldset>
+          <h4>Current Membership Type</h4>
+          {{#each plansWithoutMembersPlan as |plan|}}
+           {{#unless plan}}
+              <label>
+                <span style="font-weight: normal;">No selected plan</span>
+              </label>
+            {{else}}
+              <label>
+                {{gs-radio name=plan.title class="profile_section" id=plan.id value=plan.id  data=plan.id callbackAction='setPlanId'}}
+                <span style="font-weight: normal;">{{plan.title}}</span>
+              </label>
+           {{/unless}}
+          {{/each}}
+        </fieldset>
+        <fieldset>
+          <h4>Available Plans</h4>
+          {{#each currentProfilePlans as |plan|}}
+            <label>
+              {{gs-radio name=plan.title class="profile_section" id=plan.id value=plan.id  data=plan.id callbackAction='setPlanId'}}
+              <span style="font-weight: normal;">{{plan.title}}</span>
+            </label>
+          {{/each}}
+
+        </fieldset>
         <button {{action "updateMember" selectedMember}} type="submit">
           Submit
         </button>
