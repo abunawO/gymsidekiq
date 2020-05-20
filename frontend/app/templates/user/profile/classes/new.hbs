@@ -1,13 +1,18 @@
 
 
-<div class="main-containercontainer">
+<div class='create-forms'>
   <form id="contact" action="" method="post">
     <h3>Create New Class</h3>
     <fieldset>
-      {{input type="text" value=title placeholder="Class title" autofocus=true}}
+      <label for="class-title">Title</label>
+      <div class='settings-input-text'>
+        {{input type="text" value=title autofocus=true}}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="text" value=schedule placeholder="Class days" }}
+      <div class='settings-input-text'>
+        {{input type="text" value=schedule placeholder="Class days" }}
+      </div>
     </fieldset>
     <fieldset>
       <button {{action "createNewClass"}} name="submit" type="submit" id="contact-submit"

@@ -26,7 +26,7 @@
       </div>
     </fieldset>
     <fieldset>
-      <h4>Classes in plan</h4>
+      <h4>Select Plan Classes</h4>
       {{#each profileklasses as |klass|}}
       <label>
         {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=plan.id  data=klass.id callbackAction='setKlassId'}}

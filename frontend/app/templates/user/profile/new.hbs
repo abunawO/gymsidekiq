@@ -1,36 +1,50 @@
 
-<div>
-  <ul style="list-style-type: none;">
-  {{#each filesArray as |file|}}
-    {{image-preview file=file}}
-  {{/each}}
-  </ul>
-  {{input-file files=files callbackAction='setImage'}}
-</div>
-
-<div class="main-containercontainer">
+<div class='create-forms'>
   <form id="contact" action="" method="post">
     <h3>Create New Profile</h3>
     <fieldset>
-      {{input type="text" value=profileName placeholder="Profile Name" autofocus=true}}
+      <label for="profile-picture">Profile Photo</label>
+      <ul style="list-style-type: none;">
+        {{#each filesArray as |file|}}
+        {{image-preview file=file}}
+        {{/each}}
+      </ul>
+      {{input-file files=files callbackAction='setImage'}}
     </fieldset>
     <fieldset>
-      {{input type="text" value=address placeholder="Address" }}
+      <div class='settings-input-text'>
+        {{input type="text" value=profileName placeholder="Profile Name" autofocus=true}}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="text" value=city placeholder="City" }}
+      <div class='settings-input-text'>
+        {{input type="text" value=address placeholder="Address" }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="text" value=state placeholder="State"  }}
+      <div class='settings-input-text'>
+        {{input type="text" value=city placeholder="City" }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="text" value=zip placeholder="Zip"  }}
+      <div class='settings-input-text'>
+        {{input type="text" value=state placeholder="State"  }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="email" value=email placeholder="Email Address"  }}
+      <div class='settings-input-text'>
+        {{input type="text" value=zip placeholder="Zip"  }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="tel" value=phone placeholder="Your Phone Number"  }}
+      <div class='settings-input-text'>
+        {{input type="email" value=email placeholder="Email Address"  }}
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class='settings-input-text'>
+        {{input type="tel" value=phone placeholder="Your Phone Number"  }}
+      </div>
     </fieldset>
     <fieldset>
       <button {{action "createNewProfile"}} name="submit" type="submit" id="contact-submit"
