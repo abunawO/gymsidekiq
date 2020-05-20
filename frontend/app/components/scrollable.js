@@ -1,9 +1,11 @@
 import Ember from "ember";
 export default Ember.Component.extend({
-  mouseEnter() {
+  mouseEnter(event) {
+    console.log("mouseEnter document is hidden");
     document.body.style.overflow = "hidden";
   },
-  mouseLeave() {
+  mouseLeave(event) {
+    console.log("mouseLeave document is auto");
     document.body.style.overflow = "auto";
   },
   actions: {},

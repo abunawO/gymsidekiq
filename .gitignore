@@ -14,6 +14,9 @@
 !/log/.keep
 /log/*.log
 /tmp/*
-
+/vendor/*
+/.bundle
+/vendor/bundle
+.vscode/
 # Ignore application configuration
 /config/application.yml

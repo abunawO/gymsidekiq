@@ -1,26 +1,38 @@
-
-
-<div class="main-containercontainer">
-  <form id="contact" action="" method="post">
-    <h3>Create New Plan</h3>
+<div class='create-forms'>
+  <h2>Create New Plan</h2>
+  <form action="" method="post">
     <fieldset>
-      {{input type="text" value=title placeholder="Membership plan title" autofocus=true}}
-      {{input type="number" value=price placeholder="Price..." min="0.00" max="10000.00" step="0.01"}}
+      <label for="plan-name">Plan Name</label>
+      <div class='settings-input-text'>
+        {{input type="text" id='plan-name' value=title autofocus=true }}
+      </div>
+    </fieldset>
+    <fieldset>
+      <label for="plan-name">Plan Price</label>
+      <div class='settings-input-text'>
+        {{input type="number" value=price placeholder="Price..." min="0.00" max="10000.00" step="0.01" value=price}}
+      </div>
+    </fieldset>
+    <fieldset>
+      <button {{action "createNewPlan"}} name="submit" type="submit" data-submit="...Sending">
+        Submit
+      </button>
+    </fieldset>
+    <fieldset>
+      <div>
+        <button {{action "deletePlan" selectedPlan}} style="color: red;" type="submit">
+          Delete
+        </button>
+      </div>
     </fieldset>
     <fieldset>
       <h4>Classes in plan</h4>
       {{#each profileklasses as |klass|}}
-        <label>
-          {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=plan.id  data=klass.id callbackAction='setKlassId'}}
-          <span style="font-weight: normal;">{{klass.title}}</span>
-        </label>
+      <label>
+        {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=plan.id  data=klass.id callbackAction='setKlassId'}}
+        <span style="font-weight: normal;">{{klass.title}}</span>
+      </label>
       {{/each}}
     </fieldset>
-    <fieldset>
-      <button {{action "createNewPlan"}} name="submit" type="submit" id="contact-submit"
-        data-submit="...Sending">Submit
-      </button>
-    </fieldset>
-    {{copyright-footer}}
   </form>
 </div>

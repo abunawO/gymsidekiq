@@ -1,55 +1,80 @@
-
-<div>
-  <ul style="list-style-type: none;">
-  {{#each filesArray as |file|}}
-    {{image-preview file=file}}
-  {{/each}}
-  </ul>
-  {{input-file files=files callbackAction='setImage'}}
-</div>
-
-<div class="main-containercontainer">
-  <form id="contact" action="" method="post">
-    <h3>Create New Member</h3>
+<div class='create-forms'>
+  <h2>Create New Member</h2>
+  <form>
     <fieldset>
-      {{input type="text" value=firstName placeholder="first Name" autofocus=true}}
+      <label for="member-picture">Member Photo</label>
+      <ul style="list-style-type: none;">
+        {{#each filesArray as |file|}}
+        {{image-preview file=file}}
+        {{/each}}
+      </ul>
+      {{input-file id="member-picture" files=files callbackAction='setImage'}}
     </fieldset>
     <fieldset>
-      {{input type="text" value=lastName placeholder="Last Name" }}
+      <label for="member-firstName">First Name</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="member-firstName" value=firstName }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="text" value=address placeholder="Address" }}
+      <label for="member-lastName">Last Name</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="member-lastName" value=lastName }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="text" value=city placeholder="City" }}
+      <label for="member-email">Email</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="member-email" value=email }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="text" value=state placeholder="State"  }}
+      <label for="member-address">Address</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="member-address" value=address }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="text" value=zip placeholder="Zip"  }}
+      <label for="member-city">City</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="member-city" value=city }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="email" value=email placeholder="Email Address"  }}
+      <label for="member-state">State</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="member-state" value=state }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="tel" value=phone placeholder="Your Phone Number"  }}
+      <label for="member-zip">Zip</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="member-zip" value=zip }}
+      </div>
+    </fieldset>
+    <fieldset>
+      <label for="member-phone">Phone</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="member-phone" value=phone }}
+      </div>
     </fieldset>
     <fieldset>
       <h4>Membership Type</h4>
       {{#each profilePlans as |plan|}}
-        <label>
-          {{gs-radio name=plan.title class="profile_section" id=plan.id value=plan.id  data=plan.id callbackAction='setPlanId'}}
-          <span style="font-weight: normal;">{{plan.title}}</span>
-        </label>
+      <label>
+        {{gs-radio name=plan.title class="profile_section" id=plan.id value=plan.id  data=plan.id callbackAction='setPlanId'}}
+        <span style="font-weight: normal;">{{plan.title}}</span>
+      </label>
       {{/each}}
 
     </fieldset>
-    <fieldset>
-      <button {{action "createNewMember"}} name="submit" type="submit" id="contact-submit"
-        data-submit="...Sending">Submit
+    <button {{action "createNewMember" selectedMember}} name="submit" type="submit" data-submit="...Sending">
+      Submit
+    </button>
+    <div>
+      <button {{action "deleteMember" selectedMember}} style="color: red;" type="submit">
+        Delete
       </button>
-    </fieldset>
-    {{copyright-footer}}
+    </div>
   </form>
 </div>

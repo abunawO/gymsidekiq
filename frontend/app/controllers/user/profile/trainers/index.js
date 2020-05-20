@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
   filesArray: [],
   TrainersfilesArray: [],
 
-  refreshModel: function(){
+  refreshModel: function () {
     this.set("selectedTrainer", null);
     this.set("filesArray", []);
     document.getElementById("trainer-picture").value = null;
@@ -21,14 +21,16 @@ export default Ember.Controller.extend({
       document.getElementById("trainers-form").style.display = "block";
     },
     createNewTrainer(title) {
+      document.body.style.overflow = "auto";
       this.transitionToRoute("user.profile.trainers.new");
     },
     setImage(filesArray) {
       this.set("filesArray", filesArray);
     },
     updateTrainer(trainer) {
-      trainer.set('image', this.get('filesArray')[0]);
-      trainer.save()
+      trainer.set("image", this.get("filesArray")[0]);
+      trainer
+        .save()
         .then((res) => {
           this.refreshModel();
           this.get("flashMessages").success("Trainer updated successfully!");
@@ -38,12 +40,17 @@ export default Ember.Controller.extend({
         });
     },
     deleteTrainer(selectedTrainer) {
-      selectedTrainer.destroyRecord().then(() => {
-        this.refreshModel();
-        this.get('flashMessages').success('The Trainer was has been deleted successfully.');
-      }, () => {
-        flashMessages.danger('There was an error deleting the Trainer.');
-      });
-    }
-  }
+      selectedTrainer.destroyRecord().then(
+        () => {
+          this.refreshModel();
+          this.get("flashMessages").success(
+            "The Trainer was has been deleted successfully."
+          );
+        },
+        () => {
+          flashMessages.danger("There was an error deleting the Trainer.");
+        }
+      );
+    },
+  },
 });

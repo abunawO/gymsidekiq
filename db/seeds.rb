@@ -17,7 +17,6 @@
 # Klass.create(title: 'Jui Jitsu', profile_id: 1, is_parent: true);
 
 
-
 # Member.create(first_name: 'Erica', last_name: 'Martin', email: 'erica@gmail.com' , phone: '404-768-7745', address: '446 suwanne drive', state: 'GA', city: 'Suwannee', zip: '30044', profile_id: 1)
 # Member.create(first_name: 'John', last_name: 'Doe', email: 'Doe@gmail.com' , phone: '404-768-7745', address: '446 dacula drive', state: 'GA', city: 'Dacula', zip: '30044', profile_id: 1)
 # Member.create(first_name: 'Faris', last_name: 'Lens', email: 'Lens@gmail.com' , phone: '404-768-7745', address: '446 duluth drive', state: 'GA', city: 'Duluth', zip: '30044', profile_id: 1)
@@ -69,14 +68,14 @@
 #[46, 47, 48, 49, 50, 51, 52] klass ids
 #["Boxing", "MMA", "Mauy Thai", "Kickboxing", "Crossfit", "Hardcore", "Jui Jitsu"]
 
-arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 1, 2, 3, 4]
+# arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 1, 2, 3, 4]
 
-[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].each do |i|
-  Trainer.find(i).update_column(:klass_ids, arr[0].to_s + "," + arr[1].to_s +  "," + arr[2].to_s)
-  arr.shift
-  arr.shift
-  arr.shift
-end
+# [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].each do |i|
+#   Trainer.find(i).update_column(:klass_ids, arr[0].to_s + "," + arr[1].to_s +  "," + arr[2].to_s)
+#   arr.shift
+#   arr.shift
+#   arr.shift
+# end
 #Trainer.find(20).update_column(:klass_ids, "48")
 #Trainer.find(17).update_column(:klass_ids, "47,48,49,52")
 #Trainer.find(18).update_column(:klass_ids, "49")

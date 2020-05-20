@@ -1,53 +1,79 @@
-<div>
-  <ul style="list-style-type: none;">
-  {{#each filesArray as |file|}}
-    {{image-preview file=file}}
-  {{/each}}
-  </ul>
-  {{input-file files=files callbackAction='setImage'}}
-</div>
-
-<div class="main-containercontainer">
-  <form id="contact" action="" method="post">
-    <h3>Create New Trainer</h3>
+<div class='create-forms'>
+  <h2>Create New Trainer</h2>
+  <form action="" method="post">
     <fieldset>
-      {{input type="text" value=firstName placeholder="first Name" autofocus=true}}
+      <label for="trainer-picture">Trainer Photo</label>
+      <ul style="list-style-type: none;">
+        {{#each filesArray as |file|}}
+        {{image-preview file=file}}
+        {{/each}}
+      </ul>
+      {{input-file id="trainer-picture" files=files callbackAction='setImage'}}
     </fieldset>
     <fieldset>
-      {{input type="text" value=lastName placeholder="Last Name" }}
+      <label for="trainer-firstName">First Name</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="trainer-firstName" value=firstName }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="text" value=address placeholder="Address" }}
+      <label for="trainer-lastName">Last Name</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="trainer-lastName" value=lastName }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="text" value=city placeholder="City" }}
+      <label for="trainer-email">Email</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="trainer-email" value=email }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="text" value=state placeholder="State"  }}
+      <label for="trainer-address">Address</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="trainer-address" value=address }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="text" value=zip placeholder="Zip"  }}
+      <label for="trainer-city">City</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="trainer-city" value=city }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="email" value=email placeholder="Email Address"  }}
+      <label for="trainer-state">State</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="trainer-state" value=state }}
+      </div>
     </fieldset>
     <fieldset>
-      {{input type="tel" value=phone placeholder="Your Phone Number"  }}
+      <label for="trainer-zip">Zip</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="trainer-zip" value=zip }}
+      </div>
+    </fieldset>
+    <fieldset>
+      <label for="trainer-phone">Phone</label>
+      <div class='settings-input-text'>
+        {{input type="text" id="trainer-phone" value=phone }}
+      </div>
     </fieldset>
     <fieldset>
       <h4>Select Classes</h4>
       {{#each profileklasses as |klass|}}
-        <label>
-          {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=plan.id  data=klass.id callbackAction='setKlassId'}}
-          <span style="font-weight: normal;">{{klass.title}}</span>
-        </label>
+      <label>
+        {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=plan.id  data=klass.id callbackAction='setKlassId'}}
+        <span style="font-weight: normal;">{{klass.title}}</span>
+      </label>
       {{/each}}
     </fieldset>
-    <fieldset>
-      <button {{action "createNewTrainer"}} name="submit" type="submit" id="contact-submit"
-        data-submit="...Sending">Submit
+    <button {{action "updateTrainer" selectedTrainer}} type="submit">
+      Submit
+    </button>
+    <div>
+      <button {{action "deleteTrainer" selectedTrainer}} style="color: red;" type="submit">
+        Delete
       </button>
-    </fieldset>
-    {{copyright-footer}}
+    </div>
   </form>
 </div>

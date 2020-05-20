@@ -669,6 +669,71 @@ a {
   filter: invert(100%);
 }
 
+.create-forms {
+  padding: 50px 30px;
+  padding-bottom: 100px;
+  width: 500px;
+  min-height: 100vh;
+  background: #f1f3f2;
+  border-right: 1px solid #d6dbd9;
+  border-left: 1px solid #d6dbd9;
+}
+.create-forms h2 {
+  font-size: 2em;
+  padding-bottom: 50px;
+}
+.create-forms h3 {
+  font-weight: normal;
+  font-size: 1.3em;
+}
+.create-forms form fieldset {
+  margin-bottom: 20px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+.create-forms form fieldset .image-display-preview {
+  width: 100px;
+  height: 100px;
+}
+.create-forms form fieldset label {
+  margin-bottom: 10px;
+}
+.create-forms form fieldset input {
+  outline: none;
+  border: none;
+}
+.create-forms form fieldset .settings-input-text {
+  display: flex;
+  border: 2px solid #bac4bf;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.create-forms form fieldset .settings-input-text input {
+  flex: 1;
+  width: 100%;
+  padding: 10px;
+  padding-left: 20px;
+}
+.create-forms form button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #0ab975;
+  width: 150px;
+}
+.create-forms form button:hover {
+  color: white;
+}
+.create-forms form button:hover img {
+  filter: invert(100%);
+}
+
 .profile-layout {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

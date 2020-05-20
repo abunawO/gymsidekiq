@@ -5,7 +5,7 @@ const { service } = Ember.inject;
 export default Ember.Controller.extend({
   session: Ember.inject.service(),
   profileClasses: [],
-  classInfo: {},
+  // classInfo: {},
   classTrainers: [],
   classMembers: [],
   profileTrainers: [],
@@ -52,11 +52,11 @@ export default Ember.Controller.extend({
       }
     }
     this.set("avaliableHours", tempArray);
-  }.observes("classInfo"),
+  }.observes("timetable"),
 
-  refreshModel: function(){
+  refreshModel: function () {
     this.set("selectedKlass", null);
-    this.set('classTrainers', []);
+    this.set("classTrainers", []);
   },
   actions: {
     unFollowCursor() {
@@ -70,18 +70,19 @@ export default Ember.Controller.extend({
       bx.style.top = event.pageY + "px";
     },
     selectClass(_class) {
-      this.set("classTrainers", _class.get('trainers'));
-      this.set("classMembers", _class.get('members'));
+      this.set("classTrainers", _class.get("trainers"));
+      this.set("classMembers", _class.get("members"));
       this.set("selectedKlass", _class);
-      this.set("classInfo", {
-        title: _class.get('title'),
-      });
+      // this.set("classInfo", {
+      //   title: _class.get('title'),
+      // });
       document.getElementById("classes-form").style.display = "flex";
     },
     updateClass(klass) {
-        klass.save()
+      klass
+        .save()
         .then((res) => {
-          this.set("classInfo", {});
+          // this.set("classInfo", {});
           this.get("flashMessages").success("Record updated successfully!");
         })
         .catch((err) => {
@@ -89,15 +90,21 @@ export default Ember.Controller.extend({
         });
     },
     createNewClass() {
+      document.body.style.overflow = "auto";
       this.transitionToRoute("user.profile.classes.new");
     },
     deleteClass(klass) {
-      klass.destroyRecord().then(() => {
-        this.refreshModel();
-        this.get('flashMessages').success('The Class was has been deleted successfully.');
-      }, () => {
-        flashMessages.danger('There was an error deleting the Class.');
-      });
+      klass.destroyRecord().then(
+        () => {
+          this.refreshModel();
+          this.get("flashMessages").success(
+            "The Class was has been deleted successfully."
+          );
+        },
+        () => {
+          flashMessages.danger("There was an error deleting the Class.");
+        }
+      );
     },
-  }
+  },
 });

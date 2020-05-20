@@ -21,7 +21,7 @@
           <label for="trainer-picture">Trainer Photo</label>
           <ul style="list-style-type: none;">
             {{#each filesArray as |file|}}
-              {{image-preview file=file}}
+            {{image-preview file=file}}
             {{/each}}
           </ul>
           {{input-file id="trainer-picture" files=files callbackAction='setImage'}}
