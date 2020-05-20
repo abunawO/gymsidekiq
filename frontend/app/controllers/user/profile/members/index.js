@@ -66,6 +66,7 @@ export default Ember.Controller.extend({
         .then((res) => {
           this.get('selectedMember').reload();
           this.refreshModel();
+          window.scrollTo(0, 0);
           this.get("flashMessages").success("Member updated successfully!");
         })
         .catch((err) => {
@@ -76,9 +77,8 @@ export default Ember.Controller.extend({
       selectedMember.destroyRecord().then(
         () => {
           this.refreshModel();
-          this.get("flashMessages").success(
-            "The Member was has been deleted successfully."
-          );
+          window.scrollTo(0, 0);
+          this.get("flashMessages").success("The Member was has been deleted successfully.");
         },
         () => {
           flashMessages.danger("There was an error deleting the Member.");

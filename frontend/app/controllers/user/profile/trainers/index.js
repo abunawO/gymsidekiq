@@ -33,6 +33,7 @@ export default Ember.Controller.extend({
         .save()
         .then((res) => {
           this.refreshModel();
+          window.scrollTo(0, 0);
           this.get("flashMessages").success("Trainer updated successfully!");
         })
         .catch((err) => {

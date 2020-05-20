@@ -61,7 +61,8 @@ export default Ember.Controller.extend({
 
       trainer.save().then((res) => {
         this.refreshModel();
-        this.transitionToRoute('user.profile.trainers')
+        this.transitionToRoute('user.profile.trainers');
+        window.scrollTo(0, 0);
         this.get('flashMessages').success('Record created successfully!')
       }).catch((err) => {
         //debugger

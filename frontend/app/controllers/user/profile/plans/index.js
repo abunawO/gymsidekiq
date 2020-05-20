@@ -28,6 +28,7 @@ export default Ember.Controller.extend({
         .save()
         .then((res) => {
           this.set("planInfo", {});
+          window.scrollTo(0, 0);
           this.get("flashMessages").success("Plan updated successfully!");
         })
         .catch((err) => {
@@ -42,6 +43,7 @@ export default Ember.Controller.extend({
       selectedPlan.destroyRecord().then(
         () => {
           this.refreshModel();
+          window.scrollTo(0, 0);
           this.get("flashMessages").success(
             "The Plan was has been deleted successfully."
           );
