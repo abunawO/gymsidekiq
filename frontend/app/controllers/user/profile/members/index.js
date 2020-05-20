@@ -39,9 +39,8 @@ export default Ember.Controller.extend({
     },
     deleteMember(selectedMember) {
       selectedMember.destroyRecord().then(() => {
-        this.transitionToRoute('user.profile.members').then(() => {
-          this.get('flashMessages').success('The Member was has been deleted successfully.');
-        });
+        this.refreshModel();
+        this.get('flashMessages').success('The Member was has been deleted successfully.');
       }, () => {
         flashMessages.danger('There was an error deleting the Member.');
       });

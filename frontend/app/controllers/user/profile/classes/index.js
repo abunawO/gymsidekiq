@@ -53,6 +53,11 @@ export default Ember.Controller.extend({
     }
     this.set("avaliableHours", tempArray);
   }.observes("classInfo"),
+
+  refreshModel: function(){
+    this.set("selectedKlass", null);
+    this.set('classTrainers', []);
+  },
   actions: {
     unFollowCursor() {
       var bx = document.getElementById("timetable-tooltip");
@@ -88,9 +93,8 @@ export default Ember.Controller.extend({
     },
     deleteClass(klass) {
       klass.destroyRecord().then(() => {
-        this.transitionToRoute('user.profile.classes').then(() => {
-          this.get('flashMessages').success('The Class was has been deleted successfully.');
-        });
+        this.refreshModel();
+        this.get('flashMessages').success('The Class was has been deleted successfully.');
       }, () => {
         flashMessages.danger('There was an error deleting the Class.');
       });

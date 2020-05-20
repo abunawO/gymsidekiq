@@ -9,6 +9,10 @@ export default Ember.Controller.extend({
   // unknowns
   profile: null,
 
+  refreshModel: function(){
+    this.set("selectedPlan", null);
+    this.set('planKlasses', null);
+  },
   actions: {
     selectPlan(_plan) {
       this.set("planKlasses", _plan.get('classes'));
@@ -35,9 +39,8 @@ export default Ember.Controller.extend({
     },
     deletePlan(selectedPlan) {
       selectedPlan.destroyRecord().then(() => {
-        this.transitionToRoute('user.profile.plans').then(() => {
-          this.get('flashMessages').success('The Plan was has been deleted successfully.');
-        });
+        this.refreshModel();
+        this.get('flashMessages').success('The Plan was has been deleted successfully.');
       }, () => {
         flashMessages.danger('There was an error deleting the Plan.');
       });
