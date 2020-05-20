@@ -45,6 +45,8 @@ export default Ember.Controller.extend({
      },
 
     createNewTrainer() {
+      var trainerImage = null
+      if(!isEmpty(this.get('filesArray'))){trainerImage = this.get('filesArray')[0]}
       var trainer = this.store.createRecord('trainer', {
         profileId: this.get('profile.id'),
         firstName: this.get('firstName'),
@@ -56,7 +58,7 @@ export default Ember.Controller.extend({
         zip: this.get('zip'),
         klassIds: this.get('klassIds').toString(),
         phone: this.get('phone'),
-        image: this.get('filesArray')[0]
+        image: trainerImage
       });
 
       trainer.save().then((res) => {

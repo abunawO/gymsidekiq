@@ -43,6 +43,8 @@ export default Ember.Controller.extend({
 
     createNewMember() {
       //debugger
+      var memberImage = null
+      if(!isEmpty(this.get('filesArray'))){memberImage = this.get('filesArray')[0]}
       var member = this.store.createRecord('member', {
         profileId: this.get('profile.id'),
         firstName: this.get('firstName'),
@@ -54,7 +56,7 @@ export default Ember.Controller.extend({
         zip: this.get('zip'),
         planId: this.get('planId'),
         phone: this.get('phone'),
-        image: this.get('filesArray')[0]
+        image: memberImage
       });
 
       member.save().then((res) => {
