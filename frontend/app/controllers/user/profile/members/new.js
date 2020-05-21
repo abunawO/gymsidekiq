@@ -1,5 +1,6 @@
 import Ember from 'ember';
-import jQuery from 'jquery'
+import jQuery from 'jquery';
+import { isEmpty } from '@ember/utils';
 
 export default Ember.Controller.extend({
   profile: null,

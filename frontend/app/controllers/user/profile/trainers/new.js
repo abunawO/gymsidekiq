@@ -1,5 +1,6 @@
 import Ember from 'ember';
-import jQuery from 'jquery'
+import jQuery from 'jquery';
+import { isEmpty } from '@ember/utils';
 
 export default Ember.Controller.extend({
   profile: null,
@@ -20,6 +21,7 @@ export default Ember.Controller.extend({
     this.set('klassIds', []),
     this.set('accept_terms', ''),
     this.set('filesArray', []),
+    this.set('klassIds', []),
     this.get('checkedklasses').forEach((element)=>{element.prop('checked',false);});
 
   },

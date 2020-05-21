@@ -17,6 +17,8 @@ export default Ember.Component.extend({
     var checkboxElement = $("input[id=" + elementId + "]");
     var isChecked = checkboxElement.is(":checked");
     var klassId = this.get("data");
-    this.get("_target").send(this.get("callbackAction"), isChecked, klassId, checkboxElement);
+    if (this.get('callbackAction')){
+      this.get("_target").send(this.get("callbackAction"), isChecked, klassId, checkboxElement);
+    }
   },
 });

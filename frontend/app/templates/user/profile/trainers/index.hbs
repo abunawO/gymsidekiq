@@ -74,6 +74,32 @@
             {{input type="text" id="trainer-phone" value=selectedTrainer.phone }}
           </div>
         </fieldset>
+        <fieldset>
+          <h4>Current Classes</h4>
+          {{#if hasNoClasses}}
+            <span style="font-weight: normal;">No assigned classes</span>
+          {{else}}
+            {{#each selectedTrainer.classes as |klass|}}
+            <label>
+              {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=plan.id  data=klass.id checked=true}}
+              <span style="font-weight: normal;">{{klass.title}}</span>
+            </label>
+            {{/each}}
+          {{/if}}
+        </fieldset>
+        <fieldset>
+          <h4>Profile Classes</h4>
+          {{#if hasAllClasses}}
+            <span style="font-weight: normal;">Trainer assigned to all classes</span>
+          {{else}}
+            {{#each availableProfileKlasses as |klass|}}
+            <label>
+              {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=plan.id  data=klass.id}}
+              <span style="font-weight: normal;">{{klass.title}}</span>
+            </label>
+            {{/each}}
+          {{/if}}
+        </fieldset>
         <button {{action "updateTrainer" selectedTrainer}} type="submit">
           Submit
         </button>
