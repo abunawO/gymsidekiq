@@ -15,11 +15,17 @@ class MemberSerializer < ActiveModel::Serializer
              :plan_id,
              :trainers,
              :classes,
-             :image
-             
+             :image,
+             :monthly_price
+
  def membership_type
    return unless object.plan_id
    Plan.find(object.plan_id).title
+ end
+
+ def monthly_price
+   return unless object.plan_id
+   Plan.find(object.plan_id).price
  end
 
  def classes
