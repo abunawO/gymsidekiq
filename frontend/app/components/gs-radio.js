@@ -16,7 +16,7 @@ export default Ember.Component.extend({
     var elementId = this.get("elementId");
     var checkboxElement = $("input[id=" + elementId + "]");
     var isChecked = checkboxElement.is(":checked");
-    var planId = this.get("data");
+    var planId = this.get("name");
     //uncheck previous checked box
     $('input:radio').not(this).prop('checked', false);
     //check new checked box

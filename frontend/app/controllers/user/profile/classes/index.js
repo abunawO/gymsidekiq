@@ -82,7 +82,7 @@ export default Ember.Controller.extend({
       klass
         .save()
         .then((res) => {
-          // this.set("classInfo", {});
+          this.refreshModel();
           this.get("flashMessages").success("Record updated successfully!");
         })
         .catch((err) => {

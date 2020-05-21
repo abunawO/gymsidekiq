@@ -81,7 +81,7 @@
           {{else}}
             {{#each selectedTrainer.classes as |klass|}}
             <label>
-              {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=klass.id  data=klass.id checked=true}}
+              {{input type="checkbox" name=klass.id class="profile_section"  checked=true}}
               <span style="font-weight: normal;">{{klass.title}}</span>
             </label>
             {{/each}}
@@ -94,7 +94,7 @@
           {{else}}
             {{#each availableProfileKlasses as |klass|}}
             <label>
-              {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=klass.id  data=klass.id}}
+              {{input type="checkbox" name=klass.id class="profile_section"}}
               <span style="font-weight: normal;">{{klass.title}}</span>
             </label>
             {{/each}}

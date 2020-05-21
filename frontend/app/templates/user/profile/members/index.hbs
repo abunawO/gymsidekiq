@@ -83,7 +83,7 @@
               </label>
             {{else}}
               <label>
-                {{gs-radio name=plan.title class="profile_section" id=plan.id value=plan.id  data=plan.id callbackAction='setPlanId' checked=true}}
+                {{gs-radio name=plan.id class="profile_section" value=plan.id  data=plan callbackAction='setPlanId' checked=true}}
                 <span style="font-weight: normal;">{{plan.title}}</span>
               </label>
            {{/unless}}
@@ -93,7 +93,7 @@
           <h4>Available Plans</h4>
           {{#each currentProfilePlans as |plan|}}
             <label>
-              {{gs-radio name=plan.title class="profile_section" id=plan.id value=plan.id  data=plan.id callbackAction='setPlanId'}}
+              {{gs-radio name=plan.id class="profile_section" value=plan.id  data=plan callbackAction='setPlanId'}}
               <span style="font-weight: normal;">{{plan.title}}</span>
             </label>
           {{/each}}

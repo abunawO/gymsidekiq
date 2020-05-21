@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
     var currenKlassIds = []
     $('input[type=checkbox]:checked').each(function () {
       var status = (this.checked ? $(this).val() : "");
-      var id = $(this).attr("id");
+      var id = $(this).attr("name");
       currenKlassIds.push(id);
     });
     return currenKlassIds.toString();
