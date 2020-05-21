@@ -16,12 +16,30 @@
     <div class="settings-content" id="plan-form">
       <form>
         <fieldset>
-          <label>Plan Classes</label>
-          {{#each planKlasses as |klass|}}
-          <div class="classes-section-item">
-            <h3>{{klass.title}}</h3>
-          </div>
-          {{/each}}
+          <h1>Plan Classes</h1>
+          {{#if hasNoClasses}}
+            <span style="font-weight: normal;">No assigned classes</span>
+          {{else}}
+            {{#each planKlasses as |klass|}}
+            <label>
+              {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=klass.id  data=klass.id checked=true}}
+              <span style="font-weight: normal;">{{klass.title}}</span>
+            </label>
+            {{/each}}
+          {{/if}}
+        </fieldset>
+        <fieldset>
+          <h1>Profile Classes</h1>
+          {{#if hasAllClasses}}
+            <span style="font-weight: normal;">Plan has all classes</span>
+          {{else}}
+            {{#each availableProfileKlasses as |klass|}}
+            <label>
+              {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=klass.id  data=klass.id}}
+              <span style="font-weight: normal;">{{klass.title}}</span>
+            </label>
+            {{/each}}
+          {{/if}}
         </fieldset>
         <fieldset>
           <label for="plan-name">Plan Name</label>
