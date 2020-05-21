@@ -18,6 +18,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
   setupController(controller, model) {
     this._super(controller, model);
     controller.set('userid', this.get('userId'));
+    window.scrollTo(0, 0);
   }
 
 });
