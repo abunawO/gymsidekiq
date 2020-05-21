@@ -8,6 +8,7 @@ export default Ember.Controller.extend({
   planId: null,
   checkedPlans: [],
   userid: null,
+  filesArray: [],
 
   refreshModel: function(){
     this.set('profileName', ''),

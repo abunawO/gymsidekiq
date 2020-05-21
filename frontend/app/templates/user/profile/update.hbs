@@ -1,0 +1,56 @@
+
+<div class='create-forms'>
+  <form id="contact" action="" method="post">
+    <h2>Create New Profile</h2>
+    <fieldset>
+      <label for="profile-picture">Profile Photo</label>
+      <ul style="list-style-type: none;">
+        {{#each filesArray as |file|}}
+        {{image-preview file=file}}
+        {{/each}}
+      </ul>
+      {{input-file files=files callbackAction='setImage'}}
+    </fieldset>
+    <fieldset>
+      <div class='settings-input-text'>
+        {{input type="text" value=profile.profileName placeholder="Profile Name" autofocus=true}}
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class='settings-input-text'>
+        {{input type="text" value=profile.address placeholder="Address" }}
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class='settings-input-text'>
+        {{input type="text" value=profile.city placeholder="City" }}
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class='settings-input-text'>
+        {{input type="text" value=profile.state placeholder="State"  }}
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class='settings-input-text'>
+        {{input type="text" value=profile.zip placeholder="Zip"  }}
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class='settings-input-text'>
+        {{input type="email" value=profile.email placeholder="Email Address"  }}
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class='settings-input-text'>
+        {{input type="tel" value=profile.phone placeholder="Your Phone Number"  }}
+      </div>
+    </fieldset>
+    <fieldset>
+      <button {{action "updateProfile" profile}} name="submit" type="submit" id="contact-submit"
+        data-submit="...Sending">Submit
+      </button>
+    </fieldset>
+    {{copyright-footer}}
+  </form>
+</div>
