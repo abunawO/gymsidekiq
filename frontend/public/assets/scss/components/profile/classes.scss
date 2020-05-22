@@ -93,16 +93,45 @@
     // overflow-y: scroll;
     #timetable-tooltip {
       position: absolute;
+      z-index: 40;
       display: none;
       margin-left: 10px;
       margin-top: 10px;
       padding: 5px;
     }
     .classes-timetable-hour {
+      position: relative;
       cursor: pointer;
       padding: 10px;
       &:hover {
         background-color: $primary;
+      }
+      &.disabled {
+        background-color: initial;
+        cursor: default;
+      }
+      &.active {
+        &:hover {
+          background-color: initial;
+          cursor: default;
+        }
+        .timetable-box {
+          min-height: 5px;
+        }
+      }
+      .timetable-box {
+        cursor: default;
+        position: absolute;
+        z-index: 30;
+        top: 50%;
+        left: 70px;
+        width: 3px;
+        border-radius: 10px;
+        height: 0px;
+        // display: none;
+        background-color: $secondary;
+        box-shadow: 0 0 3px 0 rgba($secondary, 0.5);
+        transition: 0.2s ease;
       }
     }
   }
