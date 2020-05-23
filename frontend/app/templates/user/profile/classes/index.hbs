@@ -23,10 +23,19 @@
           </div>
         </fieldset>
         <h3 class='class-section-title'>Schedule</h3>
+
+
+
+
+
+
+
+
+
         <div class="classes-timetable">
           <div class="classes-timetable-days">
-            {{#each timetable as |days|}}
-            <div class="classes-timetable-day">
+            {{#each timetable as |days i|}}
+            <div {{action "selectDay" i}} class="classes-timetable-day {{days.c}}">
               <span>{{days.day}}</span>
             </div>
             {{/each}}
@@ -36,13 +45,25 @@
             <div id='timetable-tooltip'>
               Select a starting time
             </div>
-            {{#each avaliableHours as |hour|}}
-            <div class='classes-timetable-hour'>
-              {{hour}}
+            {{#each avaliableHours as |hour index|}}
+            <div {{action "selectHour" hour index}} class='classes-timetable-hour {{hour.status}}'>
+              {{hour.hour}}
+              <div id="timetable-box-{{index}}" class="timetable-box"></div>
             </div>
             {{/each}}
           </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
         <div>
           <button {{action "updateClass" selectedKlass}} type="submit">
             Submit
