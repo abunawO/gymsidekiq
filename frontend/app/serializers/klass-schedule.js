@@ -5,11 +5,8 @@ export default ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin, {
   isNewSerializerAPI: true,
 
   attrs: {
-    profile: {
+    klass: {
       embedded: 'always'
-    },
-    KlassSchedules: {
-      embedded: 'always'
-    },
+    }
   }
 });

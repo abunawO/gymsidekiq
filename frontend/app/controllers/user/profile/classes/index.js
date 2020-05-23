@@ -1,7 +1,6 @@
 import Controller from "@ember/controller";
 import Ember from "ember";
 const { service } = Ember.inject;
-
 export default Ember.Controller.extend({
   session: Ember.inject.service(),
   profileClasses: [],
@@ -89,7 +88,7 @@ export default Ember.Controller.extend({
           this.get("flashMessages").danger("Record not updated!");
         });
     },
-    createNewClass() {
+    goToNewClass() {
       document.body.style.overflow = "auto";
       this.transitionToRoute("user.profile.classes.new");
     },

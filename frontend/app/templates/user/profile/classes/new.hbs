@@ -10,6 +10,28 @@
       </div>
     </fieldset>
     <fieldset>
+      <div class="classes-timetable">
+        <div class="classes-timetable-days">
+          {{#each timetable as |days|}}
+          <div class="classes-timetable-day">
+            <span>{{days.day}}</span>
+          </div>
+          {{/each}}
+        </div>
+        <div class="classes-timetable-hours" {{action "followCursor" on="mouseMove"}}
+          {{action "unFollowCursor" on="mouseLeave"}}>
+          <div id='timetable-tooltip'>
+            Select a starting time
+          </div>
+          {{#each avaliableHours as |hour|}}
+          <div class='classes-timetable-hour'>
+            {{hour}}
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
       <div class='settings-input-text'>
         {{input type="text" value=schedule placeholder="Class days" }}
       </div>
