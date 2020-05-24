@@ -16,13 +16,44 @@
     <h2>Class Settings</h2>
     <div class="settings-content classes-content" id="classes-form">
       <form>
-        <fieldset>
-          <label for="class-name">Class Name</label>
-          <div class='settings-input-text'>
-            {{input type="text" id='class-name' value=selectedKlass.title }}
+        <div class="left-form">
+          <fieldset>
+            <label for="class-name">Class Name</label>
+            <div class='settings-input-text'>
+              {{input type="text" id='class-name' value=selectedKlass.title }}
+            </div>
+          </fieldset>
+          <h3 class='class-section-title'>Schedule</h3>
+
+
+
+
+
+
+
+
+
+          <div class="classes-timetable">
+            <div class="classes-timetable-days">
+              {{#each timetable as |days i|}}
+              <div {{action "selectDay" i}} class="classes-timetable-day {{days.c}}">
+                <span>{{days.day}}</span>
+              </div>
+              {{/each}}
+            </div>
+            <div class="classes-timetable-hours" {{action "followCursor" on="mouseMove"}}
+              {{action "unFollowCursor" on="mouseLeave"}}>
+              <div id='timetable-tooltip'>
+                Select a starting time
+              </div>
+              {{#each avaliableHours as |hour index|}}
+              <div {{action "selectHour" hour index}} class='classes-timetable-hour {{hour.status}}'>
+                {{hour.hour}}
+                <div id="timetable-box-{{index}}" class="timetable-box"></div>
+              </div>
+              {{/each}}
+            </div>
           </div>
-        </fieldset>
-        <h3 class='class-section-title'>Schedule</h3>
 
 
 
@@ -32,59 +63,35 @@
 
 
 
-        <div class="classes-timetable">
-          <div class="classes-timetable-days">
-            {{#each timetable as |days i|}}
-            <div {{action "selectDay" i}} class="classes-timetable-day {{days.c}}">
-              <span>{{days.day}}</span>
-            </div>
-            {{/each}}
+
+
+          <div>
+            <button {{action "updateClass" selectedKlass}} type="submit">
+              Submit
+            </button>
           </div>
-          <div class="classes-timetable-hours" {{action "followCursor" on="mouseMove"}}
-            {{action "unFollowCursor" on="mouseLeave"}}>
-            <div id='timetable-tooltip'>
-              Select a starting time
-            </div>
-            {{#each avaliableHours as |hour index|}}
-            <div {{action "selectHour" hour index}} class='classes-timetable-hour {{hour.status}}'>
-              {{hour.hour}}
-              <div id="timetable-box-{{index}}" class="timetable-box"></div>
-            </div>
-            {{/each}}
+          <div>
+            <button {{action "deleteClass" selectedKlass}} style="color: red;" type="submit">
+              Delete
+            </button>
           </div>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-        <div>
-          <button {{action "updateClass" selectedKlass}} type="submit">
-            Submit
-          </button>
-        </div>
-        <div>
-          <button {{action "deleteClass" selectedKlass}} style="color: red;" type="submit">
-            Delete
-          </button>
+        <div class='classes-trainers'>
+          <h3 class='class-section-title'>Trainers</h3>
+          <Scrollable @classnames="classes-items">
+            {{#each classTrainers as |trainer|}}
+            <div class="classes-section-item">
+              <section>
+                <img id="trainers-image-display" src="{{trainer.image.url}}">
+                <span>{{trainer.first_name}} {{trainer.last_name}}</span>
+              </section>
+            </div>
+            {{/each}}
+          </Scrollable>
         </div>
       </form>
 
-      <div class='classes-trainers'>
-        <h3 class='class-section-title'>Trainers</h3>
-        {{#each classTrainers as |trainer|}}
-        <div class="classes-section-item">
-          <h3>{{trainer.first_name}} {{trainer.last_name}}</h3>
-          <img id="trainers-image-display" src="{{trainer.image.url}}" height="100" width="100">
-        </div>
-        {{/each}}
-      </div>
     </div>
   </div>
 </div>

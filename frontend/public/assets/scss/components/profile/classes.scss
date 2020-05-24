@@ -58,7 +58,62 @@
 .classes-content {
   width: 100% !important;
   form {
-    width: 500px;
+    display: flex;
+    align-items: flex-start;
+    .left-form {
+      width: 400px;
+      margin-right: 10px;
+    }
+    .classes-trainers {
+      border-radius: 5px;
+      border: 2px solid $primary;
+      background-color: rgba($primary, 0.1);
+      background-color: $light-primary;
+      box-shadow: inset 0 0 15px 0 rgba(darken($primary, 20%), 0.3);
+      h3 {
+        padding: 10px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+      .classes-items {
+        width: 250px;
+        // background: rgb(107, 177, 153);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        overflow-y: scroll;
+        height: 300px;
+        padding-bottom: 10px;
+
+        .classes-section-item {
+          cursor: pointer;
+          &:hover {
+            section {
+              transform: scale(1.03);
+            }
+          }
+          section {
+            transition: 0.1s ease;
+            border-radius: 5px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 0 5px 0 rgba(darken($primary, 20%), 0.3);
+            display: flex;
+            margin: 10px;
+            margin-bottom: 0;
+            span {
+              font-size: 0.9em;
+              margin: 5px;
+            }
+            img {
+              width: 70px;
+              height: 70px;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
   }
 }
 .class-section-title {
