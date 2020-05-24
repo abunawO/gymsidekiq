@@ -9,13 +9,6 @@
     <div class="settings-item" {{action 'selectClass' class}}>
       <h3>{{class.title}}</h3>
     </div>
-    <div class="classes-timetable-days">
-      <ul>
-      {{#each-in class.schedule as |day times|}}
-          <li>{{day}} : {{times}}</li>
-      {{/each-in}}
-      </ul>
-    </div>
     {{/each}}
   </Scrollable>
 
