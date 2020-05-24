@@ -3,50 +3,59 @@ import jQuery from 'jquery'
 
 export default Ember.Controller.extend({
   profile: null,
+  selectedHour: [],
+  dayClicked: null,
+  selectedDay: null,
+  currentDay: null,
+  isTimeAvaliable: false,
   timetable: [
-    // {
-    //   day: "Mon",
-    //   hours: [
-    //     [6, 9],
-    //     [12, 15],
-    //     [18, 22],
-    //   ],
-    // },
-    { day: "Mon", hours: [] },
-    { day: "Tue", hours: [] },
-    { day: "Wed", hours: [] },
-    { day: "Thu", hours: [] },
-    { day: "Fri", hours: [] },
-    { day: "Sat", hours: [] },
-    { day: "Sun", hours: [] },
+    // { day: "Mon", hours: [ [6, 9, {size: }], [12, 15], [18, 22] ], c: "active" },
+    { day: "Mon", hours: [], c: "active" },
+    { day: "Tue", hours: [], c: "" },
+    { day: "Wed", hours: [], c: "" },
+    { day: "Thu", hours: [], c: "" },
+    { day: "Fri", hours: [], c: "" },
+    { day: "Sat", hours: [], c: "" },
+    { day: "Sun", hours: [], c: "" },
   ],
+  schedule: {
+    Mon: null,
+    Tue: null,
+    Wed: null,
+    Thu: null,
+    Fri: null,
+    Sat: null,
+    Sun: null
+  },
   hoursOpen: [6, 22],
   avaliableHours: [],
   getAvaliableHours: function () {
-    debugger;
     const startRange = this.hoursOpen[0];
     const endRange = this.hoursOpen[1];
     let tempArray = [];
+    let tableArray = this.timetable[this.get('selectedDay')].hours;
     for (let i = startRange; i <= endRange; i++) {
+      const defaults = { militaryHour: i, status: "inactive" };
       if (i < 12) {
         if (i < 10) {
-          tempArray.push("0" + i + " AM");
+          tempArray.push({ hour: "0" + i + " AM", ...defaults });
         } else {
-          tempArray.push(i + " AM");
+          tempArray.push({ hour: i + " AM", ...defaults });
         }
       } else if (i === 12) {
-        tempArray.push(i + " PM");
+        tempArray.push({ hour: i + " PM", ...defaults });
       } else {
         let time = (i * 100 - 1200) / 100;
         if (time < 10) {
-          tempArray.push("0" + time + " PM");
+          tempArray.push({ hour: "0" + time + " PM", ...defaults });
         } else {
-          tempArray.push(time + " PM");
+          tempArray.push({ hour: time + " PM", ...defaults });
         }
       }
     }
+    tempArray.forEach((i) => {});
     this.set("avaliableHours", tempArray);
-  }.observes("timetable"),
+  }.observes("selectedDay"),
 
   refreshModel: function(){
     this.set('title', ''),
@@ -64,17 +73,21 @@ export default Ember.Controller.extend({
   },
 
   actions: {
-    unFollowCursor() {
-      debugger;
-      var bx = document.getElementById("timetable-tooltip");
-      bx.style.display = "none";
+    setSelectedHour(isChecked, id, checkboxElement, name) {
+      var hours = this.get('schedule')[this.get('currentDay')];
+      if (hours !== null){
+        this.get('schedule')[this.get('currentDay')] = hours + "," + name;
+      }else {
+        this.get('schedule')[this.get('currentDay')] = name;
+      }
     },
-    followCursor() {
-      debugger;
-      var bx = document.getElementById("timetable-tooltip");
-      bx.style.display = "block";
-      bx.style.left = event.pageX + "px";
-      bx.style.top = event.pageY + "px";
+    selectDay(days, int){
+      this.set("selectedDay", int);
+      this.set("currentDay", days['day']);
+      const newTimetable = this.timetable.map((i, idx) => {
+        return { ...i, c: int === idx ? "active" : "" };
+      });
+      this.set("timetable", newTimetable);
     },
     createNewClass() {
       var klass = this.store.createRecord('klass', {

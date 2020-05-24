@@ -9,6 +9,13 @@
     <div class="settings-item" {{action 'selectClass' class}}>
       <h3>{{class.title}}</h3>
     </div>
+    <div class="classes-timetable-days">
+      <ul>
+      {{#each-in class.schedule as |day times|}}
+          <li>{{day}} : {{times}}</li>
+      {{/each-in}}
+      </ul>
+    </div>
     {{/each}}
   </Scrollable>
 
@@ -23,15 +30,6 @@
           </div>
         </fieldset>
         <h3 class='class-section-title'>Schedule</h3>
-
-
-
-
-
-
-
-
-
         <div class="classes-timetable">
           <div class="classes-timetable-days">
             {{#each timetable as |days i|}}
@@ -53,17 +51,6 @@
             {{/each}}
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
         <div>
           <button {{action "updateClass" selectedKlass}} type="submit">
             Submit

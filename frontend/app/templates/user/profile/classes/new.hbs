@@ -12,28 +12,26 @@
     <fieldset>
       <div class="classes-timetable">
         <div class="classes-timetable-days">
-          {{#each timetable as |days|}}
-          <div class="classes-timetable-day">
+          {{#each timetable as |days i|}}
+          <div {{action "selectDay" days i}} class="classes-timetable-day {{days.c}}">
             <span>{{days.day}}</span>
           </div>
           {{/each}}
         </div>
-        <div class="classes-timetable-hours" {{action "followCursor" on="mouseMove"}}
-          {{action "unFollowCursor" on="mouseLeave"}}>
+        <div class="classes-timetable-hours">
           <div id='timetable-tooltip'>
-            Select a starting time
+            Select start times
           </div>
           {{#each avaliableHours as |hour|}}
-          <div class='classes-timetable-hour'>
-            {{hour}}
-          </div>
+            <div class='classes-timetable-hour {{hour.status}}'>
+              <label>
+                {{gs-checkbox name=hour.hour class="profile_section" value=hour.hour  data=hour.hour callbackAction='setSelectedHour'}}
+                <label for="hours">{{hour.hour}}</label>
+              </label>
+              <div id="timetable-box-{{index}}" class="timetable-box"></div>
+            </div>
           {{/each}}
         </div>
-      </div>
-    </fieldset>
-    <fieldset>
-      <div class='settings-input-text'>
-        {{input type="text" value=schedule placeholder="Class days" }}
       </div>
     </fieldset>
     <fieldset>

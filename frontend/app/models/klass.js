@@ -7,6 +7,11 @@ export default DS.Model.extend({
    profileId: DS.attr(),
    trainers: DS.attr(),
    members: DS.attr(),
+   schedule: DS.attr(),
    profile: DS.belongsTo('profile', { async: false }),
-   KlassSchedules:  DS.hasMany('KlassSchedule',   { inverse: null })
+   KlassSchedules:  DS.hasMany('KlassSchedule',   { inverse: null }),
+
+   getSchedule: function functionName() {
+     return this.get('schedule').split(',');
+   }
  });

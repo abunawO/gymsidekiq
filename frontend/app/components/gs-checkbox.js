@@ -12,13 +12,13 @@ export default Ember.Component.extend({
   callbackAction: "",
 
   click: function () {
-    //debugger
     var elementId = this.get("elementId");
+    var name = this.get('name');
     var checkboxElement = $("input[id=" + elementId + "]");
     var isChecked = checkboxElement.is(":checked");
-    var klassId = this.get("data");
+    var id = this.get("data");
     if (this.get('callbackAction')){
-      this.get("_target").send(this.get("callbackAction"), isChecked, klassId, checkboxElement);
+      this.get("_target").send(this.get("callbackAction"), isChecked, id, checkboxElement, name);
     }
   },
 });

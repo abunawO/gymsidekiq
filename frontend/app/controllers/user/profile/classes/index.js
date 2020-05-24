@@ -121,9 +121,6 @@ export default Ember.Controller.extend({
       this.set("classTrainers", _class.get("trainers"));
       this.set("classMembers", _class.get("members"));
       this.set("selectedKlass", _class);
-      // this.set("classInfo", {
-      //   title: _class.get('title'),
-      // });
       document.getElementById("classes-form").style.display = "flex";
     },
     updateClass(klass) {
