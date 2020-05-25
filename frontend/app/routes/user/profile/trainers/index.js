@@ -18,7 +18,8 @@ export default Ember.Route.extend({
   model() {
     let queryParams = {where: { profileId: { value: this.get('profileId'), operator: '==' }}};
     let promises = {
-      profileTrainers: this.store.query('trainer', queryParams)
+      profileTrainers: this.store.query('trainer', queryParams),
+      klasses: this.store.query('klass', queryParams)
     };
 
     return Ember.RSVP.hash(promises);
@@ -27,6 +28,7 @@ export default Ember.Route.extend({
   setupController(controller, model) {
     this._super(controller, model);
     controller.set('profileTrainersList', model.profileTrainers);
+    controller.set('profileklasses', model.klasses);
   }
 
 });

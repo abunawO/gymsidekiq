@@ -1,5 +1,5 @@
 import DS from 'ember-data';
-import Model, { belongsTo } from '@ember-data/model';
+import Model, { belongsTo, has_many } from '@ember-data/model';
 
 export default DS.Model.extend({
    title: DS.attr(),
@@ -7,5 +7,7 @@ export default DS.Model.extend({
    profileId: DS.attr(),
    trainers: DS.attr(),
    members: DS.attr(),
-   profile: DS.belongsTo('profile', { async: false })
+   schedule: DS.attr(),
+   profile: DS.belongsTo('profile', { async: false }),
+   KlassSchedules:  DS.hasMany('KlassSchedule',   { inverse: null })
  });

@@ -1,7 +1,6 @@
 import Controller from "@ember/controller";
 import Ember from "ember";
 const { service } = Ember.inject;
-
 export default Ember.Controller.extend({
   session: Ember.inject.service(),
   profileClasses: [],
@@ -195,23 +194,20 @@ export default Ember.Controller.extend({
       this.set("classTrainers", _class.get("trainers"));
       this.set("classMembers", _class.get("members"));
       this.set("selectedKlass", _class);
-      // this.set("classInfo", {
-      //   title: _class.get('title'),
-      // });
       document.getElementById("classes-form").style.display = "flex";
     },
     updateClass(klass) {
       klass
         .save()
         .then((res) => {
-          // this.set("classInfo", {});
+          this.refreshModel();
           this.get("flashMessages").success("Record updated successfully!");
         })
         .catch((err) => {
           this.get("flashMessages").danger("Record not updated!");
         });
     },
-    createNewClass() {
+    goToNewClass() {
       document.body.style.overflow = "auto";
       this.transitionToRoute("user.profile.classes.new");
     },

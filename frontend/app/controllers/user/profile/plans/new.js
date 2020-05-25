@@ -11,6 +11,7 @@ export default Ember.Controller.extend({
     this.set('title', ''),
     this.set('schedule', ''),
     this.set('price', ''),
+    this.set('klassIds', [])
     this.get('checkedklasses').forEach((element)=>{element.prop('checked',false);});
   },
 

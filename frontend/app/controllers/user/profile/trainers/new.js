@@ -1,5 +1,6 @@
 import Ember from 'ember';
-import jQuery from 'jquery'
+import jQuery from 'jquery';
+import { isEmpty } from '@ember/utils';
 
 export default Ember.Controller.extend({
   profile: null,
@@ -20,6 +21,7 @@ export default Ember.Controller.extend({
     this.set('klassIds', []),
     this.set('accept_terms', ''),
     this.set('filesArray', []),
+    this.set('klassIds', []),
     this.get('checkedklasses').forEach((element)=>{element.prop('checked',false);});
 
   },
@@ -45,6 +47,8 @@ export default Ember.Controller.extend({
      },
 
     createNewTrainer() {
+      var trainerImage = null
+      if(!isEmpty(this.get('filesArray'))){trainerImage = this.get('filesArray')[0]}
       var trainer = this.store.createRecord('trainer', {
         profileId: this.get('profile.id'),
         firstName: this.get('firstName'),
@@ -56,12 +60,13 @@ export default Ember.Controller.extend({
         zip: this.get('zip'),
         klassIds: this.get('klassIds').toString(),
         phone: this.get('phone'),
-        image: this.get('filesArray')[0]
+        image: trainerImage
       });
 
       trainer.save().then((res) => {
         this.refreshModel();
-        this.transitionToRoute('user.profile.trainers')
+        this.transitionToRoute('user.profile.trainers');
+        window.scrollTo(0, 0);
         this.get('flashMessages').success('Record created successfully!')
       }).catch((err) => {
         //debugger

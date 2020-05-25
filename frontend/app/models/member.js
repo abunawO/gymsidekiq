@@ -4,6 +4,7 @@ import { computed } from '@ember/object';
 
 export default DS.Model.extend({
    membershipType: DS.attr(),
+   monthlyPrice: DS.attr(),
    firstName: DS.attr(),
    lastName: DS.attr(),
    email: DS.attr(),

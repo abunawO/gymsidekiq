@@ -9,11 +9,29 @@
         {{input type="text" value=title autofocus=true}}
       </div>
     </fieldset>
-    <fieldset>
-      <div class='settings-input-text'>
-        {{input type="text" value=schedule placeholder="Class days" }}
+    <h2>Class Settings</h2>
+    <h4 class='class-section-title'>Schedule</h4>
+    <div class="classes-timetable">
+      <div class="classes-timetable-days">
+        {{#each timetable as |days i|}}
+        <div {{action "selectDay" i}} class="classes-timetable-day {{days.c}}">
+          <span>{{days.day}}</span>
+        </div>
+        {{/each}}
       </div>
-    </fieldset>
+      <div class="classes-timetable-hours" {{action "followCursor" on="mouseMove"}}
+        {{action "unFollowCursor" on="mouseLeave"}}>
+        <div id='timetable-tooltip'>
+          Select a starting time
+        </div>
+        {{#each avaliableHours as |hour index|}}
+        <div {{action "selectHour" hour index}} class='classes-timetable-hour {{hour.status}}'>
+          {{hour.hour}}
+          <div id="timetable-box-{{index}}" class="timetable-box"></div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
     <fieldset>
       <button {{action "createNewClass"}} name="submit" type="submit" id="contact-submit"
         data-submit="...Sending">Submit

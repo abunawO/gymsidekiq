@@ -2,7 +2,7 @@
 
   <Scrollable @classnames="settings-list">
     <div class="settings-action">
-      <button {{action "createNewClass"}}>Create New Class</button>
+      <button {{action "goToNewClass"}}>Create New Class</button>
     </div>
 
     {{#each profileClasses as |class|}}
@@ -23,15 +23,6 @@
           </div>
         </fieldset>
         <h3 class='class-section-title'>Schedule</h3>
-
-
-
-
-
-
-
-
-
         <div class="classes-timetable">
           <div class="classes-timetable-days">
             {{#each timetable as |days i|}}
@@ -53,27 +44,15 @@
             {{/each}}
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
         <div>
           <button {{action "updateClass" selectedKlass}} type="submit">
             Submit
           </button>
         </div>
-        <div>
-          <button {{action "deleteClass" selectedKlass}} style="color: red;" type="submit">
-            Delete
-          </button>
-        </div>
+        <br>
+        <button {{action "deleteClass" selectedKlass}} style="color: red;" type="submit">
+          Delete
+        </button>
       </form>
 
       <div class='classes-trainers'>

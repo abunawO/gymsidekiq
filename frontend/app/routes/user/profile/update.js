@@ -6,19 +6,23 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
   userId: null,
 
   beforeModel(transition){
-    this.set('userId', this.get('session.data.authenticated.id') );
+    //debugger;
   },
   afterModel(model) {
     //debugger;
   },
   model() {
-    //debugger
+    let profileQueryParams = {where: { userId: { value: this.get('session.data.authenticated.id'), operator: '==' }}};
+    let promises = {
+      profile:  this.store.query('profile', profileQueryParams)
+    };
+
+    return Ember.RSVP.hash(promises);
   },
 
   setupController(controller, model) {
     this._super(controller, model);
-    controller.set('userid', this.get('userId'));
-    window.scrollTo(0, 0);
+    controller.set('profile', model.profile.firstObject);
   }
 
 });

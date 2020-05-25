@@ -25,6 +25,7 @@ Router.map(function() {
       this.route('plans', function() {
         this.route('new');
       });
+      this.route('update');
     });
   });
 });

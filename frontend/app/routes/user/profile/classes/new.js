@@ -30,6 +30,7 @@ export default Ember.Route.extend({
   setupController(controller, model) {
     this._super(controller, model);
     controller.set('profile', model.profile.firstObject);
+    window.scrollTo(0, 0);
   }
 
 });

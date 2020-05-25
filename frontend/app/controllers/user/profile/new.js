@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import jQuery from 'jquery'
+import { isEmpty } from '@ember/utils';
 
 export default Ember.Controller.extend({
   session:  Ember.inject.service(),
@@ -7,6 +8,7 @@ export default Ember.Controller.extend({
   planId: null,
   checkedPlans: [],
   userid: null,
+  filesArray: [],
 
   refreshModel: function(){
     this.set('profileName', ''),
@@ -33,6 +35,8 @@ export default Ember.Controller.extend({
   actions: {
 
     createNewProfile() {
+      var profileImage = null
+      if(!isEmpty(this.get('filesArray'))){image = this.get('filesArray')[0]}
       var profile = this.store.createRecord('profile', {
         profileName: this.get('profileName'),
         email: this.get('email'),
@@ -42,7 +46,7 @@ export default Ember.Controller.extend({
         zip: this.get('zip'),
         phone: this.get('phone'),
         userId: this.get('userid'),
-        image: this.get('filesArray')[0]
+        image: profileImage
       });
 
       profile.save().then((res) => {
