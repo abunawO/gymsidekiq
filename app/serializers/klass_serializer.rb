@@ -1,10 +1,13 @@
 class KlassSerializer < ActiveModel::Serializer
   attributes :id,
              :title,
-             :schedule,
              :profile_id,
              :trainers,
-             :members
+             :members,
+             :schedule
+
+
+  has_many :klass_schedules, embed_in_root: true, serializer: KlassScheduleSerializer
 
 
  def trainers
@@ -29,5 +32,10 @@ class KlassSerializer < ActiveModel::Serializer
      end
    end
    return members_and_class
+ end
+
+ def schedule
+   return unless object.schedule
+   JSON.parse(object.schedule)
  end
 end

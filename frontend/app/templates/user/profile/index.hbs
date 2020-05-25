@@ -12,8 +12,7 @@
     <div class="classes-timetable-days">
       <ul>
       {{#each class.schedule as |day|}}
-          <li>{{day.day}}</li>
-          <li>{{day.hours}}</li>
+          <li>{{day.day}} : {{day.hours}}</li>
       {{/each}}
       </ul>
     </div>

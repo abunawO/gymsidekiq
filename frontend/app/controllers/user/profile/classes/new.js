@@ -10,6 +10,7 @@ export default Ember.Controller.extend({
   isTimeAvaliable: false,
   selectedDay: 0,
   selectedHour: [],
+  scheduledHours: [],
   timetable: [
     // { day: "Mon", hours: [ [6, 9, {size: }], [12, 15], [18, 22] ], c: "active" },
     { day: "Mon", hours: [], c: "active" },
@@ -30,31 +31,34 @@ export default Ember.Controller.extend({
   // ],
   avaliableHours: [],
   getAvaliableHours: function () {
-    const startRange = this.hoursOpen[0];
-    const endRange = this.hoursOpen[1];
-    let tempArray = [];
-    let tableArray = this.timetable[this.selectedDay].hours;
-    for (let i = startRange; i <= endRange; i++) {
-      const defaults = { militaryHour: i, status: "inactive" };
-      if (i < 12) {
-        if (i < 10) {
-          tempArray.push({ hour: "0" + i + " AM", ...defaults });
+    if (this.timetable[this.selectedDay]) {
+      const startRange = this.hoursOpen[0];
+      const endRange = this.hoursOpen[1];
+      let tempArray = [];
+      let tableArray = this.timetable[this.selectedDay].hours;
+      for (let i = startRange; i <= endRange; i++) {
+        const defaults = { militaryHour: i, status: "inactive" };
+        if (i < 12) {
+          if (i < 10) {
+            tempArray.push({ hour: "0" + i + " AM", ...defaults });
+          } else {
+            tempArray.push({ hour: i + " AM", ...defaults });
+          }
+        } else if (i === 12) {
+          tempArray.push({ hour: i + " PM", ...defaults });
         } else {
-          tempArray.push({ hour: i + " AM", ...defaults });
-        }
-      } else if (i === 12) {
-        tempArray.push({ hour: i + " PM", ...defaults });
-      } else {
-        let time = (i * 100 - 1200) / 100;
-        if (time < 10) {
-          tempArray.push({ hour: "0" + time + " PM", ...defaults });
-        } else {
-          tempArray.push({ hour: time + " PM", ...defaults });
+          let time = (i * 100 - 1200) / 100;
+          if (time < 10) {
+            tempArray.push({ hour: "0" + time + " PM", ...defaults });
+          } else {
+            tempArray.push({ hour: time + " PM", ...defaults });
+          }
         }
       }
+      tempArray.forEach((i) => {});
+      this.set("avaliableHours", tempArray);
     }
-    tempArray.forEach((i) => {});
-    this.set("avaliableHours", tempArray);
+
   }.observes("timetable", "selectedKlass"),
 
   refreshModel: function(){
@@ -70,6 +74,29 @@ export default Ember.Controller.extend({
       }
     });
     return hash;
+  },
+  convertToST: function(hours) {
+    var timeValue = "";
+    if (hours > 0 && hours < 12) {
+      timeValue= "" + hours + " A.M";
+    } else if (hours > 12) {
+      timeValue= "" + (hours - 12) + " P.M";
+    } else if (hours == 12) {
+      timeValue= "12" + " P.M";
+    }
+    return timeValue;
+  },
+  cleanTimesTable: function() {
+    this.get('timetable').forEach((item, i) => {
+      if(item.hours["length"] > 0){
+        item.hours.forEach((item, i) => {
+          this.get('scheduledHours').push([this.convertToST(item[0]) + ' to ' + this.convertToST(item[2])]);
+        });
+        item.hours = this.get('scheduledHours');
+        this.set('scheduledHours', []);
+
+      }
+    });
   },
 
   actions: {
@@ -93,22 +120,21 @@ export default Ember.Controller.extend({
             : i;
         });
         this.set("avaliableHours", avaliableHoursStatus);
-        const isTimeAvaliable = this.timetable[0].hours
+        const isTimeAvaliable = this.timetable[this.get('selectedDay')].hours
           .flat()
           .includes(this.selectedHour[0] || hour.militaryHour);
         let newTimetable = this.timetable;
         if (!isTimeAvaliable) {
-          newTimetable[0].hours = [
-            ...this.timetable[0].hours,
+          newTimetable[this.get('selectedDay')].hours = [
+            ...this.timetable[this.get('selectedDay')].hours,
             [...this.selectedHour, hour.militaryHour],
           ];
           document.getElementById(this.selectedHour[1]).style.height =
             39 * (hour.militaryHour - this.selectedHour[0]) + "px";
         }
+
         this.set("timetable", newTimetable);
         this.set("selectedHour", []);
-        // newTimetable
-        //console.log(newTimetable);
       }
     },
     selectDay(index) {
@@ -135,6 +161,7 @@ export default Ember.Controller.extend({
       document.getElementById("classes-form").style.display = "flex";
     },
     createNewClass() {
+      this.cleanTimesTable();
       var klass = this.store.createRecord('klass', {
         profileId: this.get('profile.id'),
         title: this.get('title'),
@@ -145,6 +172,7 @@ export default Ember.Controller.extend({
       klass.save().then((res) => {
         this.refreshModel();
         window.scrollTo(0,0);
+        this.transitionToRoute('user.profile.classes');
         this.get('flashMessages').success('Record created successfully!')
       }).catch((err) => {
         //debugger
