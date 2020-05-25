@@ -138,7 +138,7 @@ export default Ember.Controller.extend({
          * does timetable has hours that includes
          * any hours that
          */
-        const isTimeAvaliable = this.timetable[0].hours
+        const isTimeAvaliable = this.timetable[this.get("selectedDay")].hours
           .flat()
           .includes(this.selectedHour[0] || hour.militaryHour);
         /**
@@ -152,8 +152,8 @@ export default Ember.Controller.extend({
           /**
            * ! NEEDS IMPROVEMENT
            */
-          newTimetable[0].hours = [
-            ...this.timetable[0].hours,
+          newTimetable[this.get("selectedDay")].hours = [
+            ...this.timetable[this.get("selectedDay")].hours,
             [...this.selectedHour, hour.militaryHour],
           ];
           /**
