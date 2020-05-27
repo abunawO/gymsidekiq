@@ -55,7 +55,8 @@ export default Ember.Controller.extend({
         zip: this.get('zip'),
         planId: this.get('planId'),
         phone: this.get('phone'),
-        image: memberImage
+        image: memberImage,
+        contractLength: this.get('contractLength')
       });
 
       member.save().then((res) => {

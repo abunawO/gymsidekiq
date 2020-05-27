@@ -66,6 +66,10 @@
         <span style="font-weight: normal;">{{plan.title}}</span>
       </label>
       {{/each}}
+      <h4>Contract length in months</h4>
+      <div class='settings-input-text'>
+        {{input type="number" id=plan.id value=contractLength placeholder="Months..." min="0" max="12"}}
+      </div>
 
     </fieldset>
     <button {{action "createNewMember" selectedMember}} name="submit" type="submit" data-submit="...Sending">

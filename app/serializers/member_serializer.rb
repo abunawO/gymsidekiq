@@ -16,9 +16,15 @@ class MemberSerializer < ActiveModel::Serializer
              :trainers,
              :classes,
              :image,
-             :monthly_price
+             :monthly_price,
+             :contract_length,
+             :contract_expiration
 
  has_many :attendances
+
+ def contract_expiration
+   object.created_at + object.contract_length.month 
+ end
 
  def membership_type
    return unless object.plan_id
