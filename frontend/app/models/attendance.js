@@ -9,8 +9,12 @@ export default DS.Model.extend({
    profile: DS.belongsTo('profile', { async: false }),
    checkInTime: Ember.computed('checkedInAt', function(){
     return new Date(this.get('checkedInAt')).toLocaleTimeString()
-  }),
+   }),
   member: Ember.computed('memberId',function(){
    return this.store.find('member', this.get('memberId'));
+  }),
+  isTodaysCheckin: Ember.computed('memberId',function(){
+   var currentDate = new Date
+   return new Date(this.get('checkedInAt')).getDate() >= currentDate.getDate()
   })
- });
+});
