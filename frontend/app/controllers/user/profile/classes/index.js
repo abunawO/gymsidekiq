@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
   ],
   hoursOpen: [6, 22],
 
-  timetabledata: [{ day: "Mon", hours: [[6, 10, "6 AM", "10 AM"]] }],
+  timetabledata: [],
   timeTable: [
     { day: "Mon", hours: [], c: "active" },
     { day: "Tue", hours: [], c: "" },
@@ -105,33 +105,25 @@ export default Ember.Controller.extend({
           })
         );
         console.log("herereer", this.get("timeTable"));
-        // this.get("timeTable")[this.get("selectedDay")].hours.forEach(
-        //   (_hours) => {
-        //     i.hours.forEach((ih, _idx) => {
-        //       console.log(ih[0] === _hours.militaryHour);
-        //       if (ih[0] === _hours.militaryHour) {
-        //         const me = document.getElementById("timetable-box-" + _idx);
-        //         // .style.height = 39 * (ih[1] - ih[0]) + "px";
-        //         console.log("toActive", me, "timetable-box-" + _idx);
-        //       }
-        //     });
-        //     // if (toActive) {
-        //     //   const me = document.getElementById("timetable-box-" + toActive);
-        //     //   .style.height = 39 * (ih[1] - ih[0]) + "px";
-        //     //   // console.log("toActive", toActive);
-        //     // }
-        //   }
-        // );
+        Ember.run.scheduleOnce("afterRender", this, function () {
+          this.get("timeTable")[this.get("selectedDay")].hours.forEach(
+            (_hours, _idx) => {
+              i.hours.forEach((ih) => {
+                console.log(ih[0] === _hours.militaryHour);
+                console.log("matching vairables", ih[0], _hours.militaryHour);
+                if (ih[0] === _hours.militaryHour) {
+                  const me = (document.getElementById(
+                    "timetable-box-" + _idx
+                  ).style.height = 39 * (ih[1] - ih[0]) + "px");
+                  console.log("toActive", me, "timetable-box-" + _idx);
+                }
+              });
+            }
+          );
+        });
       }
     });
   },
-  // me: [
-  //   {
-  //     hour: 1,
-  //     militaryhour: 1200,
-  //     status: "active | inactive | disabled",
-  //   },
-  // ],
   avaliableHours: [],
   getAvaliableHours: function () {
     const startRange = this.hoursOpen[0];
@@ -288,6 +280,8 @@ export default Ember.Controller.extend({
         return { ...i, c: index === idx ? "active" : "" };
       });
       this.set("timetable", newTimetable);
+      this.setHoursTimeTable();
+      this.setHoursTimeTableData();
     },
     unFollowCursor() {
       var bx = document.getElementById("timetable-tooltip");
