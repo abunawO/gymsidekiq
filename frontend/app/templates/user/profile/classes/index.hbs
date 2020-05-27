@@ -36,7 +36,14 @@
             <div id='timetable-tooltip'>
               Select a starting time
             </div>
-            {{#each avaliableHours as |hour index|}}
+            {{#each timeTable as |day index| }}
+            {{#if (equals-if index selectedDay) }}
+            {{#each day.hours as |hour index| }}
+            hello
+            {{/each}}
+            {{/if}}
+            {{/each}}
+            {{#each (get-array-of-index timeTable selectedDay) as |hour index|}}
             <div {{action "selectHour" hour index}} class='classes-timetable-hour {{hour.status}}'>
               {{hour.hour}}
               <div id="timetable-box-{{index}}" class="timetable-box"></div>
