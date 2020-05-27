@@ -8,12 +8,12 @@
     <h2>Class Check Ins</h2>
     <h5>{{formattedDate}}</h5>
     {{#each profileKlasses as |class|}}
-    <div class="profile-section-item">
+    <div style="padding: 0px !important;" class="profile-section-item">
       <h4>{{class.title}}</h4>
     </div>
       {{#each class.attendances as |attendance|}}
         {{#if attendance.isTodaysCheckin}}
-          <div style="font-size: 10px;" class="profile-section-item">
+          <div style="font-size: 10px;padding: 5px 5px !important;" class="profile-section-item">
             <label>{{attendance.checkInTime}}</label><br>
             <label style="font-weight: bold;font-size: 13px;">Member:
               <div style="width: 60px;height: 60px;position: relative;overflow: hidden;border-radius: 50%;float: right; bottom: 30px;">
@@ -41,28 +41,10 @@
   </div>
 
   <div class="profile-section tall trainers">
-    <h2>Trainers</h2>
-    {{#each profileTrainers as |trainer|}}
-    <div class="profile-section-item">
-      <label>{{trainer.fullName}}</label>
-      <div style="width: 60px;height: 60px;position: relative;overflow: hidden;border-radius: 50%;float: right; bottom: 10px;">
-        <img id="members-image-display" src="{{trainer.image.url}}" style="display: inline; margin: 0 auto; margin-left: -25%; //centers the imageheight: 100%;width: 80px;;">
-      </div>
-    </div>
-    {{/each}}
+    <h2>Placeholder</h2>
   </div>
 
   <div class="profile-section tall members">
-    <h2>Members</h2>
-    {{#each profileMembers as |member|}}
-    <div class="profile-section-item">
-      <label style="font-weight: bold;font-size: 13px;">Name:</label> {{member.fullName}}
-      <div style="width: 60px;height: 60px;position: relative;overflow: hidden;border-radius: 50%;float: right; bottom: 10px;">
-        <img id="members-image-display" src="{{member.image.url}}" style="display: inline; margin: 0 auto; margin-left: -25%; //centers the imageheight: 100%;width: 80px;;">
-      </div><br>
-      <label style="font-weight: bold;font-size: 13px;">Membership Plan:</label> {{member.membershipType}} ${{member.monthlyPrice}}
-      <label style="font-weight: bold;font-size: 13px;">Membership Plan Expires On:</label> {{member.contractExpiresOn}}
-    </div>
-    {{/each}}
+    <h2>Placeholder</h2>
   </div>
 </div>

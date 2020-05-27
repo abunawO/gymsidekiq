@@ -6,9 +6,15 @@
     </div>
 
     {{#each profileMembersList as |member|}}
-    <div class="settings-item" {{action 'selectMember' member}}>
-      <img id="members-image-display" src="{{member.image.url}}">
-      <h3>{{member.fullName}}</h3>
+    <div style="margin: 15px;" class="settings-item profile-section-item" {{action 'selectMember' member}}>
+      <div style="font-size: 12px;"class="profile-section-item">
+        <label style="font-weight: bold;font-size: 10px;">Name:</label> {{member.fullName}}
+        <div style="width: 60px;height: 60px;position: relative;overflow: hidden;border-radius: 50%;float: right; bottom: 10px;">
+          <img id="members-image-display" src="{{member.image.url}}" style="display: inline; margin: 0 auto; margin-left: -25%; //centers the imageheight: 100%;width: 80px;;">
+        </div><br>
+        <label style="font-weight: bold;font-size: 10px;">Membership Plan:</label> {{member.membershipType}} ${{member.monthlyPrice}}
+        <label style="font-weight: bold;font-size: 10px;">Membership Plan Expires On:</label> {{member.contractExpiresOn}}
+      </div>
     </div>
     {{/each}}
   </Scrollable>
