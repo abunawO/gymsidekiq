@@ -8,7 +8,10 @@ export default ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin, {
     profile: {
       embedded: 'always'
     },
-    attendances: {
+    klass: {
+      embedded: 'always'
+    },
+    member: {
       embedded: 'always'
     }
   }

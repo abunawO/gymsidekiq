@@ -1,14 +1,36 @@
 <div class="page-grid-system profile-layout">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <div class="profile-section wide placeholder">
     <h2>Placeholder</h2>
   </div>
 
   <div class="profile-section tall classes">
-    <h2>Classes</h2>
+    <h2>Class Check Ins</h2>
+    <h5>{{formattedDate}}</h5>
     {{#each profileKlasses as |class|}}
     <div class="profile-section-item">
-      <h3>{{class.title}}</h3>
+      <h4>{{class.title}}</h4>
     </div>
+      {{#each class.attendances as |attendance|}}
+        <div class="profile-section-item">
+          <label>{{attendance.checkInDateString}}</label><br>
+          <label>Member: {{attendance.member.fullName}}</label><br>
+          {{#if attendance.member.hasGoodStatus}}
+            <label>Membership status:
+              <div style="width: 70px;"class="w3-light-grey">
+                <div class="w3-green" style="height:24px;width:100%">Good</div>
+              </div>
+            </label>
+          {{/if}}
+          {{#unless attendance.member.hasGoodStatus}}
+            <label>Membership status:
+              <div style="width: 70px;"class="w3-light-grey">
+                <div class="w3-red" style="height:24px;width:100%">Danger</div>
+              </div>
+            </label>
+          {{/unless}}
+        </div>
+      {{/each}}
     {{/each}}
   </div>
 
