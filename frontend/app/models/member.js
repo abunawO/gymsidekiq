@@ -1,5 +1,5 @@
 import DS from 'ember-data';
-import Model, { belongsTo } from '@ember-data/model';
+import Model, { belongsTo, hasMany } from '@ember-data/model';
 import { computed } from '@ember/object';
 
 export default DS.Model.extend({
@@ -19,8 +19,11 @@ export default DS.Model.extend({
    profile:  DS.belongsTo('profile', { async: false }),
    trainers: DS.attr(),
    classes: DS.attr(),
-
+   attendances:  DS.hasMany('attendance',  { inverse: null }),
+   hasGoodStatus: Ember.computed('memberId',function(){
+    return Math.random() < 0.7;
+   }),
    fullName: computed('firstName', 'lastName', function() {
     return `${this.firstName} ${this.lastName}`;
-   })
+  })
  });

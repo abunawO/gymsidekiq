@@ -18,6 +18,8 @@ class MemberSerializer < ActiveModel::Serializer
              :image,
              :monthly_price
 
+ has_many :attendances
+
  def membership_type
    return unless object.plan_id
    Plan.find(object.plan_id).title

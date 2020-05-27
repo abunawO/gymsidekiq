@@ -7,5 +7,11 @@ export default Ember.Controller.extend({
   profileKlasses: [],
   profileMembers: [],
   filesArray: [],
+
+
+  formattedDate: function() {
+    return moment().format('LL');
+  }.property(''),
+
   actions: {}
 });

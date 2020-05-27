@@ -8,6 +8,7 @@ export default Ember.Component.extend({
     { title: "Trainers", to: "user.profile.trainers" },
     { title: "Members", to: "user.profile.members" },
     { title: "Update Profile", to: "user.profile.update" },
+    { title: "Check-in Member", to: "user.profile.checkin.member" },
   ],
   profile: null,
 

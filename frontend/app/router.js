@@ -26,6 +26,10 @@ Router.map(function() {
         this.route('new');
       });
       this.route('update');
+
+      this.route('checkin', function() {
+        this.route('member');
+      });
     });
   });
 });

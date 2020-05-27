@@ -6,6 +6,8 @@ class KlassSerializer < ActiveModel::Serializer
              :trainers,
              :members
 
+ has_many :attendances
+ has_many :members
 
  def trainers
    trainers_and_class = []
