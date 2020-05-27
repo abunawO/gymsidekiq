@@ -7,8 +7,8 @@ export default DS.Model.extend({
    memberId: DS.attr(),
    checkedInAt: DS.attr(),
    profile: DS.belongsTo('profile', { async: false }),
-   checkInDateString: Ember.computed('checkedInAt', function(){
-    return new Date(this.get('checkedInAt'))
+   checkInTime: Ember.computed('checkedInAt', function(){
+    return new Date(this.get('checkedInAt')).toLocaleTimeString()
   }),
   member: Ember.computed('memberId',function(){
    return this.store.find('member', this.get('memberId'));

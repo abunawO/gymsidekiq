@@ -13,9 +13,9 @@
     </div>
       {{#each class.attendances as |attendance|}}
         <div class="profile-section-item">
-          <label>{{attendance.checkInDateString}}</label><br>
+          <label>{{attendance.checkInTime}}</label><br>
           <label>Member: {{attendance.member.fullName}}
-            <div style="width: 60px;height: 60px;position: relative;overflow: hidden;border-radius: 50%;float: right; bottom: 60px;">
+            <div style="width: 60px;height: 60px;position: relative;overflow: hidden;border-radius: 50%;float: right; bottom: 30px;">
               <img id="members-image-display" src="{{attendance.member.image.url}}" style="display: inline; margin: 0 auto; margin-left: -25%; //centers the imageheight: 100%;width: 80px;;">
             </div>
           </label><br>
