@@ -297,18 +297,10 @@ export default Ember.Controller.extend({
       this.set("classTrainers", _class.get("trainers"));
       this.set("classMembers", _class.get("members"));
       this.set("selectedKlass", _class);
+      console.log(this.get("selectedKlass").schedule);
       this.set("timetabledata", this.get("selectedKlass").schedule);
       this.setHoursTimeTable();
       this.setHoursTimeTableData();
-      console.log(
-        "timetable selected",
-        this.get("timeTable")[this.get("selectedDay")].hours
-      );
-      // this.set(
-      //   "newTimeTable2",
-      //   this.get("timeTable")[this.get("selectedDay")].hours
-      // );
-      console.log("akds;", this.get("newTimeTable2"));
       document.getElementById("classes-form").style.display = "flex";
     },
     updateClass(klass) {
