@@ -82,6 +82,6 @@ class Api::V1::MembersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
       #binding.pry
-      params.require(:member).permit(:first_name, :last_name, :email, :profile_id, :address, :city, :state, :zip, :phone, :plan_id, :image)
+      params.require(:member).permit(:first_name, :last_name, :email, :profile_id, :address, :city, :state, :zip, :phone, :plan_id, :image, :contract_length)
     end
 end

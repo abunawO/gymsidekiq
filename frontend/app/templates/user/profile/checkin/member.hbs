@@ -1,0 +1,44 @@
+<div class="settings-layout">
+
+  <Scrollable @classnames="settings-list">
+    <div class="">
+      <h1>Select Class</h1>
+    </div>
+
+    {{#each profileClasses as |class|}}
+    <div class="settings-item" {{action 'selectClass' class}}>
+      <h8>{{class.title}}</h8>
+    </div>
+    {{/each}}
+  </Scrollable>
+
+  <div class='settings-info'>
+    <h2>Check-in Member</h2>
+    <div class="settings-content classes-content" id="classes-form">
+      <form>
+        <fieldset>
+          <label for="class-name">Class Name</label>
+          <div class='settings-input-text'>
+            {{input type="text" value=selectedKlass.title }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="class-name">Member Id</label>
+          <div class='settings-input-text'>
+            {{input type="text" value=memberId placeholder="enter member id" }}
+          </div>
+        </fieldset>
+        <fieldset>
+          <div class=''>
+            <p>{{formattedDate}}</p>
+          </div>
+        </fieldset>
+        <div>
+          <button {{action "CheckInMember" selectedKlass memberId formattedDate}} type="submit">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

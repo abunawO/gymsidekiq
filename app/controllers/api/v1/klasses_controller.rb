@@ -1,4 +1,4 @@
-class Api::V1:: KlassesController < ApplicationController
+class Api::V1::KlassesController < ApplicationController
   before_action :set_klass, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 

@@ -37,13 +37,11 @@ export default Ember.Controller.extend({
 
   actions: {
     setPlanId(planId, element) {
-      //debugger
       this.set('planId', planId);
       this.get('checkedPlans').push(element);
     },
 
     createNewMember() {
-      //debugger
       var memberImage = null
       if(!isEmpty(this.get('filesArray'))){memberImage = this.get('filesArray')[0]}
       var member = this.store.createRecord('member', {
@@ -57,7 +55,8 @@ export default Ember.Controller.extend({
         zip: this.get('zip'),
         planId: this.get('planId'),
         phone: this.get('phone'),
-        image: memberImage
+        image: memberImage,
+        contractLength: this.get('contractLength')
       });
 
       member.save().then((res) => {

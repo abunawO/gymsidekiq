@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :trainers
       resources :klasses
       resources :plans
+      resources :attendances
     end
   end
 

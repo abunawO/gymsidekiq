@@ -25,8 +25,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
     let profileQueryParams = {where: { id: { value: this.get('user.profileId'), operator: '==' }}};
     let promises = {
       klasses:   this.store.query('klass', queryParams),
-      trainers:  this.store.query('trainer', queryParams),
-      members:   this.store.query('member', queryParams),
       profiles:  this.store.query('profile', profileQueryParams)
     };
 
@@ -39,11 +37,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       if (model.profiles.firstObject == null){
         this.transitionTo('user.profile.new');
       }else {
-        controller.set('userProfiles', model.profiles);
         controller.set('profile', model.profiles.firstObject);
-        controller.set('profileTrainers', model.trainers);
         controller.set('profileKlasses', model.klasses);
-        controller.set('profileMembers', model.members);
         this.controllerFor('application').set('profile', model.profiles.firstObject);
       }
     }
