@@ -10,17 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200517021645) do
+ActiveRecord::Schema.define(version: 20200527151505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "attendances", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "member_id"
+    t.integer  "klass_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.date     "checked_in_at"
+  end
+
+  create_table "klass_schedules", force: :cascade do |t|
+    t.string   "day"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "klass_id"
+    t.text     "start_times"
+  end
+
   create_table "klasses", force: :cascade do |t|
     t.string   "title"
-    t.text     "schedule"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "profile_id"
+    t.text     "schedule"
     t.index ["profile_id"], name: "index_klasses_on_profile_id", using: :btree
   end
 
@@ -33,11 +52,12 @@ ActiveRecord::Schema.define(version: 20200517021645) do
     t.string   "state"
     t.string   "city"
     t.string   "zip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "profile_id"
     t.integer  "plan_id"
     t.string   "image"
+    t.integer  "contract_length"
     t.index ["profile_id"], name: "index_members_on_profile_id", using: :btree
   end
 
