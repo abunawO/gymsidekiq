@@ -576,9 +576,12 @@ a {
   display: flex;
   align-items: center;
   min-height: 50px;
+  padding: 10px;
+  border-bottom: 1px solid #d6dbd9;
 }
 .settings-layout .settings-list .settings-item:hover {
   background-color: #d6dbd9;
+  background-color: white;
 }
 .settings-layout .settings-list .settings-item h3 {
   padding-left: 10px;
@@ -586,6 +589,19 @@ a {
 .settings-layout .settings-list .settings-item img {
   width: 50px;
   height: 50px;
+  border-radius: 50px;
+}
+.settings-layout .settings-list .settings-item .settings-item-right {
+  margin-left: 10px;
+}
+.settings-layout .settings-list .settings-item .settings-item-right .sir-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: black;
+}
+.settings-layout .settings-list .settings-item .settings-item-right p {
+  font-size: 0.8em;
+  color: #5f5f5f;
 }
 .settings-layout .settings-list .settings-action {
   display: flex;
