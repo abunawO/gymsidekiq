@@ -10,7 +10,6 @@ export default Ember.Controller.extend({
   },
   actions: {
     signUpUser(){
-      debugger;
       var user = this.store.createRecord('user', {
         email: this.get('email'),
         password: this.get('password')
@@ -22,7 +21,6 @@ export default Ember.Controller.extend({
         .then(() => {
           this.afterSignUpProcess();
          }, (err) => {
-           debugger;
            this.afterSignUpProcess();
          });
       }).catch((err) => {

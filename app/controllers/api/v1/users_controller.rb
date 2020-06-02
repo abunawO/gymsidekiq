@@ -16,8 +16,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       UserMailer.registration_confirmation(@user).deliver
-      data = {id: @user.id, email: @user.email }
-      render json: { user: data }, status: :ok
+      render json: @user, status: :ok
     else
       render json: { errors: @user.errors }, status: :unprocessable_entity
     end
@@ -27,7 +26,7 @@ class Api::V1::UsersController < ApplicationController
     user = User.find_by_confirm_token(params[:id])
     if user
       user.email_activate
-      redirect_to '/user/profile/new'
+      redirect_to '/login'
     else
       render json: { errors: "Sorry. User does not exist" }, status: :ok
     end
@@ -36,6 +35,6 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :profile_id)
   end
 end

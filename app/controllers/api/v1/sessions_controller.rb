@@ -12,7 +12,6 @@ class Api::V1::SessionsController < ApplicationController
         data = {id: user.id, email: user.email, token: token}
         render json: data, status: :ok
       else
-        #binding.pry
         render json: {}, status: :ok
       end
     else
