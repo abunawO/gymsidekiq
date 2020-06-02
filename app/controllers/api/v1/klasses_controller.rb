@@ -41,6 +41,7 @@ class Api::V1::KlassesController < ApplicationController
   # POST /klasses.json
   def create
     @klass = Klass.new(klass_params)
+    @klass.schedule = params[:klass][:schedule].to_json
     if  @klass.save
       render json: @klass, status: :ok
     else

@@ -21,25 +21,15 @@ ActiveRecord::Schema.define(version: 20200527151505) do
     t.integer  "klass_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.date     "checked_in_at"
-  end
-
-  create_table "klass_schedules", force: :cascade do |t|
-    t.string   "day"
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "klass_id"
-    t.text     "start_times"
+    t.string   "checked_in_at"
   end
 
   create_table "klasses", force: :cascade do |t|
     t.string   "title"
+    t.text     "schedule"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "profile_id"
-    t.text     "schedule"
     t.index ["profile_id"], name: "index_klasses_on_profile_id", using: :btree
   end
 
