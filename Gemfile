@@ -33,6 +33,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'faker', '~> 1.9.1', group: [:development, :test]
 gem 'fog'
 gem "fog-aws"
+gem 'figaro'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -59,6 +60,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'letter_opener'
+  gem 'letter_opener_web'
 end
 
 gem 'rails_12factor', group: [:staging, :production]

@@ -3,8 +3,14 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
 
+  afterSignUpProcess: function() {
+    this.store.unloadAll();
+    this.transitionToRoute('index')
+    this.get('flashMessages').success('Signed up! Please activate your account by following the instructions in the account confirmation email you received to proceed.')
+  },
   actions: {
     signUpUser(){
+      debugger;
       var user = this.store.createRecord('user', {
         email: this.get('email'),
         password: this.get('password')
@@ -14,14 +20,10 @@ export default Ember.Controller.extend({
         this.get('session')
         .authenticate('authenticator:devise', res.get('email'), res.get('password'))
         .then(() => {
-          //debugger
-          this.store.unloadAll();
-
-          this.transitionToRoute('index')
-          this.get('flashMessages').success('Signed up!')
+          this.afterSignUpProcess();
          }, (err) => {
-           //debugger
-           this.get('flashMessages').danger('Error creating record!')
+           debugger;
+           this.afterSignUpProcess();
          });
       }).catch((err) => {
         this.get('flashMessages').danger('Failed to save user!')

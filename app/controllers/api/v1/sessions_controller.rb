@@ -8,8 +8,13 @@ class Api::V1::SessionsController < ApplicationController
     user = User.authenticate(params[:user][:email], params[:user][:password])
     token = User.generate_authentication_token
     if user
-      data = {id: user.id, email: user.email, token: token}
-      render json: data, status: :ok
+      if user.email_confirmed
+        data = {id: user.id, email: user.email, token: token}
+        render json: data, status: :ok
+      else
+        #binding.pry
+        render json: {}, status: :ok
+      end
     else
       render json: { errors: "Invalid email or password" }, status: :unprocessable_entity
     end

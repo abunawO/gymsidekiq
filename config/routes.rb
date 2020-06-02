@@ -5,7 +5,12 @@ Rails.application.routes.draw do
     # Version 1
     namespace :v1 do
       post '/users/sign_in', to: 'sessions#create'
-      resources :users
+      resources :users do
+        member do
+            #get '/:token/confirm_email/', :to => "users#confirm_email", as: 'confirm_email'
+            get :confirm_email
+        end
+      end
       resources :sessions
       resources :profiles
       resources :members

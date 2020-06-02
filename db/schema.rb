@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200527151505) do
+ActiveRecord::Schema.define(version: 20200529033736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,10 +98,12 @@ ActiveRecord::Schema.define(version: 20200527151505) do
     t.string   "password"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "profile_id"
     t.string   "integer"
+    t.boolean  "email_confirmed", default: false
+    t.string   "confirm_token"
   end
 
   add_foreign_key "klasses", "profiles"
