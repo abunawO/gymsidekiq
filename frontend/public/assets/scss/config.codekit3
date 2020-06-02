@@ -9,6 +9,19 @@
 	],
 "creatorBuild": "32147",
 "files": {
+	"/components/check-in.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/components/check-in.css",
+		"oF": 0,
+		"oS": 0,
+		"sct": 0
+		},
 	"/components/landing/features.scss": {
 		"aP": 0,
 		"bl": 0,

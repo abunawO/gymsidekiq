@@ -36,7 +36,7 @@ export default Ember.Controller.extend({
 
     createNewProfile() {
       var profileImage = null
-      if(!isEmpty(this.get('filesArray'))){image = this.get('filesArray')[0]}
+      if(!isEmpty(this.get('filesArray'))){profileImage = this.get('filesArray')[0]}
       var profile = this.store.createRecord('profile', {
         profileName: this.get('profileName'),
         email: this.get('email'),

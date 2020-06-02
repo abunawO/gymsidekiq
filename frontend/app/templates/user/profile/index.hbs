@@ -1,52 +1,15 @@
-<div class="page-grid-system profile-layout">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <div class="profile-section wide placeholder">
-    <h2>Placeholder</h2>
-  </div>
-
-  <div class="profile-section tall classes">
+<div class="profile-layout">
+  <div class="profile-section">
     <h2>Class Check Ins</h2>
-    <h5>{{formattedDate}}</h5>
+    <h3>{{formattedDate}}</h3>
     {{#each profileKlasses as |class|}}
-    <div style="padding: 0px !important;" class="profile-section-item">
-      <h4>{{class.title}}</h4>
-    </div>
+    <h3>{{class.title}}</h3>
     {{#each class.attendances as |attendance|}}
     {{#if attendance.isTodaysCheckin}}
-    <div style="font-size: 10px;padding: 5px 5px !important;" class="profile-section-item">
-      <label>{{attendance.checkInTime}}</label><br>
-      <label style="font-weight: bold;font-size: 13px;">Member:
-        <div
-          style="width: 60px;height: 60px;position: relative;overflow: hidden;border-radius: 50%;float: right; bottom: 30px;">
-          <img id="members-image-display" src="{{attendance.member.image.url}}"
-            style="display: inline; margin: 0 auto; margin-left: -25%; //centers the imageheight: 100%;width: 80px;;">
-        </div>
-      </label> {{attendance.member.fullName}}<br>
-      {{#if attendance.member.hasGoodStatus}}
-      <label style="font-weight: bold;font-size: 13px;">Membership status:
-        <div style="width: 70px;" class="w3-light-grey">
-          <div class="w3-green" style="height:24px;width:100%">Good</div>
-        </div>
-      </label>
-      {{/if}}
-      {{#unless attendance.member.hasGoodStatus}}
-      <label style="font-weight: bold;font-size: 13px;">Membership status:
-        <div style="width: 70px;" class="w3-light-grey">
-          <div class="w3-red" style="height:24px;width:100%">Danger</div>
-        </div>
-      </label>
-      {{/unless}}
-    </div>
+    <CheckIn @img={{attendance.member.image.url}} @name={{attendance.member.fullName}}
+      @status={{attendance.member.hasGoodStatus}} @date={{attendance.checkInTime}} />
     {{/if}}
     {{/each}}
     {{/each}}
-  </div>
-
-  <div class="profile-section tall trainers">
-    <h2>Placeholder</h2>
-  </div>
-
-  <div class="profile-section tall members">
-    <h2>Placeholder</h2>
   </div>
 </div>
