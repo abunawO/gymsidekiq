@@ -15,7 +15,7 @@ Rails.application.configure do
 
   #Email settings in development.
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: ENV['LOCAL_HOST_DOMAIN'] }
   config.action_mailer.delivery_method = ENV['SUPRESS_BROWSER_EMAILS'] == 'false' ? :letter_opener_web : :letter_opener
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
