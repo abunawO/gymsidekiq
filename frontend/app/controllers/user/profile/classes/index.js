@@ -161,6 +161,7 @@ export default Ember.Controller.extend({
   refreshModel: function () {
     this.set("selectedKlass", null);
     this.set("classTrainers", []);
+    document.getElementById("classes-form").style.display = "none";
   },
   actions: {
     /**
@@ -322,6 +323,7 @@ export default Ember.Controller.extend({
       klass.destroyRecord().then(
         () => {
           this.refreshModel();
+          window.scrollTo(0, 0);
           this.get("flashMessages").success(
             "The Class was has been deleted successfully."
           );
