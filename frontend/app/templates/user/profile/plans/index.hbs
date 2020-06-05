@@ -5,8 +5,8 @@
       <button {{action "createNewPlan"}}>Create New Plan</button>
     </div>
     {{#each profilePlansList as |plan|}}
-    <div class="settings-item" {{action 'selectPlan' plan}}>
-      <h3>{{plan.title}}</h3> <h6 style="margin: 10px;">{{plan.price}}</h6>
+    <div class="settings-item settings-item-right" {{action 'selectPlan' plan}}>
+      <h3><p>{{plan.title}}</p></h3> <p style="margin: 10px;">${{plan.price}}</p>
     </div>
     {{/each}}
   </Scrollable>
