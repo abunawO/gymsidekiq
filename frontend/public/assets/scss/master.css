@@ -1265,6 +1265,9 @@ a {
   border-radius: 5px;
   overflow: hidden;
 }
+.input-text .input-text-content.active {
+  border-color: #0ab975;
+}
 .input-text .input-text-content input {
   outline: none;
   border: none;

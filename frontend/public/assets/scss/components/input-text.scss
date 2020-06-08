@@ -11,7 +11,9 @@
     border: 2px solid darken($light-secondary, 20%);
     border-radius: 5px;
     overflow: hidden;
-
+    &.active {
+      border-color: $primary;
+    }
     input {
       outline: none;
       border: none;
