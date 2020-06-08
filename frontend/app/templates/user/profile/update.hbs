@@ -1,4 +1,3 @@
-
 <div class='create-forms'>
   <form id="contact" action="" method="post">
     <h2>Create New Profile</h2>
@@ -11,41 +10,13 @@
       </ul>
       {{input-file files=files callbackAction='setImage'}}
     </fieldset>
-    <fieldset>
-      <div class='settings-input-text'>
-        {{input type="text" value=profile.profileName placeholder="Profile Name" autofocus=true}}
-      </div>
-    </fieldset>
-    <fieldset>
-      <div class='settings-input-text'>
-        {{input type="text" value=profile.address placeholder="Address" }}
-      </div>
-    </fieldset>
-    <fieldset>
-      <div class='settings-input-text'>
-        {{input type="text" value=profile.city placeholder="City" }}
-      </div>
-    </fieldset>
-    <fieldset>
-      <div class='settings-input-text'>
-        {{input type="text" value=profile.state placeholder="State"  }}
-      </div>
-    </fieldset>
-    <fieldset>
-      <div class='settings-input-text'>
-        {{input type="text" value=profile.zip placeholder="Zip"  }}
-      </div>
-    </fieldset>
-    <fieldset>
-      <div class='settings-input-text'>
-        {{input type="email" value=profile.email placeholder="Email Address"  }}
-      </div>
-    </fieldset>
-    <fieldset>
-      <div class='settings-input-text'>
-        {{input type="tel" value=profile.phone placeholder="Your Phone Number"  }}
-      </div>
-    </fieldset>
+    <InputText @label="Profile Name" @value={{profile.profileName}} />
+    <InputText @label="Address" @value={{profile.address}} />
+    <InputText @label="City" @value={{profile.city}} />
+    <InputText @label="State" @value={{profile.state}} />
+    <InputText @label="Zip" @value={{profile.zip}} />
+    <InputText @label="Email Address" @value={{profile.email}} />
+    <InputText @label="Phone Number" @value={{profile.phone}} @type="tel" />
     <fieldset>
       <button {{action "updateProfile" profile}} name="submit" type="submit" id="contact-submit"
         data-submit="...Sending">Submit
