@@ -22,12 +22,14 @@
     </fieldset>
     <fieldset>
       <h4>Select Plan Classes</h4>
-      {{#each profileklasses as |klass|}}
-      <label>
-        {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=plan.id  data=klass.id callbackAction='setKlassId'}}
-        <span style="font-weight: normal;">{{klass.title}}</span>
-      </label>
-      {{/each}}
+      <div class="input-checkboxes">
+        {{#each profileklasses as |klass|}}
+        <label class="input-checkbox">
+          {{gs-checkbox name=klass.title class="profile_section" id=klass.id value=plan.id  data=klass.id callbackAction='setKlassId'}}
+          <span style="font-weight: normal;">{{klass.title}}</span>
+        </label>
+        {{/each}}
+      </div>
     </fieldset>
   </form>
 </div>

@@ -197,3 +197,15 @@
     }
   }
 }
+.input-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  .input-checkbox {
+    cursor: pointer;
+    border: 1px solid darken($light-secondary, 10%);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px !important;
+    background-color: $light-primary;
+  }
+}

@@ -39,12 +39,14 @@
           {{#if hasNoClasses}}
           <span style="font-weight: normal;">No assigned classes</span>
           {{else}}
-          {{#each selectedTrainer.classes as |klass|}}
-          <label>
-            {{input type="checkbox" name=klass.id class="profile_section"  checked=true}}
-            <span style="font-weight: normal;">{{klass.title}}</span>
-          </label>
-          {{/each}}
+          <div class="input-checkboxes">
+            {{#each selectedTrainer.classes as |klass|}}
+            <label class='input-checkbox'>
+              {{input type="checkbox" name=klass.id class="profile_section"  checked=true}}
+              <span style="font-weight: normal;">{{klass.title}}</span>
+            </label>
+            {{/each}}
+          </div>
           {{/if}}
         </fieldset>
         <fieldset>
@@ -52,12 +54,14 @@
           {{#if hasAllClasses}}
           <span style="font-weight: normal;">Trainer assigned to all classes</span>
           {{else}}
-          {{#each availableProfileKlasses as |klass|}}
-          <label>
-            {{input type="checkbox" name=klass.id class="profile_section"}}
-            <span style="font-weight: normal;">{{klass.title}}</span>
-          </label>
-          {{/each}}
+          <div class="input-checkboxes">
+            {{#each availableProfileKlasses as |klass|}}
+            <label class='input-checkbox'>
+              {{input type="checkbox" name=klass.id class="profile_section"}}
+              <span style="font-weight: normal;">{{klass.title}}</span>
+            </label>
+            {{/each}}
+          </div>
           {{/if}}
         </fieldset>
         <button {{action "updateTrainer" selectedTrainer}} type="submit">

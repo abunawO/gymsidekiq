@@ -23,12 +23,14 @@
           {{#if hasNoClasses}}
           <span style="font-weight: normal;">No assigned classes</span>
           {{else}}
-          {{#each planKlasses as |klass|}}
-          <label>
-            {{input type="checkbox" name=klass.id class="profile_section"  checked=true}}
-            <span style="font-weight: normal;">{{klass.title}}</span>
-          </label>
-          {{/each}}
+          <div class="input-checkboxes">
+            {{#each planKlasses as |klass|}}
+            <label class='input-checkbox'>
+              {{input type="checkbox" name=klass.id class="profile_section"  checked=true}}
+              <span style="font-weight: normal;">{{klass.title}}</span>
+            </label>
+            {{/each}}
+          </div>
           {{/if}}
         </fieldset>
         <fieldset>
