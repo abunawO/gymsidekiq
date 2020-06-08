@@ -16,12 +16,7 @@
     <h2>Class Settings</h2>
     <div class="settings-content classes-content" id="classes-form">
       <form>
-        <fieldset>
-          <label for="class-name">Class Name</label>
-          <div class='settings-input-text'>
-            {{input type="text" id='class-name' value=selectedKlass.title }}
-          </div>
-        </fieldset>
+        <InputText @label="Class Name" @value={{selectedKlass.title}} />
         <h3 class='class-section-title'>Schedule</h3>
         <div class="classes-timetable">
           <div class="classes-timetable-days">
