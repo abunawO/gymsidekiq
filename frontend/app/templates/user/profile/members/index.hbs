@@ -32,54 +32,14 @@
           </ul>
           {{input-file id="member-picture" files=files callbackAction='setImage'}}
         </fieldset>
-        <fieldset>
-          <label for="member-firstName">First Name</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="member-firstName" value=selectedMember.firstName }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="member-lastName">Last Name</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="member-lastName" value=selectedMember.lastName }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="member-email">Email</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="member-email" value=selectedMember.email }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="member-address">Address</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="member-address" value=selectedMember.address }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="member-city">City</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="member-city" value=selectedMember.city }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="member-state">State</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="member-state" value=selectedMember.state }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="member-zip">Zip</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="member-zip" value=selectedMember.zip }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="member-phone">Phone</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="member-phone" value=selectedMember.phone }}
-          </div>
-        </fieldset>
+        <InputText @label="First Name" @value={{selectedMember.firstName}} />
+        <InputText @label="Last Name" @value={{selectedMember.lastName}} />
+        <InputText @label="Email" @value={{selectedMember.email}} />
+        <InputText @label="Address" @value={{selectedMember.address}} />
+        <InputText @label="City" @value={{selectedMember.city}} />
+        <InputText @label="State" @value={{selectedMember.state}} />
+        <InputText @label="Zip" @value={{selectedMember.zip}} />
+        <InputText @label="Phone" @value={{selectedMember.phone}} />
         <fieldset>
           <h4>Current Membership Type</h4>
           {{#each plansWithoutMembersPlan as |plan|}}
