@@ -16,23 +16,8 @@
     <h2>Check-in Member</h2>
     <div class="settings-content classes-content" id="classes-form">
       <form>
-        <fieldset>
-          <label for="class-name">Class Name</label>
-          <div class='settings-input-text'>
-            {{input type="text" value=selectedKlass.title }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="class-name">Member Id</label>
-          <div class='settings-input-text'>
-            {{input type="text" value=memberId placeholder="enter member id" }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <div class=''>
-            <p>{{formattedDate}}</p>
-          </div>
-        </fieldset>
+        <InputText @label="Class Name" @value={{selectedKlass.title}} />
+        <InputText @label="Member Id" @value={{memberId}} @placeholder="enter member id" />
         <div>
           <button {{action "CheckInMember" selectedKlass memberId formattedDate}} type="submit">
             Submit

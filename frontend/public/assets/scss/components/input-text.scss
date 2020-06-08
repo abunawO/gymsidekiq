@@ -1,0 +1,24 @@
+.input-text {
+  margin-bottom: 20px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-bottom: 10px;
+  }
+  .input-text-content {
+    display: flex;
+    border: 2px solid darken($light-secondary, 20%);
+    border-radius: 5px;
+    overflow: hidden;
+
+    input {
+      outline: none;
+      border: none;
+      flex: 1;
+      width: 100%;
+      padding: 10px;
+      padding-left: 20px;
+    }
+  }
+}
