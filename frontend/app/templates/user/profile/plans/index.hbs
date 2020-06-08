@@ -6,7 +6,10 @@
     </div>
     {{#each profilePlansList as |plan|}}
     <div class="settings-item settings-item-right" {{action 'selectPlan' plan}}>
-      <h3><p>{{plan.title}}</p></h3> <p style="margin: 10px;">${{plan.price}}</p>
+      <h3>
+        <p>{{plan.title}}</p>
+      </h3>
+      <p style="margin: 10px;">${{plan.price}}</p>
     </div>
     {{/each}}
   </Scrollable>
@@ -18,35 +21,30 @@
         <fieldset>
           <h1>Plan Classes</h1>
           {{#if hasNoClasses}}
-            <span style="font-weight: normal;">No assigned classes</span>
+          <span style="font-weight: normal;">No assigned classes</span>
           {{else}}
-            {{#each planKlasses as |klass|}}
-            <label>
-              {{input type="checkbox" name=klass.id class="profile_section"  checked=true}}
-              <span style="font-weight: normal;">{{klass.title}}</span>
-            </label>
-            {{/each}}
+          {{#each planKlasses as |klass|}}
+          <label>
+            {{input type="checkbox" name=klass.id class="profile_section"  checked=true}}
+            <span style="font-weight: normal;">{{klass.title}}</span>
+          </label>
+          {{/each}}
           {{/if}}
         </fieldset>
         <fieldset>
           <h1>Profile Classes</h1>
           {{#if hasAllClasses}}
-            <span style="font-weight: normal;">Plan has all classes</span>
+          <span style="font-weight: normal;">Plan has all classes</span>
           {{else}}
-            {{#each availableProfileKlasses as |klass|}}
-            <label>
-              {{input type="checkbox" name=klass.id class="profile_section"}}
-              <span style="font-weight: normal;">{{klass.title}}</span>
-            </label>
-            {{/each}}
+          {{#each availableProfileKlasses as |klass|}}
+          <label>
+            {{input type="checkbox" name=klass.id class="profile_section"}}
+            <span style="font-weight: normal;">{{klass.title}}</span>
+          </label>
+          {{/each}}
           {{/if}}
         </fieldset>
-        <fieldset>
-          <label for="plan-name">Plan Name</label>
-          <div class='settings-input-text'>
-            {{input type="text" id='plan-name' value=selectedPlan.title }}
-          </div>
-        </fieldset>
+        <InputText @label="Plan Name" @value={{selectedPlan.title}} />
         <fieldset>
           <label for="plan-name">Plan Price</label>
           <div class='settings-input-text'>

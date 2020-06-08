@@ -10,48 +10,14 @@
       </ul>
       {{input-file id="trainer-picture" files=files callbackAction='setImage'}}
     </fieldset>
-    <fieldset>
-      <label for="trainer-firstName">First Name</label>
-      <div class='settings-input-text'>
-        {{input type="text" id="trainer-firstName" value=firstName }}
-      </div>
-    </fieldset>
-    <fieldset>
-      <label for="trainer-lastName">Last Name</label>
-      <div class='settings-input-text'>
-        {{input type="text" id="trainer-lastName" value=lastName }}
-      </div>
-    </fieldset>
-    <fieldset>
-      <label for="trainer-email">Email</label>
-      <div class='settings-input-text'>
-        {{input type="text" id="trainer-email" value=email }}
-      </div>
-    </fieldset>
-    <fieldset>
-      <label for="trainer-address">Address</label>
-      <div class='settings-input-text'>
-        {{input type="text" id="trainer-address" value=address }}
-      </div>
-    </fieldset>
-    <fieldset>
-      <label for="trainer-city">City</label>
-      <div class='settings-input-text'>
-        {{input type="text" id="trainer-city" value=city }}
-      </div>
-    </fieldset>
-    <fieldset>
-      <label for="trainer-state">State</label>
-      <div class='settings-input-text'>
-        {{input type="text" id="trainer-state" value=state }}
-      </div>
-    </fieldset>
-    <fieldset>
-      <label for="trainer-zip">Zip</label>
-      <div class='settings-input-text'>
-        {{input type="text" id="trainer-zip" value=zip }}
-      </div>
-    </fieldset>
+    <InputText @label="First Name" @value={{firstName}} />
+    <InputText @label="Last Name" @value={{lastName}} />
+    <InputText @label="Email" @value={{email}} />
+    <InputText @label="Address" @value={{address}} />
+    <InputText @label="City" @value={{city}} />
+    <InputText @label="State" @value={{state}} />
+    <InputText @label="Zip" @value={{zip}} />
+    <InputText @label="Phone" @value={{phone}} />
     <fieldset>
       <label for="trainer-phone">Phone</label>
       <div class='settings-input-text'>

@@ -26,78 +26,38 @@
           </ul>
           {{input-file id="trainer-picture" files=files callbackAction='setImage'}}
         </fieldset>
-        <fieldset>
-          <label for="trainer-firstName">First Name</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="trainer-firstName" value=selectedTrainer.firstName }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="trainer-lastName">Last Name</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="trainer-lastName" value=selectedTrainer.lastName }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="trainer-email">Email</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="trainer-email" value=selectedTrainer.email }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="trainer-address">Address</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="trainer-address" value=selectedTrainer.address }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="trainer-city">City</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="trainer-city" value=selectedTrainer.city }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="trainer-state">State</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="trainer-state" value=selectedTrainer.state }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="trainer-zip">Zip</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="trainer-zip" value=selectedTrainer.zip }}
-          </div>
-        </fieldset>
-        <fieldset>
-          <label for="trainer-phone">Phone</label>
-          <div class='settings-input-text'>
-            {{input type="text" id="trainer-phone" value=selectedTrainer.phone }}
-          </div>
-        </fieldset>
+        <InputText @label="First Name" @value={{selectedTrainer.firstName}} />
+        <InputText @label="Last Name" @value={{selectedTrainer.lastName}} />
+        <InputText @label="Email" @value={{selectedTrainer.email}} />
+        <InputText @label="Address" @value={{selectedTrainer.address}} />
+        <InputText @label="City" @value={{selectedTrainer.city}} />
+        <InputText @label="State" @value={{selectedTrainer.state}} />
+        <InputText @label="Zip" @value={{selectedTrainer.zip}} />
+        <InputText @label="Phone" @value={{selectedTrainer.phone}} />
         <fieldset>
           <h4>Current Classes</h4>
           {{#if hasNoClasses}}
-            <span style="font-weight: normal;">No assigned classes</span>
+          <span style="font-weight: normal;">No assigned classes</span>
           {{else}}
-            {{#each selectedTrainer.classes as |klass|}}
-            <label>
-              {{input type="checkbox" name=klass.id class="profile_section"  checked=true}}
-              <span style="font-weight: normal;">{{klass.title}}</span>
-            </label>
-            {{/each}}
+          {{#each selectedTrainer.classes as |klass|}}
+          <label>
+            {{input type="checkbox" name=klass.id class="profile_section"  checked=true}}
+            <span style="font-weight: normal;">{{klass.title}}</span>
+          </label>
+          {{/each}}
           {{/if}}
         </fieldset>
         <fieldset>
           <h4>Profile Classes</h4>
           {{#if hasAllClasses}}
-            <span style="font-weight: normal;">Trainer assigned to all classes</span>
+          <span style="font-weight: normal;">Trainer assigned to all classes</span>
           {{else}}
-            {{#each availableProfileKlasses as |klass|}}
-            <label>
-              {{input type="checkbox" name=klass.id class="profile_section"}}
-              <span style="font-weight: normal;">{{klass.title}}</span>
-            </label>
-            {{/each}}
+          {{#each availableProfileKlasses as |klass|}}
+          <label>
+            {{input type="checkbox" name=klass.id class="profile_section"}}
+            <span style="font-weight: normal;">{{klass.title}}</span>
+          </label>
+          {{/each}}
           {{/if}}
         </fieldset>
         <button {{action "updateTrainer" selectedTrainer}} type="submit">
