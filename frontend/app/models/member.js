@@ -17,11 +17,14 @@ export default DS.Model.extend({
    profileId: DS.attr(),
    planId: DS.attr(),
    trainers: DS.attr(),
-   classes: DS.attr(),
+   klasses: DS.attr(),
    contractLength: DS.attr(),
    contractExpiration: DS.attr(),
-   attendances:  DS.hasMany('attendance',  { inverse: null }),
    profile:  DS.belongsTo('profile', { async: false }),
+   plan:     DS.belongsTo('plan', { async: false }),
+   attendances:  DS.hasMany("attendance", { inverse: null }),
+
+
    hasGoodStatus: Ember.computed('memberId',function(){
     return Math.random() < 0.7;
    }),

@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'ember-cli-rails'
 gem 'active-model-adapter-source', '~>2.0'
 gem 'active_model_serializers', '0.9.7'
-gem 'pry', '~> 0.10.3'
+gem 'pry'
 gem 'rack-cors'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'faker', '~> 1.9.1', group: [:development, :test]

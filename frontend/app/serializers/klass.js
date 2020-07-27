@@ -11,5 +11,11 @@ export default ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin, {
     attendances: {
       embedded: "always",
     },
-  },
+    trainers: {
+      embedded: "always",
+    },
+    members: {
+      embedded: "always",
+    }
+  }
 });

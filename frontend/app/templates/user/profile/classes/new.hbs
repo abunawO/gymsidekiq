@@ -1,8 +1,12 @@
 <div class='create-forms'>
   <form id="contact" action="" method="post">
     <h3>Create New Class</h3>
-    <InputText @label="Class Name" @value={{title}} @autofocus={{true}} />
-    <h2>Class Settings</h2>
+    <br>
+    <fieldset>
+      <div class='settings-input-text'>
+        {{input type="text" value=title placeholder="Enter Class title..."}}
+      </div>
+    </fieldset>
     <h4 class='class-section-title'>Schedule</h4>
     <div class="classes-timetable">
       <div class="classes-timetable-days">

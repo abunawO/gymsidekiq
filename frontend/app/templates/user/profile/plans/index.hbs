@@ -46,7 +46,12 @@
           {{/each}}
           {{/if}}
         </fieldset>
-        <InputText @label="Plan Name" @value={{selectedPlan.title}} />
+        <fieldset>
+          <label for="plan-name">Plan Name</label>
+          <div class='settings-input-text'>
+            {{input type="text" value=selectedPlan.title placeholder="Enter Plan Name..."}}
+          </div>
+        </fieldset>
         <fieldset>
           <label for="plan-name">Plan Price</label>
           <div class='settings-input-text'>

@@ -4,42 +4,38 @@ class MemberSerializer < ActiveModel::Serializer
              :first_name,
              :last_name,
              :email,
-             :profile_id,
              :address,
              :city,
              :state,
              :zip,
              :phone,
-             :membership_type,
              :profile_id,
              :plan_id,
-             :trainers,
-             :classes,
              :image,
              :monthly_price,
              :contract_length,
-             :contract_expiration
+             :contract_expiration,
+             :klasses
 
- has_many :attendances
+has_many  :attendances, embed_in_root: true, serializer: AttendanceSerializer
 
  def contract_expiration
-   object.created_at + object.contract_length.month 
+   object.created_at
  end
 
  def membership_type
-   return unless object.plan_id
-   Plan.find(object.plan_id).title
+   return unless object.plan.present?
+   object.plan.title
  end
 
  def monthly_price
-   return unless object.plan_id
-   Plan.find(object.plan_id).price
+   return unless object.plan.present?
+   object.plan.price
  end
 
- def classes
-   return nil unless object.plan_id
-   plan = Plan.find(object.plan_id)
-   Klass.where(id: plan.klass_ids.split(','))
+ def klasses
+   return unless object.plan.present?
+   object.plan.klasses
  end
 
  def trainers

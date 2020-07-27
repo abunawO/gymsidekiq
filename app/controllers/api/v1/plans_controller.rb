@@ -41,6 +41,8 @@ class Api::V1::PlansController < ApplicationController
   # POST /plans.json
   def create
     @plan = Plan.new(plan_params)
+    klass_ids = params[:plan][:klass_ids].split(',')
+    @plan.klasses = Klass.where(id: klass_ids)
     if @plan.save
       render json: @plan, each_serializer: PlanSerializer, status: :ok
     else
@@ -52,7 +54,10 @@ class Api::V1::PlansController < ApplicationController
   # PATCH/PUT /plans/1.json
   def update
     @plan = Plan.find(params[:id])
+    klass_ids = params[:plan][:klass_ids].split(',')
     if @plan.update_attributes(plan_params)
+      @plan.klasses = Klass.where(id: klass_ids)
+      @plan.save!
       render json: { klass: @plan }, message:'Plan was successfully updated.', status: :ok
     else
       render json: { errors: @plan.errors }, status: :unprocessable_entity

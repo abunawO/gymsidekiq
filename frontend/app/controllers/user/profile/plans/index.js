@@ -23,11 +23,11 @@ export default Ember.Controller.extend({
     this.get('checkedklasses').forEach((element)=>{element.prop('checked',false);});
   },
   getAvailableKlasses: function(plan){
-    if (plan.get('classes')){
+    if (plan.get('klasses')){
       var currenKlassIds = plan.get('klassIds').toString().split(',');
       var availableKlasses = [];
       this.get('profileklasses').forEach((klass, i) => {
-        var hasClasss = plan.get('classes').findBy('title', klass.title);
+        var hasClasss = plan.get('klasses').findBy('title', klass.title);
         if(isEmpty(hasClasss)){
           availableKlasses.push(klass);
         }
@@ -49,11 +49,11 @@ export default Ember.Controller.extend({
 
   actions: {
     selectPlan(_plan) {
-      this.set("planKlasses", _plan.get("classes"));
+      this.set("planKlasses", _plan.get("klasses"));
       this.set("selectedPlan", _plan);
       this.set("availableProfileKlasses", this.getAvailableKlasses(_plan));
       this.set('hasAllClasses', isEmpty(this.getAvailableKlasses(_plan)));
-      this.set('hasNoClasses',  isEmpty(_plan.get('classes')));
+      this.set('hasNoClasses',  isEmpty(_plan.get('klasses')));
       document.getElementById("plan-form").style.display = "block";
     },
     updatePlan(selectedPlan) {

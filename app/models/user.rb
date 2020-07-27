@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :email
 
-  has_one :profile, dependent: :destroy, :inverse_of => :user
+  has_one :profile, dependent: :destroy
 
   before_create :confirmation_token
 

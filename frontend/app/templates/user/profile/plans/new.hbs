@@ -1,7 +1,12 @@
 <div class='create-forms'>
   <h2>Create New Plan</h2>
   <form action="" method="post">
-    <InputText @label="Plan Name" @value={{title}} @autofocus={{true}} />
+    <fieldset>
+      <label for="plan-name">Plan Name</label>
+      <div class='settings-input-text'>
+        {{input type="text" value=title placeholder="Enter Plan Name..."}}
+      </div>
+    </fieldset>
     <fieldset>
       <label for="plan-name">Plan Price</label>
       <div class='settings-input-text'>

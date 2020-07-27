@@ -7,6 +7,12 @@ export default ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin, {
   attrs: {
     profile: {
       embedded: 'always'
+    },
+    klasses: {
+      embedded: 'always'
+    },
+    members: {
+      embedded: 'always'
     }
   }
 });

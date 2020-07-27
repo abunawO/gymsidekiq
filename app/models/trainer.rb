@@ -1,9 +1,6 @@
 class Trainer < ActiveRecord::Base
   belongs_to :profile
+  has_and_belongs_to_many :klasses
   mount_uploader :image, ImageUploader
 
-  def classes
-    return nil unless self.klass_ids
-    Klass.where(id: self.klass_ids.split(','))
-  end
 end

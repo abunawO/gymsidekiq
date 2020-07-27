@@ -42,7 +42,6 @@ class Api::V1::MembersController < ApplicationController
   # POST /members
   # POST /members.json
   def create
-    #binding.pry
     @member = Member.new(member_params)
 
     if @member.save

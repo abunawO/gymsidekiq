@@ -16,7 +16,11 @@
     <h2>Class Settings</h2>
     <div class="settings-content classes-content" id="classes-form">
       <form>
-        <InputText @label="Class Name" @value={{selectedKlass.title}} />
+        <fieldset>
+          <div class='settings-input-text'>
+            {{input type="text" value=selectedKlass.title placeholder="Enter Class title..."}}
+          </div>
+        </fieldset>
         <h3 class='class-section-title'>Schedule</h3>
         <div class="classes-timetable">
           <div class="classes-timetable-days">
@@ -52,7 +56,7 @@
 
       <div class='classes-trainers'>
         <h3 class='class-section-title'>Trainers</h3>
-        {{#each classTrainers as |trainer|}}
+        {{#each selectedKlass.trainers as |trainer|}}
         <div class="classes-section-item">
           <h3>{{trainer.first_name}} {{trainer.last_name}}</h3>
           <img id="trainers-image-display" src="{{trainer.image.url}}" height="100" width="100">

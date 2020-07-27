@@ -19,6 +19,7 @@ export default Ember.Controller.extend({
     this.set("selectedTrainer", null);
     this.set("filesArray", []);
     this.set('klassIds', []),
+    this.set('removedKlassIds', []),
     this.set('availableProfileKlasses', []),
     this.get('checkedklasses').forEach((element)=>{element.prop('checked',false);});
     document.getElementById("trainer-picture").value = null;
@@ -33,10 +34,9 @@ export default Ember.Controller.extend({
     return currenKlassIds.toString();
   },
   getAvailableKlasses: function(trainer){
-    var currenKlassIds = trainer.get('klassIds').toString().split(',');
     var availableKlasses = [];
     this.get('profileklasses').forEach((klass, i) => {
-      var hasClasss = trainer.get('classes').findBy('title', klass.title);
+      var hasClasss = trainer.get('klasses').findBy('title', klass.title);
       if(isEmpty(hasClasss)){
         availableKlasses.push(klass);
       }
@@ -50,7 +50,7 @@ export default Ember.Controller.extend({
       this.set("selectedTrainer", _trainer);
       this.set("availableProfileKlasses", []);
       this.set('hasAllClasses', isEmpty(this.getAvailableKlasses(_trainer)));
-      this.set('hasNoClasses',  isEmpty(_trainer.get('classes')));
+      this.set('hasNoClasses',  isEmpty(_trainer.get('klasses')));
       this.set("availableProfileKlasses", this.getAvailableKlasses(_trainer));
       document.getElementById("trainers-form").style.display = "block";
     },

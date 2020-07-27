@@ -40,8 +40,9 @@ class Api::V1:: TrainersController < ApplicationController
   # POST /trainers
   # POST /trainers.json
   def create
+    klass_ids  = params[:trainer][:klass_ids]
     @trainer = Trainer.new(trainer_params)
-
+    @trainer.klasses = Klass.where(id: klass_ids)
     if @trainer.save
       render json: @trainer, status: :ok
     else
@@ -53,7 +54,11 @@ class Api::V1:: TrainersController < ApplicationController
   # PATCH/PUT /trainers/1.json
   def update
     @trainer = Trainer.find(params[:id])
+    klass_ids = params[:trainer][:klass_ids].split(',')
+
     if  @trainer.update_attributes(trainer_params)
+      @trainer.klasses = Klass.where(id: klass_ids)
+      @trainer.save!
       render json: { trainer:  @trainer }, message:'Trainer was successfully updated.', status: :ok
     else
       render json: { errors:  @trainer.errors }, message:'Trainer not successfully updated.', status: :unprocessable_entity
@@ -78,6 +83,6 @@ class Api::V1:: TrainersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trainer_params
-      params.require(:trainer).permit(:first_name, :last_name, :email, :address, :city, :state, :zip, :phone, :profile_id, :klass_ids, :image)
+      params.require(:trainer).permit(:first_name, :last_name, :email, :address, :city, :state, :zip, :phone, :profile_id, :image)
     end
 end

@@ -7,6 +7,7 @@ export default DS.Model.extend({
    memberId: DS.attr(),
    checkedInAt: DS.attr(),
    profile: DS.belongsTo('profile', { async: false }),
+   klass: DS.belongsTo('klass', { async: false }),
    checkInTime: Ember.computed('checkedInAt', function(){
     return new Date(this.get('checkedInAt')).toLocaleTimeString()
    }),

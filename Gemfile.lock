@@ -356,7 +356,7 @@ DEPENDENCIES
   letter_opener
   letter_opener_web
   pg (~> 0.15)
-  pry (~> 0.10.3)
+  pry
   rack-cors
   rails (= 5.0.0)
   rails_12factor

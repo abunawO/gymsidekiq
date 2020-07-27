@@ -2,8 +2,8 @@ class CreatePlans < ActiveRecord::Migration
   def change
     create_table :plans do |t|
       t.string :title
-      t.string :klass_ids
-      t.references :profile, index: true, foreign_key: true
+      t.text   :klass_ids
+      t.belongs_to :profile
 
       t.timestamps null: false
     end

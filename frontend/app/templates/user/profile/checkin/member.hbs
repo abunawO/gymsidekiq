@@ -17,9 +17,13 @@
     <div class="settings-content classes-content" id="classes-form">
       <form>
         <InputText @label="Class Name" @value={{selectedKlass.title}} />
-        <InputText @label="Member Id" @value={{memberId}} @placeholder="enter member id" />
+        <fieldset class="input-text">
+          <div class="input-text-content">
+            {{input type="text" value=memberId }}
+          </div>
+      </fieldset>
         <div>
-          <button {{action "CheckInMember" selectedKlass memberId formattedDate}} type="submit">
+          <button {{action "checkInMember" }} type="submit">
             Submit
           </button>
         </div>

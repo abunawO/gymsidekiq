@@ -3,12 +3,9 @@ class PlanSerializer < ActiveModel::Serializer
              :title,
              :profile_id,
              :klass_ids,
-             :classes,
              :price
 
+has_many :members, embed_in_root: true, serializer: MemberSerializer
+has_many :klasses, embed_in_root: true, serializer: KlassSerializer
 
- def classes
-   return unless object.klass_ids.present?
-   Klass.where(id: object.klass_ids.split(','))
- end
 end

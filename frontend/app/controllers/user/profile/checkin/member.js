@@ -23,11 +23,12 @@ export default Ember.Controller.extend({
       this.set("selectedKlass", _class);
       document.getElementById("classes-form").style.display = "flex";
     },
-    CheckInMember(klass,memberId){
+    checkInMember(){
+      debugger;
       var attendance = this.store.createRecord('attendance', {
         profileId: this.get('profile.id'),
-        memberId: memberId,
-        klassId: klass.get('id')
+        memberId: this.get('memberId'),
+        klassId: this.get('selectedKlass.id')
       });
 
       attendance.save().then((res) => {

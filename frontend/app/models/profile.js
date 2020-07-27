@@ -11,6 +11,7 @@ export default DS.Model.extend({
    zip: DS.attr(),
    phone: DS.attr(),
    image: DS.attr('file'),
+   user: DS.belongsTo("user", { async: false }),
    plans:    DS.hasMany('plan',    { inverse: null }),
    members:  DS.hasMany('member',  { inverse: null }),
    trainers: DS.hasMany('trainer', { inverse: null }),

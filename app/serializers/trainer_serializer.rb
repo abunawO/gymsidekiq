@@ -10,8 +10,14 @@ class TrainerSerializer < ActiveModel::Serializer
               :zip,
               :phone,
               :profile_id,
-              :classes,
               :image,
-              :klass_ids
+              :klasses
 
+
+ #has_many :klasses, embed_in_root: true, serializer: KlassSerializer
+
+
+  def klasses
+    object.klasses
+  end
 end

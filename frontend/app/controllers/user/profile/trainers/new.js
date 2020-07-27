@@ -47,6 +47,7 @@ export default Ember.Controller.extend({
      },
 
     createNewTrainer() {
+      debugger;
       var trainerImage = null
       if(!isEmpty(this.get('filesArray'))){trainerImage = this.get('filesArray')[0]}
       var trainer = this.store.createRecord('trainer', {
@@ -58,13 +59,14 @@ export default Ember.Controller.extend({
         state: this.get('state'),
         city: this.get('city'),
         zip: this.get('zip'),
-        klassIds: this.get('klassIds').toString(),
         phone: this.get('phone'),
+        klassIds:  this.get('klassIds'),
         image: trainerImage
       });
 
       trainer.save().then((res) => {
-        this.refreshModel();
+        debugger;
+        //this.refreshModel();
         this.transitionToRoute('user.profile.trainers');
         window.scrollTo(0, 0);
         this.get('flashMessages').success('Record created successfully!')
