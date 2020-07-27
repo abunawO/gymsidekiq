@@ -24,7 +24,6 @@ export default Ember.Controller.extend({
       document.getElementById("classes-form").style.display = "flex";
     },
     checkInMember(){
-      debugger;
       var attendance = this.store.createRecord('attendance', {
         profileId: this.get('profile.id'),
         memberId: this.get('memberId'),
@@ -36,7 +35,6 @@ export default Ember.Controller.extend({
         window.scrollTo(0,0);
         this.get('flashMessages').success('Record created successfully!')
       }).catch((err) => {
-        //debugger
         this.get('flashMessages').danger('Record not created!')
       });
     }
