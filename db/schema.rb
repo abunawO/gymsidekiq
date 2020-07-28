@@ -95,17 +95,6 @@ ActiveRecord::Schema.define(version: 20200727190034) do
     t.index ["user_id"], name: "index_profiles_on_user_id", unique: true, using: :btree
   end
 
-  create_table "sections", id: false, force: :cascade do |t|
-    t.integer  "profile_id"
-    t.integer  "trainer_id"
-    t.integer  "klass_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["klass_id"], name: "index_sections_on_klass_id", using: :btree
-    t.index ["profile_id"], name: "index_sections_on_profile_id", using: :btree
-    t.index ["trainer_id"], name: "index_sections_on_trainer_id", using: :btree
-  end
-
   create_table "trainers", force: :cascade do |t|
     t.integer  "profile_id"
     t.string   "first_name"
