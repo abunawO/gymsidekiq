@@ -10,10 +10,11 @@
       <div class="settings-item-left">
         <img src="{{member.image.url}}" alt={{member.fullName}}>
       </div>
-      <div class="settings-item-right">
+      <div class="settings-item-right members-index-section">
         <p class="sir-name">{{member.fullName}}</p>
-        <p>${{member.monthlyPrice}} - {{member.membershipType}}</p>
-        <p>{{member.contractExpiresOn}}</p>
+        <p>Plan Type: {{member.membershipType}} - ${{member.monthlyPrice}}</p>
+        <p>Contract Length: {{member.contractLength}} months</p>
+        <p>Plan Expiration: {{member.contractExpiresOn}} </p>
       </div>
     </div>
     {{/each}}
@@ -106,6 +107,12 @@
               <span style="font-weight: normal;">{{plan.title}}</span>
             </label>
             {{/each}}
+          </div>
+        </fieldset>
+        <fieldset>
+          <h4>Contract length in months</h4>
+          <div class='settings-input-text'>
+            {{input type="number" id="contract-length-section" value=selectedMember.contractLength placeholder="Months..." min="0" max="12"}}
           </div>
         </fieldset>
         <button {{action "updateMember" selectedMember}} type="submit">

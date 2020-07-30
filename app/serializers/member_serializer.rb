@@ -20,7 +20,7 @@ class MemberSerializer < ActiveModel::Serializer
 has_many  :attendances, embed_in_root: true, serializer: AttendanceSerializer
 
  def contract_expiration
-   object.created_at
+   object.created_at + object.contract_length.months
  end
 
  def membership_type

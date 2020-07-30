@@ -614,6 +614,10 @@ a {
 .settings-layout .settings-list .settings-item .settings-item-right {
   margin-left: 10px;
 }
+
+.members-index-section {
+  font-size: 14px;
+}
 .settings-layout .settings-list .settings-item .settings-item-right .sir-name {
   font-weight: bold;
   margin-bottom: 5px;

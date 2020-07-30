@@ -62,7 +62,6 @@ export default Ember.Controller.extend({
       this.get('checkedPlans').push(element);
     },
     goToCreateNewMember() {
-      //debugger
       document.body.style.overflow = "auto";
       this.transitionToRoute("user.profile.members.new");
     },
