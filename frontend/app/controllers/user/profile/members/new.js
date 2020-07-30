@@ -21,8 +21,9 @@ export default Ember.Controller.extend({
     this.set('checkedPlans', []),
     this.set('accept_terms', ''),
     this.set('filesArray', []),
-    this.get('checkedPlans').forEach((element)=>{element.prop('checked',false);});
-
+    this.set('contractLength', ''),
+    document.getElementById("member-picture").value = "",
+    this.get('checkedPlan').prop('checked',false)
   },
 
   filterMembershipTypeSelection: function(hash){
@@ -38,7 +39,7 @@ export default Ember.Controller.extend({
   actions: {
     setPlanId(planId, element) {
       this.set('planId', planId);
-      this.get('checkedPlans').push(element);
+      this.set('checkedPlan', element);
     },
 
     createNewMember() {
@@ -64,7 +65,6 @@ export default Ember.Controller.extend({
         window.scrollTo(0,0);
         this.get('flashMessages').success('Record created successfully!')
       }).catch((err) => {
-        //debugger
         this.get('flashMessages').danger('Record not created!')
       });
     },

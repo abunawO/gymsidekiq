@@ -63,7 +63,7 @@ class Api::V1::ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
-    if @profile.update(profile_params)
+    if @profile.update_attributes(profile_params)
       render json: { profile: @profile }, message:'Profile was successfully updated.', status: :ok
     else
       render json: { errors: @profile.errors }, message:'Profile not successfully updated.', status: :unprocessable_entity

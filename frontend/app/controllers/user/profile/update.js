@@ -20,7 +20,6 @@ export default Ember.Controller.extend({
   actions: {
 
     updateProfile(profile) {
-      this.set('profile', profile);
       if(!isEmpty(this.get('filesArray'))){profile.set('image', this.get('filesArray')[0]);}
       profile
         .save()

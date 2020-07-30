@@ -17,6 +17,26 @@ a {
   text-decoration: none;
 }
 
+.image-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.classes-trainers {
+  margin-left: 50px;
+}
+
+.trainers-section {
+  font-size: 10px;
+}
+
+.trainers-section h3 {
+  margin-left: 60px;
+  bottom: 40px;
+  position: relative;
+}
+
 .lan-nav-wrap {
   background: white;
   padding: 10px;

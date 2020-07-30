@@ -57,9 +57,10 @@
       <div class='classes-trainers'>
         <h3 class='class-section-title'>Trainers</h3>
         {{#each selectedKlass.trainers as |trainer|}}
-        <div class="classes-section-item">
-          <h3>{{trainer.first_name}} {{trainer.last_name}}</h3>
-          <img id="trainers-image-display" src="{{trainer.image.url}}" height="100" width="100">
+
+        <div class="trainers-section" {{action 'selectTrainer' trainer}}>
+          <img class="image-icon" src="{{trainer.image.url}}">
+          <h3>{{trainer.fullName}}</h3>
         </div>
         {{/each}}
       </div>
